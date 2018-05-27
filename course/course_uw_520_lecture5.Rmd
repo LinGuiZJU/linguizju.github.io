@@ -1,0 +1,64 @@
+---
+title: "UW 520"
+subtitle: "Lecture 5 - Notes"
+author: "Lin Gui"
+date: "`r Sys.Date()`"
+---
+
+# LTI
+
+$$
+\varepsilon_f(\cdot)=\etpi{ft}\rightarrow G(f)\varepsilon_f(\cdot):\t{eigenvalues and eigenfunctions}\\
+$$
+for $X(t)$
+$$
+X(t)=\intinf \etpi{ft}\d Z_X(f)\\
+Y(t)=\intinf \etpi{ft} G(f)\d Z_X(f)=\intinf\etpi{ft}\d Z_Y(f)\\
+\d Z_Y=G(f)\d Z_X(f)\\
+\d \si_Y(f)=E\bra{\abs{\d Z_Y(f)}^2}=\abs{G(f)}^2\d \si_X(f)
+$$
+> the meaning of $\d Z_X(f)???$
+
+if has SDF
+$$
+S_Y(f)=\abs{G(f)}^2S_X(f)
+$$
+
+# LTI Digital Filters
+
+**all LTI digital filters are essentially convolutions**
+$$
+L\bra{X_t}=\suminf u g_u X_{t-u}\triangleq Y_t
+$$
+determine $G(\cdot)$
+$$
+G(f)=\suminf u g_u\etpin{fu}
+$$
+**if $g(u)$ is real-valued, then $G(-f)=G^*(f),\abs{G(-f)}=\abs{G(f)}$**
+
+# SDF for MA(q) Process
+
+$$
+X_t=\varepsilon_t-\sumsubtri j 1 q \theta_{q,j}\varepsilon_{t-j}\\
+S_X(f)=\abs{G(f)}^2S_\epsi(f)=\sigma_\epsi^2\abs{1-\sumsubtri j 1 q\theta_{q,j}\etpi{fj}}^2
+$$
+
+# SDF for AR(p) Process
+
+$$
+X_t=\sumsubtri j 1 p \phi_{p,j}X_{t-j}+\epsi_t\\
+S_\epsi(f)=\abs{G(f)}^2S_X(f)\\
+S_X(f)=\frac{\sigma^2}{\abs{1-\sumsubtri j 1 p \phi_{p,j}\etpi{fj}}^2}
+$$
+
+# Example: a smoother
+
+## condition
+
+* $\bra{g(u)}$ is of length $2K+1$ & $g_{-u}=g_u$
+
+* define "locally smooth": "locally linear", that is
+  $$
+  \sumsym u {k} g_u[\a+\b(t-u)]=\a+\b t
+  $$
+  if we require $\sumsym u k g_u=1=G(0)$

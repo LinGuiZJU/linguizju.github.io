@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="author" content="Lin Gui" />
+
+<meta name="date" content="2018-04-26" />
+
+<title>UW 520</title>
+
+<link href="course_uw_520_lecture2_files/tufte-css/tufte-fonts.css" rel="stylesheet" />
+<link href="course_uw_520_lecture2_files/tufte-css/tufte-background.css" rel="stylesheet" />
+<link href="course_uw_520_lecture2_files/tufte-css/tufte-italics.css" rel="stylesheet" />
+<link href="course_uw_520_lecture2_files/tufte-css/tufte.css" rel="stylesheet" />
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+	TeX: {
+		extensions: ["noUndefined.js", "autoload-all.js", "AMSmath.js", "AMSsymbols.js", "mediawiki-texvc.js"],
+        Macros: {
+            h: ["{\\hat {#1}}", 1],
+            a: "{\\alpha}",
+            b: "{\\beta}",
+            d: "{\\mathrm d}",
+            w: "{\\omega}",
+            sinc: "{\\text{sinc}}",
+            rect: "{\\text{rect}}",
+            sgn: "{\\text{sgn}}",
+            var: "{\\text{var}}",
+            cov: "{\\text{cov}}",
+            epsi: "{\\varepsilon}",
+            t: ["{\\text {#1}}", 1],
+            tp: "{2\\pi}",
+            etpi: ["{e^{2\\pi i#1}}", 1],
+            etpin: ["{e^{-2\\pi i#1}}", 1],
+            expn: ["{^{-{#1}}}", 1],
+            liminf: ["{\\lim\\limits_{#1\\rightarrow\\infty}}", 1],
+            intinf: "{\\int_{-\\infty}^{\\infty}}",
+            intf: ["{\\int_{#1}^{#2}}", 2],
+            intfun: ["{#1(#3)#2(#3)\\d #3}", 3],
+            intsym: ["{\\int_{-#1}^{#1}}", 1],
+            sumsym: ["{\\sum\\limits_{#1=-#2}^{#2}}", 2],
+            sumsub: ["{\\sum\\limits_{#1}^{#2}}", 2],
+            suminf: ["{\\sum\\limits_{#1=-\\infty}^\\infty}", 1],
+            sumsubtri: ["{\\sum\\limits_{#1=#2}^{#3}}", 3],
+            prodsub: ["{\\prod\\limits_{#1}^{#2}}", 2],
+            prodsubtri: ["{\\prod\\limits_{#1=#2}^{#3}}", 3],
+            conv: ["{#1(#3)#2(#4-#3)\\d #3}", 4],
+            bra: ["{\\{{#1}\\}}", 1],
+            lrbra: ["{\\left #1{#3}\\right #2}", 3],
+            lrangle: ["{\\langle #1\\rangle}", 1],
+            abs: ['\\left\\lvert #2 \\right\\rvert_{\\text{#1}}', 2, ""],
+            norm: ["{\\left\\lVert #1\\right\\rVert}", 1],
+            equtwo: ["{\\begin{cases} #1&#2\\\\#3&#4\\end{cases}}", 4],
+            equtri: ["{\\begin{cases} #1&#2\\\\#3&#4\\\\#5&#6\\end{cases}}", 6],
+            mattwo: ["{\\begin{bmatrix} #1&#2\\\\#3&#4\\end{bmatrix}}", 4],
+            mattri: ["{\\begin{bmatrix} #1&#2&#3 \\\\ #4&#5&#6 \\\\ #7&#8&#9\\end{bmatrix}}", 9],
+        },
+    },
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  },
+ 	SVG: {
+		useGlobalCache: false,
+		merrorStyle: {
+			fontSize:"90%", color:"red", background:"",
+  			border: "1px solid red", padding:"2px"
+		},
+		scale: 100, 
+		minScaleAdjust: 80,
+		blacker: 0
+	},
+	showProcessingMessages: false,
+
+	menuSettings: {
+		inTabOrder: false
+	},
+	showMathMenu: false,
+
+
+  });
+</script>
+<script type="text/javascript" src="/Users/lin/Nustore Files/LinFile/lin_page//site_libs/mathjax-local/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+
+</head>
+
+<body>
+
+
+<span id="up"></span>
+
+
+<h1 class="title toc-ignore">UW 520</h1>
+<h3 class="subtitle"><em>Lecture 2 - Notes</em></h3>
+<h4 class="author"><em>Lin Gui</em></h4>
+<h4 class="date"><em>2018-04-26</em></h4>
+
+
+<div id="TOC">
+<ul>
+<li><a href="#stochastic-processes"><span class="toc-section-number">1</span> Stochastic Processes</a><ul>
+<li><a href="#stationary-processes"><span class="toc-section-number">1.1</span> Stationary Processes</a></li>
+<li><a href="#moving-average-process"><span class="toc-section-number">1.2</span> Moving Average Process</a></li>
+<li><a href="#autoregressive-process"><span class="toc-section-number">1.3</span> Autoregressive Process</a></li>
+<li><a href="#harmonic-process"><span class="toc-section-number">1.4</span> Harmonic Process</a></li>
+<li><a href="#stationary-processes-as-models"><span class="toc-section-number">1.5</span> Stationary Processes as Models</a></li>
+</ul></li>
+</ul>
+</div>
+
+<p><a href="../course_uw_520.html">Back</a></p>
+<div id="stochastic-processes" class="section level1">
+<h1><span class="header-section-number">1</span> Stochastic Processes</h1>
+<div id="stationary-processes" class="section level2">
+<h2><span class="header-section-number">1.1</span> Stationary Processes</h2>
+<ul>
+<li><span class="math inline">\(\bra{s_\tau}\)</span> is positive semidefinite, i.e.</li>
+</ul>
+<p><span class="math display">\[
+\sumsub{j=0}{n-1}\sumsubtri k 0 {n-1} s_{t_j-t_k}a_ja_k\geq 0
+\]</span>  for any <span class="math inline">\(a\)</span> and <span class="math inline">\(t\)</span></p>
+<ul>
+<li><p>var/cov matrix is Toeplitz</p>
+<p><span class="math inline">\(a_{jj}=a_{kk}, a_{ij}=a_{ji}\)</span></p></li>
+<li><p><span class="math inline">\(s_{-\tau}=s^*_\tau\)</span></p></li>
+</ul>
+</div>
+<div id="moving-average-process" class="section level2">
+<h2><span class="header-section-number">1.2</span> Moving Average Process</h2>
+<blockquote>
+<p><span class="math inline">\(s_\tau\)</span></p>
+</blockquote>
+</div>
+<div id="autoregressive-process" class="section level2">
+<h2><span class="header-section-number">1.3</span> Autoregressive Process</h2>
+</div>
+<div id="harmonic-process" class="section level2">
+<h2><span class="header-section-number">1.4</span> Harmonic Process</h2>
+<p><span class="math display">\[
+X_t=\mu+\sumsubtri l 1 L A_l\cos(2\pi f_l t)+B_l\sin(2\pi f_l t)\\
+=\mu+\sumsubtri l 1 L D_l\cos(2\pi f_l t+\phi_l)\\
+D_l=A_l^2+B_l^2,\tan(\phi_l)=-B_l/A_l
+\]</span> where <span class="math inline">\(A,B\)</span> are independent Gaussian RVs with <strong>unit variance</strong></p>
+<p><strong>stationary</strong> <span class="math display">\[
+s_\tau=\sumsubtri l 1 L \sigma^2_l\cos(2\pi f_l\tau)
+\]</span></p>
+<ul>
+<li><span class="math inline">\(D_l^2/\sigma_l^2=(A_l^2+B_l^2)/\sigma_l^2\)</span> has chi-square distribution with 2 degrees of freedom</li>
+</ul>
+<p><span class="math display">\[
+f_{D_l^2}(u)=\equtwo{e^{-u/(2\sigma_l^2)}/(2\sigma_l^2)}{u\geq 0}{0} {u&lt;0}  
+\]</span></p>
+<p> thus obey a Rayleigh distribution</p>
+<ul>
+<li><p><span class="math inline">\(\phi_l\)</span> is uniformily distributed over <span class="math inline">\((-\pi,\pi]\)</span> and independent of <span class="math inline">\(D_l\)</span></p>
+<blockquote>
+<p>Why uniformily?</p>
+</blockquote>
+<p><span class="math inline">\((A_l,B_l)\leftrightarrow(D_l,\phi_l)\)</span></p></li>
+<li><p><span class="math inline">\(S_\tau=D^2\cos(2\pi f\tau)/2\)</span></p></li>
+</ul>
+</div>
+<div id="stationary-processes-as-models" class="section level2">
+<h2><span class="header-section-number">1.5</span> Stationary Processes as Models</h2>
+<p><span class="math display">\[
+X_t=\a+\b t+Y_t\\
+\h Y_t=X_t-\hat \a+\h\b t
+\]</span></p>
+<p>detrended series by first differencing(filtering) <span class="math display">\[
+  X_t^{(1)}=X_t-X_{t-1}=\beta+Y_t^{(1)}
+\]</span></p>
+<p>​</p>
+</div>
+</div>
+
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

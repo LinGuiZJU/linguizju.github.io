@@ -1,0 +1,310 @@
+
+# 7. Random processes and noise
+
+## 7.1 Introduction
+
+- This can be seen intuitively by accepting for the moment that different possible transmitted waveforms must have a difference of some minimum energy to overcome the noise. This difference reflects back to a required distance between signal points, which, along with a transmitted power constraint, limits the number of bits per signal that can be transmitted.
+
+## 7.2 Random processes
+
+_epoch_: there is one rv for each epoch
+
+- 
+
+
+    $$
+    	Z(t), Z(t,\omega),z(t)
+    $$
+	
+- 
+
+    $$
+	Z(t)=\sum_k Z_k\phi_k(t)\\
+	U(t)=\sum U_ksinc(\frac {t-kT}{T})\\
+	Z(t)=\sum_kZ_ksinc(\frac {t-kT}{T})\\
+	$$
+	
+		
+- do not necessarily "look" random
+	$$
+	Z(t)=tZ
+	$$
+			
+- 
+	$$
+    K_z(t,\tau)=E[(Z(t)-\overline Z(t) )(Z(\tau)-\overline Z(\tau))]\\
+    =E[\tilde Z(t)\tilde Z(\tau)]
+    $$
+    	usually have zero mean
+    $$
+    	K_Z(t,\tau)=\sigma^2 \sum_k \phi_k(t)\phi_k(\tau)
+    $$
+					
+- Many rules of thumb in engineering and statistics about noise are stated without any mention of Gaussian processes, but often are valid only for Gaussian processes.
+				
+- assumption of zero-mean variables: only the fluctuations are analyzed, with the means added at the end.
+				
+## 7.3 Gaussian rv
+				
+$$
+f_w(\omega)=\frac 1 {\sqrt{2\pi}}\exp (\frac{-w^2}2)\\
+f_z(z)=\frac 1 {\sqrt{2\pi\sigma^2}}\exp(\frac{-(z-\overline Z)^2}{2\sigma^2})\\
+$$
+						
+_Jointly Gaussian_
+					
+related as linear combinations of the same set of iid normal variables
+
+$$
+	\mathbf {Z=AW}
+$$
+
+_zero-mean Gaussian process_
+					
+> for all $n$ and all finite $t_1,\cdots, t_n$, $Z(t_1),\cdots,Z(t_n)$ is a jointly Gaussian set of random variables.
+
+- The covariance matrix
+	$$
+		K_Z=E[ZZ^T]=AE[WW^T]A^T=AA^T\\
+		f_w(w)=\frac 1 {(2\pi)^{n/2}}\exp(\frac {-w_1^2-\cdots -w_n^2}{2})=\frac 1 {(2\pi)^{n/2}}\exp(\frac {-||\mathbf w||^2}{2})
+	$$
+	**spherically symmetric**
+							
+	**If A is nonsingular, it will be treated as a linear transform, $A=[a_1,...,a_n]$, $\{e_1,\cdots,e_2\}$ to $\{a_1,\cdots, a_n\}$, the volume(measure) of a small piece: 1 to $|det(A)|$**
+	$$
+	f_Z(z)=\frac{f_w(A^{-1}\mathbf z)}{|\det(A)|}\\
+	=\frac 1 {(2\pi)^{n/2}\sqrt{\det(K_Z)}}\exp(\frac 1 2 \mathbf z^TK_Z^{-1}\mathbf z)
+	$$
+	
+	**depends only on the covariance matrix of Z and not directly on the matrix A-equivalent**
+									
+	If $K_Z$ is singular, $f_Z(z)$ does not exist
+								
+	The density above can be applied to any set of liearly independent rvs out of $Z_1,\cdots,Z_n$
+									
+	> A zero-mean Gaussian process is specified by its covariance function $K(t,\tau)$
+									
+- A is orthogonal
+	$$
+		AA^T=I_n\\
+	f_Z(\mathbf z)=\frac{\exp(-(1/2)z^Tz)}{(2\pi)^{n/2}}=\prod_{k=1}^n\frac{\exp(-z_k^2/2)}{\sqrt {2\pi}}
+	$$
+	
+	The components of $Z$ are still normal and iid
+	
+	$\{e_1W,...,e_nW\}$ to $\{a_1W,...,a_nW\}$, simply rotates the points in the plane.
+	
+	- _Principal axes_
+								
+	$K_Z$ has $n$ real **orthonormal eigenvectors**, $q_1,...,q_n$, with real eigenvalues, $\lambda_1,...,\lambda_n$.
+	$$
+		z^TK_Z^{-1}z=\sum_k\lambda_k^{-1}|<z,q_k>|^2\\
+	\det(K_Z)=\prod \lambda_k\\
+	f_Z(z)=\prod_{k=1}^n\frac 1 {\sqrt{2\pi\lambda_k}}\exp(\frac{-|<z,q_k>|^2}{2\lambda_k})
+	$$
+									
+	> proof: to be done
+								
+	$\{z,q_k\}$ is the projection of z in the direction $q_k$
+									
+	sample $\mathbf w$, projected in the sample $q_k$
+		
+	$\{<Z,q_k>\}$ are statistically independent with variance $\{\lambda_k\}$, if we represent the rv Z using $q_1,...,q_n$ as a basis, then the components of Z in that coordinate system are independent random variables.
+	
+	$q_k$ is only direction not rv. $$Z=AW=\sum_k\sqrt{\lambda_k}q_kq_k^TW=\sum_k\sqrt{\lambda_k}q_k(q_k^TW)$$, and $q_k^TW$ is the basic rv, $<Z,q_k>=<\sum_k\sqrt{\lambda_k}q_kq_k^TW, q_k>=\sqrt{\lambda_k}q^T_kW$, is also a basic rv.
+								
+								
+- Fourier transforms
+	$$
+		\hat f_Z(s)=E(\exp(-2\pi  is^T\mathbf Z))\\
+	X = a^TZ\\
+	\hat f_X(\omega)=E[\exp(-2\pi i\omega a^TZ)]=\exp(-\frac{(2\pi\omega)^2a^TK_Za}2)\\
+	let\,\omega=1,then\\
+	E[\exp(-2\pi i a^TZ)]=\hat f_Z(a)=\exp(-\frac{(2\pi)^2a^TK_za}{2})
+	$$
+									
+									
+									
+									
+									
+## 7.4 Linear functionals and filters for random processes
+									
+									
+Assume that the sample functions of $Z(t)$ are real $L_2$ waveforms.
+								
+- Inner product
+								
+	$$
+		V = <Z(t,\omega),g(t)>=\int Z(t,\omega)g(t)dt
+	$$
+		
+    filtered process
+	$$
+		V(\tau)=\int Z(t)h(\tau-t)dt
+	$$
+									
+- over orthonormal expansions
+								
+    all zero-mean Gaussian processes of interest can be defined in the following way
+	$$
+		Z(t)=\sum_kZ_k\phi_k(t)\\
+	$$
+		consider finite
+	$$
+		Z(t)=\sum_{k=1}^nZ_k\phi_k(t)\\
+	K_Z(t,\tau)=\sum_{k=1}^n\sigma_k^2\phi_k(t)\phi_k(\tau)\\
+	V=\int Z(t)g(t)dt=\sum_{k=1}^nZ_k\int\phi_k(t)g(t)dt\\
+	\sigma_V^2=E[V^2]=\sum_k\sigma_K^2|\langle\phi_k,g\rangle|^2
+	$$
+		
+- Gaussian processes
+	$$
+		V(\tau)=\sum_kZ_k\int \phi_k(t)h(\tau-t)dt
+	$$
+		
+		> $Z_k$ is a sequence of independent $N(0,\sigma_k^2)$, then
+	>
+		> - $Z_m=\int Z(t)g_m(t)$, are zero-mean jointly Gaussian
+	> - $V(\tau)$ is a zero-mean Gaussian process.
+	
+- Covariance for linear functionals and filters
+	$$
+		E[V_jV_m]=\int\int g_j(t)K_Z(t,\tau)g_m(\tau)dtd\tau\\
+	K_V(r,s)=E[V(r)V(s)]\\
+	=\int\int h(r-t)K_Z(t,\tau)h(s-\tau)dtd\tau
+	$$
+		$h$ is a filter
+								
+## 7.5 Stationarity and related concepts
+								
+**keep an eye on the process from infinite to effectively nothions**
+									
+- Stationary
+								
+    > $F_{Z(t_1),,,Z(t_l)}(z_1,...,z_l)=F_{Z(t_1+\tau),...,Z(t_l+\tau)}(z_1,...,z_l)$
+									
+    for a Gaussian process
+								
+    > $\iff K_Z(t_1,t_2)=K_Z(t_1-t_2,0)$
+									
+- Wide-sense stationary 
+								
+    > - $E[Z(t_1)]=E[Z(0)]$
+    > - $K_Z(t_1,t_2)=K_Z(t_1-t_2,0)$
+									
+    example
+    
+	$$
+		V(t)=\sum_kV_ksinc(\frac{t-kT}T)\\
+	K_V(t,\tau)=\sigma^2_V\sum_k sinc(\frac {t-kT}{T})sinc(\frac{\tau-kT}T))
+    $$
+	
+	> if $\{V_k\}$ are iid Gaussian, the process is not only WSS, but stationary, and $\tilde K_v(t-\tau)=\sigma_V^2sinc(\frac {t-\tau}T)$
+	>
+	> proof: to be done, and it's interesting considering sample theorem
+	
+- effectively stationary within $[-T_0/2, T_0/2]$
+	
+	> the joint prob. assignment for $t_1,...,t_n$ is the same as that for $t_1+\tau,...,t_n+\tau$  in $[-T_0/2,T_0/2]$
+	
+	effectively WSS
+	
+	> - $K_Z(t,\tau)$ is a function only of $t-\tau$ in $[-T_0/2,T_0/2]$
+	> - mean is constant
+	
+	The difference between a stationary and effectively stationary random process for large $T_0$ is primarily a difference in the model.
+	
+- Linear functionals
+	$$
+	V_m=\int_{-T_0/2}^{T_0/2} Z(t)g_m(t)\\
+	E[V_mV_j]=\int_{-T_0/2}^{T_0/2} \int_{-T_0/2}^{T_0/2} g_m(t)\tilde K_Z(t-\tau)g_j(\tau)d\tau dt
+	$$
+	Linear filters
+	$$
+	V(\tau)=\int Z(t)h(\tau-t)dt\\
+	K_V(t-\tau)=\int\int h(t-t_1)K_Z(t_1,t_2)h(\tau-t_2)dt_1dt_2
+	$$
+	$V(t)$ is WSS
+	
+	> WSS within $[-T_0/2,T_0/2]$:  $h(t): [-A,A], T_0/2>A$, then
+	>
+	> its ample functions within $[-T_0/2+A, T_0/2-A]$
+	>
+	> proof: to be done
+	
+	the interval of effective stationarity is reduced
+	
+## 7.6 Stationarity in the frequency domain
+	
+- a real $L_2$ function
+	$$
+	V=\int g(t)Z(t)dt\\
+	E[V^2]=\int g(t)[\tilde K_Z*g](t)dt\\
+	=\int g(t)\theta^*(t)dt=\int\hat g(f)\hat \theta^*(f)df\\=\int|\hat g(f)|^2S_Z(f)df\\=\int_0^\infty 2|\hat g(f)|^2S_Z(f)df
+	$$
+	$\tilde K_Z$ is $L_2$, real and symmetric, so its F-T is also $L_2$,real, symmetric, which is **spectral density** $S_Z(f)\geq 0$
+	
+	by $|\hat g(f)|$'s arbitrary, $S_Z(f)\geq 0$, this means that a necessary property of any single-variable covariance function is that it have a nonnegative Fourier transform
+	$$
+		V_m=\int g_m(t)Z(t)dt\quad m=1,2\\
+		E[V_1V_2]=\int g_1(t)[\tilde K * g_2](t)dt\\
+		=\int\hat g_1(f)S_Z(f)\hat g_2^*(f)df
+    $$
+    if $\hat g_1(f)$ and $\hat g_2(f)$ have no overlap in frequency , $E[V_1V_2]=0$. Two linear functionals over different frequency ranges must be uncorrelated.
+			
+    If Gaussian, then the functionals are independent.
+			
+    **This means in essence that Gaussian noise in different frequency bands must be independent.**
+				
+    $$
+		V_m=\int Z(t)\phi_m(t)dt\\
+	E[V_mV_j]=\frac {N_0} 2 \delta_{mj}
+	$$
+				
+## 7.7 White Gaussian noise
+				
+- The reason of the supposition that noise is zero-mean, stationary and Gaussian
+			
+    The covariance between the noise at two epochs dies out very rapidly as the interval between those epochs increases.
+			
+    For area is equal to 1
+	$$
+		\tilde K_Z(t)\approx\delta(t)\\
+	E[V_1V_2^*]\approx \int g_1(t)g_2(t)dt\\
+	$$
+				
+- _white Gaussian noise WGN_: area is equal to $N_0/2$
+    $$
+	\tilde K_Z(t)\approx (N_0/2)\delta(t)\\
+    E[V_m^2]=(N_0/2)\int g_m^2(t)dt\\
+    E[V_jV_m]=(N_0/2)\int g_j(t)g_m(t)dt\\
+    S_W(f)=N_0/2
+    $$
+	for orthonormal expansion
+	$$
+		E[V_jV_m]=(N_0/2)\delta_{jm}
+	$$
+	**the resulting rvs are iid **
+		
+	WGN is viewed as a generalized zero-mean random process for which linear functionals are jointly Gaussian, for which variances and covariances are given by (7.63) and (7.64), and for which the covariance is formally taken to be $(N_0/2)\delta(t)$
+		
+- The sinc expansion as an approximation to WGN
+	$$
+		Z(t)=\sum_kZ_ksinc(t-kT/T)\\
+	S_Z(f)=\sigma^2Trect(fT)
+	$$
+	making T sufficiently small
+			
+	$N_0$ is the power per unit _positive frequency_
+	
+	plus a linear filter
+	$$
+		S(f)=|\hat h(f)|^2\sigma^2Trect(fT)
+	$$
+    stationary Gaussian processes with arbitrary covariances can be generated from orthonormal expansions of Gaussian variables
+			
+- Poisson process noise 
+			
+    The Poisson distribution can be simply viewed as a limit of discrete-time process where the time axis is segmented into intervals of duration $\Delta$ and a pulse of width $\Delta$ arrives in each interval with probability $\Delta\rho$
+				
+    When such a process is passed through a linear filter, the fluctuation of the output at each instant of time is approximately Gaussian if the filter is of sufficiently small bandwidth to integrate over a very large number of pulses.

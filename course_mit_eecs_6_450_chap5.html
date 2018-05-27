@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>course_mit_eecs_6_450_chap5.utf8</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+<link href="site_libs/ionicons-2.0.1/css/ionicons.min.css" rel="stylesheet" />
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+	TeX: {
+		extensions: ["noUndefined.js", "autoload-all.js", "AMSmath.js", "AMSsymbols.js", "mediawiki-texvc.js"],
+        Macros: {
+            h: ["{\\hat {#1}}", 1],
+            a: "{\\alpha}",
+            b: "{\\beta}",
+            d: "{\\mathrm d}",
+            w: "{\\omega}",
+            sinc: "{\\text{sinc}}",
+            rect: "{\\text{rect}}",
+            sgn: "{\\text{sgn}}",
+            var: "{\\text{var}}",
+            cov: "{\\text{cov}}",
+            epsi: "{\\varepsilon}",
+            t: ["{\\text {#1}}", 1],
+            tp: "{2\\pi}",
+            etpi: ["{e^{2\\pi i#1}}", 1],
+            etpin: ["{e^{-2\\pi i#1}}", 1],
+            expn: ["{^{-{#1}}}", 1],
+            liminf: ["{\\lim\\limits_{#1\\rightarrow\\infty}}", 1],
+            intinf: "{\\int_{-\\infty}^{\\infty}}",
+            intf: ["{\\int_{#1}^{#2}}", 2],
+            intfun: ["{#1(#3)#2(#3)\\d #3}", 3],
+            intsym: ["{\\int_{-#1}^{#1}}", 1],
+            sumsym: ["{\\sum\\limits_{#1=-#2}^{#2}}", 2],
+            sumsub: ["{\\sum\\limits_{#1}^{#2}}", 2],
+            suminf: ["{\\sum\\limits_{#1=-\\infty}^\\infty}", 1],
+            sumsubtri: ["{\\sum\\limits_{#1=#2}^{#3}}", 3],
+            prodsub: ["{\\prod\\limits_{#1}^{#2}}", 2],
+            prodsubtri: ["{\\prod\\limits_{#1=#2}^{#3}}", 3],
+            conv: ["{#1(#3)#2(#4-#3)\\d #3}", 4],
+            bra: ["{\\{{#1}\\}}", 1],
+            lrbra: ["{\\left #1{#3}\\right #2}", 3],
+            lrangle: ["{\\langle #1\\rangle}", 1],
+            abs: ['\\left\\lvert #2 \\right\\rvert_{\\text{#1}}', 2, ""],
+            norm: ["{\\left\\lVert #1\\right\\rVert}", 1],
+            equtwo: ["{\\begin{cases} #1&#2\\\\#3&#4\\end{cases}}", 4],
+            equtri: ["{\\begin{cases} #1&#2\\\\#3&#4\\\\#5&#6\\end{cases}}", 6],
+            mattwo: ["{\\begin{bmatrix} #1&#2\\\\#3&#4\\end{bmatrix}}", 4],
+            mattri: ["{\\begin{bmatrix} #1&#2&#3 \\\\ #4&#5&#6 \\\\ #7&#8&#9\\end{bmatrix}}", 9],
+        },
+    },
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  },
+ 	SVG: {
+		useGlobalCache: false,
+		merrorStyle: {
+			fontSize:"90%", color:"red", background:"",
+  			border: "1px solid red", padding:"2px"
+		},
+		scale: 100, 
+		minScaleAdjust: 80,
+		blacker: 0
+	},
+	showProcessingMessages: false,
+
+	menuSettings: {
+		inTabOrder: false
+	},
+	showMathMenu: false,
+
+
+  });
+</script>
+<script type="text/javascript" src="./site_libs/mathjax-local/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="css/rmarkdown.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+
+.section h2 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h3 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h4 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h5 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h6 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Lin Gui</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    Home
+  </a>
+</li>
+<li>
+  <a href="about.html">
+    <span class="fa fa-info"></span>
+     
+    About
+  </a>
+</li>
+<li>
+  <a href="research.html">
+    <span class="ion ion-wand"></span>
+     
+    Research
+  </a>
+</li>
+<li>
+  <a href="courses.html">
+    <span class="ion ion-document-text"></span>
+     
+    Courses
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-gear"></span>
+     
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Record</li>
+    <li class="divider"></li>
+    <li class="dropdown-header">Heading 2</li>
+    <li class="dropdown-header">Page C</li>
+    <li class="dropdown-header">Page D</li>
+  </ul>
+</li>
+<li>
+  <a></a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="rStudioHeader" class="alwaysShrunk">
+  <div class="innards bandContent">
+
+  </div>
+</div>
+
+<style type="text/css">
+#TOC {
+  margin-left: 35px;
+  margin-top: 90px;
+}
+</style>
+
+<script type="text/javascript">
+$(".main-container").removeClass("main-container").removeClass("container-fluid").addClass("footerPushDown");
+</script>
+
+
+<div id="pageContent" class="standardPadding">
+  <div class="articleBandContent">
+
+<div class="fluid-row" id="header">
+
+
+
+
+</div>
+
+
+<div id="vector-spaces-and-signal-space" class="section level1">
+<h1>5 Vector spaces and signal space</h1>
+<div id="axioms-and-basic-properties-of-vector-spaces" class="section level2">
+<h2>5.1 Axioms and basic properties of vector spaces</h2>
+<blockquote>
+<p>vector space</p>
+<ul>
+<li>Addition</li>
+<li>Scalar multiplication</li>
+<li>Distributive laws
+<ul>
+<li><span class="math inline">\(\alpha(v+u)=\alpha v+\alpha u\)</span></li>
+<li><span class="math inline">\((\alpha+\beta)v=\alpha v+\beta v\)</span></li>
+</ul></li>
+</ul>
+</blockquote>
+<ul>
+<li><p>denote waveform <span class="math inline">\(v(t)\)</span> by <span class="math inline">\(v\)</span></p></li>
+<li><p>finite-dimensional vector space</p></li>
+</ul>
+<p>Basis</p>
+</div>
+<div id="inner-product-spaces" class="section level2">
+<h2>5.2 Inner product spaces</h2>
+<ul>
+<li><p>definition</p>
+<blockquote>
+<ul>
+<li><p>Hermitian symmetry: <span class="math inline">\(\langle v,u\rangle=\langle u,v\rangle^*\)</span></p></li>
+<li><p>Hermitian bilinearity: <span class="math display">\[
+\lrangle {\alpha v+\beta u,w}=\alpha \langle v,w\rangle+\beta\langle u,w\rangle\\
+\langle v,\alpha u+\beta w\rangle =\alpha^*\langle v,u\rangle +\beta^* \langle v,w\rangle
+\]</span></p></li>
+<li><p>strict positivity <span class="math inline">\(\langle v,v\rangle\geq 0\)</span>, with equality iff <span class="math inline">\(v=0\)</span></p></li>
+</ul>
+</blockquote>
+<p><span class="math inline">\(\lVert v\rVert=\sqrt{\langle v,v\rangle}\)</span></p>
+<p><span class="math inline">\(cos(\angle(v,u))=\dfrac{\langle v,u\rangle}{\lVert v\rVert\lVert u\rVert}\)</span></p></li>
+<li><p>projection <span class="math display">\[
+      v_{|u}=\dfrac {\langle v,u\rangle}{\lVert u\rVert^2}u=\alpha u\\
+  \]</span></p>
+<blockquote>
+<p><span class="math inline">\(\alpha\)</span> is unique, and <span class="math inline">\(\langle v-\alpha u,u\rangle=0\)</span></p>
+</blockquote>
+<ul>
+<li>Schwarz Inequality</li>
+</ul>
+<blockquote>
+<p><span class="math inline">\(|\langle v,u\rangle|\leq\lVert v\rVert\lVert u\rVert\)</span></p>
+<p><span class="math inline">\(\lVert v+u\rVert\leq \lVert v\rVert+\lVert u \rVert\)</span></p>
+</blockquote></li>
+<li><p><span class="math inline">\(L_2\)</span> <span class="math display">\[
+  \langle v,u\rangle=\int v(t)u^*(t)dt
+  \]</span></p>
+<p><strong>a vector in an <span class="math inline">\(L_2\)</span> inner product space is an equivalence class of <span class="math inline">\(L_2\)</span> functions that are equal a.e.</strong></p></li>
+</ul>
+</div>
+<div id="orthonormal-bases-and-the-projection-theorem" class="section level2">
+<h2>5.3 Orthonormal bases and the projection theorem</h2>
+<p><span class="math display">\[
+\langle \phi_j,\phi_k\rangle= \delta_{jk}\\
+v_{|\phi}=\langle v,\phi\rangle \phi\\
+v-v_{|\phi} \perp \phi
+\]</span></p>
+<ul>
+<li><p>Projection theorem</p>
+<blockquote>
+<p><span class="math inline">\(S\)</span> is an n-dimensional subspace of <span class="math inline">\(V\)</span>, then <span class="math display">\[
+v_{|S}=\sum_{j=1}^n\langle v,\phi_j\rangle\phi_j
+\]</span> Proof: <span class="math inline">\(\langle v-w,\phi_j\rangle=0\)</span></p>
+</blockquote>
+<p>Corollary <span class="math display">\[
+      \lVert v_{|S}\rVert^2=\sum_j|\langle v,\phi_j\rangle|^2\\
+  \lVert v\rVert^2=\lVert v_{|S}\rVert^2+\lVert v_{\perp S}\rVert^2\\
+  0\leq \lVert v_{|S}\rVert^2=\sum_j|\langle v,\phi_j\rangle|^2\leq \lVert v\rVert^2\\
+  \lVert v-v_{|S}\rVert^2\leq \lVert v-s\rVert^2
+  \]</span> Gram-Schimidt orthonormalization <span class="math display">\[
+      (s_{k+1})_{\perp S_k}=s_{k+1}-\sum_{j=1}^k\langle s_{k+1},\phi_j\rangle\phi_j\\
+  \phi_{k+1}=\dfrac{(s_{k+1})_{\perp S_k}}{\norm{(S_{k+1})_{\perp S_k}}}
+  \]</span></p></li>
+<li><p>in <span class="math inline">\(L_2\)</span> <span class="math display">\[
+  \phi_k(t)=\sqrt \frac 1 Te ^{2\pi ikt/T}\rect(\frac tT)
+  \]</span> Infinite-dimensional projection</p>
+<blockquote>
+<p><span class="math display">\[
+\lim_{n\rightarrow \infty}\lVert u-\sum_{m=1}^n\alpha_m\phi_m\rVert=0,\alpha_m=\langle v,\phi_m\rangle\\
+\lVert u\rVert ^2=\sumsub{m}{}\abs{\alpha_m}^2
+\]</span></p>
+<p>Conversely, <span class="math inline">\(\sum_k|\alpha_k|^2\)</span>, then <span class="math inline">\(u\)</span> exists satisfying above two</p>
+</blockquote>
+<p><span class="math inline">\(u\)</span> is interpreted as the projection of <span class="math inline">\(v\)</span> onto the infinite-dimensional subspace <span class="math inline">\(S\)</span> spanned by <span class="math inline">\(\{\phi_m\}\)</span></p>
+<p><span class="math inline">\(u=v \rect(t/T)\)</span></p>
+<p><span class="math inline">\(\{\theta_k(t)=e^{2\pi ikt/Trect(t/T)}\}\)</span> spans the space of <span class="math inline">\(L_2\)</span> functions over <span class="math inline">\([-T/2,T/2]\)</span></p>
+<p>By duality the T-spaced sinc functions span the space of baseband-limited <span class="math inline">\(L_2\)</span> functions</p></li>
+</ul>
+</div>
+</div>
+
+  </div> <!-- articleBandContent -->
+</div> <!-- pageContent -->
+
+<div id="rStudioFooter" class="band full">
+<div class="bandContent">
+  <div id="copyright">© Copyright 2016 RStudio Inc.</div>
+  <div id="logos">
+    <a href="https://twitter.com/rstudio" class="footerLogo twitter"></a>
+    <a href="https://github.com/rstudio" class="footerLogo gitHub"></a>
+    <a href="https://www.linkedin.com/company/rstudio-inc" class="footerLogo linkedIn"></a>
+    <a href="https://www.facebook.com/pages/RStudio-Inc/267733656584415" Class="footerLogo facebook"></a>
+  </div>
+</div>
+</div>
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

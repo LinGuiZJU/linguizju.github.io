@@ -1,0 +1,37 @@
+name: "lin-page"
+output_dir: "."
+navbar:
+  title: "Lin Gui"
+  left:
+    - text: "Home"
+      icon: fa-home
+      href: index.html
+    - text: "About"
+      icon: fa-info
+      href: about.html
+    - text: "Research"
+      icon: ion-wand
+      href: research.html
+    - text: "Courses"
+      icon: ion-document-text
+      href: courses.html
+    - icon: fa-gear
+      menu:
+        - text: "Record"
+          icon: ion-document-text
+        - text: "---------"
+        - text: "Heading 2"
+        - text: "Page C"
+        - text: "Page D"
+    - test: "Courses"
+output:
+  html_document:
+    
+    theme: flatly
+    css: css/rmarkdown.css
+    include:
+      in_header:  mathconfig.html
+      before_body: include_header.html
+      after_body:  include_footer.html
+    
+

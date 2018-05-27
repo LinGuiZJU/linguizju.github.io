@@ -1,0 +1,78 @@
+---
+title: "R"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    includes:
+        in_header: ./mathconfig.html
+
+---
+
+## Pandoc
+
+### Pandoc Template
+
+> wait to be clarified
+
+## RMarkdown
+
+### files
+
+* `_site.yml`
+
+* `index.Rmd`
+
+* `about.Rmd`
+
+### Render and Clean
+
+* `rmarkdown::render_site()`
+
+* `rmarkdown::render_site("index.Rmd")`
+
+* `rmarkdown::clean_site(preview = True)`
+    List which files will be removed
+    
+* `rmarkdown::clean_site()`
+
+### add a tex file or a pacakge
+
+```rmarkdown
+---
+title: "Habits"
+output:
+  pdf_document:
+    includes:
+      in_header: header.tex
+      before_body: doc_prefix.tex
+      after_body: doc_suffix.tex
+---
+```
+
+### MathJax Configure
+
+Include a configuration file of MathJax in order to use Latex Macros  
+
+> * write a configuration file (eg. ./mathconfig.html)
+> * `includes: in_hearder: file-name`
+
+### Blank
+
+`&nbsp;`
+    
+### Html to PDF
+
+> * webshot
+> ```r
+> library(webshot)
+> webshot("filename", "picname.png")
+> or
+> rmdshot("filename", "pdfname.pdf")
+> ```
+
+### Tufte
+
+* `^[blablabla...]`, ````{marginfigure} blablabla````
+* toc enabled, tocfloat unabled, however
+* `_output.ymal`: default option

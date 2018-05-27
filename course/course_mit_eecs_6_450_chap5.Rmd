@@ -1,0 +1,109 @@
+# 5 Vector spaces and signal space
+
+## 5.1 Axioms and basic properties of vector spaces
+
+> vector space
+>
+> * Addition
+> * Scalar multiplication
+> * Distributive laws
+>   * $\alpha(v+u)=\alpha v+\alpha u$
+>   * $(\alpha+\beta)v=\alpha v+\beta v$
+		
+* denote waveform $v(t)$ by $v$
+		
+* finite-dimensional vector space
+	
+Basis
+
+## 5.2 Inner product spaces
+
+* definition
+
+    > * Hermitian symmetry: $\langle v,u\rangle=\langle u,v\rangle^*$
+    >
+    > * Hermitian bilinearity:
+    >   $$
+    >   \lrangle {\alpha v+\beta u,w}=\alpha \langle v,w\rangle+\beta\langle u,w\rangle\\
+    >   \langle v,\alpha u+\beta w\rangle =\alpha^*\langle v,u\rangle +\beta^* \langle v,w\rangle
+    >   $$
+    >
+    > * strict positivity $\langle v,v\rangle\geq 0$, with equality iff $v=0$
+	
+	$\lVert v\rVert=\sqrt{\langle v,v\rangle}$
+	
+	$cos(\angle(v,u))=\dfrac{\langle v,u\rangle}{\lVert v\rVert\lVert u\rVert}$
+	
+* projection
+    $$
+    	v_{|u}=\dfrac {\langle v,u\rangle}{\lVert u\rVert^2}u=\alpha u\\
+    $$
+	
+	> $\alpha$ is unique, and $\langle v-\alpha u,u\rangle=0$
+	
+	* Schwarz Inequality
+
+    > $|\langle v,u\rangle|\leq\lVert v\rVert\lVert u\rVert$
+	>
+	> $\lVert v+u\rVert\leq \lVert v\rVert+\lVert u \rVert$
+	
+* $L_2$
+	$$
+	\langle v,u\rangle=\int v(t)u^*(t)dt
+    $$
+    
+	**a vector in an $L_2$ inner product space is an equivalence class of $L_2$ functions that are equal a.e.**
+	
+## 5.3 Orthonormal bases and the projection theorem
+	
+$$
+\langle \phi_j,\phi_k\rangle= \delta_{jk}\\
+v_{|\phi}=\langle v,\phi\rangle \phi\\
+v-v_{|\phi} \perp \phi
+$$
+	
+* Projection theorem
+
+    > $S$ is an n-dimensional subspace of $V$, then
+    > $$
+    > v_{|S}=\sum_{j=1}^n\langle v,\phi_j\rangle\phi_j
+    > $$
+    > Proof: $\langle v-w,\phi_j\rangle=0$
+	
+    Corollary
+    $$
+    	\lVert v_{|S}\rVert^2=\sum_j|\langle v,\phi_j\rangle|^2\\
+    \lVert v\rVert^2=\lVert v_{|S}\rVert^2+\lVert v_{\perp S}\rVert^2\\
+    0\leq \lVert v_{|S}\rVert^2=\sum_j|\langle v,\phi_j\rangle|^2\leq \lVert v\rVert^2\\
+    \lVert v-v_{|S}\rVert^2\leq \lVert v-s\rVert^2
+    $$
+	Gram-Schimidt orthonormalization
+    $$
+    	(s_{k+1})_{\perp S_k}=s_{k+1}-\sum_{j=1}^k\langle s_{k+1},\phi_j\rangle\phi_j\\
+    \phi_{k+1}=\dfrac{(s_{k+1})_{\perp S_k}}{\norm{(S_{k+1})_{\perp S_k}}}
+    $$
+	
+* in $L_2$
+    $$
+    \phi_k(t)=\sqrt \frac 1 Te ^{2\pi ikt/T}\rect(\frac tT)
+    $$
+    Infinite-dimensional projection
+    
+    > $$
+    > \lim_{n\rightarrow \infty}\lVert u-\sum_{m=1}^n\alpha_m\phi_m\rVert=0,\alpha_m=\langle v,\phi_m\rangle\\
+    > \lVert u\rVert ^2=\sumsub{m}{}\abs{\alpha_m}^2
+    > $$
+    >
+    > Conversely, $\sum_k|\alpha_k|^2$, then $u$ exists satisfying above two
+    
+    $u$ is interpreted as the projection of $v$ onto the infinite-dimensional subspace $S$ spanned by $\{\phi_m\}$
+    	
+    $u=v \rect(t/T)$
+    
+    $\{\theta_k(t)=e^{2\pi ikt/Trect(t/T)}\}$ spans the space of $L_2$ functions over $[-T/2,T/2]$
+    
+    By duality the T-spaced sinc functions span the space of baseband-limited $L_2$ functions
+    
+    	
+    	
+    	

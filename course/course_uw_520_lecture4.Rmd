@@ -1,0 +1,127 @@
+---
+title: "UW 520"
+subtitle: "Lecture 4 - Notes"
+author: "Lin Gui"
+date: "`r Sys.Date()`"
+---
+
+# Spectral Representation Theorem
+
+$$
+X_t=\sumsubtri l 1 L D_l\cos(\tp f_l t+\phi_l),t\in\mathbb{Z}
+$$
+only $\phi_l$ terms independent RVs, uniformly distributed over $[-\pi,\pi]$
+
+$f_l$ ordered such that $0<f_l<f_{l+1}<1/2$
+$$
+X_t=\sumsym l L C_l\etpi {f_lt},C_l=\equtri{D_le^{i\phi_l}/2}{l=1,\cdots,L}{D_0=0}{l=0}{C^*_{-l}}{l=-L,\cdots,-1}\\
+\var\bra{C_l}=D_l^2/4\\
+\var\bra{X_t}=\sumsym l L \var\bra{C_l\etpi {f_l t}}=\sumsym l L D_l^2/4
+$$
+define _variance spectrum_ and complex-valued "jump" process on $[0,1/2]$
+$$
+S^{(V)}(f)=\equtwo {D_l^2/4}{f=f_l}0{\t{otherwise}}\\
+Z(f)=\equtwo 0{f=0}{\sumsubtri j 0 lC_j}{f_l<f\leq f_{l+1}}\\
+\d Z(f)=\equtri {Z(f+\d f)-Z(f)}{0\leq f\&f+\d f<1/2} 0 {f=1/2} {\d Z^*(-f)}{-1/2\leq f < 0}\\\t{so}\\
+\d Z(f_l)=C_l; \d Z(f)=0,f\neq f_l\\
+hence\\
+E\bra{\d Z(f)}=0,\var\bra{\d Z(f)}=S^{(V)}(f)\\
+\cov\bra{\d Z(f'),\d Z(f)}=0, ^\sim(f'=f=f_l)
+$$
+spectral representation
+$$
+X_t=\sumsubtri l {-L} L C_l\etpi{f_l t}=\intsym{1/2}\etpi{ft} \d Z(f)\\
+\t{letting }L\rightarrow \infty
+$$
+
+# Basic Consequences of Theorem
+
+properties
+
+* $E\bra{\d Z(f)}=0$
+* $\var\bra{\d Z(f)}=E\bra{\abs{\d Z(f)}^2}=\d S^{(I)}(f)$
+* $\cov\bra{\d Z(f'),\d Z(f)}=0$
+
+$$
+s_\tau=\intsym{1/2}\etpi {f\tau}\d S^{(I)}(f)
+$$
+
+if $S^{(I)}(\cdot)$ differentiable
+$$
+\d S^{(I)}(f)=S(f)\d f\\
+s_\tau=\intsym{1/2}\etpi{f\tau}S(f)\d f
+$$
+if $S(\cdot)$ square integrable
+$$
+S(f)=\suminf \tau s_\tau \etpin{f\tau}
+$$
+
+## Extension to Other Stationary Process
+
+> how to guarentee validity
+
+$$
+X(t)=\intinf \etpi{ft}\d Z(f)\\
+s(\tau)=\intinf S(f)\etpi{f\tau}\d f\\
+S(f)=\intinf s(\tau)\etpin{f\tau}\d\tau
+$$
+
+# Basic Properties of $S^{(I)}(f)$
+
+* $S^{(I)}(-1/2)=0$
+* $S(f)\geq 0$
+* $S(f)=S(-f)$
+* nondecreasing
+* $s_0=S^{(I)}(1/2)=\var\bra{X_t}$
+
+**Wold's theorem**
+
+$\newcommand{si}{S^{(I)}}$
+
+>  $\bra{s_\tau}$ to be ACVS iff some stationary process $\bra{X_t}$ is existence of nondecreasing function $\si(\cdot)$ such that
+>
+>  * $\si(-1/2)=0$
+>  * $\si(1/2)=\var\bra{X_t}$
+>  * $s_\tau=\intsym{1/2}\etpi{f\tau}\d \si(f)$
+>
+>  proof : to be done.
+
+example: white noise
+$$
+s_o=\sigma^2\\
+\si(f)=\sigma^2(f+\frac 1 2)
+$$
+example: harmonic process
+$$
+X_t=\mu+\sumsubtri l 1 L A_l\cos(\tp f_l t)+B_l\sin(\tp f_l t)\\
+s_\tau=\sumsym l L\frac{\sigma^2_l}2\etpi{f_l\tau},\sigma^2_0=f_0=0,\sigma_{-l}^2=\sigma_l^2,f_{-l}=-f_l
+$$
+$\si(\cdot)$ is a step function with jumps at $\pm f_l$ of size $\sigma_l^2/2$
+$$
+S(f)=\sumsym l L\frac{\sigma_l^2}2\delta(f-f_l)
+$$
+
+# Classification of Spectra
+
+$\si$ : always as a sum of up to three  canonical integrated spectra
+
+* $\si_1$ is absolutely continuous
+  $$
+  \dtwof{\si (f)}{f}=S(f)
+  $$
+
+* $\si_2$ is a step function: **ACVS** doesn't converge to zero as $\abs\tau\rightarrow \infty$
+
+* $\si_3$ is a continuous singular function
+
+  * derivative is zero almost everywhere
+  * continuous
+  * strictly increasing
+
+
+ * Sampling and Aliasing
+    $$
+    X_t=X(t_0+t\Delta t)\\
+    S_{X_T}(f)=\suminf k S_{X(t)}(f+k/\Delta t),\quad\abs f\leq \frac 1 {2\Delta t}	
+    $$
+

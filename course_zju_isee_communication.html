@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>ZJU ISEE, Principles of Communication, Spring 2017</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+<link href="site_libs/ionicons-2.0.1/css/ionicons.min.css" rel="stylesheet" />
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+	TeX: {
+		extensions: ["noUndefined.js", "autoload-all.js", "AMSmath.js", "AMSsymbols.js", "mediawiki-texvc.js"],
+        Macros: {
+            h: ["{\\hat {#1}}", 1],
+            a: "{\\alpha}",
+            b: "{\\beta}",
+            d: "{\\mathrm d}",
+            w: "{\\omega}",
+            sinc: "{\\text{sinc}}",
+            rect: "{\\text{rect}}",
+            sgn: "{\\text{sgn}}",
+            var: "{\\text{var}}",
+            cov: "{\\text{cov}}",
+            epsi: "{\\varepsilon}",
+            t: ["{\\text {#1}}", 1],
+            tp: "{2\\pi}",
+            etpi: ["{e^{2\\pi i#1}}", 1],
+            etpin: ["{e^{-2\\pi i#1}}", 1],
+            expn: ["{^{-{#1}}}", 1],
+            liminf: ["{\\lim\\limits_{#1\\rightarrow\\infty}}", 1],
+            intinf: "{\\int_{-\\infty}^{\\infty}}",
+            intf: ["{\\int_{#1}^{#2}}", 2],
+            intfun: ["{#1(#3)#2(#3)\\d #3}", 3],
+            intsym: ["{\\int_{-#1}^{#1}}", 1],
+            sumsym: ["{\\sum\\limits_{#1=-#2}^{#2}}", 2],
+            sumsub: ["{\\sum\\limits_{#1}^{#2}}", 2],
+            suminf: ["{\\sum\\limits_{#1=-\\infty}^\\infty}", 1],
+            sumsubtri: ["{\\sum\\limits_{#1=#2}^{#3}}", 3],
+            prodsub: ["{\\prod\\limits_{#1}^{#2}}", 2],
+            prodsubtri: ["{\\prod\\limits_{#1=#2}^{#3}}", 3],
+            conv: ["{#1(#3)#2(#4-#3)\\d #3}", 4],
+            bra: ["{\\{{#1}\\}}", 1],
+            lrbra: ["{\\left #1{#3}\\right #2}", 3],
+            lrangle: ["{\\langle #1\\rangle}", 1],
+            abs: ['\\left\\lvert #2 \\right\\rvert_{\\text{#1}}', 2, ""],
+            norm: ["{\\left\\lVert #1\\right\\rVert}", 1],
+            equtwo: ["{\\begin{cases} #1&#2\\\\#3&#4\\end{cases}}", 4],
+            equtri: ["{\\begin{cases} #1&#2\\\\#3&#4\\\\#5&#6\\end{cases}}", 6],
+            mattwo: ["{\\begin{bmatrix} #1&#2\\\\#3&#4\\end{bmatrix}}", 4],
+            mattri: ["{\\begin{bmatrix} #1&#2&#3 \\\\ #4&#5&#6 \\\\ #7&#8&#9\\end{bmatrix}}", 9],
+        },
+    },
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  },
+ 	SVG: {
+		useGlobalCache: false,
+		merrorStyle: {
+			fontSize:"90%", color:"red", background:"",
+  			border: "1px solid red", padding:"2px"
+		},
+		scale: 100, 
+		minScaleAdjust: 80,
+		blacker: 0
+	},
+	showProcessingMessages: false,
+
+	menuSettings: {
+		inTabOrder: false
+	},
+	showMathMenu: false,
+
+
+  });
+</script>
+<script type="text/javascript" src="site_libs/mathjax-local/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="css/rmarkdown.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+
+.section h2 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h3 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h4 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h5 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h6 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Lin Gui</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    Home
+  </a>
+</li>
+<li>
+  <a href="about.html">
+    <span class="fa fa-info"></span>
+     
+    About
+  </a>
+</li>
+<li>
+  <a href="research.html">
+    <span class="ion ion-wand"></span>
+     
+    Research
+  </a>
+</li>
+<li>
+  <a href="courses.html">
+    <span class="ion ion-document-text"></span>
+     
+    Courses
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-gear"></span>
+     
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Record</li>
+    <li class="divider"></li>
+    <li class="dropdown-header">Heading 2</li>
+    <li class="dropdown-header">Page C</li>
+    <li class="dropdown-header">Page D</li>
+  </ul>
+</li>
+<li>
+  <a></a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="rStudioHeader" class="alwaysShrunk">
+  <div class="innards bandContent">
+
+  </div>
+</div>
+
+<style type="text/css">
+#TOC {
+  margin-left: 35px;
+  margin-top: 90px;
+}
+</style>
+
+<script type="text/javascript">
+$(".main-container").removeClass("main-container").removeClass("container-fluid").addClass("footerPushDown");
+</script>
+
+
+<div id="pageContent" class="standardPadding">
+  <div class="articleBandContent">
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">ZJU ISEE, Principles of Communication, Spring 2017</h1>
+
+</div>
+
+
+<div id="-" class="section level1">
+<h1>第二章 确定性信号、随机变量与随机过程</h1>
+<ul>
+<li><p>Fourier级数与Fourier变换</p>
+<ul>
+<li><p>表达式</p></li>
+<li><p>实函数的Hermitian性质</p></li>
+<li><p>泊松公式</p></li>
+<li><p>周期信号的Fourier变换</p></li>
+<li><p>能量谱密度 <span class="math display">\[
+E=\intinf|x(t)|^2dt=\intinf|X(f)|^2df\\
+G(f)=|X(f)|\\
+R_x(\tau)=x(\tau)\otimes x^*(-\tau)\\
+R_x(\tau)\leftrightarrow G(f)
+\]</span> 功率谱密度 <span class="math display">\[
+R_x(\tau)=\lim_{T\rightarrow \infty}\frac 1 T\intsym {-T/2}|x(t)|^2dt\\
+P(f)=\lim_{T\rightarrow \infty}\frac 1 T|X_T(f)|^2\\
+\]</span> 通过滤波器 <span class="math display">\[
+R_y(\tau)=R_x(\tau)\otimes h(\tau)\otimes h^*(-\tau)\\
+P_y(f)=P_x(f)|H(f)|^2
+\]</span></p></li>
+</ul></li>
+<li><p>窄带信号</p>
+<p>复包络 <span class="math display">\[
+x(t)=A(t)\cos(2\pi f_0t+\Phi(t))\\
+=\Re\{A(t)e^{j(2\pi f_0t+\Phi(t))}\}=\Re\{z(t)\}
+\\=\Re\{x_l(t)e^{j2\pi f_0 t}\}\\
+=\Re\{x(t)+j\hat x(t)\}
+\]</span> 频域关系 <span class="math display">\[
+Z(f)=2u_{-1}(f)X(f)\\
+X_l(f)=Z(f+f_0)=2u_{-1}(f+f_0)X(f+f_0)\\
+\begin{equation}
+u_{-1}(f)=\left\{
+\begin{aligned}
+1 &amp; &amp;  f&gt;0\\
+1/2&amp; &amp; f=0 \\
+0 &amp; &amp; f&lt;0
+\end{aligned}
+\right.
+\end{equation}
+\]</span> Hilbert变换 <span class="math display">\[
+\hat x(t)=\frac 1 {\pi t}\otimes x(t)\\
+\hat X(f)=-j\sgn(f)X(f)\\
+\begin{equation}
+-j\sgn(f)=\left\{
+\begin{aligned}
+e^{-j\frac \pi 2}, f&gt;0\\
+0,f=0\\
+e^{j\frac \pi 2},f&lt;0\\
+\end{aligned}
+\right.
+\end{equation}
+\]</span> 性质</p>
+<ul>
+<li>偶函数的Hilbert变换为奇函数，奇函数的Hilbert变换为偶函数</li>
+<li>Hilbert两次变换是原函数的负数</li>
+<li><span class="math inline">\(\int x^2(t)dt=\int |\hat x(t)|^2 dt\)</span></li>
+<li><span class="math inline">\(\int x(t)\hat x(t)dt=\int \hat X(f)X^*(f)df=0\)</span></li>
+</ul>
+<p>同向低通成分与正交低通成分 <span class="math display">\[
+z(t)=x(t)+j\hat x(t)\\
+x_l(t)=x_c(t)+jx_s(t)\\
+\begin{equation}
+\left[
+ \begin{aligned}
+ x(t)\\
+ \hat x(t)
+ \end{aligned}
+\right]=
+\left[
+  \begin{array}{cc}
+  \cos(2\pi f_0t) &amp;  -sin(2\pi f_0t)\\
+  sin(2\pi f_0t) &amp; cos(2\pi f_0t)
+  \end{array}
+\right]
+\left[
+  \begin{array}{c}
+  x_c(t)\\
+  x_s(t)
+  \end{array}
+\right]
+\end{equation}\\
+\left[
+ \begin{array}{}
+x_c(t)\\
+x_s(t)
+ \end{array}
+\right]=
+\left[
+ \begin{array}{cc}
+\cos(2\pi f_0 t) &amp; sin(2\pi f_0t)\\
+-\sin(2\pi f_0 t) &amp; cos(2\pi f_0 t)
+ \end{array}
+\right]=
+\left[
+ \begin{array}{}
+x(t)\\
+\hat x(t)
+ \end{array}
+\right]
+\]</span> 通过窄带系统 <span class="math display">\[
+H_l(f)=2u_{-1}(f+f_0)H(f+f_0)\\
+Y_l(f)=X_l(f)H_l(f)/2\\
+y_l(t)=x_l(t)\otimes h_l(t)/2
+\]</span></p></li>
+<li><p>随机变量</p>
+<p>离散随机变量的pdf <span class="math display">\[
+f(x)=\sum_{k=1}^K p_k\delta(x-x_k)\\
+\]</span> <span class="math display">\[Y=g(X)\]</span></p>
+<blockquote>
+<p><span class="math inline">\(f_Y(y)=\sum_{k=1}^n\dfrac{f_X(x_k)}{|g&#39;(x_k)|}\)</span>，其中</p>
+<p><span class="math inline">\(y=g(x_1)=\cdots =g(x_n)\)</span></p>
+</blockquote>
+<p><span class="math inline">\(Z=g(X,Y),W=h(X,Y)\)</span></p>
+<blockquote>
+<p><span class="math inline">\(f_{ZW}(z,w)=\sum_{k=1}^n \dfrac{f_{XY}(x_k,y_k)}{|J(x_k,y_k)|}\)</span></p>
+<p><span class="math inline">\(J(x,y)\)</span>: jacobian Matrix</p>
+<p><span class="math inline">\((x_k),(y_k)\)</span>为 <span class="math inline">\(g(x,y)=z, h(x,y)=w\)</span>的解</p>
+</blockquote>
+<p>矩 <span class="math inline">\(m_X^n=E[X^n]\)</span></p>
+<p>特征函数 <span class="math inline">\(E[e^{j\omega X}]=\int e^{j\omega x}p_X(x)dx\)</span></p>
+<p>Rayleigh 分布</p>
+<p>非中心<span class="math inline">\(\chi^2\)</span>分布</p>
+<p>Chebyche inequality and Chernof <span class="math display">\[
+\Pr(|X-E[X]|\geq\delta)\leq \frac {\sigma_x^2}{\delta^2}\\
+\Pr (Y\geq\delta)\leq E[e^{\lambda (Y-\delta)}]\\
+\Pr (Y\geq\delta)\leq e^{-\lambda^*\delta} E[e^{\lambda^*Y}]
+\]</span></p></li>
+<li><p>随机过程 <span class="math display">\[
+Cov(t_1,t_2)=E[(X(t_1)-\mu_X(t_1)(X(t_2)-\mu_x(t_2))]\\
+R(t_1,t_2)=E[X(t_1)X(t_2)]\\
+R_{XY}(t_1,t_2)=E[X(t_1)Y(t_2)]
+\]</span> Ergodic</p>
+<ul>
+<li><p>时间平均 <span class="math display">\[
+\langle g(x)\rangle=\lim_{t\rightarrow\infty}\frac 1 T \int_{-T/2}^{T/2}g(x(t))dt
+\]</span></p></li>
+<li><p>Ergodic <span class="math display">\[
+\forall g(x), E[g(x)]=\langle g(x)\rangle\\
+E(X(t))=\langle x(t)\rangle\\
+D[X(t)]=\lim_{T\rightarrow\infty}\frac 1 T\int_{-T/2}^{T/2}(x(t)-\mu_X)^2dt
+\]</span></p></li>
+</ul>
+<p>相关函数性质</p>
+<ul>
+<li>平均功率 <span class="math inline">\(R(0)\geq \abs{R(\tau)}\)</span></li>
+<li>直流功率 <span class="math inline">\(R(\infty)=E^2[X(t)]\)</span></li>
+<li>交流功率 <span class="math inline">\(\sigma_X^2=R(0)-R(\infty)\)</span></li>
+</ul>
+<p>功率谱 <span class="math display">\[
+P_X(f)=\lim_{T\rightarrow\infty}\frac 1 T E[|\int X_T(t)e^{-j2\pi ft}dt|^2]\\
+R_X(\tau)\leftrightarrow P_X(f)
+\]</span></p>
+<ul>
+<li>白噪声 <span class="math inline">\(P_X(f)=A,R_X(\tau)=A\delta(\tau)\)</span></li>
+</ul>
+<p>通过滤波器 <span class="math display">\[
+E[Y(t)]=E[X(t)]H(0)\\
+R_Y(\tau)=R_X(\tau)\otimes h(\tau)\otimes h(-\tau)\\
+P_Y(f)=P_X(f)|H(f)|^2\\
+R_{XY}(\tau)=R_{YX}(-\tau)=R_X(\tau)\otimes h([\tau])
+\]</span> 高斯过程</p>
+<p>​ 通过线性系统的输出仍然是高斯的</p></li>
+<li><p>平稳带限过程的Nyquist 采样 <span class="math display">\[
+X(t)=\sum_{k=-\infty}^\infty X(kT_s)sinc(2W(t-kT_s))\\
+T_s=\frac 1 {2W},sinc(x)=\frac {\sin \pi x}{\pi x}
+\]</span></p></li>
+<li><p>低通同相分量和低通正交分量</p>
+<ul>
+<li><p>定义同确定性信号</p></li>
+<li><p>相关函数 <span class="math display">\[
+R_{X_c}(\tau)=R_{X_s}(\tau)=R_X(\tau)\cos(2\pi f_0\tau)+\hat R_X(\tau)\sin(2\pi f_0\pi)\\
+R_{X_cX_s}(\tau)=R_X(\tau)\sin(2\pi f_0\tau)-\hat R_X(\tau)\cos(2\pi f_0\tau)
+\]</span></p></li>
+<li><p>低通过程 <span class="math inline">\(X_c(t),X_s(t)=0, |f|&gt;W\)</span></p></li>
+<li><p>功率谱 <span class="math display">\[
+P_{X_c}(f)=P_{X_s}(f)=
+\left\{
+\begin{array}{cc}
+P_X(f-f_0)+P_X(f+f_0)&amp;|f|&lt;f_0\\
+0&amp;others
+\end{array}
+\right.
+\]</span> ​</p></li>
+<li><p>正交性 <span class="math display">\[
+R_{X_cX_s}(0)=E[X_c(t)X_s(t)]=0​
+\]</span></p></li>
+</ul></li>
+</ul>
+</div>
+<div class="section level1">
+<h1>第三章</h1>
+<ul>
+<li><p>信道模型</p>
+<p>单输入、单输出 <span class="math display">\[
+e_o(t)=f[e_i(t)]+n(t)
+\]</span> 多输入、多输出 <span class="math display">\[
+e_{ol}(t)=f_l[e_{i1}(t),\cdots,e_{iM}(t)]+n_l(t),l=1,\cdots,N
+\]</span></p></li>
+<li><p>恒参信道:信道参数基本不随时间变化</p>
+<ul>
+<li><p>幅度-频率畸变<span class="math inline">\(h(f)\)</span></p>
+<p>通频带太窄或带内衰减不均匀</p>
+<p>码间干扰</p></li>
+<li><p>相位-频率畸变<span class="math inline">\(\phi(f)\)</span></p>
+<p>群延时频率特性 <span class="math inline">\(\tau(f)=\frac {\d \phi(f)}{\d f}\)</span></p></li>
+</ul></li>
+<li><p>随参信道</p>
+<ul>
+<li><p>短波电离层反射信道</p>
+<ul>
+<li>长距离通信</li>
+<li>短波存在盲区</li>
+<li>对发射角有要求</li>
+</ul></li>
+<li><p>散射信道</p>
+<ul>
+<li>电流层散射信道</li>
+</ul></li>
+<li><p>移动通信信道 <span class="math display">\[
+P(d)\sim \abs d^{-n} m(d)r_0(d)
+\]</span></p>
+<ul>
+<li>路径损失<span class="math inline">\(\abs d^{-n}\)</span></li>
+<li>阴影衰落<span class="math inline">\(m(d)\)</span>， 服从对数正态分布</li>
+<li>多径衰落<span class="math inline">\(r_0(d)\)</span>，服从Rayleigh分布</li>
+</ul></li>
+<li><p>多径传输——以移动通信为例</p>
+<ul>
+<li><p>静止情况</p>
+<p>发送<span class="math inline">\(s_0(t)=a_0\exp\bra{j(2\pi f_0 t+\phi_0)}\)</span></p>
+<p>接收信号幅度<span class="math inline">\(\sim\sqrt{P(d)}a_0\)</span></p>
+<p>接受信号<span class="math inline">\(s(t)=\sumsubtri i 1 N a_is_0(t-\tau_i)\)</span> (<span class="math inline">\(N\)</span>条散射体反射来的信号和)</p>
+<p>表示 <span class="math display">\[
+s(t)=x(t-\overline \tau)\exp\bra{j2\pi f_0(t-\overline\tau)+j\phi_0}\\
+\tau_i=\overline \tau+\Delta\tau_i,\overline\tau=\frac 1 N\sumsubtri i 1 N\tau_i\\
+x(t)=a_0\lrbra []{\sumsubtri i 1 N a_i\exp\bra{-j2\pi f_0\Delta\tau_i}}
+\]</span></p></li>
+<li><p>运动情况</p>
+<p>发送<span class="math inline">\(s(t)=x(t)\exp\bra{j(2\pi f_0t+\phi_0)}\)</span></p>
+<p><span class="math inline">\(x(t)=\sumsubtri i 1 N a_0a_i(t)\exp\bra{-j2\pi f_0\tau_i(t)}\)</span></p>
+<p>令 <span class="math display">\[
+R(t)=\sumsubtri i 1 N a_i(t)\cos(2\pi f_0\tau_i(t))\\
+S(t)=\sumsubtri i 0 N a_i(t)\sin(2\pi f_0\tau_i(t))\\
+x(t)=A(t)e^{j\Psi(t)}
+\]</span> 则 <span class="math display">\[
+x(t)=a_0(R(t)-jS(t))
+\]</span> <span class="math inline">\(R(t),S(t)\)</span>服从高斯分布(中心极限定理)</p>
+<p><span class="math inline">\(A(t)=\a_0\sqrt{R^2(t)+S^2(t)}\)</span>服从Rayleigh 分布</p></li>
+<li><p>多普勒频移</p>
+<p>接受信号<span class="math inline">\(s(t)=a_o\exp\bra{j(2\pi f_0 t+\phi_0-2\pi \frac V\lambda t\cos\theta)}\)</span></p>
+<p><span class="math inline">\(f_d=\frac V\lambda \cos \theta\)</span> <span class="math display">\[
+x(t)=A_T(t)\exp\bra{j\Psi_T(t)}\exp\bra{j(2\pi f_0t+\phi_0)}\\
+A_T(t)=\bra{[a_0\sumsubtri i 1 N a_i(t)\cos\psi_i(t)]^2+[a_0\sumsubtri i 1 Na_i(t)\sin\psi_i(t)]^2}^{1/2}\\
+\Psi_T(t)=\arctan\frac{\sumsubtri i 1 N a_i(t)\sin\psi_i(t)}{\sumsubtri i 1 N a_i(t)\cos \psi_i(t)}\\
+\psi_i(t)=\phi_i(t)-2\pi\frac V\lambda t \cos\theta_i
+\]</span></p></li>
+<li><p>时间展宽</p>
+<p>脉冲宽度明显展宽</p>
+<p><span class="math inline">\(T_m\)</span>:多径的延时时间差</p>
+<p><span class="math inline">\(R(\Delta f)\)</span> 两个频差信号的相关性：信道的频率传递函数</p>
+<p><span class="math inline">\(\Delta F=\frac 1 {T_m}\)</span>: 相干带宽</p>
+<p><span class="math inline">\(W&lt;\Delta F\)</span> 频率非选择性衰落； <span class="math inline">\(W&gt;\Delta F\)</span> 频率选择性衰落</p></li>
+<li><p>频谱展宽</p>
+<p>不同方向的反射体反射回来的信号具有不同的多普勒频移，导致频谱展宽</p>
+<p><span class="math inline">\(S_0(f)\leftrightarrow R(\Delta t)\)</span></p>
+<p>相关时宽<span class="math inline">\(T_0\)</span> :提供了信道衰落的快慢，通信信号的持续时间小于<span class="math inline">\(T_0\)</span>，则可以认为在通信过程中信道参数是不变的。</p>
+<p><span class="math inline">\(T_0=\dfrac 1 {f_d}\)</span></p></li>
+<li><p>多普勒功率谱密度</p>
+<p>移动接收机的速度: V</p>
+<p>基站发送的频率: <span class="math inline">\(f_0\)</span></p>
+<p>波长: <span class="math inline">\(\lambda\)</span></p>
+<p>散射信号入射角: <span class="math inline">\(\theta\)</span></p>
+<p>接受信号的多普勒频移: <span class="math display">\[
+f_d=\frac{V\cos\theta}\lambda =f_m\cos\theta
+\]</span> 接受信号在入射角<span class="math inline">\((\theta,\theta+\d \theta)\)</span>中的信号分量的功率 <span class="math display">\[
+P_{av}\abs{\d \theta}/2\pi
+\]</span> ​ <span class="math inline">\(P_{av}\)</span>为平均接受到的总功率</p>
+<p>入射角从<span class="math inline">\(\theta\rightarrow \theta+\d \theta\)</span>, 相应频率从<span class="math inline">\(f\rightarrow f+\d f\)</span> <span class="math display">\[
+S(f)=\frac{P_{av}}\pi\cdot\abs{\frac{\d \theta}{\d f}}\\
+=\frac{P_{av}}{\pi}[f_m^2-(f-f_0)^2]\expn{1/2}\\
+R(\Delta t)=\t{IFT(S(f))}=J_0(2\pi f_m\Delta t)
+\]</span> ​ <span class="math inline">\(J_0(\cdot)\)</span>为一阶贝塞尔函数</p></li>
+</ul></li>
+</ul></li>
+</ul>
+<p>​</p>
+<ul>
+<li><p>通信链路损耗和噪声</p>
+<ul>
+<li><p>传输链路损耗</p>
+<p><span class="math inline">\(P_T\)</span>: 发射功率</p>
+<p><span class="math inline">\(P_R\)</span>: 接收机收到功率</p>
+<p>传输损耗 <span class="math display">\[
+L=\frac{P_T}{P_R}\\
+L_{dB}=10\log L=10\log P_T-10\log P_R
+\]</span> 自由空间传输:<span class="math inline">\(L=\lrbra(){\frac{4\pi d}\lambda}^2\)</span></p>
+<p>一般移动通信:<span class="math inline">\(L\varpropto\lrbra (){\frac d \lambda}^n, 2\leq n\leq4\)</span></p></li>
+<li><p>加性噪声</p>
+<p>电阻的噪声模型 <span class="math display">\[
+S_R(f)=2RkT
+\]</span> <span class="math inline">\(k\)</span> 玻尔兹曼常量 <span class="math display">\[
+S_n(f)=\frac{N_0}2\\
+N_0=kT
+\]</span></p></li>
+</ul></li>
+<li><p>信道容量与信道编码定理</p>
+<ul>
+<li><p>信道容量 <span class="math display">\[
+I(X;Y)=H(X)-H(X|Y)\\
+=\sumsub x{}\sumsub y{}P_X(x)P_{Y|X}(y|x)\log \frac{P_{Y|X}(y|x)}{P_Y(y)}\\
+C=\max_{P_X(x)} I(X;Y)
+\]</span></p></li>
+<li><p>信道编码定理</p>
+<ul>
+<li>消息个数<span class="math inline">\(M\)</span>, 编码函数<span class="math inline">\(X^n(\cdot)\)</span>, 信道<span class="math inline">\(P_{Y|X}(y|x)\)</span>,信道译码<span class="math inline">\(g(\cdot)\)</span></li>
+<li>码率<span class="math inline">\(R=\dfrac{\log_2M}{n}\)</span>,误码率<span class="math inline">\(\Pr\bra{\h W\neq W}\)</span></li>
+</ul>
+<blockquote>
+<p>当码率<span class="math inline">\(R&lt;C\)</span>时存在编码方式，使误码率趋近于0</p>
+<p>当码率<span class="math inline">\(R&gt;C\)</span>时不可能存在编码方式，使误码率趋近于0</p>
+</blockquote></li>
+<li><p>高斯信道容量</p>
+<p>高斯信道 <span class="math display">\[
+Y=X+Z\\
+Z\sim N(0,N),E[X^2]\leq P
+\]</span> 当输入X的分布也是高斯分布时，达到最大容量 <span class="math display">\[
+C=\frac 1 2 \log_2(1+\frac P N)
+\]</span></p></li>
+<li><p>带限信道的容量与通信的界限</p>
+<p>带限信道的容量 <span class="math display">\[
+C=W\log_2\bra{1+\frac P{N_0W}}\\
+\liminf W C=1.44 \frac{P}{N_0}
+\]</span> 由信道编码定理 <span class="math inline">\(R&lt;C\)</span>, <span class="math display">\[
+\eta\leq \log_2\lrbra(){1+\eta\frac{E_b}{N_0}}\\
+\frac{E_b(\eta)}{N_0}\geq \frac{2^\eta-1}\eta&gt;0.693
+\]</span> 其中,<span class="math inline">\(\eta=\frac R W\)</span>, 为频带效率, <span class="math inline">\(E_b=\frac P R\)</span>， 每传1bit所需能量</p>
+<p><strong>为了可靠传输1bit信息所需要的能量至少为<span class="math inline">\(0.693N_0\)</span></strong></p></li>
+</ul>
+<blockquote>
+<p>对单位的理解？？？</p>
+</blockquote>
+<p>​</p></li>
+</ul>
+</div>
+<div id="-" class="section level1">
+<h1>第四章 模拟调制系统</h1>
+<div class="section level2">
+<h2>1.概述</h2>
+<p><span class="math display">\[
+c(t)=A_c\cos(\tp f_c t+\phi_c)
+\]</span></p>
+<ul>
+<li><p>调幅、调频、调相</p></li>
+<li><p>目的</p>
+<ul>
+<li>把基带信号变成带通信号，使适应于带通信道的要求</li>
+<li>通过展宽频带可以增加抗干扰能力</li>
+<li>频分复用使信号同时传输</li>
+</ul></li>
+<li><p>线性调制</p>
+<p>已调信号和调制信号的<strong>频谱结构相同</strong>, 平移关系</p>
+<ul>
+<li>普通调幅 AM</li>
+<li>双边带抑制载波调幅 DSB-SC AM</li>
+<li>单边带调制 SSB</li>
+<li>残留边带调制 VSB</li>
+</ul></li>
+<li><p>非线性调制(角调制)</p>
+<p>增加新的频率成分，占用的频带远比调制信号频带宽</p>
+<ul>
+<li>调频 FM</li>
+<li>调相 PM</li>
+</ul></li>
+</ul>
+</div>
+<div class="section level2">
+<h2>2.线性调制系统</h2>
+<p>消息信号<span class="math inline">\(m(t)\)</span></p>
+<div id="dsb-sc-am" class="section level3">
+<h3>2.1 双边带抑制载波调幅(DSB-SC AM)</h3>
+<ul>
+<li>时域和频谱</li>
+</ul>
+<p><span class="math display">\[
+u(t)=A_cm(t)\cos(2\pi f_c t+\phi_c)\\
+U(f)=\frac {A_c}2[M(f-f_c)e^{j\phi_c}+M(f+f_c)e^{-j\phi_c}]
+\]</span></p>
+<p>​ 平移两次，带宽增加一倍</p>
+<ul>
+<li><p>相关函数和功率谱</p>
+<p><span class="math display">\[
+R_u(\tau)=\frac {A_c^2}2R_m(\tau)\cos(2\pi f_c\tau)\\
+P_u(f)=\frac{A_c^2}4[P_m(f-f_c)+P_m(f+f_c)]
+\]</span> 总功率<span class="math inline">\(P_u=R_u(0)=\dfrac{A_c^2}2P_m\)</span></p></li>
+<li><p>解调</p>
+<ul>
+<li><p>乘 <span class="math display">\[
+u(t)\cdot\cos(2\pi f_ct+\phi)=\frac 1 2 A_c m(t)\cos(\phi_c-\phi)+\frac 1 2A_cm(t)\cos(4\pi f_c t+\phi_c+\phi)
+\]</span></p></li>
+<li><p>低通滤波 <span class="math display">\[
+\tilde m(t)=\frac 1 2A_cm(t)\cos(\phi_c-\phi)
+\]</span> <span class="math inline">\(\phi=\phi_c\)</span></p></li>
+</ul></li>
+</ul>
+</div>
+<div id="am" class="section level3">
+<h3>2.2 普通调幅(AM)</h3>
+<ul>
+<li>时域和频谱</li>
+</ul>
+<p><span class="math display">\[
+u(t)=A_c[1+am_n(t)]\cos(2\pi f_ct+\phi_c)\\
+m_n(t)=\frac{m(t)}{\max \abs{m(t)}},a\leq1\\.\\
+U(f)=\frac{A_c}2[e^{j\phi_c} aM_n(f-f_c)+e^{-j\phi_c}aM_n(f+f_c)+e^{j\phi_c}\delta(f-f_c)+e^{-j\phi_c}\delta(f+f_c)]
+\]</span></p>
+<p>​ 多了两个载波分量,带宽仍然增加一倍</p>
+<ul>
+<li><p>功率谱 <span class="math display">\[
+P_u(f)=\frac{A_c^2}4[\delta(f-f_0)+a^2P_{m_n}(f-f_0)+\delta(f+f_0)+a^2P_{m_n}(f+f_0)]
+\]</span> 总功率<span class="math inline">\(P_u=\dfrac{A_c^2}2+\dfrac{A_c^2}2 a^2P_{m_n}\)</span></p></li>
+<li><p>解调</p>
+<ul>
+<li><p>包络检波</p>
+<p>解调设备简单,但对输入信噪比有要求</p></li>
+<li><p>相干解调</p>
+<p>不存在门限效应,需要一个同频同相的本地载波</p></li>
+</ul></li>
+</ul>
+</div>
+<div id="ssb" class="section level3">
+<h3>2.3 单边带调制(SSB)</h3>
+<blockquote>
+<p>为什么要产生单边带信号?</p>
+<ul>
+<li>普通调幅和抑制载波双边带调幅所需的带宽都是2W,这是冗余的,而单边带调制带宽只要W就够了</li>
+</ul>
+</blockquote>
+<ul>
+<li><p>产生单边带信号</p>
+<ul>
+<li><p>滤波法</p>
+<p>对边带滤波器要求较高,不易实现</p></li>
+<li><p>正交法</p>
+<ul>
+<li><p>时域和频谱 <span class="math display">\[
+u_\mp(t)=A_cm(t)\cos(\tp f_ct)\mp A_c\h m(t)\sin(\tp f_ct)\\
+U_\mp(t)=\frac{A_c}2[M(f-f_c)+M(f+f_c)]\mp\frac{A_c}{2j}[\h M(f-f_c)-\h M(f+f_c)]\\
+\h M(f-f_c)=\equtri{-jM(f-f_c)}{f&gt;f_c}{jM(f-f_c)}{f&lt;f_c}{0}{f=f_c}\\
+\h M(f+f_c)=\equtri{-jM(f+f_c)}{f&gt;-f_c}{jM(f+f_c)}{f&lt;-f_c}{0}{f=-f_c}
+\]</span></p></li>
+<li><p>解调 <span class="math display">\[
+u_\mp(t)\cos (2\pi f_c t+\phi)再经过低通滤波器\\
+y_l(t)=A_cm(t)\cos\phi\pm A\h m(t)\sin\phi
+\]</span> 希望<span class="math inline">\(\phi=0\)</span></p></li>
+<li><p><span class="math inline">\(U_-(f)\)</span> 上边带滤波器 理想高通</p>
+<p><span class="math inline">\(U_+(f)\)</span> 下边带滤波器 理想低通</p></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="vsb-amvestigial-sideband-am" class="section level3">
+<h3>2.4 残留边带调幅VSB AM(Vestigial-Sideband AM)</h3>
+<ul>
+<li><p>过程</p>
+<ul>
+<li><p>乘 <span class="math inline">\(m(t)A_c\cos(\tp f_c t)\)</span></p></li>
+<li><p>经过VSB带通滤波器<span class="math inline">\(H(f)\)</span></p>
+<p>放宽边带滤波器的要求,以信道带宽为代价</p></li>
+</ul></li>
+<li><p>设VSB边带滤波的脉冲响应为<span class="math inline">\(h(t)\)</span> <span class="math display">\[
+U(f)=\frac{A_c}2[M(f-f_c)+M(f+f_c)]H(f)
+\]</span></p></li>
+<li><p>解调</p>
+<p><span class="math inline">\(\newcommand{ac}[1]{\dfrac{A_c}{#1}}\)</span> <span class="math display">\[
+v(t)=u(t)\cos(2\pi f_c t)\\
+V(f)=\ac 4[M(f-2f_c)+M(f)]H(f-f_c)+\ac 4[M(f)+M(f+2f_c)]H(f+f_c)
+\]</span> 低通输出的频谱 <span class="math display">\[
+V_l(f)=\ac 4M(f)[H(f-f_c)+H(f+f_c)]
+\]</span> <strong>为保证输出不失真</strong> <span class="math display">\[
+H(f-f_c)+H(f+f_c)=\t{constant}, \abs f&lt;W
+\]</span></p></li>
+</ul>
+</div>
+</div>
+<div class="section level2">
+<h2>3.非线性调制</h2>
+<div class="section level3">
+<h3>3.1 一般概念</h3>
+<p>已调信号 <span class="math display">\[
+u(t)=A_c\cos[\tp f_ct+\phi(t)]
+\]</span> 瞬时相位 <span class="math inline">\(\tp f_c t+\phi(t)\)</span></p>
+<p>瞬时频率 <span class="math inline">\(f_i(t)=\dfrac 1 \tp \dfrac{\d}{\d t}[\tp f_c t+\phi(t)]=f_c+\dfrac 1 \tp \dfrac{\d}{\d t}\phi(t)\)</span></p>
+<ul>
+<li><p>调相 <span class="math display">\[
+\phi(t)=k_p m(t)
+\]</span> 最大相偏: <span class="math inline">\(\Delta\phi_{\max}=k_p\max[|m(t)|]\)</span></p>
+<p>调制指数: <span class="math inline">\(\beta_p=\Delta\phi_\max\)</span></p></li>
+<li><p>调频 <span class="math display">\[
+f_i(t)-f_c=k_fm(t)\\
+\phi(t)=\tp k_f\int_{-\infty}^t m(\tau)\d \tau
+\]</span> 最大频偏: <span class="math inline">\(\Delta f_\max=k_f\max[|m(t)|]\)</span></p>
+<p>调制指数:<span class="math inline">\(\b_f=\dfrac{\Delta f_\max}W\)</span></p></li>
+<li><p>调频和调相的关系</p>
+<p>互为微分和积分的关系</p>
+<p>​</p></li>
+<li><p>窄带角调制: <span class="math inline">\(\phi(t)\ll 1\)</span></p>
+<p><span class="math display">\[
+u(t)\approx A_c\cos(\tp f_c t)-A_c\phi(t)\sin(\tp f_c t)
+\]</span></p></li>
+</ul>
+</div>
+<div class="section level3">
+<h3>3.2 频谱特点</h3>
+<p><strong>正弦角度调制</strong> <span class="math display">\[
+u(t)=A_c\cos(\tp f_ct+\b\sin\tp f_m t)\\
+=\Re\bra{A_c\etpi{f_c t}e^{j\b \sin(\tp f_m t)}}\\
+=\suminf m A_cJ_n(\b)\cos[\tp (f_c+nf_m)t]
+\]</span> 包含了无限多个频率分量</p>
+<ul>
+<li>正弦消息角调制信号带宽 <strong>卡尔森公式</strong> <span class="math display">\[
+B=2(\beta+1)f_m
+\]</span> <span class="math inline">\(\beta\)</span> 调制指数</li>
+</ul>
+</div>
+</div>
+<div class="section level2">
+<h2>4.线性调制系统的抗噪声性能</h2>
+<ul>
+<li>考虑指标
+<ul>
+<li>已调信号的带宽要求</li>
+<li>解调系统的抗噪声能力</li>
+<li>系统实现的复杂性</li>
+</ul></li>
+</ul>
+<p>信噪比(解调前后) <span class="math display">\[
+G=\frac{SNR_{out}}{SNR_{in}}
+\]</span></p>
+<ul>
+<li><p>加性噪声</p>
+<ul>
+<li><p>输入噪声 <span class="math display">\[
+n_{in}(t)=n_c(t)\cos\tp f_c t-n_s(t)\sin \tp f_c t\\
+\]</span></p></li>
+<li><p>输入噪声功率 <span class="math display">\[
+E[n_{in}^2(t)]=\sigma_{in}^2=\sigma_c^2=\sigma_s^2=N_0B
+\]</span></p></li>
+<li><p>输入信噪比 <span class="math display">\[
+(SNR)_{in}=\frac{E[u^2(t)]}{E[n_{in}^2(t)]}
+\]</span></p></li>
+<li><p>输出信噪比 <span class="math display">\[
+(SNR)_{out}=\frac{E[m_{out}^2(t)]}{E[n_{out}^2(t)]}
+\]</span></p></li>
+</ul></li>
+</ul>
+<div id="dsb-sc-am-1" class="section level3">
+<h3>4.1 DSB-SC AM</h3>
+<ul>
+<li>输入噪声</li>
+</ul>
+<p><span class="math display">\[
+P_u=E[\frac 1 2 m^2(t)]\\
+P_{n_{in}}=B\cdot N_0
+\]</span></p>
+<ul>
+<li><p>相干解调 <span class="math display">\[
+r(t)=[m(t)+n_c(t)]\cos\tp f_c t-n_s(t)\sin \tp f_c t\\
+r(t)\cos\tp f_c t=\frac 1 2[m(t)+n_c(t)]+高频
+\]</span></p>
+<blockquote>
+<p>how to derive?</p>
+</blockquote>
+<p>经过低通滤波后</p></li>
+<li><p>输出 <span class="math display">\[
+P_{m_{out}}=\frac 1 4 E[m^2(t)]\\
+P_{n_{out}}=\frac 1 4E[n_c^2(t)]=\frac 1 4 N_0B
+\]</span></p></li>
+<li><p>信噪比 <span class="math display">\[
+G=2
+\]</span></p></li>
+</ul>
+</div>
+<div id="ssb-am" class="section level3">
+<h3>4.2 SSB AM</h3>
+<ul>
+<li>输入</li>
+</ul>
+<p><span class="math display">\[
+P_u=\frac 1 2\bra{E[m^2(t)+\h m^2(t)]}\\
+=E[m^2(t)]\\
+P_{n_{in}}=B\cdot N_0
+\]</span></p>
+<blockquote>
+<p>B仅为双边带的一半</p>
+<ul>
+<li>相对于带宽相同的未调制信号来讲</li>
+</ul>
+</blockquote>
+<p><span class="math display">\[
+(SNR)_{in}=\frac{E[m^2(t)]}{BN_0}
+\]</span></p>
+<ul>
+<li><p>相干解调 <span class="math display">\[
+r(t)\cos\tp f_c t=\frac 1 2[m(t)+n_c(t)]+高频项
+\]</span></p></li>
+<li><p>输出 <span class="math display">\[
+P_{m_{out}}=\frac 1 4E[m^2(t)]\\
+P_{n_{out}}=\frac 14 E[n_c^2(t)]=\frac 1 4 BN_0\\
+(SNR)_{in}=\frac{E[m^2(t)]}{BN_0}
+\]</span></p></li>
+<li><p>信噪比 <span class="math display">\[
+G=1
+\]</span> 单边带和抑制载波双边带的输出信噪比是一样的</p>
+<blockquote>
+<p>Why</p>
+</blockquote></li>
+</ul>
+</div>
+<div id="am" class="section level3">
+<h3>4.3 普通AM调制</h3>
+<ul>
+<li><p>输入 <span class="math display">\[
+u(t)=[1+am_n(t)]\cos(\tp f_ct)\\
+P_u=\frac 1 2 +\frac {a^2}2E\lrbra[]{m_n^2(t)}\\
+P_{n_{in}}=N_0B\\
+(SNR)_{in}=\frac{P_u}{N_0B}
+\]</span> ​</p></li>
+<li><p>相干解调 <span class="math display">\[
+r(t)\cos\tp f_c t=\frac 1 2[1+am_n(t)+n_c(t)]+高频项\\
+m_{out}=\frac a 2m_n(t)\\
+n_{out}=\frac 1 2 n_c(t)\\
+(SNR)_{out}=\frac{a^2E\lrbra[]{m_n^2(t)}}{N_0B}
+\]</span> &gt; 输出不是<span class="math inline">\(\frac 1 2+\frac a 2 m_n(t)\)</span></p></li>
+</ul>
+<p><span class="math display">\[
+G=\frac{2a^2E[m_n^2(t)]}{1+a^2E[m_n^2(t)]}
+\]</span></p>
+<ul>
+<li><p>包络检波</p>
+<p>输入(已调信号加噪声) <span class="math display">\[
+r(t)=[1+am_n(t)+n_c(t)]\cos\tp f_c t-n_s(t)\sin \tp f_c t\\
+=V(t)\cos[\tp f_c t+\phi(t)]\\
+V(t)=\sqrt{[1+am_n(t)+n_c(t)]^2+n_s^2(t)}
+\]</span> <span class="math inline">\(1+a_m(t)\gg n_c(t),n_s(t)\)</span> <span class="math display">\[
+V(t)\approx 1+am_n(t)+n_c(t)
+\]</span> 仅差一个因子0.5 不影响输出信噪比</p>
+<blockquote>
+<p>因子0.5？？？</p>
+<ul>
+<li>相干解调输出 <span class="math inline">\(\frac 1 2\lrbra []{1+am_n(t)}+n_c(t)\)</span></li>
+<li>包络检波输出 <span class="math inline">\(1+am_n(t)+n_c(t)\)</span></li>
+</ul>
+</blockquote>
+<ul>
+<li>正弦波调幅<span class="math inline">\(m_n(t)=\sin(\tp f_c t), a=1\)</span> <span class="math display">\[
+E[m_n^2(t)]=E[\sin^2\tp f_c t]=\frac 1 2\\
+G=\frac 2 3
+\]</span></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div class="section level2">
+<h2>5.非线性调制系统系统的抗噪声能力</h2>
+<ul>
+<li><p>解调前 <span class="math display">\[
+u(t)=A_c\cos[2\pi f_c t+\phi(t)]\\
+\phi(t)=\tp k_f\int_{-\infty}^t m(t)\d t
+\]</span> ​</p></li>
+<li><p>加噪声 <span class="math display">\[
+r(t)=u(t)+n_c(t)\cos\tp f_c t-n_s(t)\sin \tp f_c t
+\]</span></p></li>
+<li><p>输入 <span class="math display">\[
+P_u=\frac 1 2 A_c^2\\
+P_{n_{in}}=N_0B\\
+(SNR)_{in}=\frac{A_c^2}{2N_0B}
+\]</span> B由卡尔森公式给出</p>
+<p>​</p></li>
+<li><p>幅角形式 <span class="math display">\[
+n_{in}(t)=V(t)\cos[\tp f_c t+\theta(t)]\\
+r(t)=u(t)+n_{in}(t)\\
+=V&#39;(t)\cos[\tp f_c t+\psi(t)]
+\]</span> <span class="math inline">\(A_c\gg V(t)\)</span> <span class="math display">\[
+\psi(t)=\phi(t)+\frac{V(t)}{A_c}\sin[\theta(t)-\phi(t)]
+\]</span></p></li>
+<li><p>解调</p>
+<p>由<span class="math inline">\(\phi(t)\)</span>和<span class="math inline">\(m(t)\)</span>的关系</p>
+<p>解调信号实际上是对幅角微分 <span class="math display">\[
+f_c+\frac 1 \tp \frac{\d \phi(t)}{\d t}+\frac 1{2\pi}\frac{\d}{\d t}\bra{\frac {V(t)}{A_c}\sin[\theta(t)-\phi(t)]}
+\]</span></p></li>
+<li><p>输出信号和噪声 <span class="math display">\[
+m_{out}(t)=k_fm(t)\\
+n_d(t)=\frac 1{\tp A_c}\frac{\d}{\d t}\bra{V(t)\sin[\theta(t)-\phi(t)]}
+\]</span></p>
+<blockquote>
+<p><span class="math inline">\(V(t)\)</span> Rayleigh 分布</p>
+<p><span class="math inline">\(\theta(t)\)</span> 均匀分布</p>
+<p>认为<span class="math inline">\(\theta(t)\)</span> 与<span class="math inline">\(\theta(t)-\phi(t)\)</span>一样: 均匀分布</p>
+</blockquote>
+<p><span class="math display">\[
+n_d(t)=\frac1{\tp A_c}\frac \d{\d t}n_s(t)
+\]</span></p>
+<p><span class="math inline">\(n_s\)</span>是一个带宽为B/2,功率谱密度为<span class="math inline">\(2N_0\)</span>的低频噪声</p></li>
+<li><p>输出信号和噪声的功率谱 <span class="math display">\[
+P_{m_{out}}=k_f^2E[m^2(t)]
+\]</span> <span class="math inline">\(n_s(t)\)</span> 的微分在频谱上相当于乘以<span class="math inline">\(j\tp f\)</span> <span class="math display">\[
+P_{n_d}=\equtwo{\frac 2 {A_c^2}N_0 f^2}{0\leq f\leq \dfrac B 2}{0}{\t{others}}
+\]</span> 通过带宽为<span class="math inline">\(f_m\)</span>的理想低通滤波器</p>
+<blockquote>
+<p>why 低通滤波</p>
+</blockquote>
+<p><span class="math display">\[
+P_{n_d}=\frac 2 3\frac{N_0f_m^3}{A_c^2}
+\]</span></p>
+<p><span class="math display">\[
+(SNR)_{out}=\frac{3A_c^2k_f^2E[m^2(t)]}{2N_0f_m^2}
+\]</span></p></li>
+<li><p>信噪比增益 <span class="math display">\[
+G=\frac{3Bk_f^2E[m^2(t)]}{f_m^3}
+\]</span> ​</p></li>
+<li><p>正弦调频 <span class="math display">\[
+m(t)=\cos(\tp f_m t)\\
+???????????????\\
+G=3(\b_f+1)\b_f^2
+\]</span> ​</p></li>
+</ul>
+</div>
+</div>
+
+  </div> <!-- articleBandContent -->
+</div> <!-- pageContent -->
+
+<div id="rStudioFooter" class="band full">
+<div class="bandContent">
+  <div id="copyright">© Copyright 2016 RStudio Inc.</div>
+  <div id="logos">
+    <a href="https://twitter.com/rstudio" class="footerLogo twitter"></a>
+    <a href="https://github.com/rstudio" class="footerLogo gitHub"></a>
+    <a href="https://www.linkedin.com/company/rstudio-inc" class="footerLogo linkedIn"></a>
+    <a href="https://www.facebook.com/pages/RStudio-Inc/267733656584415" Class="footerLogo facebook"></a>
+  </div>
+</div>
+</div>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

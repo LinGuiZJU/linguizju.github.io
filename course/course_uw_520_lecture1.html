@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="author" content="Lin Gui" />
+
+<meta name="date" content="2018-04-26" />
+
+<title>UW 520</title>
+
+<link href="course_uw_520_lecture1_files/tufte-css/tufte-fonts.css" rel="stylesheet" />
+<link href="course_uw_520_lecture1_files/tufte-css/tufte-background.css" rel="stylesheet" />
+<link href="course_uw_520_lecture1_files/tufte-css/tufte-italics.css" rel="stylesheet" />
+<link href="course_uw_520_lecture1_files/tufte-css/tufte.css" rel="stylesheet" />
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+	TeX: {
+		extensions: ["noUndefined.js", "autoload-all.js", "AMSmath.js", "AMSsymbols.js", "mediawiki-texvc.js"],
+        Macros: {
+            h: ["{\\hat {#1}}", 1],
+            a: "{\\alpha}",
+            b: "{\\beta}",
+            d: "{\\mathrm d}",
+            w: "{\\omega}",
+            sinc: "{\\text{sinc}}",
+            rect: "{\\text{rect}}",
+            sgn: "{\\text{sgn}}",
+            var: "{\\text{var}}",
+            cov: "{\\text{cov}}",
+            epsi: "{\\varepsilon}",
+            t: ["{\\text {#1}}", 1],
+            tp: "{2\\pi}",
+            etpi: ["{e^{2\\pi i#1}}", 1],
+            etpin: ["{e^{-2\\pi i#1}}", 1],
+            expn: ["{^{-{#1}}}", 1],
+            liminf: ["{\\lim\\limits_{#1\\rightarrow\\infty}}", 1],
+            intinf: "{\\int_{-\\infty}^{\\infty}}",
+            intf: ["{\\int_{#1}^{#2}}", 2],
+            intfun: ["{#1(#3)#2(#3)\\d #3}", 3],
+            intsym: ["{\\int_{-#1}^{#1}}", 1],
+            sumsym: ["{\\sum\\limits_{#1=-#2}^{#2}}", 2],
+            sumsub: ["{\\sum\\limits_{#1}^{#2}}", 2],
+            suminf: ["{\\sum\\limits_{#1=-\\infty}^\\infty}", 1],
+            sumsubtri: ["{\\sum\\limits_{#1=#2}^{#3}}", 3],
+            prodsub: ["{\\prod\\limits_{#1}^{#2}}", 2],
+            prodsubtri: ["{\\prod\\limits_{#1=#2}^{#3}}", 3],
+            conv: ["{#1(#3)#2(#4-#3)\\d #3}", 4],
+            bra: ["{\\{{#1}\\}}", 1],
+            lrbra: ["{\\left #1{#3}\\right #2}", 3],
+            lrangle: ["{\\langle #1\\rangle}", 1],
+            abs: ['\\left\\lvert #2 \\right\\rvert_{\\text{#1}}', 2, ""],
+            norm: ["{\\left\\lVert #1\\right\\rVert}", 1],
+            equtwo: ["{\\begin{cases} #1&#2\\\\#3&#4\\end{cases}}", 4],
+            equtri: ["{\\begin{cases} #1&#2\\\\#3&#4\\\\#5&#6\\end{cases}}", 6],
+            mattwo: ["{\\begin{bmatrix} #1&#2\\\\#3&#4\\end{bmatrix}}", 4],
+            mattri: ["{\\begin{bmatrix} #1&#2&#3 \\\\ #4&#5&#6 \\\\ #7&#8&#9\\end{bmatrix}}", 9],
+        },
+    },
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  },
+ 	SVG: {
+		useGlobalCache: false,
+		merrorStyle: {
+			fontSize:"90%", color:"red", background:"",
+  			border: "1px solid red", padding:"2px"
+		},
+		scale: 100, 
+		minScaleAdjust: 80,
+		blacker: 0
+	},
+	showProcessingMessages: false,
+
+	menuSettings: {
+		inTabOrder: false
+	},
+	showMathMenu: false,
+
+
+  });
+</script>
+<script type="text/javascript" src="/Users/lin/Nustore Files/LinFile/lin_page//site_libs/mathjax-local/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+
+</head>
+
+<body>
+
+
+<span id="up"></span>
+
+
+<h1 class="title toc-ignore">UW 520</h1>
+<h3 class="subtitle"><em>Lecture 1 - Notes</em></h3>
+<h4 class="author"><em>Lin Gui</em></h4>
+<h4 class="date"><em>2018-04-26</em></h4>
+
+
+<div id="TOC">
+<ul>
+<li><a href="#lagged-scatter-plot"><span class="toc-section-number">1</span> Lagged Scatter Plot</a></li>
+<li><a href="#frequency-domain-modeling"><span class="toc-section-number">2</span> Frequency Domain Modeling</a></li>
+<li><a href="#nonparametric-estimation-of-s_j"><span class="toc-section-number">3</span> Nonparametric Estimation of <span class="math inline">\(S_j\)</span></a></li>
+</ul>
+</div>
+
+<div id="lagged-scatter-plot" class="section level1">
+<h1><span class="header-section-number">1</span> Lagged Scatter Plot</h1>
+<p><span class="math inline">\(x_{t+1}\)</span> versus <span class="math inline">\(x_t\)</span></p>
+<p><span class="math inline">\(\hat \rho_k\)</span>: sample ACS</p>
+</div>
+<div id="frequency-domain-modeling" class="section level1">
+<h1><span class="header-section-number">2</span> Frequency Domain Modeling</h1>
+<p><span class="math display">\[
+X_t=\mu+\sumsub{j=1}{N/2}[A_j\cos(2\pi f_jt)+B_j\sin(2\pi f_j t)]\\
+E[A_j]=E[B_j]=0\\
+\var{[A_j]}=\var[B_j]=\sigma^2\\
+\cov\{A_j,A_k\}=\cov\{B_j,B_k\}=0,j\neq k\\
+\cov\{A_j,B_k\}=0\\
+\]</span> Spectrum <span class="math display">\[
+\rho_k=\frac{\sumsub{j=1}{N/2}\sigma_j^2\cos(2\pi f_jk)}{\sumsub{j=1}{N/2}\sigma_j^2}\\
+S_j\triangleq \sigma_j^2\\
+\sumsub{j=1}{N/2}S_j=\sigma^2
+\]</span></p>
+</div>
+<div id="nonparametric-estimation-of-s_j" class="section level1">
+<h1><span class="header-section-number">3</span> Nonparametric Estimation of <span class="math inline">\(S_j\)</span></h1>
+<p><span class="math inline">\(S_j=var\{A_j\}=var\{B_j\}\)</span>$</p>
+<ul>
+<li><p>yields <span class="math display">\[
+A_j=\frac 2 N\sumsub{t=0}{N-1}X_t\cos(2\pi f_jt)\\
+B_j=\frac 2 N\sumsub{t=0}{N-1}X_t\sin(2\pi f_j t)
+\]</span></p></li>
+<li><p><span class="math inline">\(\hat S_j\)</span> <span class="math display">\[
+\hat S_j\triangleq\frac {A_j^2+B_j^2}{2}
+\]</span></p></li>
+<li><p>assumption of <span class="math inline">\(S_j\)</span> <span class="math display">\[
+S_j(\alpha,\beta)=\frac \beta{1+\alpha^2-2\alpha\cos(2\pi f_j)}
+\]</span></p>
+<blockquote>
+<p>Why this assumption?</p>
+</blockquote>
+<p>estimate <span class="math display">\[
+\hat S_j(\hat\alpha,\hat\beta)=\frac {\hat\beta}{1+\hat\alpha^2-2\hat\alpha\cos(2\pi f_j)}
+\]</span></p></li>
+<li><p><span class="math inline">\(\hat\alpha,\hat\beta\)</span></p>
+<p><span class="math inline">\(\rho_1\approx\alpha\)</span>, so let <span class="math inline">\(\hat\alpha=\hat\rho_1\)</span></p>
+<p>From requirment: <span class="math display">\[
+\sumsub{j=1}{N/2}\hat S_j(\hat\alpha,\hat\beta)=\frac 1 N\sumsub{t=1}{N}(X_t-\overline X)^2= \hat\sigma^2
+\]</span> yileds estimation <span class="math display">\[
+\hat\beta=\hat\sigma^2\left(\sumsub{j=1}{N/2}\frac 1{1+\hat\alpha^2-2\hat\alpha\cos(2\pi f_j)}\right)^{-1}
+\]</span></p></li>
+<li><p>Stationary <span class="math display">\[
+E\bra {X_t}=\mu\\
+\var\bra{X_t}=\sigma^2\\
+\cov\bra{X_{t+k},X_t} =\rho_k\sigma^2
+\]</span></p></li>
+<li><p>extension model under stationary <span class="math display">\[
+X_t=\mu+\intsym {1/2} \etpi{ft}\d Z(f)
+\]</span> define <span class="math inline">\(S(f)\)</span> <span class="math display">\[
+\var\bra{\d Z(f)}=S(f)\d f
+\]</span> fundamental relationship <span class="math display">\[
+\intsym{1/2}S(f)\d f=\sigma^2\\
+\rho_k\sigma^2=\intsym{1/2}S(f)\etpi{fk}\d f\\
+S(f)=\sigma^2\suminf k \rho_k\etpin{fk}
+\]</span> basic estimator - periodogram <span class="math display">\[
+\hat S^{(p)}(f)\triangleq \frac 1 N\abs{\sumsub{t=0}{N-1}(X_t-\overline X)\etpin{ft}}^2
+\]</span> &gt; Where to derive it?</p>
+<ul>
+<li>badly biased</li>
+<li><span class="math inline">\(\var\bra{\h S^{(p)}(f)}=S^2(f)\)</span> as <span class="math inline">\(N\rightarrow\infty\)</span> if $0&lt;f&lt;1 2 $</li>
+</ul></li>
+<li><p>− testing theories (e.g., wind data) − exploratory data analysis (e.g., rainfall data)</p>
+<p>− discriminating data (e.g., neonates) − diagnostic tests (e.g., ARIMA modeling) − assessing predictability (e.g., atomic clocks)</p></li>
+</ul>
+</div>
+
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

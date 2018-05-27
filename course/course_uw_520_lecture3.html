@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="author" content="Lin Gui" />
+
+<meta name="date" content="2018-04-26" />
+
+<title>UW 520</title>
+
+<link href="course_uw_520_lecture3_files/tufte-css/tufte-fonts.css" rel="stylesheet" />
+<link href="course_uw_520_lecture3_files/tufte-css/tufte-background.css" rel="stylesheet" />
+<link href="course_uw_520_lecture3_files/tufte-css/tufte-italics.css" rel="stylesheet" />
+<link href="course_uw_520_lecture3_files/tufte-css/tufte.css" rel="stylesheet" />
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+	TeX: {
+		extensions: ["noUndefined.js", "autoload-all.js", "AMSmath.js", "AMSsymbols.js", "mediawiki-texvc.js"],
+        Macros: {
+            h: ["{\\hat {#1}}", 1],
+            a: "{\\alpha}",
+            b: "{\\beta}",
+            d: "{\\mathrm d}",
+            w: "{\\omega}",
+            sinc: "{\\text{sinc}}",
+            rect: "{\\text{rect}}",
+            sgn: "{\\text{sgn}}",
+            var: "{\\text{var}}",
+            cov: "{\\text{cov}}",
+            epsi: "{\\varepsilon}",
+            t: ["{\\text {#1}}", 1],
+            tp: "{2\\pi}",
+            etpi: ["{e^{2\\pi i#1}}", 1],
+            etpin: ["{e^{-2\\pi i#1}}", 1],
+            expn: ["{^{-{#1}}}", 1],
+            liminf: ["{\\lim\\limits_{#1\\rightarrow\\infty}}", 1],
+            intinf: "{\\int_{-\\infty}^{\\infty}}",
+            intf: ["{\\int_{#1}^{#2}}", 2],
+            intfun: ["{#1(#3)#2(#3)\\d #3}", 3],
+            intsym: ["{\\int_{-#1}^{#1}}", 1],
+            sumsym: ["{\\sum\\limits_{#1=-#2}^{#2}}", 2],
+            sumsub: ["{\\sum\\limits_{#1}^{#2}}", 2],
+            suminf: ["{\\sum\\limits_{#1=-\\infty}^\\infty}", 1],
+            sumsubtri: ["{\\sum\\limits_{#1=#2}^{#3}}", 3],
+            prodsub: ["{\\prod\\limits_{#1}^{#2}}", 2],
+            prodsubtri: ["{\\prod\\limits_{#1=#2}^{#3}}", 3],
+            conv: ["{#1(#3)#2(#4-#3)\\d #3}", 4],
+            bra: ["{\\{{#1}\\}}", 1],
+            lrbra: ["{\\left #1{#3}\\right #2}", 3],
+            lrangle: ["{\\langle #1\\rangle}", 1],
+            abs: ['\\left\\lvert #2 \\right\\rvert_{\\text{#1}}', 2, ""],
+            norm: ["{\\left\\lVert #1\\right\\rVert}", 1],
+            equtwo: ["{\\begin{cases} #1&#2\\\\#3&#4\\end{cases}}", 4],
+            equtri: ["{\\begin{cases} #1&#2\\\\#3&#4\\\\#5&#6\\end{cases}}", 6],
+            mattwo: ["{\\begin{bmatrix} #1&#2\\\\#3&#4\\end{bmatrix}}", 4],
+            mattri: ["{\\begin{bmatrix} #1&#2&#3 \\\\ #4&#5&#6 \\\\ #7&#8&#9\\end{bmatrix}}", 9],
+        },
+    },
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  },
+ 	SVG: {
+		useGlobalCache: false,
+		merrorStyle: {
+			fontSize:"90%", color:"red", background:"",
+  			border: "1px solid red", padding:"2px"
+		},
+		scale: 100, 
+		minScaleAdjust: 80,
+		blacker: 0
+	},
+	showProcessingMessages: false,
+
+	menuSettings: {
+		inTabOrder: false
+	},
+	showMathMenu: false,
+
+
+  });
+</script>
+<script type="text/javascript" src="/Users/lin/Nustore Files/LinFile/lin_page//site_libs/mathjax-local/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+
+</head>
+
+<body>
+
+
+<span id="up"></span>
+
+
+<h1 class="title toc-ignore">UW 520</h1>
+<h3 class="subtitle"><em>Lecture 3 - Notes</em></h3>
+<h4 class="author"><em>Lin Gui</em></h4>
+<h4 class="date"><em>2018-04-26</em></h4>
+
+
+<div id="TOC">
+<ul>
+<li><a href="#continuous-timediscrete-frequency-fs"><span class="toc-section-number">1</span> Continuous Time/Discrete Frequency: FS</a><ul>
+<li><a href="#example"><span class="toc-section-number">1.1</span> example</a></li>
+</ul></li>
+<li><a href="#continuous-timecontinuous-frequency-ft"><span class="toc-section-number">2</span> Continuous Time/Continuous Frequency: FT</a><ul>
+<li><a href="#similarity-theorem"><span class="toc-section-number">2.1</span> Similarity Theorem</a></li>
+<li><a href="#equivalent-width"><span class="toc-section-number">2.2</span> Equivalent Width</a></li>
+<li><a href="#fundamental-uncertainty-relationship"><span class="toc-section-number">2.3</span> Fundamental Uncertainty Relationship</a></li>
+<li><a href="#convolution-theorem"><span class="toc-section-number">2.4</span> Convolution Theorem</a></li>
+<li><a href="#cross-and-autocorrelations"><span class="toc-section-number">2.5</span> Cross and Autocorrelations</a></li>
+</ul></li>
+<li><a href="#discrete-timecontinuous-frequency-dtft"><span class="toc-section-number">3</span> Discrete Time/Continuous Frequency: DTFT</a><ul>
+<li><a href="#m1d_2m1-sinc"><span class="toc-section-number">3.1</span> <span class="math inline">\((2m+1)D_{2m+1}\)</span>: sinc</a></li>
+<li><a href="#cesara-sums"><span class="toc-section-number">3.2</span> Cesara Sums</a></li>
+<li><a href="#aliasing"><span class="toc-section-number">3.3</span> Aliasing</a></li>
+</ul></li>
+<li><a href="#discretecontinuous-concentration-problem"><span class="toc-section-number">4</span> Discrete/Continuous Concentration Problem</a><ul>
+<li><a href="#concentration-measure"><span class="toc-section-number">4.1</span> concentration measure</a></li>
+<li><a href="#maximize-beta2w"><span class="toc-section-number">4.2</span> maximize <span class="math inline">\(\beta^2(W)\)</span></a></li>
+</ul></li>
+<li><a href="#discrete-timediscrete-frequency-dft"><span class="toc-section-number">5</span> Discrete Time/Discrete Frequency: DFT</a></li>
+</ul>
+</div>
+
+<p><span class="math inline">\(\sumsub{f}{}\)</span>: sum or integral</p>
+<div id="continuous-timediscrete-frequency-fs" class="section level1">
+<h1><span class="header-section-number">1</span> Continuous Time/Discrete Frequency: FS</h1>
+<div id="example" class="section level2">
+<h2><span class="header-section-number">1.1</span> example</h2>
+<p><span class="math display">\[
+g_p(t)=\frac{1-\phi^2}{1+\phi^2-2\phi\cos(t)}\\
+g_{p,m}=\sumsubtri n {-m} m G_n\etpi{f_nt}=1+2\sumsubtri n 1 m \phi^n\cos(nt)
+\]</span> <span class="math inline">\(g_p\)</span> and its Fourier approximation</p>
+</div>
+</div>
+<div id="continuous-timecontinuous-frequency-ft" class="section level1">
+<h1><span class="header-section-number">2</span> Continuous Time/Continuous Frequency: FT</h1>
+<div id="similarity-theorem" class="section level2">
+<h2><span class="header-section-number">2.1</span> Similarity Theorem</h2>
+<p><span class="math display">\[
+\abs a^{1/2}g(at)\leftrightarrow G(f/a)/\abs a^{1/2}
+\]</span></p>
+</div>
+<div id="equivalent-width" class="section level2">
+<h2><span class="header-section-number">2.2</span> Equivalent Width</h2>
+<p><span class="math display">\[
+\text{width}_e\bra g=\intinf g(t)\d t/g(0)\\
+=\frac 1 {\text{width}_e\bra G}
+\]</span></p>
+</div>
+<div id="fundamental-uncertainty-relationship" class="section level2">
+<h2><span class="header-section-number">2.3</span> Fundamental Uncertainty Relationship</h2>
+<p><strong>if <span class="math inline">\(g\)</span> real and nonnegative with unit area, then <span class="math inline">\(g\)</span> is probability density function</strong></p>
+<p>else, form <span class="math inline">\(\tilde g(t)=g(t)/\intinf g(t)\d t\)</span> <span class="math display">\[
+\sigma_g^2\times\sigma^2_G\geq 1/16\pi^2
+\]</span> <strong>with equality holding only in the Gaussian case</strong></p>
+</div>
+<div id="convolution-theorem" class="section level2">
+<h2><span class="header-section-number">2.4</span> Convolution Theorem</h2>
+<ul>
+<li><p>example one <span class="math display">\[
+h(t)=\sumsubtri l 1 LA_l\cos(2\pi f_l t+\phi_l)\\
+g(t)=\frac 1 {\sqrt{2\pi\sigma^2}}e^{-t^2/2\sigma^2}\\
+g*h(t)=\sumsubtri l 1 L e^{-(\sigma2\pi f_l)^2/2}A_lcos(2\pi f_l t+\phi_l)
+\]</span></p>
+<ul>
+<li>freqencies <span class="math inline">\(f_l\)</span> and phases <span class="math inline">\(\phi_l\)</span> are unchanged</li>
+<li>to 1 as <span class="math inline">\(f_l\rightarrow 0\)</span>, to 0 as <span class="math inline">\(f_l\rightarrow\infty\)</span></li>
+<li>reduce amplitudes of high frequency terms</li>
+</ul></li>
+<li><p>example two <span class="math display">\[
+r(t)=\equtwo {1/2\delta}{-\delta\leq t\leq \delta} 0 {\text{otherwise}}
+\]</span></p></li>
+</ul>
+</div>
+<div id="cross-and-autocorrelations" class="section level2">
+<h2><span class="header-section-number">2.5</span> Cross and Autocorrelations</h2>
+<p><span class="math display">\[
+g\star h^*(t)\triangleq\intinf g(u+t)h^*(u)du\leftrightarrow G(\cdot)H^*(\cdot)\\
+g\star g^*(t)\leftrightarrow\abs{G(\cdot)}^2
+\]</span> <strong>autocorrelation width</strong> <span class="math display">\[
+\text{width}_a\bra{g(\cdot)}=\text{width}_e\bra{g\star g^*(\cdot)}
+\]</span></p>
+</div>
+</div>
+<div id="discrete-timecontinuous-frequency-dtft" class="section level1">
+<h1><span class="header-section-number">3</span> Discrete Time/Continuous Frequency: DTFT</h1>
+<p><span class="math inline">\(g(\cdot)\)</span> has finite energy</p>
+<p><span class="math inline">\(\bra{g_t}\leftrightarrow G_p(\cdot)\)</span> <span class="math display">\[
+\bra{g_t\times r_t}\leftrightarrow(2m+1)G_p*D_{2m+1}
+\]</span></p>
+<div id="m1d_2m1-sinc" class="section level2">
+<h2><span class="header-section-number">3.1</span> <span class="math inline">\((2m+1)D_{2m+1}\)</span>: sinc</h2>
+<ul>
+<li>central lobe</li>
+<li>sidelobes</li>
+<li>cause: smear and leakage</li>
+</ul>
+</div>
+<div id="cesara-sums" class="section level2">
+<h2><span class="header-section-number">3.2</span> Cesara Sums</h2>
+<p>general method <span class="math display">\[
+\t{sequence }\cdots,u_{-1},u_0,u_1,\cdots\\
+s_m=\sumsym t m\\
+a_m=\frac 1 m \sumsubtri j 0 {m-1} s_j=\sumsubtri {t}{-m}m\lrbra (){1-\frac{\abs t}{m}}u_t\\
+\t{if }s_m\rightarrow s, \t{then }a_m\rightarrow s
+\]</span> example <span class="math display">\[
+G_{p,m}^{(C)}(f)=\sumsubtri t {-m}m(1-\frac{\abs t} m)g_t\etpin {ft}\rightarrow G_p(f)\\
+=m\intsym{1/2} G_p(f&#39;)D_m^2(f&#39;-f)\d f&#39;
+\]</span> <em>Fejer’s kernel</em></p>
+<p>Advantage and disadvantage</p>
+<ul>
+<li><span class="math inline">\(D^2_m\)</span> smaller sidelobes</li>
+<li>nonnegative sidelobes</li>
+<li>wider central lobe</li>
+</ul>
+</div>
+<div id="aliasing" class="section level2">
+<h2><span class="header-section-number">3.3</span> Aliasing</h2>
+<p><span class="math inline">\(\bra{g_t}\leftrightarrow G_p(\cdot)\)</span></p>
+<p><span class="math inline">\(g(\cdot)\leftrightarrow G(\cdot)\)</span> and <span class="math inline">\(g_t=g(t\Delta_t)\)</span> <span class="math display">\[
+G_p(f)=\suminf k G(f+k/\Delta_t)
+\]</span> highest <span class="math inline">\(f\)</span> that is not an alias one <span class="math display">\[
+f_n=\frac 1 {2\Delta t}
+\]</span></p>
+</div>
+</div>
+<div id="discretecontinuous-concentration-problem" class="section level1">
+<h1><span class="header-section-number">4</span> Discrete/Continuous Concentration Problem</h1>
+<p><span class="math inline">\(g_t\)</span> real-valued &amp; time-limited to <span class="math inline">\(t=0,\dots,N-1\)</span></p>
+<p><strong>How close can <span class="math inline">\(G_p()\)</span> be to bandlimited?</strong></p>
+<div id="concentration-measure" class="section level2">
+<h2><span class="header-section-number">4.1</span> concentration measure</h2>
+<p><span class="math display">\[
+\b^2(W)=\frac{\intsym W\abs{G_p(f)}^2\d f}{\intsym {1/2}\abs{G_p(f)}^2}\\
+\intsym W\abs{G_p(f)}^2\d f=g^TAg\\
+\intsym{1/2}|G_p(f)|^2\d f=g^T g\\
+g=[g_0,\dots,g_{N-1}]^T,A_{mn}=\frac{\sin(2\pi W(m-n))}{\pi(m-n)}\\
+\b^2(W)=\frac{g^TAg}{g^Tg}
+\]</span></p>
+</div>
+<div id="maximize-beta2w" class="section level2">
+<h2><span class="header-section-number">4.2</span> maximize <span class="math inline">\(\beta^2(W)\)</span></h2>
+<p><span class="math display">\[
+Ag=\beta^2(W)g\\
+Ag=\lambda g\\
+0&lt;\lambda_{N-1}(N,W)&lt;\cdots&lt;\lambda_0(N,W)&lt;1
+\]</span></p>
+<blockquote>
+<p>Why <span class="math inline">\(\lambda_0(N,W)&lt;1\)</span></p>
+</blockquote>
+<p><strong>first <span class="math inline">\(2NW\)</span> eigenvalues close to 1, after which <span class="math inline">\(\lambda_k(N,W)\)</span>’s fall rapidly to 0.</strong></p>
+</div>
+</div>
+<div id="discrete-timediscrete-frequency-dft" class="section level1">
+<h1><span class="header-section-number">5</span> Discrete Time/Discrete Frequency: DFT</h1>
+</div>
+
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
