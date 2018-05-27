@@ -1,0 +1,74 @@
+---
+title: "Code Style"
+output:
+  html_document:
+    toc: true
+    toc_flat: true
+    mathjax: local
+    includes:
+      in_header: ./mathconfig.html
+---
+
+# Python Google Style
+
+ * 行不用反斜杠连接 用括号隐式连接
+
+ * 使用括号宁缺勿滥
+
+ * 缩进：4个空格
+
+   > long_function_name(var_one, var_two
+   >
+   > ​				      var_three)
+
+ * 顶级定义空两行(类 函数) 方法定义空一行
+
+ * 函数注释
+
+   ```python
+   """Summary
+
+   Contents
+
+   Args:
+   	var_one:
+   	var_two
+
+   Returns:
+   	Contents
+   	example:
+   	
+   	example_one
+   	
+   	Contents
+   	
+   Raises:
+   	Error:
+   """
+   ```
+
+   类注释
+
+   ```
+   """Summary
+
+   Contents
+
+   Attributes(公有属性):
+   	one：
+   	two:
+   “”“
+   ```
+
+   行尾注释： 至少离开代码2个空格
+
+* 导入格式： 每个导入独占一行 
+
+* 每个语句独占一行
+
+* 命名
+
+  非小写下划线命名: 类名 异常变量 OneTwo 全局常量:One_Two
+
+# Matlab Style
+

@@ -1,0 +1,18 @@
+---
+title: "Record"
+output: html_document
+---
+
+[Git](record_git.html)
+
+[Linux](record_linux.html)
+
+[Vim](record_vim.html)
+
+[Latex](record_latex.html)
+
+[Code Style](record_code_style.html)
+
+[Anaconda & IPython](record_anaconda_ipython.html)
+
+[R](record_r.html)

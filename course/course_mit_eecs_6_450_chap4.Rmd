@@ -1,0 +1,245 @@
+# 4. Source and channel waveforms
+
+## 4.1 Introduction
+
+- A modulator, is to convert the incoming sequence of binary digits into a waveform in such a way that the noise-corrupted waveform at the receiver can, with high probability, be converted back into the original binary digits. 
+
+## 4.2 Fourier series
+
+Our interest here is almost exclusively in time-limited rather than periodic wave-forms.
+
+> $$
+> u(t)=\sumsub{k=-\infty}{\infty}\hat {u_k}e^{2\pi ikt/T}\rect (\frac t T)\\
+> \hat u_k=\frac 1 T \intsym{T/2}u(t)\etpin {kt/T}\d t
+> $$
+	
+-  *orthogonal*
+	
+- energy
+    $$
+    	\intsym{T/2}\abs{u(t)}^2\d t=T\sumsub{k=-\infty}{\infty}\abs{\hat u_k}^2\\
+    \intsym{T/2}\abs{u(t)-v(t)}^2\d t=T\sumsub{k}{}|\hat u_k-\hat v_k|^2
+    $$
+	The energy in the waveform difference is a common and reasonable measure of distortion.
+
+    > ??? When a finite-energy baseband waveform is modulated by that sinusoid up to passband, the resulting passband waveform has finite energy.
+
+## 4.3  $L_2$ functions and Lebesgue integration over 
+
+The Lebesgue approximation splits the vertical axis into uniform segments and sums the height times width measure for each segment.
+
+![img](file://\\LINGUI-MAC\Share_Write\Open_Courses\2_信号处理、信息论、统计推断、通信\6_450_Principles_of_communication\contents\Pic\Lebesgue.png?lastModify=1522042451)
+
+- *measure*
+	
+	*outer measure*  is essentially the measure of the smalles cover of A(countable union of intervals)
+        $$
+        	\mu^o(A)=\inf_{B:B \text { covers }A}\mu(B)
+        $$
+	*measurable* 
+	
+	> measurable if
+    > $$
+	> \mu^o(A)+\mu^o(\overline A)=T
+    > $$
+	> then
+    >
+	> if measurable, then its measure is the outer measure
+
+    The collection of measurable sets is closed under countable unions, contable intersections, and complementation.
+
+- *Lebesgue measurable*
+	
+	> $\{t:u(t)<\beta\}$ is measurable for each $\beta$\\
+
+    _Lebesgue integral_
+
+    > $$
+	> \int u(t)\d t=\liminf n \sumsub{m=0}{\infty}m2^{-n}\mu_{m,n},\text{where  }\mu_{m,n}=\mu(t:m2^{-n}\leq u(t)< (m+1)2^{-n})
+    > $$
+	>
+	
+	sets of zero measure can be ignored in integration
+$$
+	\int u(t)\d t=\int v(t) \d t, u(t) =v(t)\,a.s.
+$$
+	
+	
+	
+	
+	
+	
+	    (Two functions that are the same except on a set of zero measure are said to be equal almost everywhere, a.e.)
+
+- Measurability of functions defined by other functions
+
+    $$
+    	\lim_ku_k(t)
+    $$
+	
+	- $L_1$ & $L_2$
+	
+	$[-T/2,T/2]$, if $L_2$, then also $L_1$
+	
+	
+
+## 4.4 Fourier series for  waveforms
+
+- >  $[-T/2,T/2],L_2$function, then
+>
+	>  $$
+	>  \hat u_k=\frac 1 T\intsym{T/2}u(t)\etpin {kt/T}\d t
+>  $$
+	>  exists and satisfies $\abs{\hat u_k}\leq 1/T\int\abs{u(t)}\d t<\infty$, and
+>  $$
+	>  \liminf l \intsym {T/2}\abs{u(t)-\sumsub{k=-l}l\hat u_k\etpi {kt/T}}^2\d t=0
+>  $$
+	>  Conversely, if $\sumsub{k=-\infty}{\infty}\abs{\hat u(k)}^2<\infty$, then $L_2,u(t)$ exists satisfied above two
+
+Thus (4.19) asserts that  $u(t)$ can be approximated arbitrarily closely (in terms of difference energy) by finitely many terms in its Fourier series.
+
+- the sum doesn't converge pointwise to  $u(t)$ at each t
+
+**particularly when discussing sampling and vector spaces, the concept of equivalence classes becomes relevant**
+
+- T-spaced truncated sinusoid expansion
+
+P112
+
+## 4.5 Fourier transforms and  waveforms
+
+- Energy equation 
+$$
+\intinf \intfun u {v^*} t=\intinf\intfun {\hat u}{\hat v^*} f\\
+\intinf \abs {u(t)}^2\d t=\intinf \abs{\hat u(f)}^2\d f
+$$
+*Spectral Density*
+
+- *measurable*
+$$
+\mu(A)=\liminf T \mu(A\cap[-T/2,T/2])
+$$
+
+
+function measurable
+
+iff $u(t)\rect (t/T)$ is measurable for all T>0
+
+**two approaches to its Lebesgue integral**
+
+* use the definition formula
+* $\liminf T\intsym{T/2}u\d t$
+
+- $\sinc(t)$
+
+**It is an example where the Riemman integral exists but the Lebesgue integral does not. **
+
+**One can always use Lebesgue integration over [-A, A] and go to the limit , getting the same answer as the Riemmann integral provides.**
+
+- > $L_1$, then 
+>
+> -  $\hat u(f)=\intinf u(t)\etpin {ft}\d t$ exists 
+> -  satisfies  $\abs{\hat u(f)}\leq \int\abs{u(t)}\d t$
+> -  $\hat u(f)$ is a continuous function of $f$
+> -  also applies to inverse transforms
+
+
+
+For $L_2$, The pointwise Fourier transform does not necessarily exist at each f, but that it does exist an  limit. However, the inverse transform exists in exactly the same sense.
+
+> $$
+> \hat u_A(f)=\intsym Au(t)\etpin {ft}\d t
+> $$
+>
+> $L_2$, then $\hat u(f)$ exists satisfying 
+>
+> - $\liminf A\intinf\abs{\hat u(f)-\hat u_A(f)}^2\d f$
+> - the energy equation
+
+This not only guarantees the existence of a Fourier transform (up to  -equivalence), but also guarantees that it is arbitrarily closely approximated (in difference energy) by the continuous Fourier transforms of the truncated versions of  .
+
+> $$
+> u_B(t)=\intsym B \hat u(f)\etpi {ft} \d f
+> $$
+>
+> $L_2$, $\hat u(f)$ is the Fourier transform above, then
+>
+> - $\liminf B\intinf \abs{u(t)-u_B(t)}^2\d t=0$
+
+Specifically the inverse transforms of finite frequency truncations of the transform are continuous and converge to an $L_2$ limit as $B\rightarrow \infty$ 
+
+$$
+\hat u(f)=\text{l.i.m.}_{A\rightarrow \infty}\intsym A u(t)\etpin {ft}\d t\\
+u(t)=\text{l.i.m.}_{B\rightarrow \infty}\intsym B\hat u(f)\etpi {ft}\d f
+$$
+The first integral above converges pointwise $u(t)$ if   is also  $L_1$, and in this case converges pointwise to a **continuous** function $\hat u(f)$. 
+
+- all the Fourier tranform relations **Except** differentiation hold for all  $L_2$ functions.
+
+## 4.6 The DTFT and the sampling theorem
+
+- The DTFT is the time-frequency dual of the Fourier series.
+
+
+
+Note that  has an inverse Fourier transform  which is thus baseband-limited to [-W, W]
+
+> , then for each , the Lebesgue integral **above **exists and satisfies
+>
+> - 
+>
+>
+> - 
+> - 
+>
+> if  satisfies , then an   exists satisfying above two.
+
+- The sampling theorem
+
+DTFT
+
+
+
+I-FT
+
+
+
+>  continuous  function baseband-limited to . Then
+>
+>  - The sum above (pointwise) converges to  for each t
+>  - is bounded at each t by 
+
+
+
+- **Baseband-limited**
+
+is the point inverse Fourier tranform of  that is 0 for , there is a unique  and it is continuous.
+
+- The sampling theorem hods with pointwise convergence, whereas the DTFT holds only in the  sense.
+
+- Both the DTFT and the sampling theorem expansion are orthogonal expansions.
+
+
+
+- Sampling theorem for transmission
+
+> , an arbitrary sequence satisfying , then
+>
+> -  converges pointwise to a continuous bounded  function  that is baseband-limited to W and satisfies 
+
+## 4.8 Summary
+
+- encoding souce waveforms
+
+- expand the waveform into an orthogonal expansion
+- quantize the coefficients in that expansion
+- use discrete source coding on the quantizer output
+
+- encodign waveforms to be transmitted over channels
+
+- map the incoming sequence of binary digits into a sequence of real or complex symbols
+- use the symbols as coefficients in an orthogonal expansion
+
+- These powerful  become important both when the waveforms are sample functions of random processes and when one wants to find limits on possible performance. In both of these situations, one is dealing with a large class of potential waveforms, rather than a single waveform, and these general results become important.
+
+> Why?

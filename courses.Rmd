@@ -1,0 +1,21 @@
+---
+title: "Courses"
+output: html_document
+---
+
+## Statistics
+
+[Duke Sta 523, Statistical Programming, Fall 2017 - Notes](./course_duke_sta_523.html)
+
+[UW STAT 520, Spectral Analysis of Time Series, Spring 2017 - Notes](./course_uw_520.html)
+
+## Signal Processing & Communication
+
+[MIT EECS 6.450, Principles of Communications I, Fall 2006 - Notes](./course_mit_eecs_6_450_.html)
+
+[ZJU ISEE Principle of Communication, Spring 2018 - Notes](./course_zju_isee_communication.html)
+
+## [Other Course Websites](./course_websites.html)
+
+
+

@@ -1,0 +1,2145 @@
+---
+title: "Lin Gui"
+header-includes: \usepackage{linmacro}
+output:
+  html_document:
+    highlight: tango
+    mathjax: local
+    includes:
+      in_header: ./mathconfig.html
+
+---
+
+
+Hello! I'm Lin Gui, a senior student of icon: ion-university Zhejiang University, Hangzhou, China.
+
+This is my personal homepage.
+
+
+<i class="fa fa-file"></i>
+
+```{theorem}
+
+Here is 
+
+```
+
+<!--chapter:end:index.Rmd-->
+
+---
+title: "About This Website"
+---
+
+More about this website
+
+Hello!
+
+<!--chapter:end:about.Rmd-->
+
+---
+title: "Duke Sta 523: Statistical Programming, Fall 2017"
+output: html_document
+---
+
+[Course Websites](https://www2.stat.duke.edu/~cr173/Sta523_Fa17/)
+
+
+<!--chapter:end:course_duke_sta_523.Rmd-->
+
+---
+title: "MIT 6.450, Principles of Communications I, Fall 2006"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    mathjax: local
+    df_print: paged
+    includes:
+        in_header: ./mathconfig.html
+---
+
+[course website](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-450-principles-of-digital-communications-i-fall-2006/)
+
+# 1.Introduction
+
+- Source Encoder and Channel Encoder
+
+  why this?
+
+  **Shannon's Channel Separation Theorem**
+
+## 1.1 Standardized Interfaces And Layering
+
+## 1.2 Communucation sources
+
+- The study before 1948 was based on Fourier analysis - Nyquist theory
+
+- Chapter 2
+  source entrophy is equal to the minimum number of  binary digits per source symbol required to map the source output into binary digits in such a way that the source symbols may be retrieved from the encoded sequence.
+
+  data compression
+
+- Chapter 3  quantization
+
+- Chapter 4  sampling, the signal space approach
+
+## 1.3 Communication channels
+
+Chapter 7 Random processes
+
+Chapter 9 Randomly varying channels
+
+Chapter 6 modulation and demodulation
+
+Chapter 8 detection
+
+- channel coding theorem
+
+  more sophisticated coding schemes can achieve arbitrarily low error probability at any data rate above a value known as the channel capacity.
+  
+# 2.Coding for Discrete Sources
+
+## 2.1 Introduction
+
+## 2.2 Fixed-length codes for discrete sources
+
+_uniquely decodable_
+
+- the number of symbols in the source alphabet $M$
+
+  and L bits per source symbol encoded
+
+- encode $M^n$ (n-tuples, representing n successive symbols) rather than M to reduce L, which is encoded bits per original source symbol.
+  $$
+  \overline L = log_2M + \frac 1 n
+  $$
+
+
+
+
+
+
+
+
+
+
+
+## 2.3 Variable-length codes for discrete sources
+
+_parsing_
+
+- prefix-free code - Binary code tree
+
+  - uniquely decodability
+
+  - If a uniquely-decodable code exists with a certain set of codeword lengths, then a prefix-freecode can easily be constructed with the same set of lengths.
+
+    > Why?
+
+  - The decoder can decode each codeword of a prefix-free code immediately on the arrival of the last bit in that codeword.
+
+  - Given a probability distribution on the source symbols, it is easy to construct a prefix-freecode of minimum expected length.
+
+- The Kraft inequality for prefix-free codes
+
+> $$
+> \sum_{j=1}^M2^{-l(a_j)\leq 1}
+> $$
+>
+> Proof: to be done
+
+## 2.4 Probability models for discrete sources
+
+_discrete memoryless source(DMS)_ a semi-infinite iid sequence of random symbols
+
+## 2.5 Minumum $\overline L\ $for prefix-free codes
+
+- Lagrange multiplier solution
+
+  change tue constraint from $\leq$ to $=$
+
+  for every $\lambda$, there **might** exist one optimizing choice
+
+  supposing that **this $$\lambda$$ **function exists one optimizing choice, that is, this function exists minimal point
+
+  > $$
+  > \overline L_{min} = -\sum_{j=1}^Mp_j\log p_j
+  > $$
+  >
+  > The process need to be paid attention to
+
+  a lower bound to L for prefix-free codes
+
+- ​
+
+  > $$
+  > H[X]\leq \overline L_{min} < H[X]+1
+  > $$
+  >
+  > Proof:to be done 
+
+
+- Huffman's algorithm
+
+  > Proof: to be done P30
+
+## 2.6 Entropy and fixed-to-variable-length codes
+
+- the entropy of a random symbol $X^N$, i.i.d,
+  $$
+  H[X^n]=nH[X]
+  $$
+
+
+
+
+
+
+
+
+
+> why?
+
+_fixed-to-variable-length_ mapping n-tuples to variable-length binary sequences
+
+- $\overline L$ can be mad as close to $H[X]$ as desired, that is,
+
+  Prefix-free source coding theorem
+  $$
+  H[X]\leq \overline L_{min,n}\le H[X]+\frac 1 n
+  $$
+
+
+
+
+
+
+
+
+
+## 2.7 The AEP and the source coding theorems
+
+- the weak law of large numbers
+
+  the variance of the sum increases with n and the variance of the normalized sum **decreases with n**
+  $$
+  \lim_{n\rightarrow \infty}\Pr \{|A_Y^n-\overline Y|\geq \varepsilon \}=0\\
+  A_Y^n=\frac {Y_1+\cdots+Y_n}{n}
+  $$
+
+- asymptotic equipartition property (AEP) 
+  $$
+  Y = W(X) = -\log p(X)\\
+  W(X^n)=W(X_1\cdots X_n)  \quad v.s. \quad  \\W(X_1)+\cdots+W(X_n)
+  $$
+  identical distribution above
+  $$
+  \Pr(|\frac {-\log p_{X^n}(X^n)}{n}-H[X]|\geq \varepsilon)\leq \frac{\sigma_W^2}{n\varepsilon^2}\\
+  $$
+  $T_\varepsilon^n$: those events $x^n$ which satisfies the relation above
+
+  As $n$ increases, however, $\varepsilon$ canbe slowly dereased, thus bringing the probability of the typical set closer  to 1 and simultaneously tightening the bounds on equiprobable strings.
+
+  > $T_\varepsilon^n$ the number estimation  AEP
+  >
+  > Proof: to be done P40
+
+- Fixed-to-fixed-length source coding theorems
+
+  $H[X] << logM$      $n(H[X]+\varepsilon)$ bits
+
+  Converse for fixed-to-fixed-length codes
+
+  $n(H[X]-\nu)$bits
+
+  > Proof: to be done
+
+  **Converse for general coders/decoders for iid sources**
+
+  > Proof: $2^m \quad m-string \rightarrow 2^m \quad n-string$
+  >
+  > the number of variable-length codewords is much less than that of fixed-length codewords in a fixed received bits based on the fact of the constraints of decoding(by time, i.e.) 
+  >
+  > **need further understanding ** P4142
+  
+# 4. Source and channel waveforms
+
+## 4.1 Introduction
+
+- A modulator, is to convert the incoming sequence of binary digits into a waveform in such a way that the noise-corrupted waveform at the receiver can, with high probability, be converted back into the original binary digits. 
+
+## 4.2 Fourier series
+
+Our interest here is almost exclusively in time-limited rather than periodic wave-forms.
+
+> $$
+> u(t)=\sumsub{k=-\infty}{\infty}\hat {u_k}e^{2\pi ikt/T}\rect (\frac t T)\\
+> \hat u_k=\frac 1 T \intsym{T/2}u(t)\etpin {kt/T}\d t
+> $$
+>
+
+-  *orthogonal*
+
+- energy
+  $$
+  \intsym{T/2}\abs{u(t)}^2\d t=T\sumsub{k=-\infty}{\infty}\abs{\hat u_k}^2\\
+  \intsym{T/2}\abs{u(t)-v(t)}^2\d t=T\sumsub{k}{}|\hat u_k-\hat v_k|^2
+  $$
+  The energy in the waveform difference is a common and reasonable measure of distortion.
+
+  > ??? When a finite-energy baseband waveform is modulated by that sinusoid up to passband, the resulting passband waveform has finite energy.
+
+## 4.3  $L_2$ functions and Lebesgue integration over 
+
+  The Lebesgue approximation splits the vertical axis into uniform segments and sums the height times width measure for each segment.
+
+  ![img](file://\\LINGUI-MAC\Share_Write\Open_Courses\2_信号处理、信息论、统计推断、通信\6_450_Principles_of_communication\contents\Pic\Lebesgue.png?lastModify=1522042451)
+
+- *measure*
+
+  *outer measure*  is essentially the measure of the smalles cover of A(countable union of intervals)
+  $$
+  \mu^o(A)=\inf_{B:B \text { covers }A}\mu(B)
+  $$
+  *measurable* 
+
+  > measurable if
+  > $$
+  > \mu^o(A)+\mu^o(\overline A)=T
+  > $$
+  > then
+  >
+  > if measurable, then its measure is the outer measure
+
+  The collection of measurable sets is closed under countable unions, contable intersections, and complementation.
+
+- *Lebesgue measurable*
+
+    > $\{t:u(t)<\beta\}$ is measurable for each $\beta$\\
+
+    _Lebesgue integral_
+
+    > $$
+    > \int u(t)\d t=\liminf n \sumsub{m=0}{\infty}m2^{-n}\mu_{m,n},\text{where  }\mu_{m,n}=\mu(t:m2^{-n}\leq u(t)< (m+1)2^{-n})
+    > $$
+    >
+
+    sets of zero measure can be ignored in integration
+    $$
+    \int u(t)\d t=\int v(t) \d t, u(t) =v(t)\,a.s.
+    $$
+
+
+
+
+
+
+​    (Two functions that are the same except on a set of zero measure are said to be equal almost everywhere, a.e.)
+
+- Measurability of functions defined by other functions
+
+  $$
+  \lim_ku_k(t)
+  $$
+
+- $L_1$ & $L_2$
+
+  $[-T/2,T/2]$, if $L_2$, then also $L_1$
+
+  ​
+
+## 4.4 Fourier series for  waveforms
+
+- >  $[-T/2,T/2],L_2$function, then
+  >
+  >  $$
+  >  \hat u_k=\frac 1 T\intsym{T/2}u(t)\etpin {kt/T}\d t
+  >  $$
+  >  exists and satisfies $\abs{\hat u_k}\leq 1/T\int\abs{u(t)}\d t<\infty$, and
+  >  $$
+  >  \liminf l \intsym {T/2}\abs{u(t)-\sumsub{k=-l}l\hat u_k\etpi {kt/T}}^2\d t=0
+  >  $$
+  >  Conversely, if $\sumsub{k=-\infty}{\infty}\abs{\hat u(k)}^2<\infty$, then $L_2,u(t)$ exists satisfied above two
+
+  Thus (4.19) asserts that  $u(t)$ can be approximated arbitrarily closely (in terms of difference energy) by finitely many terms in its Fourier series.
+
+- the sum doesn't converge pointwise to  $u(t)$ at each t
+
+  **particularly when discussing sampling and vector spaces, the concept of equivalence classes becomes relevant**
+
+- T-spaced truncated sinusoid expansion
+
+  P112
+
+## 4.5 Fourier transforms and  waveforms
+
+- Energy equation 
+   $$
+   \intinf \intfun u {v^*} t=\intinf\intfun {\hat u}{\hat v^*} f\\
+   \intinf \abs {u(t)}^2\d t=\intinf \abs{\hat u(f)}^2\d f
+   $$
+   *Spectral Density*
+
+- *measurable*
+  $$
+  \mu(A)=\liminf T \mu(A\cap[-T/2,T/2])
+  $$
+  ​
+
+  function measurable
+
+  iff $u(t)\rect (t/T)$ is measurable for all T>0
+
+  **two approaches to its Lebesgue integral**
+
+  * use the definition formula
+  * $\liminf T\intsym{T/2}u\d t$
+
+- $\sinc(t)$
+
+  **It is an example where the Riemman integral exists but the Lebesgue integral does not. **
+
+  **One can always use Lebesgue integration over [-A, A] and go to the limit , getting the same answer as the Riemmann integral provides.**
+
+- > $L_1$, then 
+  >
+  > -  $\hat u(f)=\intinf u(t)\etpin {ft}\d t$ exists 
+  > -  satisfies  $\abs{\hat u(f)}\leq \int\abs{u(t)}\d t$
+  > -  $\hat u(f)$ is a continuous function of $f$
+  > -  also applies to inverse transforms
+
+  ​
+
+  For $L_2$, The pointwise Fourier transform does not necessarily exist at each f, but that it does exist an  limit. However, the inverse transform exists in exactly the same sense.
+
+  > $$
+  > \hat u_A(f)=\intsym Au(t)\etpin {ft}\d t
+  > $$
+  >
+  > $L_2$, then $\hat u(f)$ exists satisfying 
+  >
+  > - $\liminf A\intinf\abs{\hat u(f)-\hat u_A(f)}^2\d f$
+  > - the energy equation
+
+  This not only guarantees the existence of a Fourier transform (up to  -equivalence), but also guarantees that it is arbitrarily closely approximated (in difference energy) by the continuous Fourier transforms of the truncated versions of  .
+
+  > $$
+  > u_B(t)=\intsym B \hat u(f)\etpi {ft} \d f
+  > $$
+  >
+  > $L_2$, $\hat u(f)$ is the Fourier transform above, then
+  >
+  > - $\liminf B\intinf \abs{u(t)-u_B(t)}^2\d t=0$
+
+  Specifically the inverse transforms of finite frequency truncations of the transform are continuous and converge to an $L_2$ limit as $B\rightarrow \infty$ 
+
+  $$
+  \hat u(f)=\text{l.i.m.}_{A\rightarrow \infty}\intsym A u(t)\etpin {ft}\d t\\
+  u(t)=\text{l.i.m.}_{B\rightarrow \infty}\intsym B\hat u(f)\etpi {ft}\d f
+  $$
+  The first integral above converges pointwise $u(t)$ if   is also  $L_1$, and in this case converges pointwise to a **continuous** function $\hat u(f)$. 
+
+- all the Fourier tranform relations **Except** differentiation hold for all  $L_2$ functions.
+
+## 4.6 The DTFT and the sampling theorem
+
+- The DTFT is the time-frequency dual of the Fourier series.
+
+  ​
+
+  Note that  has an inverse Fourier transform  which is thus baseband-limited to [-W, W]
+
+  > , then for each , the Lebesgue integral **above **exists and satisfies
+  >
+  > - ​
+  >
+  >
+  > - ​
+  > - ​
+  >
+  > if  satisfies , then an   exists satisfying above two.
+
+- The sampling theorem
+
+  DTFT
+
+  ​
+
+  I-FT
+
+  ​
+
+  >  continuous  function baseband-limited to . Then
+  >
+  >  - The sum above (pointwise) converges to  for each t
+  >  - is bounded at each t by 
+
+  ​
+
+- **Baseband-limited**
+
+   is the point inverse Fourier tranform of  that is 0 for , there is a unique  and it is continuous.
+
+- The sampling theorem hods with pointwise convergence, whereas the DTFT holds only in the  sense.
+
+- Both the DTFT and the sampling theorem expansion are orthogonal expansions.
+
+  ​
+
+- Sampling theorem for transmission
+
+  > , an arbitrary sequence satisfying , then
+  >
+  > -  converges pointwise to a continuous bounded  function  that is baseband-limited to W and satisfies 
+
+## 4.8 Summary
+
+- encoding souce waveforms
+
+  - expand the waveform into an orthogonal expansion
+  - quantize the coefficients in that expansion
+  - use discrete source coding on the quantizer output
+
+- encodign waveforms to be transmitted over channels
+
+  - map the incoming sequence of binary digits into a sequence of real or complex symbols
+  - use the symbols as coefficients in an orthogonal expansion
+
+- These powerful  become important both when the waveforms are sample functions of random processes and when one wants to find limits on possible performance. In both of these situations, one is dealing with a large class of potential waveforms, rather than a single waveform, and these general results become important.
+
+  > Why?
+
+
+
+#5 Vector spaces and signal space
+
+##5.1 Axioms and basic properties of vector spaces
+
+> vector space
+>
+> * Addition
+> * Scalar multiplication
+> * Distributive laws
+>   * $\alpha(v+u)=\alpha v+\alpha u$
+>   * $(\alpha+\beta)v=\alpha v+\beta v$
+
+* denote waveform $v(t)$ by $v$
+
+* finite-dimensional vector space
+
+  Basis
+
+## 5.2 Inner product spaces
+
+* definition
+
+  > * Hermitian symmetry: $\langle v,u\rangle=\langle u,v\rangle^*$
+  >
+  > * Hermitian bilinearity:
+  >   $$
+  >   \lrangle {\alpha v+\beta u,w}=\alpha \langle v,w\rangle+\beta\langle u,w\rangle\\
+  >   \langle v,\alpha u+\beta w\rangle =\alpha^*\langle v,u\rangle +\beta^* \langle v,w\rangle
+  >   $$
+  >
+  > * strict positivity $\langle v,v\rangle\geq 0$, with equality iff $v=0$
+
+  $\lVert v\rVert=\sqrt{\langle v,v\rangle}$
+
+  $cos(\angle(v,u))=\dfrac{\langle v,u\rangle}{\lVert v\rVert\lVert u\rVert}$
+
+* projection
+  $$
+  v_{|u}=\dfrac {\langle v,u\rangle}{\lVert u\rVert^2}u=\alpha u\\
+  $$
+
+  > $\alpha$ is unique, and $\langle v-\alpha u,u\rangle=0$
+
+* Schwarz Inequality
+
+  > $|\langle v,u\rangle|\leq\lVert v\rVert\lVert u\rVert$
+  >
+  > $\lVert v+u\rVert\leq \lVert v\rVert+\lVert u \rVert$
+
+* $L_2$
+  $$
+  \langle v,u\rangle=\int v(t)u^*(t)dt
+  $$
+  **a vector in an $L_2$ inner product space is an equivalence class of $L_2$ functions that are equal a.e.**
+
+## 5.3 Orthonormal bases and the projection theorem
+
+$$
+\langle \phi_j,\phi_k\rangle= \delta_{jk}\\
+v_{|\phi}=\langle v,\phi\rangle \phi\\
+v-v_{|\phi} \perp \phi
+$$
+
+* Projection theorem
+
+  > $S$ is an n-dimensional subspace of $V$, then
+  > $$
+  > v_{|S}=\sum_{j=1}^n\langle v,\phi_j\rangle\phi_j
+  > $$
+  > Proof: $\langle v-w,\phi_j\rangle=0$
+
+  Corollary
+  $$
+  \lVert v_{|S}\rVert^2=\sum_j|\langle v,\phi_j\rangle|^2\\
+  \lVert v\rVert^2=\lVert v_{|S}\rVert^2+\lVert v_{\perp S}\rVert^2\\
+  0\leq \lVert v_{|S}\rVert^2=\sum_j|\langle v,\phi_j\rangle|^2\leq \lVert v\rVert^2\\
+  \lVert v-v_{|S}\rVert^2\leq \lVert v-s\rVert^2
+  $$
+  Gram-Schimidt orthonormalization
+  $$
+  (s_{k+1})_{\perp S_k}=s_{k+1}-\sum_{j=1}^k\langle s_{k+1},\phi_j\rangle\phi_j\\
+  \phi_{k+1}=\dfrac{(s_{k+1})_{\perp S_k}}{\norm{(S_{k+1})_{\perp S_k}}}
+  $$
+
+* in $L_2​$
+  $$
+  \phi_k(t)=\sqrt \frac 1 Te ^{2\pi ikt/T}\rect(\frac tT)
+  $$
+  Infinite-dimensional projection
+
+  > $$
+  > \lim_{n\rightarrow \infty}\lVert u-\sum_{m=1}^n\alpha_m\phi_m\rVert=0,\alpha_m=\langle v,\phi_m\rangle\\
+  > \lVert u\rVert ^2=\sumsub{m}{}\abs{\alpha_m}^2
+  > $$
+  >
+  > Conversely, $\sum_k|\alpha_k|^2$, then $u$ exists satisfying above two
+
+  $u$ is interpreted as the projection of $v$ onto the infinite-dimensional subspace $S$ spanned by $\{\phi_m\}$
+
+  $u=v \rect(t/T)$
+
+  $\{\theta_k(t)=e^{2\pi ikt/Trect(t/T)}\}$ spans the space of $L_2$ functions over $[-T/2,T/2]$
+
+  By duality the T-spaced sinc functions span the space of baseband-limited $L_2$ functions
+
+
+
+
+
+
+# 7. Random processes and noise
+
+## 7.1 Introduction
+
+- This can be seen intuitively by accepting for the moment that different possible transmitted waveforms must have a difference of some minimum energy to overcome the noise. This difference reflects back to a required distance between signal points, which, along with a transmitted power constraint, limits the number of bits per signal that can be transmitted.
+
+## 7.2 Random processes
+
+_epoch_: there is one rv for each epoch
+
+- ​
+
+
+- $$
+  Z(t), Z(t,\omega),z(t)
+  $$
+
+- ​
+
+  ​
+  $$
+  Z(t)=\sum_k Z_k\phi_k(t)\\
+  U(t)=\sum U_ksinc(\frac {t-kT}{T})\\
+  Z(t)=\sum_kZ_ksinc(\frac {t-kT}{T})\\
+  $$
+
+- do not necessarily "look" random
+  $$
+  Z(t)=tZ
+  $$
+
+- ​
+  $$
+  K_z(t,\tau)=E[(Z(t)-\overline Z(t) )(Z(\tau)-\overline Z(\tau))]\\
+  =E[\tilde Z(t)\tilde Z(\tau)]
+  $$
+  usually have zero mean
+  $$
+  K_Z(t,\tau)=\sigma^2 \sum_k \phi_k(t)\phi_k(\tau)
+  $$
+
+- Many rules of thumb in engineering and statistics about noise are stated without any mention of Gaussian processes, but often are valid only for Gaussian processes.
+
+- assumption of zero-mean variables: only the fluctuations are analyzed, with the means added at the end.
+
+## 7.3 Gaussian rv
+
+$$
+  f_w(\omega)=\frac 1 {\sqrt{2\pi}}\exp (\frac{-w^2}2)\\
+  f_z(z)=\frac 1 {\sqrt{2\pi\sigma^2}}\exp(\frac{-(z-\overline Z)^2}{2\sigma^2})\\
+$$
+
+  _Jointly Gaussian_
+
+  ​	related as linear combinations of the same set of iid normal variables
+$$
+  \mathbf {Z=AW}
+$$
+  _zero-mean Gaussian process_
+
+> for all $n$ and all finite $t_1,\cdots, t_n$, $Z(t_1),\cdots,Z(t_n)$ is a jointly Gaussian set of random variables.
+
+- The covariance matrix
+  $$
+  K_Z=E[ZZ^T]=AE[WW^T]A^T=AA^T\\
+  f_w(w)=\frac 1 {(2\pi)^{n/2}}\exp(\frac {-w_1^2-\cdots -w_n^2}{2})=\frac 1 {(2\pi)^{n/2}}\exp(\frac {-||\mathbf w||^2}{2})
+  $$
+  **spherically symmetric**
+
+  **If A is nonsingular, it will be treated as a linear transform, $A=[a_1,...,a_n]$, $\{e_1,\cdots,e_2\}$ to $\{a_1,\cdots, a_n\}$, the volume(measure) of a small piece: 1 to $|det(A)|$**
+  $$
+  f_Z(z)=\frac{f_w(A^{-1}\mathbf z)}{|\det(A)|}\\
+  =\frac 1 {(2\pi)^{n/2}\sqrt{\det(K_Z)}}\exp(\frac 1 2 \mathbf z^TK_Z^{-1}\mathbf z)
+  $$
+  **depends only on the covariance matrix of Z and not directly on the matrix A-equivalent**
+
+  If $K_Z$ is singular, $f_Z(z)$ does not exist
+
+  The density above can be applied to any set of liearly independent rvs out of $Z_1,\cdots,Z_n$
+
+  > A zero-mean Gaussian process is specified by its covariance function $K(t,\tau)$
+
+- A is orthogonal
+  $$
+  AA^T=I_n\\
+  f_Z(\mathbf z)=\frac{\exp(-(1/2)z^Tz)}{(2\pi)^{n/2}}=\prod_{k=1}^n\frac{\exp(-z_k^2/2)}{\sqrt {2\pi}}
+  $$
+  The components of $Z$ are still normal and iid
+
+  $\{e_1W,...,e_nW\}$ to $\{a_1W,...,a_nW\}$, simply rotates the points in the plane.
+
+- _Principal axes_
+
+  $K_Z$ has $n$ real **orthonormal eigenvectors**, $q_1,...,q_n$, with real eigenvalues, $\lambda_1,...,\lambda_n$.
+  $$
+  z^TK_Z^{-1}z=\sum_k\lambda_k^{-1}|<z,q_k>|^2\\
+  \det(K_Z)=\prod \lambda_k\\
+  f_Z(z)=\prod_{k=1}^n\frac 1 {\sqrt{2\pi\lambda_k}}\exp(\frac{-|<z,q_k>|^2}{2\lambda_k})
+  $$
+
+  > proof: to be done
+
+  $\{z,q_k\}$ is the projection of z in the direction $q_k$
+
+  sample $\mathbf w$, projected in the sample $q_k$
+
+  $\{<Z,q_k>\}$ are statistically independent with variance $\{\lambda_k\}$, if we represent the rv Z using $q_1,...,q_n$ as a basis, then the components of Z in that coordinate system are independent random variables.
+
+  $q_k$ is only direction not rv. $$Z=AW=\sum_k\sqrt{\lambda_k}q_kq_k^TW=\sum_k\sqrt{\lambda_k}q_k(q_k^TW)$$, and $q_k^TW$ is the basic rv, $<Z,q_k>=<\sum_k\sqrt{\lambda_k}q_kq_k^TW, q_k>=\sqrt{\lambda_k}q^T_kW$, is also a basic rv.
+
+
+- Fourier transforms
+  $$
+  \hat f_Z(s)=E(\exp(-2\pi  is^T\mathbf Z))\\
+  X = a^TZ\\
+  \hat f_X(\omega)=E[\exp(-2\pi i\omega a^TZ)]=\exp(-\frac{(2\pi\omega)^2a^TK_Za}2)\\
+  let\,\omega=1,then\\
+  E[\exp(-2\pi i a^TZ)]=\hat f_Z(a)=\exp(-\frac{(2\pi)^2a^TK_za}{2})
+  $$
+
+
+
+
+
+## 7.4 Linear functionals and filters for random processes
+
+$
+
+Assume that the sample functions of $Z(t)$ are real $L_2$ waveforms.
+
+- Inner product
+
+$$
+V = <Z(t,\omega),g(t)>=\int Z(t,\omega)g(t)dt
+$$
+
+​       filtered process
+$$
+V(\tau)=\int Z(t)h(\tau-t)dt
+$$
+
+- over orthonormal expansions
+
+  all zero-mean Gaussian processes of interest can be defined in the following way
+  $$
+  Z(t)=\sum_kZ_k\phi_k(t)\\
+  $$
+  consider finite
+  $$
+  Z(t)=\sum_{k=1}^nZ_k\phi_k(t)\\
+  K_Z(t,\tau)=\sum_{k=1}^n\sigma_k^2\phi_k(t)\phi_k(\tau)\\
+  V=\int Z(t)g(t)dt=\sum_{k=1}^nZ_k\int\phi_k(t)g(t)dt\\
+  \sigma_V^2=E[V^2]=\sum_k\sigma_K^2|\langle\phi_k,g\rangle|^2
+  $$
+
+- Gaussian processes
+  $$
+  V(\tau)=\sum_kZ_k\int \phi_k(t)h(\tau-t)dt
+  $$
+
+  > $Z_k$ is a sequence of independent $N(0,\sigma_k^2)$, then
+  >
+  > - $Z_m=\int Z(t)g_m(t)$, are zero-mean jointly Gaussian
+  > - $V(\tau)$ is a zero-mean Gaussian process.
+
+- Covariance for linear functionals and filters
+  $$
+  E[V_jV_m]=\int\int g_j(t)K_Z(t,\tau)g_m(\tau)dtd\tau\\
+  K_V(r,s)=E[V(r)V(s)]\\
+  =\int\int h(r-t)K_Z(t,\tau)h(s-\tau)dtd\tau
+  $$
+  $h$ is a filter
+
+## 7.5 Stationarity and related concepts
+
+**keep an eye on the process from infinite to effectively nothions**
+
+- Stationary
+
+  > $F_{Z(t_1),,,Z(t_l)}(z_1,...,z_l)=F_{Z(t_1+\tau),...,Z(t_l+\tau)}(z_1,...,z_l)$
+
+  for a Gaussian process
+
+  > $\iff K_Z(t_1,t_2)=K_Z(t_1-t_2,0)$
+
+- Wide-sense stationary 
+
+  > - $E[Z(t_1)]=E[Z(0)]$
+  > - $K_Z(t_1,t_2)=K_Z(t_1-t_2,0)$
+
+  example
+  $$
+  V(t)=\sum_kV_ksinc(\frac{t-kT}T)\\
+  K_V(t,\tau)=\sigma^2_V\sum_k sinc(\frac {t-kT}{T})sinc(\frac{\tau-kT}T))
+  $$
+
+  > if $\{V_k\}$ are iid Gaussian, the process is not only WSS, but stationary, and $\tilde K_v(t-\tau)=\sigma_V^2sinc(\frac {t-\tau}T)$
+  >
+  > proof: to be done, and it's interesting considering sample theorem
+
+- effectively stationary within $[-T_0/2, T_0/2]$
+
+  > the joint prob. assignment for $t_1,...,t_n$ is the same as that for $t_1+\tau,...,t_n+\tau$  in $[-T_0/2,T_0/2]$
+
+  effectively WSS
+
+  > - $K_Z(t,\tau)$ is a function only of $t-\tau$ in $[-T_0/2,T_0/2]$
+  > - mean is constant
+
+  The difference between a stationary and effectively stationary random process for large $T_0$ is primarily a difference in the model.
+
+- Linear functionals
+  $$
+  V_m=\int_{-T_0/2}^{T_0/2} Z(t)g_m(t)\\
+  E[V_mV_j]=\int_{-T_0/2}^{T_0/2} \int_{-T_0/2}^{T_0/2} g_m(t)\tilde K_Z(t-\tau)g_j(\tau)d\tau dt
+  $$
+  Linear filters
+  $$
+  V(\tau)=\int Z(t)h(\tau-t)dt\\
+  K_V(t-\tau)=\int\int h(t-t_1)K_Z(t_1,t_2)h(\tau-t_2)dt_1dt_2
+  $$
+  $V(t)$ is WSS
+
+  > WSS within $[-T_0/2,T_0/2]$:  $h(t): [-A,A], T_0/2>A$, then
+  >
+  > its ample functions within $[-T_0/2+A, T_0/2-A]$
+  >
+  > proof: to be done
+
+  the interval of effective stationarity is reduced
+
+## 7.6 Stationarity in the frequency domain
+
+- a real $L_2$ function
+  $$
+  V=\int g(t)Z(t)dt\\
+  E[V^2]=\int g(t)[\tilde K_Z*g](t)dt\\
+  =\int g(t)\theta^*(t)dt=\int\hat g(f)\hat \theta^*(f)df\\=\int|\hat g(f)|^2S_Z(f)df\\=\int_0^\infty 2|\hat g(f)|^2S_Z(f)df
+  $$
+  $\tilde K_Z$ is $L_2$, real and symmetric, so its F-T is also $L_2$,real, symmetric, which is **spectral density** $S_Z(f)\geq 0$
+
+  by $|\hat g(f)|$'s arbitrary, $S_Z(f)\geq 0$, this means that a necessary property of any single-variable covariance function is that it have a nonnegative Fourier transform
+  $$
+  V_m=\int g_m(t)Z(t)dt\quad m=1,2\\
+  E[V_1V_2]=\int g_1(t)[\tilde K * g_2](t)dt\\
+  =\int\hat g_1(f)S_Z(f)\hat g_2^*(f)df
+  $$
+  if $\hat g_1(f)$ and $\hat g_2(f)$ have no overlap in frequency , $E[V_1V_2]=0$. Two linear functionals over different frequency ranges must be uncorrelated.
+
+  If Gaussian, then the functionals are independent.
+
+  **This means in essence that Gaussian noise in different frequency bands must be independent.**
+
+$$
+V_m=\int Z(t)\phi_m(t)dt\\
+  E[V_mV_j]=\frac {N_0} 2 \delta_{mj}
+$$
+
+## 7.7 White Gaussian noise
+
+- The reason of the supposition that noise is zero-mean, stationary and Gaussian
+
+  The covariance between the noise at two epochs dies out very rapidly as the interval between those epochs increases.
+
+  For area is equal to 1
+  $$
+  \tilde K_Z(t)\approx\delta(t)\\
+  E[V_1V_2^*]\approx \int g_1(t)g_2(t)dt\\
+  $$
+
+- _white Gaussian noise WGN_: area is equal to $N_0/2$
+  $$
+  \tilde K_Z(t)\approx (N_0/2)\delta(t)\\
+  E[V_m^2]=(N_0/2)\int g_m^2(t)dt\\
+  E[V_jV_m]=(N_0/2)\int g_j(t)g_m(t)dt\\
+  S_W(f)=N_0/2
+  $$
+  for orthonormal expansion
+  $$
+  E[V_jV_m]=(N_0/2)\delta_{jm}
+  $$
+  **the resulting rvs are iid **
+
+  WGN is viewed as a generalized zero-mean random process for which linear functionals are jointly Gaussian, for which variances and covariances are given by (7.63) and (7.64), and for which the covariance is formally taken to be $(N_0/2)\delta(t)$
+
+- The sinc expansion as an approximation to WGN
+  $$
+  Z(t)=\sum_kZ_ksinc(t-kT/T)\\
+  S_Z(f)=\sigma^2Trect(fT)
+  $$
+  making T sufficiently small
+
+  $N_0$ is the power per unit _positive frequency_
+
+  plus a linear filter
+  $$
+  S(f)=|\hat h(f)|^2\sigma^2Trect(fT)
+  $$
+  stationary Gaussian processes with arbitrary covariances can be generated from orthonormal expansions of Gaussian variables
+
+- Poisson process noise 
+
+  The Poisson distribution can be simply viewed as a limit of discrete-time process where the time axis is segmented into intervals of duration $\Delta$ and a pulse of width $\Delta$ arrives in each interval with probability $\Delta\rho$
+
+  When such a process is passed through a linear filter, the fluctuation of the output at each instant of time is approximately Gaussian if the filter is of sufficiently small bandwidth to integrate over a very large number of pulses.
+
+<!--chapter:end:course_mit_eecs_6_450_.Rmd-->
+
+---
+title: "UW 520, Spectral Analysis of Time Series, Spring 2017"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    number_sections: true
+    mathjax: local
+    df_print: paged
+    includes:
+        in_header: ./mathconfig.html
+---
+
+[Course Website](http://staff.washington.edu/dbp/s520/index.html)
+
+# Lecture 1
+
+* Lagged Scatter Plot
+
+  $x_{t+1}$ versus $x_t$
+
+  $\hat \rho_k$: sample ACS
+
+* Frequency Domain Modeling
+  $$
+  X_t=\mu+\sumsub{j=1}{N/2}[A_j\cos(2\pi f_jt)+B_j\sin(2\pi f_j t)]\\
+  E[A_j]=E[B_j]=0\\
+  \var{[A_j]}=\var[B_j]=\sigma^2\\
+  \cov\{A_j,A_k\}=\cov\{B_j,B_k\}=0,j\neq k\\
+  \cov\{A_j,B_k\}=0\\
+  $$
+  Spectrum
+  $$
+  \rho_k=\frac{\sumsub{j=1}{N/2}\sigma_j^2\cos(2\pi f_jk)}{\sumsub{j=1}{N/2}\sigma_j^2}\\
+  S_j\triangleq \sigma_j^2\\
+  \sumsub{j=1}{N/2}S_j=\sigma^2
+  $$
+
+* Nonparametric Estimation of $S_j$
+
+  $S_j=var\{A_j\}=var\{B_j\}$$
+
+  * yields
+    $$
+    A_j=\frac 2 N\sumsub{t=0}{N-1}X_t\cos(2\pi f_jt)\\
+    B_j=\frac 2 N\sumsub{t=0}{N-1}X_t\sin(2\pi f_j t)
+    $$
+
+  * $\hat S_j$
+    $$
+    \hat S_j\triangleq\frac {A_j^2+B_j^2}{2}
+    $$
+
+  * assumption of $S_j$
+    $$
+    S_j(\alpha,\beta)=\frac \beta{1+\alpha^2-2\alpha\cos(2\pi f_j)}
+    $$
+
+    > Why this assumption?
+
+    estimate
+    $$
+    \hat S_j(\hat\alpha,\hat\beta)=\frac {\hat\beta}{1+\hat\alpha^2-2\hat\alpha\cos(2\pi f_j)}
+    $$
+
+  * $\hat\alpha,\hat\beta$
+
+    $\rho_1\approx\alpha$, so let $\hat\alpha=\hat\rho_1$
+
+    From requirment:
+    $$
+    \sumsub{j=1}{N/2}\hat S_j(\hat\alpha,\hat\beta)=\frac 1 N\sumsub{t=1}{N}(X_t-\overline X)^2= \hat\sigma^2
+    $$
+    yileds estimation
+    $$
+    \hat\beta=\hat\sigma^2\left(\sumsub{j=1}{N/2}\frac 1{1+\hat\alpha^2-2\hat\alpha\cos(2\pi f_j)}\right)^{-1}
+    $$
+
+* Stationary
+  $$
+  E\bra {X_t}=\mu\\
+  \var\bra{X_t}=\sigma^2\\
+  \cov\bra{X_{t+k},X_t} =\rho_k\sigma^2
+  $$
+
+* extension model under stationary
+  $$
+  X_t=\mu+\intsym {1/2} \etpi{ft}\d Z(f)
+  $$
+  define $S(f)$
+  $$
+  \var\bra{\d Z(f)}=S(f)\d f
+  $$
+  fundamental relationship
+  $$
+  \intsym{1/2}S(f)\d f=\sigma^2\\
+  \rho_k\sigma^2=\intsym{1/2}S(f)\etpi{fk}\d f\\
+  S(f)=\sigma^2\suminf k \rho_k\etpin{fk}
+  $$
+  basic estimator - periodogram
+  $$
+  \hat S^{(p)}(f)\triangleq \frac 1 N\abs{\sumsub{t=0}{N-1}(X_t-\overline X)\etpin{ft}}^2
+  $$
+  > Where to derive it?
+
+  * badly biased
+  * $\var\bra{\h S^{(p)}(f)}=S^2(f)$ as $N\rightarrow\infty$ if $0<f<\frac 1 2 $
+
+* − testing theories (e.g., wind data)
+  − exploratory data analysis (e.g., rainfall data) 
+
+  − discriminating data (e.g., neonates)
+  − diagnostic tests (e.g., ARIMA modeling)
+  − assessing predictability (e.g., atomic clocks)
+
+
+
+# Lecture 2
+
+* Stochastic Processes
+
+* Stationary Processes
+
+  * $\bra{s_\tau}$ is positive semidefinite, i.e.
+
+  $$
+  \sumsub{j=0}{n-1}\sumsubtri k 0 {n-1} s_{t_j-t_k}a_ja_k\geq 0
+  $$
+  ​	for any $a$ and $t$
+
+  * var/cov matrix is Toeplitz
+
+    $a_{jj}=a_{kk}, a_{ij}=a_{ji}$
+
+  * $s_{-\tau}=s^*_\tau$
+
+* Moving Average Process
+
+  > $s_\tau$
+
+* Autoregressive Process
+
+* Harmonic Process
+  $$
+  X_t=\mu+\sumsubtri l 1 L A_l\cos(2\pi f_l t)+B_l\sin(2\pi f_l t)\\
+  =\mu+\sumsubtri l 1 L D_l\cos(2\pi f_l t+\phi_l)\\
+  D_l=A_l^2+B_l^2,\tan(\phi_l)=-B_l/A_l
+  $$
+  where $A,B$ are independent Gaussian RVs with **unit variance**
+
+  **stationary**
+  $$
+  s_\tau=\sumsubtri l 1 L \sigma^2_l\cos(2\pi f_l\tau)
+  $$
+
+  * $D_l^2/\sigma_l^2=(A_l^2+B_l^2)/\sigma_l^2$ has chi-square distribution with 2 degrees of freedom
+
+  $$
+  f_{D_l^2}(u)=\equtwo{e^{-u/(2\sigma_l^2)}/(2\sigma_l^2)}{u\geq 0}{0} {u<0}	
+  $$
+
+  ​	thus obey a Rayleigh distribution
+
+  * $\phi_l$ is uniformily distributed over $(-\pi,\pi]$ and independent of $D_l$
+
+    > Why uniformily?
+
+    $(A_l,B_l)\leftrightarrow(D_l,\phi_l)$
+
+  * $S_\tau=D^2\cos(2\pi f\tau)/2$
+
+
+* Stationary Processes as Models
+  $$
+  X_t=\a+\b t+Y_t\\
+  \h Y_t=X_t-\hat \a+\h\b t
+  $$
+  ​
+
+  detrended series by first differencing(filtering)
+  $$
+  X_t^{(1)}=X_t-X_{t-1}=\beta+Y_t^{(1)}
+  $$
+  ​
+  
+# Lecture 3
+$\sumsub{f}{}$: sum or integral
+
+* Continuous Time/Discrete Frequency: FS
+
+  * example
+    $$
+    g_p(t)=\frac{1-\phi^2}{1+\phi^2-2\phi\cos(t)}\\
+    g_{p,m}=\sumsubtri n {-m} m G_n\etpi{f_nt}=1+2\sumsubtri n 1 m \phi^n\cos(nt)
+    $$
+    $g_p$ and its Fourier approximation
+
+* Continuous Time/Continuous Frequency: FT
+
+  * Similarity Theorem
+    $$
+    \abs a^{1/2}g(at)\leftrightarrow G(f/a)/\abs a^{1/2}
+    $$
+
+  * Equivalent Width
+    $$
+    \text{width}_e\bra g=\intinf g(t)\d t/g(0)\\
+    =\frac 1 {\text{width}_e\bra G}
+    $$
+
+  * Fundamental Uncertainty Relationship
+
+    **if $g$ real and nonnegative with unit area, then $g$ is probability density function**
+
+    else, form $\tilde g(t)=g(t)/\intinf g(t)\d t$
+    $$
+    \sigma_g^2\times\sigma^2_G\geq 1/16\pi^2
+    $$
+    **with equality holding only in the Gaussian case**
+
+* Convolution Theorem
+
+  * example one
+    $$
+    h(t)=\sumsubtri l 1 LA_l\cos(2\pi f_l t+\phi_l)\\
+    g(t)=\frac 1 {\sqrt{2\pi\sigma^2}}e^{-t^2/2\sigma^2}\\
+    g*h(t)=\sumsubtri l 1 L e^{-(\sigma2\pi f_l)^2/2}A_lcos(2\pi f_l t+\phi_l)
+    $$
+
+    * freqencies $f_l$ and phases $\phi_l$ are unchanged
+    * to 1 as $f_l\rightarrow 0$, to 0 as $f_l\rightarrow\infty$
+    * reduce amplitudes of high frequency terms
+
+  * example two
+    $$
+    r(t)=\equtwo {1/2\delta}{-\delta\leq t\leq \delta} 0 {\text{otherwise}}
+    $$
+
+* Cross and Autocorrelations
+  $$
+  g\star h^*(t)\triangleq\intinf g(u+t)h^*(u)du\leftrightarrow G(\cdot)H^*(\cdot)\\
+  g\star g^*(t)\leftrightarrow\abs{G(\cdot)}^2
+  $$
+  **autocorrelation width**
+  $$
+  \text{width}_a\bra{g(\cdot)}=\text{width}_e\bra{g\star g^*(\cdot)}
+  $$
+
+* Discrete Time/Continuous Frequency: DTFT
+
+  $g(\cdot)$ has finite energy
+
+  $\bra{g_t}\leftrightarrow G_p(\cdot)$
+  $$
+  \bra{g_t\times r_t}\leftrightarrow(2m+1)G_p*D_{2m+1}
+  $$
+
+  * $(2m+1)D_{2m+1}$: sinc
+    * central lobe
+    * sidelobes
+    * cause: smear and leakage
+
+
+  * Cesara Sums
+
+    general method
+    $$
+    \t{sequence }\cdots,u_{-1},u_0,u_1,\cdots\\
+    s_m=\sumsym t m\\
+    a_m=\frac 1 m \sumsubtri j 0 {m-1} s_j=\sumsubtri {t}{-m}m\lrbra (){1-\frac{\abs t}{m}}u_t\\
+    \t{if }s_m\rightarrow s, \t{then }a_m\rightarrow s
+    $$
+    example
+    $$
+    G_{p,m}^{(C)}(f)=\sumsubtri t {-m}m(1-\frac{\abs t} m)g_t\etpin {ft}\rightarrow G_p(f)\\
+    =m\intsym{1/2} G_p(f')D_m^2(f'-f)\d f'
+    $$
+    _Fejer's kernel_
+
+    Advantage and disadvantage
+
+    * $D^2_m$ smaller sidelobes
+    * nonnegative sidelobes
+    * wider central lobe
+
+  * Aliasing
+
+    $\bra{g_t}\leftrightarrow G_p(\cdot)$
+
+    $g(\cdot)\leftrightarrow G(\cdot)$ and $g_t=g(t\Delta_t)$
+    $$
+    G_p(f)=\suminf k G(f+k/\Delta_t)
+    $$
+    highest $f$ that is not an alias one 
+    $$
+    f_n=\frac 1 {2\Delta t}
+    $$
+    ​
+
+* Discrete/Continuous Concentration Problem
+
+  $g_t$ real-valued & time-limited to $t=0,\dots,N-1$
+
+  **How close can $G_p()$ be to bandlimited?**
+
+  * concentration measure
+    $$
+    \b^2(W)=\frac{\intsym W\abs{G_p(f)}^2\d f}{\intsym {1/2}\abs{G_p(f)}^2}\\
+    \intsym W\abs{G_p(f)}^2\d f=g^TAg\\
+    \intsym{1/2}|G_p(f)|^2\d f=g^T g\\
+    g=[g_0,\dots,g_{N-1}]^T,A_{mn}=\frac{\sin(2\pi W(m-n))}{\pi(m-n)}\\
+    \b^2(W)=\frac{g^TAg}{g^Tg}
+    $$
+
+  * maximize $\beta^2(W)$
+    $$
+    Ag=\beta^2(W)g\\
+    Ag=\lambda g\\
+    0<\lambda_{N-1}(N,W)<\cdots<\lambda_0(N,W)<1
+    $$
+
+    > Why $\lambda_0(N,W)<1$
+
+    **first $2NW$ eigenvalues close to 1, after which $\lambda_k(N,W)$'s fall rapidly to 0.**
+
+* Discrete Time/Discrete Frequency: DFT
+
+
+
+
+# Lecture 4
+
+* Spectral Representation Theorem
+  $$
+  X_t=\sumsubtri l 1 L D_l\cos(\tp f_l t+\phi_l),t\in\mathbb{Z}
+  $$
+  only $\phi_l$ terms independent RVs, uniformly distributed over $[-\pi,\pi]$
+
+  $f_l$ ordered such that $0<f_l<f_{l+1}<1/2$
+  $$
+  X_t=\sumsym l L C_l\etpi {f_lt},C_l=\equtri{D_le^{i\phi_l}/2}{l=1,\cdots,L}{D_0=0}{l=0}{C^*_{-l}}{l=-L,\cdots,-1}\\
+  \var\bra{C_l}=D_l^2/4\\
+  \var\bra{X_t}=\sumsym l L \var\bra{C_l\etpi {f_l t}}=\sumsym l L D_l^2/4
+  $$
+  define _variance spectrum_ and complex-valued "jump" process on $[0,1/2]$
+  $$
+  S^{(V)}(f)=\equtwo {D_l^2/4}{f=f_l}0{\t{otherwise}}\\
+  Z(f)=\equtwo 0{f=0}{\sumsubtri j 0 lC_j}{f_l<f\leq f_{l+1}}\\
+  \d Z(f)=\equtri {Z(f+\d f)-Z(f)}{0\leq f\&f+\d f<1/2} 0 {f=1/2} {\d Z^*(-f)}{-1/2\leq f < 0}\\\t{so}\\
+  \d Z(f_l)=C_l; \d Z(f)=0,f\neq f_l\\
+  hence\\
+  E\bra{\d Z(f)}=0,\var\bra{\d Z(f)}=S^{(V)}(f)\\
+  \cov\bra{\d Z(f'),\d Z(f)}=0, ^\sim(f'=f=f_l)
+  $$
+  spectral representation
+  $$
+  X_t=\sumsubtri l {-L} L C_l\etpi{f_l t}=\intsym{1/2}\etpi{ft} \d Z(f)\\
+  \t{letting }L\rightarrow \infty
+  $$
+
+* Basic Consequences of Theorem
+
+  properties
+
+  * $E\bra{\d Z(f)}=0$
+  * $\var\bra{\d Z(f)}=E\bra{\abs{\d Z(f)}^2}=\d S^{(I)}(f)$
+  * $\cov\bra{\d Z(f'),\d Z(f)}=0$
+
+  $$
+  s_\tau=\intsym{1/2}\etpi {f\tau}\d S^{(I)}(f)
+  $$
+
+  if $S^{(I)}(\cdot)$ differentiable
+  $$
+  \d S^{(I)}(f)=S(f)\d f\\
+  s_\tau=\intsym{1/2}\etpi{f\tau}S(f)\d f
+  $$
+  if $S(\cdot)$ square integrable
+  $$
+  S(f)=\suminf \tau s_\tau \etpin{f\tau}
+  $$
+
+* Extension to Other Stationary Process
+
+  > how to guarentee validity
+
+  $$
+  X(t)=\intinf \etpi{ft}\d Z(f)\\
+  s(\tau)=\intinf S(f)\etpi{f\tau}\d f\\
+  S(f)=\intinf s(\tau)\etpin{f\tau}\d\tau
+  $$
+
+* Basic Properties of $S^{(I)}(f)$
+
+  * $S^{(I)}(-1/2)=0$
+  * $S(f)\geq 0$
+  * $S(f)=S(-f)$
+  * nondecreasing
+  * $s_0=S^{(I)}(1/2)=\var\bra{X_t}$
+
+  **Wold's theorem**
+
+  $\newcommand{si}{S^{(I)}}$
+
+  >  $\bra{s_\tau}$ to be ACVS iff some stationary process $\bra{X_t}$ is existence of nondecreasing function $\si(\cdot)$ such that
+  >
+  >  * $\si(-1/2)=0$
+  >  * $\si(1/2)=\var\bra{X_t}$
+  >  * $s_\tau=\intsym{1/2}\etpi{f\tau}\d \si(f)$
+  >
+  >  proof : to be done.
+
+  example: white noise
+  $$
+  s_o=\sigma^2\\
+  \si(f)=\sigma^2(f+\frac 1 2)
+  $$
+  example: harmonic process
+  $$
+  X_t=\mu+\sumsubtri l 1 L A_l\cos(\tp f_l t)+B_l\sin(\tp f_l t)\\
+  s_\tau=\sumsym l L\frac{\sigma^2_l}2\etpi{f_l\tau},\sigma^2_0=f_0=0,\sigma_{-l}^2=\sigma_l^2,f_{-l}=-f_l
+  $$
+  $\si(\cdot)$ is a step function with jumps at $\pm f_l$ of size $\sigma_l^2/2$
+  $$
+  S(f)=\sumsym l L\frac{\sigma_l^2}2\delta(f-f_l)
+  $$
+
+* Classification of Spectra
+
+  $\si$ : always as a sum of up to three  canonical integrated spectra
+
+  * $\si_1$ is absolutely continuous
+    $$
+    \dtwof{\si (f)}{f}=S(f)
+    $$
+
+  * $\si_2$ is a step function: **ACVS** doesn't converge to zero as $\abs\tau\rightarrow \infty$
+
+  * $\si_3$ is a continuous singular function
+
+    * derivative is zero almost everywhere
+    * continuous
+    * strictly increasing
+
+ * Sampling and Aliasing
+    $$
+    X_t=X(t_0+t\Delta t)\\
+    S_{X_T}(f)=\suminf k S_{X(t)}(f+k/\Delta t),\quad\abs f\leq \frac 1 {2\Delta t}	
+    $$
+    ​
+
+    ​
+
+# Lecture 5
+
+* LTI
+  $$
+  \varepsilon_f(\cdot)=\etpi{ft}\rightarrow G(f)\varepsilon_f(\cdot):\t{eigenvalues and eigenfunctions}\\
+  $$
+  for $X(t)$
+  $$
+  X(t)=\intinf \etpi{ft}\d Z_X(f)\\
+  Y(t)=\intinf \etpi{ft} G(f)\d Z_X(f)=\intinf\etpi{ft}\d Z_Y(f)\\
+  \d Z_Y=G(f)\d Z_X(f)\\
+  \d \si_Y(f)=E\bra{\abs{\d Z_Y(f)}^2}=\abs{G(f)}^2\d \si_X(f)
+  $$
+  > the meaning of $\d Z_X(f)???$
+
+  if has SDF
+  $$
+  S_Y(f)=\abs{G(f)}^2S_X(f)
+  $$
+
+* LTI Digital Filters
+
+  **all LTI digital filters are essentially convolutions**
+  $$
+  L\bra{X_t}=\suminf u g_u X_{t-u}\triangleq Y_t
+  $$
+  determine $G(\cdot)$
+  $$
+  G(f)=\suminf u g_u\etpin{fu}
+  $$
+  **if $g(u)$ is real-valued, then $G(-f)=G^*(f),\abs{G(-f)}=\abs{G(f)}$**
+
+* SDF for MA(q) Process
+  $$
+  X_t=\varepsilon_t-\sumsubtri j 1 q \theta_{q,j}\varepsilon_{t-j}\\
+  S_X(f)=\abs{G(f)}^2S_\epsi(f)=\sigma_\epsi^2\abs{1-\sumsubtri j 1 q\theta_{q,j}\etpi{fj}}^2
+  $$
+
+* SDF for AR(p) Process
+  $$
+  X_t=\sumsubtri j 1 p \phi_{p,j}X_{t-j}+\epsi_t\\
+  S_\epsi(f)=\abs{G(f)}^2S_X(f)\\
+  S_X(f)=\frac{\sigma^2}{\abs{1-\sumsubtri j 1 p \phi_{p,j}\etpi{fj}}^2}
+  $$
+
+* Example: a smoother
+
+  * condition
+
+    * $\bra{g(u)}$ is of length $2K+1$ & $g_{-u}=g_u$
+
+    * define "locally smooth": "locally linear", that is
+      $$
+      \sumsym u {k} g_u[\a+\b(t-u)]=\a+\b t
+      $$
+      if we require $\sumsym u k g_u=1=G(0)$
+      
+
+
+
+<!--chapter:end:course_uw_520.Rmd-->
+
+---
+title: "Other Course Websites"
+output: html_document
+---
+
+## Statistics
+
+[Duke Sta 663, Statistical Computing and Computation](https://people.duke.edu/~ccc14/sta-663-2017/)
+
+<!--chapter:end:course_websites.Rmd-->
+
+---
+title: "Courses"
+output: html_document
+---
+
+## Statistics
+
+[Duke Sta 523, Statistical Programming, Fall 2017 - Notes](./course_duke_sta_523.html)
+
+[UW STAT 520, Spectral Analysis of Time Series, Spring 2017 - Notes](./course_uw_520.html)
+
+## Signal Processing & Communication
+
+[MIT EECS 6.450, Principles of Communications I, Fall 2006 - Notes](./course_mit_eecs_6_450_.html)
+
+[Other Course Websites](./course_websites.html)
+
+
+
+
+<!--chapter:end:courses.Rmd-->
+
+---
+title: "Anaconda & IPython"
+output:
+  html_document:
+    mathjax: local
+    toc: true
+    toc_float: true
+    includes:
+      in_header: ./mathconfig.html
+---
+
+## 3.Anaconda
+
+anaconda PYTHONPATH设置
+
+### 3.1 Ipython
+
+### 3.2 Conda
+
+<!--chapter:end:record_anaconda_ipython.Rmd-->
+
+---
+title: "Code Style"
+output:
+  html_document:
+    toc: true
+    toc_flat: true
+    mathjax: local
+    includes:
+      in_header: ./mathconfig.html
+---
+
+# Python Google Style
+
+ * 行不用反斜杠连接 用括号隐式连接
+
+ * 使用括号宁缺勿滥
+
+ * 缩进：4个空格
+
+   > long_function_name(var_one, var_two
+   >
+   > ​				      var_three)
+
+ * 顶级定义空两行(类 函数) 方法定义空一行
+
+ * 函数注释
+
+   ```python
+   """Summary
+
+   Contents
+
+   Args:
+   	var_one:
+   	var_two
+
+   Returns:
+   	Contents
+   	example:
+   	
+   	example_one
+   	
+   	Contents
+   	
+   Raises:
+   	Error:
+   """
+   ```
+
+   类注释
+
+   ```
+   """Summary
+
+   Contents
+
+   Attributes(公有属性):
+   	one：
+   	two:
+   “”“
+   ```
+
+   行尾注释： 至少离开代码2个空格
+
+* 导入格式： 每个导入独占一行 
+
+* 每个语句独占一行
+
+* 命名
+
+  非小写下划线命名: 类名 异常变量 OneTwo 全局常量:One_Two
+
+# Matlab Style
+
+
+<!--chapter:end:record_code_style.Rmd-->
+
+---
+title: "Git"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    df_print: paged
+    mathjax: local
+    includes:
+      in_header: ./mathconfig.html
+---
+
+# Git本地
+
+* 创建repository
+
+  ```
+  git init
+  ```
+
+* 添加文件
+
+  ```o
+  git add README.md
+  git commit -m "wrote a readme file"
+  ```
+
+* 查看状态(哪些修改了但是还未被add or commit)
+
+  ```
+  git status
+  ```
+
+* 查看文件最近一次的修改记录
+
+  ```
+  git diff README.md
+  ```
+
+* 版本历史记录
+
+  ```
+  git log
+  ```
+
+  一行
+
+  ```
+  git log --pretty=oneline
+  ```
+  分支图例
+
+  ```
+  git log --pretty=oneline --abbrev-commit
+  ```
+
+* 回退到上一版本
+
+  ```
+  git reset --hard HEAD^
+  ```
+
+  回退之后再前进的办法:
+
+  找到之前git log的commit id
+
+  ```
+  git reset --hard 62a733
+  ```
+
+  找不到怎么办?
+
+  ```
+  git reflog
+  ```
+
+* Working Directory: able to see
+
+  Repository: `.git`
+
+  working directory -> add -> stage(index)暂存区
+
+  stage -> commit -> branch master
+
+  分两步,要分清楚
+
+  > git 管理的是修改,而非文件(stage的概念)
+
+* 丢弃工作区的修改(平时改改错了)
+
+  ``` 
+  git checkout -- README.md
+  ```
+
+  * `README.md` 修改后还没add,没被放到暂存区,撤销修改回到和**repository**一模一样的状态
+  * 已经add到stage, 撤销修改回到stage里的状态
+  * 以repository 和stage为标杆
+
+  把暂存区(stage)的修改撤销掉(unstage)
+
+  ```
+  git reset HEAD README.md
+  ```
+
+* 删除
+
+  删除工作区
+
+  ```
+  rm README.md
+  ```
+
+  删除repository
+
+  ```
+  git rm READ.md
+  ```
+
+  工作区不小心删了,但是repository还有,恢复
+
+  ```
+  git checkout -- README.md
+  ```
+
+  ​
+# Github Terminal
+
+* 创建ssh
+
+  ```
+  ssh-keygen -t rsa -C linguizju@foxmail.com
+  ```
+
+  保存在了~/.ssh
+
+* 拷贝`id_rsa.pub` 到Github `Settings` `SSH keys`的 Key中
+
+  Title 随意
+
+* 连接测试
+
+  ```
+  ssh -T git@github.com
+  ```
+
+  > 一个电脑多个github account怎么办?
+
+* github 上创建 repository
+
+* 本地repository连接远程
+
+  ```
+  git remote add origin git@github.com:LinGuiZJU/Hello-World.git
+  ```
+
+  origin: 远程库
+
+* 把本地库内容推送到远程库上
+
+  ```
+  git push -u origin master 
+  ```
+
+  -u: 把本地的`master`和远程的`master` 分支关联起来,在以后的推送中或者拉取使可以简化命令
+
+  以后推送
+
+  ```
+  git push origin master
+  ```
+
+* 克隆远程库
+
+  ```
+  git clone git@github.com:LinGuiZJU/Hello-World.git
+  ```
+
+  **多人协作,每人各自远程克隆一份就可以了**
+
+  ​
+
+
+# 分支管理
+
+* 简介
+
+  * 只有master分支
+  * 创建dev HEAD和master指向一样
+  * 开发dev分支
+  * 让master指向dev分支HEAD指向的版本
+  * 删除dev分支
+
+* 实战
+
+  * 创建`dev`分支
+
+    ```
+    git checkout -b dev
+    ```
+
+    创建并切换等价于
+
+    ```
+    git branch dev
+    git checkout dev
+    ```
+
+  * 查看当前及所有分支
+
+    ```
+    git branch
+    ```
+
+  * 切换回`master`
+
+    ```
+    git checkout master
+    ```
+
+  * 把`dev`合并到`master`
+
+    > 把目标branch merge到当前branch
+
+    ```
+    git merge dev
+    ```
+
+  * delete dev branch
+
+    ```
+    git branch -d dev
+    ```
+
+* 鼓励使用分支完成某个任务,合并后再删掉分支,过程更安全
+
+* 解决冲突
+
+  不冲突: 当前branch按着目标branch修改,目标branch更新
+
+  冲突: 当前branch无法按着目标branch修改, 两个branch都更新了
+
+  * 打开冲突文件
+  * 修改后保存
+  * add commit
+
+  注意目标branch的head也自动指向了当前版本
+
+* 分支管理
+
+  ![1](https://cdn.liaoxuefeng.com/cdn/files/attachments/001384909239390d355eb07d9d64305b6322aaf4edac1e3000/0)
+
+  `master` merge `dev` 后 `dev`仍指向未merge(修改冲突)前的版本
+
+  ```
+  git merge --no-ff -m "merge with no-ff" dev
+  ```
+
+  —no-ff: 禁用 Fast forward
+
+* dev开发到一半 还没add commit, 但是要切换回master修bug
+
+  * 储藏工作现场
+
+    ```
+    git stash
+    ```
+
+  * 切换到别的分支工作
+
+  * 切换回`dev`,查看储藏的工作现场
+
+    ```
+    git stash list
+    ```
+
+  * 恢复并删除
+
+    ```
+    git stash apply
+    git stash drop
+    ```
+
+    或者一句命令
+
+    ```
+    git stash pop
+    ```
+
+  * 多个stash 恢复指定的stash
+
+    ```
+    git stash apply stash@{0}
+    ```
+
+# 多人协作
+
+* 查看远程库信息
+
+  ```
+  git remote
+  ```
+
+  更详细
+
+  ```
+  git remote -v
+  ```
+
+* 创建远程`origin`的`dev`branch到本地(clone 只能clone `master`)
+
+  ```
+  git checkout -b dev origin/dev
+  ```
+
+* push时候有冲突
+
+  * 指定本地dev 与远程`origin/dev`的链接
+
+    ```
+    git branch --set-upstream dev origin/dev
+
+    ```
+
+  * 重新pull一下即可
+
+    ```
+    git pull
+    ```
+
+    pull 后有可能合并冲突,修改后再push
+
+# 标签
+
+* 切换到要打标签的分支
+
+  ```
+  git tag v1.0	
+  ```
+
+* 查看标签
+
+  ```
+  git tag	
+  ```
+
+* 给历史版本打标签
+
+  ```
+  git tag v0.9 6244938
+  ```
+
+  **标签是按字母排序,而不是时间列出的**
+
+* 删除标签
+
+  ```
+  git tag -d v0.1
+  ```
+
+* 用标签push
+
+  ```
+  git push origin v1.0
+  ```
+
+  推送全部标签
+
+  ```
+  git push origin --tags
+  ```
+
+* 删除远程标签
+
+  * 本地删除
+
+    ```
+    git tag -d v0.9
+    ```
+
+  * 从远程删除
+
+    ```
+    git push origin :refs/tags/v0.9
+    ```
+
+    ​
+
+<!--chapter:end:record_git.Rmd-->
+
+---
+title: "Latex"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    mathjax: local
+    includes:
+      in_header: ./mathconfig.html
+
+---
+
+## Lin's Latex Commands and Mathjax Configuration
+
+\abs[1] $\abs 2$  
+\sinc $\sinc$  
+\rect $\rect$  
+\sgn $\sgn$  
+\d $\d$  
+\liminf[1] $\liminf t$  
+\intinf $\intinf $  
+\intf[2] $\intf 1 2$  
+\intsym[1] $\intsym 1$  
+\sumsub[2] $\sumsub a b$  
+\sumsubtri[3]  
+\prodsub[2] $\prodsub a b$  
+\prodsubtri[3] $\prodsubtri a 1 2$  
+\conv[4] $\conv f g t \tau$  
+\lrangle[1] $\lrangle a$  
+\lrbra[1] $\lrbra ( ) a$  
+\norm[1] $\norm a$  
+\rm[1] $\rm k$  
+\t[1] $\t {abc}$  
+\equtwo[4] $\equtwo 1 {x>0} 2{x\leq 0}$  
+\equtri[6] $\equtri 1 2 3 4 5 6$  
+\mattwo[4] $\mattwo 1 2 3 4$  
+\mattri[9] $\mattri 1 2 3 4 5 6 7 8 9$  
+---
+\bra[1] $\bra 1$  
+\sumsym[2] $\sumsym x 2$  
+\var $\var$  
+\cov $\cov$  
+\a $\a$  
+\b $\b$  
+\h[1] $\h a$  
+\etpi[1] $\etpi {t}$  
+\etpin[1] $\etpin t$  
+\tp $\tp$  
+
+```c
+        \\text
+        h: ["{\\hat {#1}}", 1],
+        a: "{\\alpha}",
+        b: "{\\beta}",
+        d: "{\\mathrm d}",
+                    w: "{\\omega}",
+        sinc: "{\\text{sinc}}",
+        rect: "{\\text{rect}}",
+        sgn: "{\\text{sgn}}",
+        var: "{\\text{var}}",
+        cov: "{\\text{cov}}",
+        t: ["{\\text {#1}}", 1],
+        tp: "{2\\pi}",
+        etpi: ["{e^{2\\pi i#1}}", 1],
+        etpin: ["{e^{-2\\pi i#1}}", 1],
+                    expn: ["{^{-{#1}}}", 1],
+        \\sum&int&lim
+        liminf: ["{\\lim\\limits_{#1\\rightarrow\\infty}}", 1],
+        intinf: "{\\int_{-\\infty}^{\\infty}}",
+        intf: ["{\\int_{#1}^{#2}}", 2],
+        intfun: ["{#1(#3)#2(#3)\\d #3}", 3],
+                    intinf: "{\\int_{-\\infty}^{\\infty}}",
+        intsym: ["{\\int_{-#1}^{#1}}", 1],
+        sumsym: ["{\\sum\\limits_{#1=-#2}^{#2}}", 2],
+        sumsub: ["{\\sum\\limits_{#1}^{#2}}", 2],
+        sumsubtri: ["{\\sum\\limits_{#1=#2}^{#3}}", 3],
+                    suminf: ["{\\sum\\limits_{#1=-\\infty}^\\infty}", 1],
+        prodsub: ["{\\prod\\limits_{#1}^{#2}}", 2],
+        prodsubtri: ["{\\prod\\limits_{#1=#2}^{#3}}", 3],
+        conv: ["{#1(#3)#2(#4-#3)\\d #3}", 4],
+        \\braces
+        bra: ["{\\{{#1}\\}}", 1],
+        lrbra: ["{\\left #1{#3}\\right #2}", 3],
+        lrangle: ["{\\langle #1\\rangle}", 1],
+        abs: ['\\left\\lvert #2 \\right\\rvert_{\\text{#1}}', 2, ""],
+        norm: ["{\\left\\lVert #1\\right\\rVert}", 1],
+        \\equation
+        equtwo: ["{\\begin{cases} #1&#2\\\\#3&#4\\end{cases}}", 4],
+        equtri: ["{\\begin{cases} #1&#2\\\\#3&#4\\\\#5&#6\\end{cases}}", 6],
+        \\matrices
+        mattwo: ["{\\begin{bmatrix} #1&#2\\\\#3&#4\\end{bmatrix}}", 4],
+        mattri: ["{\\begin{bmatrix} #1&#2&#3 \\\\ #4&#5&#6 \\\\ #7&#8&#9\\end{bmatrix}}", 9],
+		\\derivative
+		donef: ["{\\frac{\\d #1}{\\d x}}", 1],
+		done: "{\\frac{\\d}{\\d x}}",
+		dtwof: ["{\\frac{\\d {#1}}{\\d {#2}}}", 2],
+		dtwo:["{\\frac{\\d}{\\d {#1}}}", 1]
+```
+
+
+
+
+
+
+
+
+<!--chapter:end:record_latex.Rmd-->
+
+---
+title: "Linx"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    mathjax: local
+    includes:
+      in_header: ./mathconfig.html
+---
+
+* tree -N list Chinese filenames
+* ​
+
+
+<!--chapter:end:record_linux.Rmd-->
+
+---
+title: "Vim"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    mathjax: local
+    includes:
+      in_header: ./mathconfig.html
+---
+
+## 5.Vim Plugin
+
+### 5.1 NERDTree
+
+> 帮助:?
+> 根目录:C u U
+> 打开:o go
+> 收起:x X
+> 跳转:P p K J <C-J> <C-K>
+> 隐藏:I
+> 全屏:A
+
+### 5.2 Taglist
+
+<!--chapter:end:record_vim.Rmd-->
+
+---
+title: "Record"
+output: html_document
+---
+
+[Git](record_git.html)
+
+[Linux](record_linux.html)
+
+[Vim](record_vim.html)
+
+[Latex](record_latex.html)
+
+[Code Style](record_code_style.html)
+
+[Anaconda & IPython](record_anaconda_ipython.html)
+
+<!--chapter:end:record.Rmd-->
+
+---
+title: "Research"
+output: html_document
+---
+
+
+<!--chapter:end:research.Rmd-->
+

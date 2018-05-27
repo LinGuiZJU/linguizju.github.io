@@ -1,0 +1,164 @@
+# 2.Coding for Discrete Sources
+
+## 2.1 Introduction
+
+## 2.2 Fixed-length codes for discrete sources
+
+_uniquely decodable_
+
+- the number of symbols in the source alphabet $M$
+	
+	and L bits per source symbol encoded
+
+- encode $M^n$ (n-tuples, representing n successive symbols) rather than M to reduce L, which is encoded bits per original source symbol.
+$$
+	\overline L = log_2M + \frac 1 n
+	$$
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	## 2.3 Variable-length codes for discrete sources
+	
+	_parsing_
+	
+	- prefix-free code - Binary code tree
+	
+	- uniquely decodability
+	
+	- If a uniquely-decodable code exists with a certain set of codeword lengths, then a prefix-freecode can easily be constructed with the same set of lengths.
+	
+	> Why?
+		
+		- The decoder can decode each codeword of a prefix-free code immediately on the arrival of the last bit in that codeword.
+	
+	- Given a probability distribution on the source symbols, it is easy to construct a prefix-freecode of minimum expected length.
+	
+	- The Kraft inequality for prefix-free codes
+	
+	> $$
+		> \sum_{j=1}^M2^{-l(a_j)\leq 1}
+	> $$
+		>
+		> Proof: to be done
+	
+	## 2.4 Probability models for discrete sources
+	
+	_discrete memoryless source(DMS)_ a semi-infinite iid sequence of random symbols
+	
+	## 2.5 Minumum $\overline L\ $for prefix-free codes
+	
+	- Lagrange multiplier solution
+	
+	change tue constraint from $\leq$ to $=$
+		
+		for every $\lambda$, there **might** exist one optimizing choice
+	
+	supposing that **this $$\lambda$$ **function exists one optimizing choice, that is, this function exists minimal point
+	
+	> $$
+		> \overline L_{min} = -\sum_{j=1}^Mp_j\log p_j
+	> $$
+		>
+		> The process need to be paid attention to
+	
+	a lower bound to L for prefix-free codes
+	
+	- 
+	
+	> $$
+		> H[X]\leq \overline L_{min} < H[X]+1
+	> $$
+		>
+		> Proof:to be done 
+	
+	
+	- Huffman's algorithm
+	
+	> Proof: to be done P30
+	
+	## 2.6 Entropy and fixed-to-variable-length codes
+	
+	- the entropy of a random symbol $X^N$, i.i.d,
+	$$
+	H[X^n]=nH[X]
+	$$
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	> why?
+	
+	_fixed-to-variable-length_ mapping n-tuples to variable-length binary sequences
+	
+	- $\overline L$ can be mad as close to $H[X]$ as desired, that is,
+	
+	Prefix-free source coding theorem
+	$$
+	H[X]\leq \overline L_{min,n}\le H[X]+\frac 1 n
+	$$
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	## 2.7 The AEP and the source coding theorems
+	
+	- the weak law of large numbers
+	
+	the variance of the sum increases with n and the variance of the normalized sum **decreases with n**
+	$$
+	\lim_{n\rightarrow \infty}\Pr \{|A_Y^n-\overline Y|\geq \varepsilon \}=0\\
+	A_Y^n=\frac {Y_1+\cdots+Y_n}{n}
+	$$
+	
+	- asymptotic equipartition property (AEP) 
+	$$
+	Y = W(X) = -\log p(X)\\
+	W(X^n)=W(X_1\cdots X_n)  \quad v.s. \quad  \\W(X_1)+\cdots+W(X_n)
+	$$
+	identical distribution above
+	$$
+	\Pr(|\frac {-\log p_{X^n}(X^n)}{n}-H[X]|\geq \varepsilon)\leq \frac{\sigma_W^2}{n\varepsilon^2}\\
+	$$
+	$T_\varepsilon^n$: those events $x^n$ which satisfies the relation above
+	
+	As $n$ increases, however, $\varepsilon$ canbe slowly dereased, thus bringing the probability of the typical set closer  to 1 and simultaneously tightening the bounds on equiprobable strings.
+	
+	> $T_\varepsilon^n$ the number estimation  AEP
+	>
+	> Proof: to be done P40
+	
+	- Fixed-to-fixed-length source coding theorems
+	
+	$H[X] << logM$      $n(H[X]+\varepsilon)$ bits
+	
+	Converse for fixed-to-fixed-length codes
+	
+	$n(H[X]-\nu)$bits
+	
+	> Proof: to be done
+	
+	**Converse for general coders/decoders for iid sources**
+	
+	> Proof: $2^m \quad m-string \rightarrow 2^m \quad n-string$
+	>
+	> the number of variable-length codewords is much less than that of fixed-length codewords in a fixed received bits based on the fact of the constraints of decoding(by time, i.e.) 
+	>
+	> **need further understanding ** P4142

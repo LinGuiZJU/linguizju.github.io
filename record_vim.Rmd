@@ -1,0 +1,24 @@
+---
+title: "Vim"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    mathjax: local
+    includes:
+      in_header: ./mathconfig.html
+---
+
+## 5.Vim Plugin
+
+### 5.1 NERDTree
+
+> 帮助:?
+> 根目录:C u U
+> 打开:o go
+> 收起:x X
+> 跳转:P p K J <C-J> <C-K>
+> 隐藏:I
+> 全屏:A
+
+### 5.2 Taglist

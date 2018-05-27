@@ -1,0 +1,107 @@
+---
+title: "Latex"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    mathjax: local
+    includes:
+      in_header: ./mathconfig.html
+
+---
+
+## Lin's Latex Commands and Mathjax Configuration
+
+\abs[1] $\abs 2$  
+\sinc $\sinc$  
+\rect $\rect$  
+\sgn $\sgn$  
+\d $\d$  
+\liminf[1] $\liminf t$  
+\intinf $\intinf $  
+\intf[2] $\intf 1 2$  
+\intsym[1] $\intsym 1$  
+\sumsub[2] $\sumsub a b$  
+\sumsubtri[3]  
+\prodsub[2] $\prodsub a b$  
+\prodsubtri[3] $\prodsubtri a 1 2$  
+\conv[4] $\conv f g t \tau$  
+\lrangle[1] $\lrangle a$  
+\lrbra[1] $\lrbra ( ) a$  
+\norm[1] $\norm a$  
+\rm[1] $\rm k$  
+\t[1] $\t {abc}$  
+\equtwo[4] $\equtwo 1 {x>0} 2{x\leq 0}$  
+\equtri[6] $\equtri 1 2 3 4 5 6$  
+\mattwo[4] $\mattwo 1 2 3 4$  
+\mattri[9] $\mattri 1 2 3 4 5 6 7 8 9$  
+---
+\bra[1] $\bra 1$  
+\sumsym[2] $\sumsym x 2$  
+\var $\var$  
+\cov $\cov$  
+\a $\a$  
+\b $\b$  
+\h[1] $\h a$  
+\etpi[1] $\etpi {t}$  
+\etpin[1] $\etpin t$  
+\tp $\tp$  
+
+```c
+        \\text
+        h: ["{\\hat {#1}}", 1],
+        a: "{\\alpha}",
+        b: "{\\beta}",
+        d: "{\\mathrm d}",
+                    w: "{\\omega}",
+        sinc: "{\\text{sinc}}",
+        rect: "{\\text{rect}}",
+        sgn: "{\\text{sgn}}",
+        var: "{\\text{var}}",
+        cov: "{\\text{cov}}",
+        t: ["{\\text {#1}}", 1],
+        tp: "{2\\pi}",
+        etpi: ["{e^{2\\pi i#1}}", 1],
+        etpin: ["{e^{-2\\pi i#1}}", 1],
+                    expn: ["{^{-{#1}}}", 1],
+        \\sum&int&lim
+        liminf: ["{\\lim\\limits_{#1\\rightarrow\\infty}}", 1],
+        intinf: "{\\int_{-\\infty}^{\\infty}}",
+        intf: ["{\\int_{#1}^{#2}}", 2],
+        intfun: ["{#1(#3)#2(#3)\\d #3}", 3],
+                    intinf: "{\\int_{-\\infty}^{\\infty}}",
+        intsym: ["{\\int_{-#1}^{#1}}", 1],
+        sumsym: ["{\\sum\\limits_{#1=-#2}^{#2}}", 2],
+        sumsub: ["{\\sum\\limits_{#1}^{#2}}", 2],
+        sumsubtri: ["{\\sum\\limits_{#1=#2}^{#3}}", 3],
+                    suminf: ["{\\sum\\limits_{#1=-\\infty}^\\infty}", 1],
+        prodsub: ["{\\prod\\limits_{#1}^{#2}}", 2],
+        prodsubtri: ["{\\prod\\limits_{#1=#2}^{#3}}", 3],
+        conv: ["{#1(#3)#2(#4-#3)\\d #3}", 4],
+        \\braces
+        bra: ["{\\{{#1}\\}}", 1],
+        lrbra: ["{\\left #1{#3}\\right #2}", 3],
+        lrangle: ["{\\langle #1\\rangle}", 1],
+        abs: ['\\left\\lvert #2 \\right\\rvert_{\\text{#1}}', 2, ""],
+        norm: ["{\\left\\lVert #1\\right\\rVert}", 1],
+        \\equation
+        equtwo: ["{\\begin{cases} #1&#2\\\\#3&#4\\end{cases}}", 4],
+        equtri: ["{\\begin{cases} #1&#2\\\\#3&#4\\\\#5&#6\\end{cases}}", 6],
+        \\matrices
+        mattwo: ["{\\begin{bmatrix} #1&#2\\\\#3&#4\\end{bmatrix}}", 4],
+        mattri: ["{\\begin{bmatrix} #1&#2&#3 \\\\ #4&#5&#6 \\\\ #7&#8&#9\\end{bmatrix}}", 9],
+		\\derivative
+		donef: ["{\\frac{\\d #1}{\\d x}}", 1],
+		done: "{\\frac{\\d}{\\d x}}",
+		dtwof: ["{\\frac{\\d {#1}}{\\d {#2}}}", 2],
+		dtwo:["{\\frac{\\d}{\\d {#1}}}", 1]
+```
+
+
+## Texshop
+
+```
+% !TEX root = path/rootfile_name.tex
+```
+
+
