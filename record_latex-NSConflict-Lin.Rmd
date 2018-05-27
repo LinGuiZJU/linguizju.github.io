@@ -47,7 +47,7 @@ output:
 \etpin[1] $\etpin t$  
 \tp $\tp$  
 
-```c
+```
         \\text
         h: ["{\\hat {#1}}", 1],
         a: "{\\alpha}",
