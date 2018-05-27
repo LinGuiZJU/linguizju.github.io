@@ -9,9 +9,10 @@
 <meta name="generator" content="pandoc" />
 
 
+<meta name="author" content="Lin Gui" />
 
 
-<title>course_uw_520_lecture2.utf8</title>
+<title>UW 520</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -95,7 +96,7 @@
 
   });
 </script>
-<script type="text/javascript" src="./site_libs/mathjax-local/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" src="/Users/lin/Nustore Files/LinFile/lin_page//site_libs/mathjax-local/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -280,24 +281,6 @@ $(document).ready(function () {
     Courses
   </a>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fa fa-gear"></span>
-     
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li class="dropdown-header">Record</li>
-    <li class="divider"></li>
-    <li class="dropdown-header">Heading 2</li>
-    <li class="dropdown-header">Page C</li>
-    <li class="dropdown-header">Page D</li>
-  </ul>
-</li>
-<li>
-  <a></a>
-</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         
@@ -331,15 +314,30 @@ $(".main-container").removeClass("main-container").removeClass("container-fluid"
 
 
 
+<h1 class="title toc-ignore">UW 520</h1>
+<h3 class="subtitle"><em>Lecture 2 - Notes</em></h3>
+<h4 class="author"><em>Lin Gui</em></h4>
 
 </div>
 
-
-<div id="lecture-2" class="section level1">
-<h1>Lecture 2</h1>
+<div id="TOC">
 <ul>
-<li><p>Stochastic Processes</p></li>
-<li><p>Stationary Processes</p>
+<li><a href="#stochastic-processes"><span class="toc-section-number">1</span> Stochastic Processes</a><ul>
+<li><a href="#stationary-processes"><span class="toc-section-number">1.1</span> Stationary Processes</a></li>
+<li><a href="#moving-average-process"><span class="toc-section-number">1.2</span> Moving Average Process</a></li>
+<li><a href="#autoregressive-process"><span class="toc-section-number">1.3</span> Autoregressive Process</a></li>
+<li><a href="#harmonic-process"><span class="toc-section-number">1.4</span> Harmonic Process</a></li>
+<li><a href="#stationary-processes-as-models"><span class="toc-section-number">1.5</span> Stationary Processes as Models</a></li>
+</ul></li>
+</ul>
+</div>
+
+<p><span id="jump"></span></p>
+<p><a href="course_uw_520.html">Back</a></p>
+<div id="stochastic-processes" class="section level1">
+<h1><span class="header-section-number">1</span> Stochastic Processes</h1>
+<div id="stationary-processes" class="section level2">
+<h2><span class="header-section-number">1.1</span> Stationary Processes</h2>
 <ul>
 <li><span class="math inline">\(\bra{s_\tau}\)</span> is positive semidefinite, i.e.</li>
 </ul>
@@ -347,16 +345,25 @@ $(".main-container").removeClass("main-container").removeClass("container-fluid"
 \sumsub{j=0}{n-1}\sumsubtri k 0 {n-1} s_{t_j-t_k}a_ja_k\geq 0
 \]</span>  for any <span class="math inline">\(a\)</span> and <span class="math inline">\(t\)</span></p>
 <ul>
-<li><p>var/cov matrix is Toeplitz</p>
-<p><span class="math inline">\(a_{jj}=a_{kk}, a_{ij}=a_{ji}\)</span></p></li>
-<li><p><span class="math inline">\(s_{-\tau}=s^*_\tau\)</span></p></li>
-</ul></li>
-<li><p>Moving Average Process</p>
+<li>var/cov matrix is Toeplitz</li>
+</ul>
+<p><span class="math inline">\(a_{jj}=a_{kk}, a_{ij}=a_{ji}\)</span></p>
+<ul>
+<li><span class="math inline">\(s_{-\tau}=s^*_\tau\)</span></li>
+</ul>
+</div>
+<div id="moving-average-process" class="section level2">
+<h2><span class="header-section-number">1.2</span> Moving Average Process</h2>
 <blockquote>
 <p><span class="math inline">\(s_\tau\)</span></p>
-</blockquote></li>
-<li><p>Autoregressive Process</p></li>
-<li><p>Harmonic Process <span class="math display">\[
+</blockquote>
+</div>
+<div id="autoregressive-process" class="section level2">
+<h2><span class="header-section-number">1.3</span> Autoregressive Process</h2>
+</div>
+<div id="harmonic-process" class="section level2">
+<h2><span class="header-section-number">1.4</span> Harmonic Process</h2>
+<p><span class="math display">\[
 X_t=\mu+\sumsubtri l 1 L A_l\cos(2\pi f_l t)+B_l\sin(2\pi f_l t)\\
 =\mu+\sumsubtri l 1 L D_l\cos(2\pi f_l t+\phi_l)\\
 D_l=A_l^2+B_l^2,\tan(\phi_l)=-B_l/A_l
@@ -368,26 +375,31 @@ s_\tau=\sumsubtri l 1 L \sigma^2_l\cos(2\pi f_l\tau)
 <li><span class="math inline">\(D_l^2/\sigma_l^2=(A_l^2+B_l^2)/\sigma_l^2\)</span> has chi-square distribution with 2 degrees of freedom</li>
 </ul>
 <p><span class="math display">\[
-f_{D_l^2}(u)=\equtwo{e^{-u/(2\sigma_l^2)}/(2\sigma_l^2)}{u\geq 0}{0} {u&lt;0}    
+f_{D_l^2}(u)=\equtwo{e^{-u/(2\sigma_l^2)}/(2\sigma_l^2)}{u\geq 0}{0} {u&lt;0}  
 \]</span></p>
 <p> thus obey a Rayleigh distribution</p>
 <ul>
-<li><p><span class="math inline">\(\phi_l\)</span> is uniformily distributed over <span class="math inline">\((-\pi,\pi]\)</span> and independent of <span class="math inline">\(D_l\)</span></p>
+<li><span class="math inline">\(\phi_l\)</span> is uniformily distributed over <span class="math inline">\((-\pi,\pi]\)</span> and independent of <span class="math inline">\(D_l\)</span></li>
+</ul>
 <blockquote>
 <p>Why uniformily?</p>
 </blockquote>
-<p><span class="math inline">\((A_l,B_l)\leftrightarrow(D_l,\phi_l)\)</span></p></li>
-<li><p><span class="math inline">\(S_\tau=D^2\cos(2\pi f\tau)/2\)</span></p></li>
-</ul></li>
-<li><p>Stationary Processes as Models <span class="math display">\[
+<p><span class="math inline">\((A_l,B_l)\leftrightarrow(D_l,\phi_l)\)</span></p>
+<ul>
+<li><span class="math inline">\(S_\tau=D^2\cos(2\pi f\tau)/2\)</span></li>
+</ul>
+</div>
+<div id="stationary-processes-as-models" class="section level2">
+<h2><span class="header-section-number">1.5</span> Stationary Processes as Models</h2>
+<p><span class="math display">\[
 X_t=\a+\b t+Y_t\\
 \h Y_t=X_t-\hat \a+\h\b t
 \]</span></p>
 <p>detrended series by first differencing(filtering) <span class="math display">\[
-X_t^{(1)}=X_t-X_{t-1}=\beta+Y_t^{(1)}
+  X_t^{(1)}=X_t-X_{t-1}=\beta+Y_t^{(1)}
 \]</span></p>
-<p>​</p></li>
-</ul>
+<p>​ <a href="#jump">up</a></p>
+</div>
 </div>
 
   </div> <!-- articleBandContent -->
@@ -395,12 +407,12 @@ X_t^{(1)}=X_t-X_{t-1}=\beta+Y_t^{(1)}
 
 <div id="rStudioFooter" class="band full">
 <div class="bandContent">
-  <div id="copyright">© Copyright 2016 RStudio Inc.</div>
+  <div id="copyright">© Copyright 2018 Lin Gui.</div>
   <div id="logos">
-    <a href="https://twitter.com/rstudio" class="footerLogo twitter"></a>
-    <a href="https://github.com/rstudio" class="footerLogo gitHub"></a>
-    <a href="https://www.linkedin.com/company/rstudio-inc" class="footerLogo linkedIn"></a>
-    <a href="https://www.facebook.com/pages/RStudio-Inc/267733656584415" Class="footerLogo facebook"></a>
+    <!-- <a href="https://twitter.com/rstudio" class="footerLogo twitter"></a> -->
+    <a href="https://github.com/LinGuiZJU" class="footerLogo gitHub"></a>
+    <!-- <a href="https://www.linkedin.com/company/rstudio-inc" class="footerLogo linkedIn"></a> -->
+    <!-- <a href="https://www.facebook.com/pages/RStudio-Inc/267733656584415" Class="footerLogo facebook"></a> -->
   </div>
 </div>
 </div>

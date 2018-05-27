@@ -1,0 +1,177 @@
+---
+title: "UW 520"
+subtitle: "Lecture 7 - Notes"
+author: "Lin Gui"
+output:
+  html_document:
+    toc: true
+    number_sections: true
+---
+<span id="jump"></span>
+
+$\newcommand{dt}{\Delta_t}$
+
+$\newcommand{kd}{^{(d)}}$
+
+$\newcommand{\st}{s_\tau}$
+
+[Back](course_uw_520.html)
+
+# Smoothing $\h S\kd(\cdot)$ 
+
+## idea
+
+average $\h S\kd(\cdot)$ across frequencies
+
+
+^[**make sense if $S(\cdot)$ slowly varying**]
+$$
+S(f_{k-M})\approx \cdots\approx S(f_k)\approx\cdots\approx S(f_{k+M})
+$$
+
+
+## average-smoothing window 
+$$
+\overline S(f_k)\triangleq \frac 1{2M+1}\sumsym j M \h S^{(p)}(f_{k-j})\\
+\h S^{(ds)}(f'_k)\triangleq \sumsym j M g_j\h S\kd(f_{k-j}'),f_k'\triangleq \frac{k}{N'\dt}
+$$
+
+## Lag Window
+
+typically $N'\geq N$
+$$
+\h S^{(lw)}(f)\triangleq \intsym{f_N}V_m(f-\phi)\h S^{(d)}(\phi)\d \phi\\
+=\dt\sumsym \tau {(N-1)}v_{m,\tau}\st\kd \etpin{f\tau\dt}\\
+v_{m,\tau}\leftrightarrow V_m(\cdot)\\
+w_{m,\tau}\triangleq\equtwo{v_{m,\tau}}{\abs\tau<N}{0}{\abs\tau\geq N}\\
+\bra{w_{m,\tau}}\leftrightarrow W_m(\cdot)
+$$
+
+
+```{marginfigure}
+$V_m(\cdot)$, $2f_N$ periodic, typical shapes: Gaussian PDF or rectangular PDF
+
+$W_m(\cdot)$ is a standardized version of $V_m(\cdot)$
+```
+
+$$
+\bra{\st^{(lw)}}\leftrightarrow \h S^{(lw)}(\cdot)\\
+\st^{(lw)}\triangleq\equtwo{w_{m,\tau}\st\kd}{\abs\tau\leq N-1}{0}{\abs\tau\geq N}
+$$
+**filtering $\h S\kd$ to extract a 'signal' buried in substantial noise**
+
+
+## relationship between $\h S^{(ds)} $and $\h S^{(lw)}$
+$$
+\h S^{(ds)}(f_k')=\dt\sumsym\tau{(N-1)}v_{g,\tau}\st\kd\etpin{f_k'\tau\dt}\\
+v_{g,\tau}\triangleq\sumsym j M g_j\etpi{j\tau/N}
+$$
+all $\h S^{(ds)}$ can be expressed as $\h S^{(ls)}$
+$$
+\h S^{(lw)}(f'_k)=\sumsym j {(N-1)}g_j\h S\kd(f'_{k-j})\\
+g_j\triangleq \frac 1 {(2N-1)\dt}W_m(f_j')\\
+f'_k=\frac k{(2N-1)\dt}
+$$
+all $\h S^{(lw)}(\cdot)$  can be expressed as $\h S^{(ds)}(\cdot)$, the first avoids convolution and is preferable
+
+**$f_k'$ determine $f$**
+
+## Conditions
+
+* $\intsym {f_N}W_m(f)\d f=1\Leftrightarrow w_{m,0}=1\Leftrightarrow \sumsym j{(N-1)}g_j=1$
+* as $m\rightarrow \infty, W_m(\cdot)$ acts like a $\delta $ function
+* Sufficient(but not necessary ) for $\h S^{(lw)}(f)\geq 0$: $W_m(f)\geq 0$
+
+## Smoothing Window Bandwidth
+$$
+\b_W\triangleq \lrbra(){12\intsym {f_N}f^2W_m(f)\d f}^{1/2}\\
+=\frac 1 \dt \lrbra(){1+\frac {12}{\pi^2}\sumsubtri \tau 1 {N-1} \frac{(-1)^\tau}{\tau^2}w_{m,\tau}}^{1/2}
+$$
+
+* 12 gives rectangular $W_m$ its natural width
+* can be imaginary when $W_m(f)<0$ for some $f$
+
+second bandwidth measure
+$$
+B_W\triangleq \frac 1{\intsym{f_N}W_m^2(f)\d f}\\
+=\dfrac 1{\dt\sumsym\tau{(N-1)}w_{m,\tau}^2}
+$$
+
+[up](#jump)
+
+# First Moment Properties of $\h S^{(lw)}$
+
+## expectation
+$$
+  E\bra{\h S^{(lw)}(f)}=\intsym f_N \mathcal U_m(f-\phi)S(\phi)\d \phi\\
+  \mathcal U_m(f)=\intsym f_N W_m(f-f'')\mathcal H(f'')\d f''
+$$
+  2nd expression
+$$
+  E\bra{\h S^{(lw)}(f)}=\dt \sumsym \tau {(N-1)}\lrbra (){w_{m,\tau}\st\sumsubtri t 0 {N-\abs\tau-1}h_{t+\abs\tau}h_t}\etpin{f\tau\dt}\\
+  \mathcal U_m(f)=\dt \sumsym \tau {N-1}w_{m,\tau}(\sumsubtri t 0{N-\abs\tau - 1}h_th_{t+\abs\tau})\etpin{f\tau\dt}
+$$
+  compare
+$$
+  E\bra{\h S\kd(f)}=\intsym {f_N}\mathcal H(f-\phi)S(\phi)\d \phi
+$$
+
+## Bias
+
+$$
+  b_W(f)\triangleq \intsym{f_N}W_m(f-f') S(f')\d f'-S(f)\\
+  =\frac{S''(f)}2\intsym {f_N}\phi^2W_m(\phi)\d \phi=\frac{S''(f)}{24}\b_W^2
+$$
+
+> Proof: to be done
+
+Large Bias if either
+
+* $W_m(\cdot)$ is large
+* $S(\cdot)$ rapidly varying
+  
+[up](#jump)
+
+# 2nd Moment Properties 
+
+## assumpations
+
+* $\h S\kd(f'_j)$'s pairwise uncorrelated over $f'_j=\frac j{N'\dt}$
+
+* $J$ such that $2f_J'\approx \t{bandwidth of } W_m(\cdot)$
+
+  > bandwidth of $W_m(\cdot)$?
+
+* keeping away from 0 and Nyquist frequencies
+
+* $S(\cdot)$ slowly varying over $[f_k'-f_J', f_k'+f_J']$
+
+## approx
+
+$$
+\h S^{(lw)}(f_k')\approx\sumsym j J W_m(f'_j)\h S\kd(f_j'+f_k')\frac 1{N'\dt}\\
+\var\bra{\h S^{(lw)}(f'_k)}\approx \frac{S^2(f_k')}{N'\dt}\intsym{f_N}W_m^2(\phi)\d \phi\approx \frac{C_h S^2(f)}{B_WN\dt}\\
+N'\approx N/C_h, C_h=N\sumsubtri t 0{N-1}h_t^4
+$$
+
+^[what is $h_t$?]
+
+> * temporal window
+
+## properteis
+
+* $\var\bra{\h S^{(lw)}(f)}\Rightarrow \liminf N \dfrac 1{B_WN\dt}=0$
+* $\cov\bra{\h S^{(lw)}(f_j'),\h S^{(lw)}(f_k')}\approx 0$ if $\abs{f_j'-f_k'}>B_W$
+
+**in practice must be care ful not to make $B_W$ too big**
+
+> Why?
+
+[up](#jump)
+
+# Large Sample Distribution
+
+> to be done
+
+[up](#jump)
+

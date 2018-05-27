@@ -9,9 +9,10 @@
 <meta name="generator" content="pandoc" />
 
 
+<meta name="author" content="Lin Gui" />
 
 
-<title>course_uw_520_lecture4.utf8</title>
+<title>UW 520</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -95,7 +96,7 @@
 
   });
 </script>
-<script type="text/javascript" src="./site_libs/mathjax-local/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" src="/Users/lin/Nustore Files/LinFile/lin_page//site_libs/mathjax-local/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -280,24 +281,6 @@ $(document).ready(function () {
     Courses
   </a>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fa fa-gear"></span>
-     
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li class="dropdown-header">Record</li>
-    <li class="divider"></li>
-    <li class="dropdown-header">Heading 2</li>
-    <li class="dropdown-header">Page C</li>
-    <li class="dropdown-header">Page D</li>
-  </ul>
-</li>
-<li>
-  <a></a>
-</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         
@@ -331,14 +314,28 @@ $(".main-container").removeClass("main-container").removeClass("container-fluid"
 
 
 
+<h1 class="title toc-ignore">UW 520</h1>
+<h3 class="subtitle"><em>Lecture 4 - Notes</em></h3>
+<h4 class="author"><em>Lin Gui</em></h4>
 
 </div>
 
-
-<div id="lecture-4" class="section level1">
-<h1>Lecture 4</h1>
+<div id="TOC">
 <ul>
-<li><p>Spectral Representation Theorem <span class="math display">\[
+<li><a href="#spectral-representation-theorem"><span class="toc-section-number">1</span> Spectral Representation Theorem</a></li>
+<li><a href="#basic-consequences-of-theorem"><span class="toc-section-number">2</span> Basic Consequences of Theorem</a><ul>
+<li><a href="#extension-to-other-stationary-process"><span class="toc-section-number">2.1</span> Extension to Other Stationary Process</a></li>
+</ul></li>
+<li><a href="#basic-properties-of-sif"><span class="toc-section-number">3</span> Basic Properties of <span class="math inline">\(S^{(I)}(f)\)</span></a></li>
+<li><a href="#classification-of-spectra"><span class="toc-section-number">4</span> Classification of Spectra</a></li>
+</ul>
+</div>
+
+<p><span id="jump"></span></p>
+<p><a href="course_uw_520.htmls">Back</a></p>
+<div id="spectral-representation-theorem" class="section level1">
+<h1><span class="header-section-number">1</span> Spectral Representation Theorem</h1>
+<p><span class="math display">\[
 X_t=\sumsubtri l 1 L D_l\cos(\tp f_l t+\phi_l),t\in\mathbb{Z}
 \]</span> only <span class="math inline">\(\phi_l\)</span> terms independent RVs, uniformly distributed over <span class="math inline">\([-\pi,\pi]\)</span></p>
 <p><span class="math inline">\(f_l\)</span> ordered such that <span class="math inline">\(0&lt;f_l&lt;f_{l+1}&lt;1/2\)</span> <span class="math display">\[
@@ -356,8 +353,11 @@ E\bra{\d Z(f)}=0,\var\bra{\d Z(f)}=S^{(V)}(f)\\
 \]</span> spectral representation <span class="math display">\[
 X_t=\sumsubtri l {-L} L C_l\etpi{f_l t}=\intsym{1/2}\etpi{ft} \d Z(f)\\
 \t{letting }L\rightarrow \infty
-\]</span></p></li>
-<li><p>Basic Consequences of Theorem</p>
+\]</span></p>
+<p><a href="#jump">up</a></p>
+</div>
+<div id="basic-consequences-of-theorem" class="section level1">
+<h1><span class="header-section-number">2</span> Basic Consequences of Theorem</h1>
 <p>properties</p>
 <ul>
 <li><span class="math inline">\(E\bra{\d Z(f)}=0\)</span></li>
@@ -372,8 +372,9 @@ s_\tau=\intsym{1/2}\etpi {f\tau}\d S^{(I)}(f)
 s_\tau=\intsym{1/2}\etpi{f\tau}S(f)\d f
 \]</span> if <span class="math inline">\(S(\cdot)\)</span> square integrable <span class="math display">\[
 S(f)=\suminf \tau s_\tau \etpin{f\tau}
-\]</span></p></li>
-<li><p>Extension to Other Stationary Process</p>
+\]</span></p>
+<div id="extension-to-other-stationary-process" class="section level2">
+<h2><span class="header-section-number">2.1</span> Extension to Other Stationary Process</h2>
 <blockquote>
 <p>how to guarentee validity</p>
 </blockquote>
@@ -381,8 +382,12 @@ S(f)=\suminf \tau s_\tau \etpin{f\tau}
 X(t)=\intinf \etpi{ft}\d Z(f)\\
 s(\tau)=\intinf S(f)\etpi{f\tau}\d f\\
 S(f)=\intinf s(\tau)\etpin{f\tau}\d\tau
-\]</span></p></li>
-<li><p>Basic Properties of <span class="math inline">\(S^{(I)}(f)\)</span></p>
+\]</span></p>
+<p><a href="#jump">up</a></p>
+</div>
+</div>
+<div id="basic-properties-of-sif" class="section level1">
+<h1><span class="header-section-number">3</span> Basic Properties of <span class="math inline">\(S^{(I)}(f)\)</span></h1>
 <ul>
 <li><span class="math inline">\(S^{(I)}(-1/2)=0\)</span></li>
 <li><span class="math inline">\(S(f)\geq 0\)</span></li>
@@ -409,26 +414,27 @@ X_t=\mu+\sumsubtri l 1 L A_l\cos(\tp f_l t)+B_l\sin(\tp f_l t)\\
 s_\tau=\sumsym l L\frac{\sigma^2_l}2\etpi{f_l\tau},\sigma^2_0=f_0=0,\sigma_{-l}^2=\sigma_l^2,f_{-l}=-f_l
 \]</span> <span class="math inline">\(\si(\cdot)\)</span> is a step function with jumps at <span class="math inline">\(\pm f_l\)</span> of size <span class="math inline">\(\sigma_l^2/2\)</span> <span class="math display">\[
 S(f)=\sumsym l L\frac{\sigma_l^2}2\delta(f-f_l)
-\]</span></p></li>
-<li><p>Classification of Spectra</p>
+\]</span></p>
+<p><a href="#jump">up</a></p>
+</div>
+<div id="classification-of-spectra" class="section level1">
+<h1><span class="header-section-number">4</span> Classification of Spectra</h1>
 <p><span class="math inline">\(\si\)</span> : always as a sum of up to three canonical integrated spectra</p>
 <ul>
 <li><p><span class="math inline">\(\si_1\)</span> is absolutely continuous <span class="math display">\[
-\dtwof{\si (f)}{f}=S(f)
-\]</span></p></li>
+  \dtwof{\si (f)}{f}=S(f)
+  \]</span></p></li>
 <li><p><span class="math inline">\(\si_2\)</span> is a step function: <strong>ACVS</strong> doesn’t converge to zero as <span class="math inline">\(\abs\tau\rightarrow \infty\)</span></p></li>
-<li><p><span class="math inline">\(\si_3\)</span> is a continuous singular function</p>
-<ul>
+<li><p><span class="math inline">\(\si_3\)</span> is a continuous singular function</p></li>
 <li>derivative is zero almost everywhere</li>
 <li>continuous</li>
-<li>strictly increasing</li>
-</ul></li>
-</ul></li>
+<li><p>strictly increasing</p></li>
 <li><p>Sampling and Aliasing <span class="math display">\[
- X_t=X(t_0+t\Delta t)\\
- S_{X_T}(f)=\suminf k S_{X(t)}(f+k/\Delta t),\quad\abs f\leq \frac 1 {2\Delta t} 
- \]</span></p></li>
+X_t=X(t_0+t\Delta t)\\
+S_{X_T}(f)=\suminf k S_{X(t)}(f+k/\Delta t),\quad\abs f\leq \frac 1 {2\Delta t} 
+\]</span></p></li>
 </ul>
+<p><a href="#jump">up</a></p>
 </div>
 
   </div> <!-- articleBandContent -->
@@ -436,12 +442,12 @@ S(f)=\sumsym l L\frac{\sigma_l^2}2\delta(f-f_l)
 
 <div id="rStudioFooter" class="band full">
 <div class="bandContent">
-  <div id="copyright">© Copyright 2016 RStudio Inc.</div>
+  <div id="copyright">© Copyright 2018 Lin Gui.</div>
   <div id="logos">
-    <a href="https://twitter.com/rstudio" class="footerLogo twitter"></a>
-    <a href="https://github.com/rstudio" class="footerLogo gitHub"></a>
-    <a href="https://www.linkedin.com/company/rstudio-inc" class="footerLogo linkedIn"></a>
-    <a href="https://www.facebook.com/pages/RStudio-Inc/267733656584415" Class="footerLogo facebook"></a>
+    <!-- <a href="https://twitter.com/rstudio" class="footerLogo twitter"></a> -->
+    <a href="https://github.com/LinGuiZJU" class="footerLogo gitHub"></a>
+    <!-- <a href="https://www.linkedin.com/company/rstudio-inc" class="footerLogo linkedIn"></a> -->
+    <!-- <a href="https://www.facebook.com/pages/RStudio-Inc/267733656584415" Class="footerLogo facebook"></a> -->
   </div>
 </div>
 </div>

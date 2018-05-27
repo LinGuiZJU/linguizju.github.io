@@ -98,7 +98,7 @@
 
   });
 </script>
-<script type="text/javascript" src="site_libs/mathjax-local/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" src="/Users/lin/Nustore Files/LinFile/lin_page//site_libs/mathjax-local/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -378,24 +378,6 @@ div.tocify {
     Courses
   </a>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fa fa-gear"></span>
-     
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li class="dropdown-header">Record</li>
-    <li class="divider"></li>
-    <li class="dropdown-header">Heading 2</li>
-    <li class="dropdown-header">Page C</li>
-    <li class="dropdown-header">Page D</li>
-  </ul>
-</li>
-<li>
-  <a></a>
-</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         
@@ -437,8 +419,7 @@ $(".main-container").removeClass("main-container").removeClass("container-fluid"
 <div id="-" class="section level1">
 <h1>第二章 确定性信号、随机变量与随机过程</h1>
 <ul>
-<li><p>Fourier级数与Fourier变换</p>
-<ul>
+<li><p>Fourier级数与Fourier变换</p></li>
 <li><p>表达式</p></li>
 <li><p>实函数的Hermitian性质</p></li>
 <li><p>泊松公式</p></li>
@@ -455,38 +436,38 @@ P(f)=\lim_{T\rightarrow \infty}\frac 1 T|X_T(f)|^2\\
 R_y(\tau)=R_x(\tau)\otimes h(\tau)\otimes h^*(-\tau)\\
 P_y(f)=P_x(f)|H(f)|^2
 \]</span></p></li>
-</ul></li>
-<li><p>窄带信号</p>
+<li><p>窄带信号</p></li>
+</ul>
 <p>复包络 <span class="math display">\[
-x(t)=A(t)\cos(2\pi f_0t+\Phi(t))\\
-=\Re\{A(t)e^{j(2\pi f_0t+\Phi(t))}\}=\Re\{z(t)\}
-\\=\Re\{x_l(t)e^{j2\pi f_0 t}\}\\
-=\Re\{x(t)+j\hat x(t)\}
-\]</span> 频域关系 <span class="math display">\[
-Z(f)=2u_{-1}(f)X(f)\\
-X_l(f)=Z(f+f_0)=2u_{-1}(f+f_0)X(f+f_0)\\
-\begin{equation}
-u_{-1}(f)=\left\{
-\begin{aligned}
-1 &amp; &amp;  f&gt;0\\
-1/2&amp; &amp; f=0 \\
-0 &amp; &amp; f&lt;0
-\end{aligned}
-\right.
-\end{equation}
-\]</span> Hilbert变换 <span class="math display">\[
-\hat x(t)=\frac 1 {\pi t}\otimes x(t)\\
-\hat X(f)=-j\sgn(f)X(f)\\
-\begin{equation}
--j\sgn(f)=\left\{
-\begin{aligned}
-e^{-j\frac \pi 2}, f&gt;0\\
-0,f=0\\
-e^{j\frac \pi 2},f&lt;0\\
-\end{aligned}
-\right.
-\end{equation}
-\]</span> 性质</p>
+  x(t)=A(t)\cos(2\pi f_0t+\Phi(t))\\
+  =\Re\{A(t)e^{j(2\pi f_0t+\Phi(t))}\}=\Re\{z(t)\}
+  \\=\Re\{x_l(t)e^{j2\pi f_0 t}\}\\
+  =\Re\{x(t)+j\hat x(t)\}
+  \]</span> 频域关系 <span class="math display">\[
+  Z(f)=2u_{-1}(f)X(f)\\
+  X_l(f)=Z(f+f_0)=2u_{-1}(f+f_0)X(f+f_0)\\
+  \begin{equation}
+  u_{-1}(f)=\left\{
+  \begin{aligned}
+  1 &amp; &amp;  f&gt;0\\
+  1/2&amp; &amp; f=0 \\
+  0 &amp; &amp; f&lt;0
+  \end{aligned}
+  \right.
+  \end{equation}
+  \]</span> Hilbert变换 <span class="math display">\[
+  \hat x(t)=\frac 1 {\pi t}\otimes x(t)\\
+  \hat X(f)=-j\sgn(f)X(f)\\
+  \begin{equation}
+  -j\sgn(f)=\left\{
+  \begin{aligned}
+  e^{-j\frac \pi 2}, f&gt;0\\
+  0,f=0\\
+  e^{j\frac \pi 2},f&lt;0\\
+  \end{aligned}
+  \right.
+  \end{equation}
+  \]</span> 性质</p>
 <ul>
 <li>偶函数的Hilbert变换为奇函数，奇函数的Hilbert变换为偶函数</li>
 <li>Hilbert两次变换是原函数的负数</li>
@@ -494,55 +475,57 @@ e^{j\frac \pi 2},f&lt;0\\
 <li><span class="math inline">\(\int x(t)\hat x(t)dt=\int \hat X(f)X^*(f)df=0\)</span></li>
 </ul>
 <p>同向低通成分与正交低通成分 <span class="math display">\[
-z(t)=x(t)+j\hat x(t)\\
-x_l(t)=x_c(t)+jx_s(t)\\
-\begin{equation}
-\left[
- \begin{aligned}
- x(t)\\
- \hat x(t)
- \end{aligned}
-\right]=
-\left[
-  \begin{array}{cc}
-  \cos(2\pi f_0t) &amp;  -sin(2\pi f_0t)\\
-  sin(2\pi f_0t) &amp; cos(2\pi f_0t)
-  \end{array}
-\right]
-\left[
-  \begin{array}{c}
+  z(t)=x(t)+j\hat x(t)\\
+  x_l(t)=x_c(t)+jx_s(t)\\
+  \begin{equation}
+  \left[
+   \begin{aligned}
+   x(t)\\
+   \hat x(t)
+   \end{aligned}
+  \right]=
+  \left[
+    \begin{array}{cc}
+    \cos(2\pi f_0t) &amp;  -sin(2\pi f_0t)\\
+    sin(2\pi f_0t) &amp; cos(2\pi f_0t)
+    \end{array}
+  \right]
+  \left[
+    \begin{array}{c}
+    x_c(t)\\
+    x_s(t)
+    \end{array}
+  \right]
+  \end{equation}\\
+  \left[
+   \begin{array}{}
   x_c(t)\\
   x_s(t)
-  \end{array}
-\right]
-\end{equation}\\
-\left[
- \begin{array}{}
-x_c(t)\\
-x_s(t)
- \end{array}
-\right]=
-\left[
- \begin{array}{cc}
-\cos(2\pi f_0 t) &amp; sin(2\pi f_0t)\\
--\sin(2\pi f_0 t) &amp; cos(2\pi f_0 t)
- \end{array}
-\right]=
-\left[
- \begin{array}{}
-x(t)\\
-\hat x(t)
- \end{array}
-\right]
-\]</span> 通过窄带系统 <span class="math display">\[
-H_l(f)=2u_{-1}(f+f_0)H(f+f_0)\\
-Y_l(f)=X_l(f)H_l(f)/2\\
-y_l(t)=x_l(t)\otimes h_l(t)/2
-\]</span></p></li>
-<li><p>随机变量</p>
+   \end{array}
+  \right]=
+  \left[
+   \begin{array}{cc}
+  \cos(2\pi f_0 t) &amp; sin(2\pi f_0t)\\
+  -\sin(2\pi f_0 t) &amp; cos(2\pi f_0 t)
+   \end{array}
+  \right]=
+  \left[
+   \begin{array}{}
+  x(t)\\
+  \hat x(t)
+   \end{array}
+  \right]
+  \]</span> 通过窄带系统 <span class="math display">\[
+  H_l(f)=2u_{-1}(f+f_0)H(f+f_0)\\
+  Y_l(f)=X_l(f)H_l(f)/2\\
+  y_l(t)=x_l(t)\otimes h_l(t)/2
+  \]</span></p>
+<ul>
+<li>随机变量</li>
+</ul>
 <p>离散随机变量的pdf <span class="math display">\[
-f(x)=\sum_{k=1}^K p_k\delta(x-x_k)\\
-\]</span> <span class="math display">\[Y=g(X)\]</span></p>
+  f(x)=\sum_{k=1}^K p_k\delta(x-x_k)\\
+  \]</span> <span class="math display">\[Y=g(X)\]</span></p>
 <blockquote>
 <p><span class="math inline">\(f_Y(y)=\sum_{k=1}^n\dfrac{f_X(x_k)}{|g&#39;(x_k)|}\)</span>，其中</p>
 <p><span class="math inline">\(y=g(x_1)=\cdots =g(x_n)\)</span></p>
@@ -558,16 +541,16 @@ f(x)=\sum_{k=1}^K p_k\delta(x-x_k)\\
 <p>Rayleigh 分布</p>
 <p>非中心<span class="math inline">\(\chi^2\)</span>分布</p>
 <p>Chebyche inequality and Chernof <span class="math display">\[
-\Pr(|X-E[X]|\geq\delta)\leq \frac {\sigma_x^2}{\delta^2}\\
-\Pr (Y\geq\delta)\leq E[e^{\lambda (Y-\delta)}]\\
-\Pr (Y\geq\delta)\leq e^{-\lambda^*\delta} E[e^{\lambda^*Y}]
-\]</span></p></li>
-<li><p>随机过程 <span class="math display">\[
-Cov(t_1,t_2)=E[(X(t_1)-\mu_X(t_1)(X(t_2)-\mu_x(t_2))]\\
-R(t_1,t_2)=E[X(t_1)X(t_2)]\\
-R_{XY}(t_1,t_2)=E[X(t_1)Y(t_2)]
-\]</span> Ergodic</p>
+  \Pr(|X-E[X]|\geq\delta)\leq \frac {\sigma_x^2}{\delta^2}\\
+  \Pr (Y\geq\delta)\leq E[e^{\lambda (Y-\delta)}]\\
+  \Pr (Y\geq\delta)\leq e^{-\lambda^*\delta} E[e^{\lambda^*Y}]
+  \]</span></p>
 <ul>
+<li><p>随机过程 <span class="math display">\[
+  Cov(t_1,t_2)=E[(X(t_1)-\mu_X(t_1)(X(t_2)-\mu_x(t_2))]\\
+  R(t_1,t_2)=E[X(t_1)X(t_2)]\\
+  R_{XY}(t_1,t_2)=E[X(t_1)Y(t_2)]
+  \]</span> Ergodic</p></li>
 <li><p>时间平均 <span class="math display">\[
 \langle g(x)\rangle=\lim_{t\rightarrow\infty}\frac 1 T \int_{-T/2}^{T/2}g(x(t))dt
 \]</span></p></li>
@@ -584,25 +567,25 @@ D[X(t)]=\lim_{T\rightarrow\infty}\frac 1 T\int_{-T/2}^{T/2}(x(t)-\mu_X)^2dt
 <li>交流功率 <span class="math inline">\(\sigma_X^2=R(0)-R(\infty)\)</span></li>
 </ul>
 <p>功率谱 <span class="math display">\[
-P_X(f)=\lim_{T\rightarrow\infty}\frac 1 T E[|\int X_T(t)e^{-j2\pi ft}dt|^2]\\
-R_X(\tau)\leftrightarrow P_X(f)
+  P_X(f)=\lim_{T\rightarrow\infty}\frac 1 T E[|\int X_T(t)e^{-j2\pi ft}dt|^2]\\
+  R_X(\tau)\leftrightarrow P_X(f)
 \]</span></p>
 <ul>
 <li>白噪声 <span class="math inline">\(P_X(f)=A,R_X(\tau)=A\delta(\tau)\)</span></li>
 </ul>
 <p>通过滤波器 <span class="math display">\[
-E[Y(t)]=E[X(t)]H(0)\\
-R_Y(\tau)=R_X(\tau)\otimes h(\tau)\otimes h(-\tau)\\
-P_Y(f)=P_X(f)|H(f)|^2\\
-R_{XY}(\tau)=R_{YX}(-\tau)=R_X(\tau)\otimes h([\tau])
+  E[Y(t)]=E[X(t)]H(0)\\
+  R_Y(\tau)=R_X(\tau)\otimes h(\tau)\otimes h(-\tau)\\
+  P_Y(f)=P_X(f)|H(f)|^2\\
+  R_{XY}(\tau)=R_{YX}(-\tau)=R_X(\tau)\otimes h([\tau])
 \]</span> 高斯过程</p>
-<p>​ 通过线性系统的输出仍然是高斯的</p></li>
-<li><p>平稳带限过程的Nyquist 采样 <span class="math display">\[
-X(t)=\sum_{k=-\infty}^\infty X(kT_s)sinc(2W(t-kT_s))\\
-T_s=\frac 1 {2W},sinc(x)=\frac {\sin \pi x}{\pi x}
-\]</span></p></li>
-<li><p>低通同相分量和低通正交分量</p>
+<p>​ 通过线性系统的输出仍然是高斯的</p>
 <ul>
+<li><p>平稳带限过程的Nyquist 采样 <span class="math display">\[
+  X(t)=\sum_{k=-\infty}^\infty X(kT_s)sinc(2W(t-kT_s))\\
+  T_s=\frac 1 {2W},sinc(x)=\frac {\sin \pi x}{\pi x}
+  \]</span></p></li>
+<li><p>低通同相分量和低通正交分量</p></li>
 <li><p>定义同确定性信号</p></li>
 <li><p>相关函数 <span class="math display">\[
 R_{X_c}(\tau)=R_{X_s}(\tau)=R_X(\tau)\cos(2\pi f_0\tau)+\hat R_X(\tau)\sin(2\pi f_0\pi)\\
@@ -621,28 +604,26 @@ P_X(f-f_0)+P_X(f+f_0)&amp;|f|&lt;f_0\\
 <li><p>正交性 <span class="math display">\[
 R_{X_cX_s}(0)=E[X_c(t)X_s(t)]=0​
 \]</span></p></li>
-</ul></li>
 </ul>
 </div>
 <div class="section level1">
 <h1>第三章</h1>
 <ul>
-<li><p>信道模型</p>
+<li>信道模型</li>
+</ul>
 <p>单输入、单输出 <span class="math display">\[
-e_o(t)=f[e_i(t)]+n(t)
-\]</span> 多输入、多输出 <span class="math display">\[
-e_{ol}(t)=f_l[e_{i1}(t),\cdots,e_{iM}(t)]+n_l(t),l=1,\cdots,N
-\]</span></p></li>
-<li><p>恒参信道:信道参数基本不随时间变化</p>
+  e_o(t)=f[e_i(t)]+n(t)
+  \]</span> 多输入、多输出 <span class="math display">\[
+  e_{ol}(t)=f_l[e_{i1}(t),\cdots,e_{iM}(t)]+n_l(t),l=1,\cdots,N
+  \]</span></p>
 <ul>
+<li><p>恒参信道:信道参数基本不随时间变化</p></li>
 <li><p>幅度-频率畸变<span class="math inline">\(h(f)\)</span></p>
 <p>通频带太窄或带内衰减不均匀</p>
 <p>码间干扰</p></li>
 <li><p>相位-频率畸变<span class="math inline">\(\phi(f)\)</span></p>
 <p>群延时频率特性 <span class="math inline">\(\tau(f)=\frac {\d \phi(f)}{\d f}\)</span></p></li>
-</ul></li>
-<li><p>随参信道</p>
-<ul>
+<li><p>随参信道</p></li>
 <li><p>短波电离层反射信道</p>
 <ul>
 <li>长距离通信</li>
@@ -663,67 +644,75 @@ P(d)\sim \abs d^{-n} m(d)r_0(d)
 </ul></li>
 <li><p>多径传输——以移动通信为例</p>
 <ul>
-<li><p>静止情况</p>
+<li>静止情况</li>
+</ul>
 <p>发送<span class="math inline">\(s_0(t)=a_0\exp\bra{j(2\pi f_0 t+\phi_0)}\)</span></p>
 <p>接收信号幅度<span class="math inline">\(\sim\sqrt{P(d)}a_0\)</span></p>
 <p>接受信号<span class="math inline">\(s(t)=\sumsubtri i 1 N a_is_0(t-\tau_i)\)</span> (<span class="math inline">\(N\)</span>条散射体反射来的信号和)</p>
 <p>表示 <span class="math display">\[
-s(t)=x(t-\overline \tau)\exp\bra{j2\pi f_0(t-\overline\tau)+j\phi_0}\\
-\tau_i=\overline \tau+\Delta\tau_i,\overline\tau=\frac 1 N\sumsubtri i 1 N\tau_i\\
-x(t)=a_0\lrbra []{\sumsubtri i 1 N a_i\exp\bra{-j2\pi f_0\Delta\tau_i}}
-\]</span></p></li>
-<li><p>运动情况</p>
+  s(t)=x(t-\overline \tau)\exp\bra{j2\pi f_0(t-\overline\tau)+j\phi_0}\\
+  \tau_i=\overline \tau+\Delta\tau_i,\overline\tau=\frac 1 N\sumsubtri i 1 N\tau_i\\
+  x(t)=a_0\lrbra []{\sumsubtri i 1 N a_i\exp\bra{-j2\pi f_0\Delta\tau_i}}
+  \]</span></p>
+<ul>
+<li>运动情况</li>
+</ul>
 <p>发送<span class="math inline">\(s(t)=x(t)\exp\bra{j(2\pi f_0t+\phi_0)}\)</span></p>
 <p><span class="math inline">\(x(t)=\sumsubtri i 1 N a_0a_i(t)\exp\bra{-j2\pi f_0\tau_i(t)}\)</span></p>
 <p>令 <span class="math display">\[
-R(t)=\sumsubtri i 1 N a_i(t)\cos(2\pi f_0\tau_i(t))\\
-S(t)=\sumsubtri i 0 N a_i(t)\sin(2\pi f_0\tau_i(t))\\
-x(t)=A(t)e^{j\Psi(t)}
-\]</span> 则 <span class="math display">\[
-x(t)=a_0(R(t)-jS(t))
-\]</span> <span class="math inline">\(R(t),S(t)\)</span>服从高斯分布(中心极限定理)</p>
-<p><span class="math inline">\(A(t)=\a_0\sqrt{R^2(t)+S^2(t)}\)</span>服从Rayleigh 分布</p></li>
-<li><p>多普勒频移</p>
+  R(t)=\sumsubtri i 1 N a_i(t)\cos(2\pi f_0\tau_i(t))\\
+  S(t)=\sumsubtri i 0 N a_i(t)\sin(2\pi f_0\tau_i(t))\\
+  x(t)=A(t)e^{j\Psi(t)}
+  \]</span> 则 <span class="math display">\[
+  x(t)=a_0(R(t)-jS(t))
+  \]</span> <span class="math inline">\(R(t),S(t)\)</span>服从高斯分布(中心极限定理)</p>
+<p><span class="math inline">\(A(t)=\a_0\sqrt{R^2(t)+S^2(t)}\)</span>服从Rayleigh 分布</p>
+<ul>
+<li>多普勒频移</li>
+</ul>
 <p>接受信号<span class="math inline">\(s(t)=a_o\exp\bra{j(2\pi f_0 t+\phi_0-2\pi \frac V\lambda t\cos\theta)}\)</span></p>
 <p><span class="math inline">\(f_d=\frac V\lambda \cos \theta\)</span> <span class="math display">\[
-x(t)=A_T(t)\exp\bra{j\Psi_T(t)}\exp\bra{j(2\pi f_0t+\phi_0)}\\
-A_T(t)=\bra{[a_0\sumsubtri i 1 N a_i(t)\cos\psi_i(t)]^2+[a_0\sumsubtri i 1 Na_i(t)\sin\psi_i(t)]^2}^{1/2}\\
-\Psi_T(t)=\arctan\frac{\sumsubtri i 1 N a_i(t)\sin\psi_i(t)}{\sumsubtri i 1 N a_i(t)\cos \psi_i(t)}\\
-\psi_i(t)=\phi_i(t)-2\pi\frac V\lambda t \cos\theta_i
-\]</span></p></li>
-<li><p>时间展宽</p>
+  x(t)=A_T(t)\exp\bra{j\Psi_T(t)}\exp\bra{j(2\pi f_0t+\phi_0)}\\
+  A_T(t)=\bra{[a_0\sumsubtri i 1 N a_i(t)\cos\psi_i(t)]^2+[a_0\sumsubtri i 1 Na_i(t)\sin\psi_i(t)]^2}^{1/2}\\
+  \Psi_T(t)=\arctan\frac{\sumsubtri i 1 N a_i(t)\sin\psi_i(t)}{\sumsubtri i 1 N a_i(t)\cos \psi_i(t)}\\
+  \psi_i(t)=\phi_i(t)-2\pi\frac V\lambda t \cos\theta_i
+  \]</span></p>
+<ul>
+<li>时间展宽</li>
+</ul>
 <p>脉冲宽度明显展宽</p>
 <p><span class="math inline">\(T_m\)</span>:多径的延时时间差</p>
 <p><span class="math inline">\(R(\Delta f)\)</span> 两个频差信号的相关性：信道的频率传递函数</p>
 <p><span class="math inline">\(\Delta F=\frac 1 {T_m}\)</span>: 相干带宽</p>
-<p><span class="math inline">\(W&lt;\Delta F\)</span> 频率非选择性衰落； <span class="math inline">\(W&gt;\Delta F\)</span> 频率选择性衰落</p></li>
-<li><p>频谱展宽</p>
+<p><span class="math inline">\(W&lt;\Delta F\)</span> 频率非选择性衰落； <span class="math inline">\(W&gt;\Delta F\)</span> 频率选择性衰落</p>
+<ul>
+<li>频谱展宽</li>
+</ul>
 <p>不同方向的反射体反射回来的信号具有不同的多普勒频移，导致频谱展宽</p>
 <p><span class="math inline">\(S_0(f)\leftrightarrow R(\Delta t)\)</span></p>
 <p>相关时宽<span class="math inline">\(T_0\)</span> :提供了信道衰落的快慢，通信信号的持续时间小于<span class="math inline">\(T_0\)</span>，则可以认为在通信过程中信道参数是不变的。</p>
-<p><span class="math inline">\(T_0=\dfrac 1 {f_d}\)</span></p></li>
-<li><p>多普勒功率谱密度</p>
+<p><span class="math inline">\(T_0=\dfrac 1 {f_d}\)</span></p>
+<ul>
+<li>多普勒功率谱密度</li>
+</ul>
 <p>移动接收机的速度: V</p>
 <p>基站发送的频率: <span class="math inline">\(f_0\)</span></p>
 <p>波长: <span class="math inline">\(\lambda\)</span></p>
 <p>散射信号入射角: <span class="math inline">\(\theta\)</span></p>
 <p>接受信号的多普勒频移: <span class="math display">\[
-f_d=\frac{V\cos\theta}\lambda =f_m\cos\theta
-\]</span> 接受信号在入射角<span class="math inline">\((\theta,\theta+\d \theta)\)</span>中的信号分量的功率 <span class="math display">\[
-P_{av}\abs{\d \theta}/2\pi
-\]</span> ​ <span class="math inline">\(P_{av}\)</span>为平均接受到的总功率</p>
+  f_d=\frac{V\cos\theta}\lambda =f_m\cos\theta
+  \]</span> 接受信号在入射角<span class="math inline">\((\theta,\theta+\d \theta)\)</span>中的信号分量的功率 <span class="math display">\[
+  P_{av}\abs{\d \theta}/2\pi
+  \]</span> ​ <span class="math inline">\(P_{av}\)</span>为平均接受到的总功率</p>
 <p>入射角从<span class="math inline">\(\theta\rightarrow \theta+\d \theta\)</span>, 相应频率从<span class="math inline">\(f\rightarrow f+\d f\)</span> <span class="math display">\[
-S(f)=\frac{P_{av}}\pi\cdot\abs{\frac{\d \theta}{\d f}}\\
-=\frac{P_{av}}{\pi}[f_m^2-(f-f_0)^2]\expn{1/2}\\
-R(\Delta t)=\t{IFT(S(f))}=J_0(2\pi f_m\Delta t)
-\]</span> ​ <span class="math inline">\(J_0(\cdot)\)</span>为一阶贝塞尔函数</p></li>
-</ul></li>
-</ul></li>
+  S(f)=\frac{P_{av}}\pi\cdot\abs{\frac{\d \theta}{\d f}}\\
+  =\frac{P_{av}}{\pi}[f_m^2-(f-f_0)^2]\expn{1/2}\\
+  R(\Delta t)=\t{IFT(S(f))}=J_0(2\pi f_m\Delta t)
+  \]</span> ​ <span class="math inline">\(J_0(\cdot)\)</span>为一阶贝塞尔函数</p></li>
 </ul>
 <p>​</p>
 <ul>
-<li><p>通信链路损耗和噪声</p>
-<ul>
+<li><p>通信链路损耗和噪声</p></li>
 <li><p>传输链路损耗</p>
 <p><span class="math inline">\(P_T\)</span>: 发射功率</p>
 <p><span class="math inline">\(P_R\)</span>: 接收机收到功率</p>
@@ -739,9 +728,7 @@ S_R(f)=2RkT
 S_n(f)=\frac{N_0}2\\
 N_0=kT
 \]</span></p></li>
-</ul></li>
-<li><p>信道容量与信道编码定理</p>
-<ul>
+<li><p>信道容量与信道编码定理</p></li>
 <li><p>信道容量 <span class="math display">\[
 I(X;Y)=H(X)-H(X|Y)\\
 =\sumsub x{}\sumsub y{}P_X(x)P_{Y|X}(y|x)\log \frac{P_{Y|X}(y|x)}{P_Y(y)}\\
@@ -776,8 +763,7 @@ C=W\log_2\bra{1+\frac P{N_0W}}\\
 <blockquote>
 <p>对单位的理解？？？</p>
 </blockquote>
-<p>​</p></li>
-</ul>
+<p>​</p>
 </div>
 <div id="-" class="section level1">
 <h1>第四章 模拟调制系统</h1>
@@ -788,26 +774,24 @@ c(t)=A_c\cos(\tp f_c t+\phi_c)
 \]</span></p>
 <ul>
 <li><p>调幅、调频、调相</p></li>
-<li><p>目的</p>
-<ul>
+<li><p>目的</p></li>
 <li>把基带信号变成带通信号，使适应于带通信道的要求</li>
 <li>通过展宽频带可以增加抗干扰能力</li>
-<li>频分复用使信号同时传输</li>
-</ul></li>
-<li><p>线性调制</p>
+<li><p>频分复用使信号同时传输</p></li>
+<li><p>线性调制</p></li>
+</ul>
 <p>已调信号和调制信号的<strong>频谱结构相同</strong>, 平移关系</p>
 <ul>
 <li>普通调幅 AM</li>
 <li>双边带抑制载波调幅 DSB-SC AM</li>
 <li>单边带调制 SSB</li>
-<li>残留边带调制 VSB</li>
-</ul></li>
-<li><p>非线性调制(角调制)</p>
+<li><p>残留边带调制 VSB</p></li>
+<li><p>非线性调制(角调制)</p></li>
+</ul>
 <p>增加新的频率成分，占用的频带远比调制信号频带宽</p>
 <ul>
 <li>调频 FM</li>
 <li>调相 PM</li>
-</ul></li>
 </ul>
 </div>
 <div class="section level2">
@@ -824,20 +808,20 @@ U(f)=\frac {A_c}2[M(f-f_c)e^{j\phi_c}+M(f+f_c)e^{-j\phi_c}]
 \]</span></p>
 <p>​ 平移两次，带宽增加一倍</p>
 <ul>
-<li><p>相关函数和功率谱</p>
+<li>相关函数和功率谱</li>
+</ul>
 <p><span class="math display">\[
-R_u(\tau)=\frac {A_c^2}2R_m(\tau)\cos(2\pi f_c\tau)\\
-P_u(f)=\frac{A_c^2}4[P_m(f-f_c)+P_m(f+f_c)]
-\]</span> 总功率<span class="math inline">\(P_u=R_u(0)=\dfrac{A_c^2}2P_m\)</span></p></li>
-<li><p>解调</p>
+  R_u(\tau)=\frac {A_c^2}2R_m(\tau)\cos(2\pi f_c\tau)\\
+  P_u(f)=\frac{A_c^2}4[P_m(f-f_c)+P_m(f+f_c)]
+  \]</span> 总功率<span class="math inline">\(P_u=R_u(0)=\dfrac{A_c^2}2P_m\)</span></p>
 <ul>
+<li><p>解调</p></li>
 <li><p>乘 <span class="math display">\[
 u(t)\cdot\cos(2\pi f_ct+\phi)=\frac 1 2 A_c m(t)\cos(\phi_c-\phi)+\frac 1 2A_cm(t)\cos(4\pi f_c t+\phi_c+\phi)
 \]</span></p></li>
 <li><p>低通滤波 <span class="math display">\[
 \tilde m(t)=\frac 1 2A_cm(t)\cos(\phi_c-\phi)
 \]</span> <span class="math inline">\(\phi=\phi_c\)</span></p></li>
-</ul></li>
 </ul>
 </div>
 <div id="am" class="section level3">
@@ -853,15 +837,13 @@ U(f)=\frac{A_c}2[e^{j\phi_c} aM_n(f-f_c)+e^{-j\phi_c}aM_n(f+f_c)+e^{j\phi_c}\del
 <p>​ 多了两个载波分量,带宽仍然增加一倍</p>
 <ul>
 <li><p>功率谱 <span class="math display">\[
-P_u(f)=\frac{A_c^2}4[\delta(f-f_0)+a^2P_{m_n}(f-f_0)+\delta(f+f_0)+a^2P_{m_n}(f+f_0)]
-\]</span> 总功率<span class="math inline">\(P_u=\dfrac{A_c^2}2+\dfrac{A_c^2}2 a^2P_{m_n}\)</span></p></li>
-<li><p>解调</p>
-<ul>
+  P_u(f)=\frac{A_c^2}4[\delta(f-f_0)+a^2P_{m_n}(f-f_0)+\delta(f+f_0)+a^2P_{m_n}(f+f_0)]
+  \]</span> 总功率<span class="math inline">\(P_u=\dfrac{A_c^2}2+\dfrac{A_c^2}2 a^2P_{m_n}\)</span></p></li>
+<li><p>解调</p></li>
 <li><p>包络检波</p>
 <p>解调设备简单,但对输入信噪比有要求</p></li>
 <li><p>相干解调</p>
 <p>不存在门限效应,需要一个同频同相的本地载波</p></li>
-</ul></li>
 </ul>
 </div>
 <div id="ssb" class="section level3">
@@ -873,50 +855,46 @@ P_u(f)=\frac{A_c^2}4[\delta(f-f_0)+a^2P_{m_n}(f-f_0)+\delta(f+f_0)+a^2P_{m_n}(f+
 </ul>
 </blockquote>
 <ul>
-<li><p>产生单边带信号</p>
-<ul>
+<li><p>产生单边带信号</p></li>
 <li><p>滤波法</p>
 <p>对边带滤波器要求较高,不易实现</p></li>
 <li><p>正交法</p>
 <ul>
 <li><p>时域和频谱 <span class="math display">\[
-u_\mp(t)=A_cm(t)\cos(\tp f_ct)\mp A_c\h m(t)\sin(\tp f_ct)\\
-U_\mp(t)=\frac{A_c}2[M(f-f_c)+M(f+f_c)]\mp\frac{A_c}{2j}[\h M(f-f_c)-\h M(f+f_c)]\\
-\h M(f-f_c)=\equtri{-jM(f-f_c)}{f&gt;f_c}{jM(f-f_c)}{f&lt;f_c}{0}{f=f_c}\\
-\h M(f+f_c)=\equtri{-jM(f+f_c)}{f&gt;-f_c}{jM(f+f_c)}{f&lt;-f_c}{0}{f=-f_c}
-\]</span></p></li>
+  u_\mp(t)=A_cm(t)\cos(\tp f_ct)\mp A_c\h m(t)\sin(\tp f_ct)\\
+  U_\mp(t)=\frac{A_c}2[M(f-f_c)+M(f+f_c)]\mp\frac{A_c}{2j}[\h M(f-f_c)-\h M(f+f_c)]\\
+  \h M(f-f_c)=\equtri{-jM(f-f_c)}{f&gt;f_c}{jM(f-f_c)}{f&lt;f_c}{0}{f=f_c}\\
+  \h M(f+f_c)=\equtri{-jM(f+f_c)}{f&gt;-f_c}{jM(f+f_c)}{f&lt;-f_c}{0}{f=-f_c}
+  \]</span></p></li>
 <li><p>解调 <span class="math display">\[
-u_\mp(t)\cos (2\pi f_c t+\phi)再经过低通滤波器\\
-y_l(t)=A_cm(t)\cos\phi\pm A\h m(t)\sin\phi
-\]</span> 希望<span class="math inline">\(\phi=0\)</span></p></li>
-<li><p><span class="math inline">\(U_-(f)\)</span> 上边带滤波器 理想高通</p>
+  u_\mp(t)\cos (2\pi f_c t+\phi)再经过低通滤波器\\
+  y_l(t)=A_cm(t)\cos\phi\pm A\h m(t)\sin\phi
+  \]</span> 希望<span class="math inline">\(\phi=0\)</span></p></li>
+<li><p><span class="math inline">\(U_-(f)\)</span> 上边带滤波器 理想高通</p></li>
+</ul>
 <p><span class="math inline">\(U_+(f)\)</span> 下边带滤波器 理想低通</p></li>
-</ul></li>
-</ul></li>
 </ul>
 </div>
 <div id="vsb-amvestigial-sideband-am" class="section level3">
 <h3>2.4 残留边带调幅VSB AM(Vestigial-Sideband AM)</h3>
 <ul>
-<li><p>过程</p>
-<ul>
+<li><p>过程</p></li>
 <li><p>乘 <span class="math inline">\(m(t)A_c\cos(\tp f_c t)\)</span></p></li>
 <li><p>经过VSB带通滤波器<span class="math inline">\(H(f)\)</span></p>
 <p>放宽边带滤波器的要求,以信道带宽为代价</p></li>
-</ul></li>
 <li><p>设VSB边带滤波的脉冲响应为<span class="math inline">\(h(t)\)</span> <span class="math display">\[
-U(f)=\frac{A_c}2[M(f-f_c)+M(f+f_c)]H(f)
-\]</span></p></li>
-<li><p>解调</p>
-<p><span class="math inline">\(\newcommand{ac}[1]{\dfrac{A_c}{#1}}\)</span> <span class="math display">\[
-v(t)=u(t)\cos(2\pi f_c t)\\
-V(f)=\ac 4[M(f-2f_c)+M(f)]H(f-f_c)+\ac 4[M(f)+M(f+2f_c)]H(f+f_c)
-\]</span> 低通输出的频谱 <span class="math display">\[
-V_l(f)=\ac 4M(f)[H(f-f_c)+H(f+f_c)]
-\]</span> <strong>为保证输出不失真</strong> <span class="math display">\[
-H(f-f_c)+H(f+f_c)=\t{constant}, \abs f&lt;W
-\]</span></p></li>
+  U(f)=\frac{A_c}2[M(f-f_c)+M(f+f_c)]H(f)
+  \]</span></p></li>
+<li><p>解调</p></li>
 </ul>
+<p><span class="math inline">\(\newcommand{ac}[1]{\dfrac{A_c}{#1}}\)</span> <span class="math display">\[
+  v(t)=u(t)\cos(2\pi f_c t)\\
+  V(f)=\ac 4[M(f-2f_c)+M(f)]H(f-f_c)+\ac 4[M(f)+M(f+2f_c)]H(f+f_c)
+  \]</span> 低通输出的频谱 <span class="math display">\[
+  V_l(f)=\ac 4M(f)[H(f-f_c)+H(f+f_c)]
+  \]</span> <strong>为保证输出不失真</strong> <span class="math display">\[
+  H(f-f_c)+H(f+f_c)=\t{constant}, \abs f&lt;W
+  \]</span></p>
 </div>
 </div>
 <div class="section level2">
@@ -928,23 +906,29 @@ u(t)=A_c\cos[\tp f_ct+\phi(t)]
 \]</span> 瞬时相位 <span class="math inline">\(\tp f_c t+\phi(t)\)</span></p>
 <p>瞬时频率 <span class="math inline">\(f_i(t)=\dfrac 1 \tp \dfrac{\d}{\d t}[\tp f_c t+\phi(t)]=f_c+\dfrac 1 \tp \dfrac{\d}{\d t}\phi(t)\)</span></p>
 <ul>
-<li><p>调相 <span class="math display">\[
-\phi(t)=k_p m(t)
-\]</span> 最大相偏: <span class="math inline">\(\Delta\phi_{\max}=k_p\max[|m(t)|]\)</span></p>
-<p>调制指数: <span class="math inline">\(\beta_p=\Delta\phi_\max\)</span></p></li>
-<li><p>调频 <span class="math display">\[
-f_i(t)-f_c=k_fm(t)\\
-\phi(t)=\tp k_f\int_{-\infty}^t m(\tau)\d \tau
-\]</span> 最大频偏: <span class="math inline">\(\Delta f_\max=k_f\max[|m(t)|]\)</span></p>
-<p>调制指数:<span class="math inline">\(\b_f=\dfrac{\Delta f_\max}W\)</span></p></li>
-<li><p>调频和调相的关系</p>
-<p>互为微分和积分的关系</p>
-<p>​</p></li>
-<li><p>窄带角调制: <span class="math inline">\(\phi(t)\ll 1\)</span></p>
-<p><span class="math display">\[
-u(t)\approx A_c\cos(\tp f_c t)-A_c\phi(t)\sin(\tp f_c t)
-\]</span></p></li>
+<li>调相 <span class="math display">\[
+  \phi(t)=k_p m(t)
+  \]</span> 最大相偏: <span class="math inline">\(\Delta\phi_{\max}=k_p\max[|m(t)|]\)</span></li>
 </ul>
+<p>调制指数: <span class="math inline">\(\beta_p=\Delta\phi_\max\)</span></p>
+<ul>
+<li>调频 <span class="math display">\[
+  f_i(t)-f_c=k_fm(t)\\
+  \phi(t)=\tp k_f\int_{-\infty}^t m(\tau)\d \tau
+  \]</span> 最大频偏: <span class="math inline">\(\Delta f_\max=k_f\max[|m(t)|]\)</span></li>
+</ul>
+<p>调制指数:<span class="math inline">\(\b_f=\dfrac{\Delta f_\max}W\)</span></p>
+<ul>
+<li>调频和调相的关系</li>
+</ul>
+<p>互为微分和积分的关系</p>
+<p>​</p>
+<ul>
+<li>窄带角调制: <span class="math inline">\(\phi(t)\ll 1\)</span></li>
+</ul>
+<p><span class="math display">\[
+  u(t)\approx A_c\cos(\tp f_c t)-A_c\phi(t)\sin(\tp f_c t)
+  \]</span></p>
 </div>
 <div class="section level3">
 <h3>3.2 频谱特点</h3>
@@ -955,27 +939,24 @@ u(t)=A_c\cos(\tp f_ct+\b\sin\tp f_m t)\\
 \]</span> 包含了无限多个频率分量</p>
 <ul>
 <li>正弦消息角调制信号带宽 <strong>卡尔森公式</strong> <span class="math display">\[
-B=2(\beta+1)f_m
-\]</span> <span class="math inline">\(\beta\)</span> 调制指数</li>
+  B=2(\beta+1)f_m
+  \]</span> <span class="math inline">\(\beta\)</span> 调制指数</li>
 </ul>
 </div>
 </div>
 <div class="section level2">
 <h2>4.线性调制系统的抗噪声性能</h2>
 <ul>
-<li>考虑指标
-<ul>
+<li>考虑指标</li>
 <li>已调信号的带宽要求</li>
 <li>解调系统的抗噪声能力</li>
 <li>系统实现的复杂性</li>
-</ul></li>
 </ul>
 <p>信噪比(解调前后) <span class="math display">\[
 G=\frac{SNR_{out}}{SNR_{in}}
 \]</span></p>
 <ul>
-<li><p>加性噪声</p>
-<ul>
+<li><p>加性噪声</p></li>
 <li><p>输入噪声 <span class="math display">\[
 n_{in}(t)=n_c(t)\cos\tp f_c t-n_s(t)\sin \tp f_c t\\
 \]</span></p></li>
@@ -988,7 +969,6 @@ E[n_{in}^2(t)]=\sigma_{in}^2=\sigma_c^2=\sigma_s^2=N_0B
 <li><p>输出信噪比 <span class="math display">\[
 (SNR)_{out}=\frac{E[m_{out}^2(t)]}{E[n_{out}^2(t)]}
 \]</span></p></li>
-</ul></li>
 </ul>
 <div id="dsb-sc-am-1" class="section level3">
 <h3>4.1 DSB-SC AM</h3>
@@ -1000,21 +980,23 @@ P_u=E[\frac 1 2 m^2(t)]\\
 P_{n_{in}}=B\cdot N_0
 \]</span></p>
 <ul>
-<li><p>相干解调 <span class="math display">\[
-r(t)=[m(t)+n_c(t)]\cos\tp f_c t-n_s(t)\sin \tp f_c t\\
-r(t)\cos\tp f_c t=\frac 1 2[m(t)+n_c(t)]+高频
-\]</span></p>
+<li>相干解调 <span class="math display">\[
+  r(t)=[m(t)+n_c(t)]\cos\tp f_c t-n_s(t)\sin \tp f_c t\\
+  r(t)\cos\tp f_c t=\frac 1 2[m(t)+n_c(t)]+高频
+  \]</span></li>
+</ul>
 <blockquote>
 <p>how to derive?</p>
 </blockquote>
-<p>经过低通滤波后</p></li>
+<p>经过低通滤波后</p>
+<ul>
 <li><p>输出 <span class="math display">\[
-P_{m_{out}}=\frac 1 4 E[m^2(t)]\\
-P_{n_{out}}=\frac 1 4E[n_c^2(t)]=\frac 1 4 N_0B
-\]</span></p></li>
+  P_{m_{out}}=\frac 1 4 E[m^2(t)]\\
+  P_{n_{out}}=\frac 1 4E[n_c^2(t)]=\frac 1 4 N_0B
+  \]</span></p></li>
 <li><p>信噪比 <span class="math display">\[
-G=2
-\]</span></p></li>
+  G=2
+  \]</span></p></li>
 </ul>
 </div>
 <div id="ssb-am" class="section level3">
@@ -1038,49 +1020,50 @@ P_{n_{in}}=B\cdot N_0
 \]</span></p>
 <ul>
 <li><p>相干解调 <span class="math display">\[
-r(t)\cos\tp f_c t=\frac 1 2[m(t)+n_c(t)]+高频项
-\]</span></p></li>
+  r(t)\cos\tp f_c t=\frac 1 2[m(t)+n_c(t)]+高频项
+  \]</span></p></li>
 <li><p>输出 <span class="math display">\[
-P_{m_{out}}=\frac 1 4E[m^2(t)]\\
-P_{n_{out}}=\frac 14 E[n_c^2(t)]=\frac 1 4 BN_0\\
-(SNR)_{in}=\frac{E[m^2(t)]}{BN_0}
-\]</span></p></li>
+  P_{m_{out}}=\frac 1 4E[m^2(t)]\\
+  P_{n_{out}}=\frac 14 E[n_c^2(t)]=\frac 1 4 BN_0\\
+  (SNR)_{in}=\frac{E[m^2(t)]}{BN_0}
+  \]</span></p></li>
 <li><p>信噪比 <span class="math display">\[
-G=1
-\]</span> 单边带和抑制载波双边带的输出信噪比是一样的</p>
+  G=1
+  \]</span> 单边带和抑制载波双边带的输出信噪比是一样的</p></li>
+</ul>
 <blockquote>
 <p>Why</p>
-</blockquote></li>
-</ul>
+</blockquote>
 </div>
 <div id="am" class="section level3">
 <h3>4.3 普通AM调制</h3>
 <ul>
 <li><p>输入 <span class="math display">\[
-u(t)=[1+am_n(t)]\cos(\tp f_ct)\\
-P_u=\frac 1 2 +\frac {a^2}2E\lrbra[]{m_n^2(t)}\\
-P_{n_{in}}=N_0B\\
-(SNR)_{in}=\frac{P_u}{N_0B}
-\]</span> ​</p></li>
+  u(t)=[1+am_n(t)]\cos(\tp f_ct)\\
+  P_u=\frac 1 2 +\frac {a^2}2E\lrbra[]{m_n^2(t)}\\
+  P_{n_{in}}=N_0B\\
+  (SNR)_{in}=\frac{P_u}{N_0B}
+  \]</span> ​</p></li>
 <li><p>相干解调 <span class="math display">\[
-r(t)\cos\tp f_c t=\frac 1 2[1+am_n(t)+n_c(t)]+高频项\\
-m_{out}=\frac a 2m_n(t)\\
-n_{out}=\frac 1 2 n_c(t)\\
-(SNR)_{out}=\frac{a^2E\lrbra[]{m_n^2(t)}}{N_0B}
-\]</span> &gt; 输出不是<span class="math inline">\(\frac 1 2+\frac a 2 m_n(t)\)</span></p></li>
+  r(t)\cos\tp f_c t=\frac 1 2[1+am_n(t)+n_c(t)]+高频项\\
+  m_{out}=\frac a 2m_n(t)\\
+  n_{out}=\frac 1 2 n_c(t)\\
+  (SNR)_{out}=\frac{a^2E\lrbra[]{m_n^2(t)}}{N_0B}
+  \]</span> &gt; 输出不是<span class="math inline">\(\frac 1 2+\frac a 2 m_n(t)\)</span></p></li>
 </ul>
 <p><span class="math display">\[
 G=\frac{2a^2E[m_n^2(t)]}{1+a^2E[m_n^2(t)]}
 \]</span></p>
 <ul>
-<li><p>包络检波</p>
+<li>包络检波</li>
+</ul>
 <p>输入(已调信号加噪声) <span class="math display">\[
-r(t)=[1+am_n(t)+n_c(t)]\cos\tp f_c t-n_s(t)\sin \tp f_c t\\
-=V(t)\cos[\tp f_c t+\phi(t)]\\
-V(t)=\sqrt{[1+am_n(t)+n_c(t)]^2+n_s^2(t)}
-\]</span> <span class="math inline">\(1+a_m(t)\gg n_c(t),n_s(t)\)</span> <span class="math display">\[
-V(t)\approx 1+am_n(t)+n_c(t)
-\]</span> 仅差一个因子0.5 不影响输出信噪比</p>
+  r(t)=[1+am_n(t)+n_c(t)]\cos\tp f_c t-n_s(t)\sin \tp f_c t\\
+  =V(t)\cos[\tp f_c t+\phi(t)]\\
+  V(t)=\sqrt{[1+am_n(t)+n_c(t)]^2+n_s^2(t)}
+  \]</span> <span class="math inline">\(1+a_m(t)\gg n_c(t),n_s(t)\)</span> <span class="math display">\[
+  V(t)\approx 1+am_n(t)+n_c(t)
+  \]</span> 仅差一个因子0.5 不影响输出信噪比</p>
 <blockquote>
 <p>因子0.5？？？</p>
 <ul>
@@ -1093,7 +1076,6 @@ V(t)\approx 1+am_n(t)+n_c(t)
 E[m_n^2(t)]=E[\sin^2\tp f_c t]=\frac 1 2\\
 G=\frac 2 3
 \]</span></li>
-</ul></li>
 </ul>
 </div>
 </div>
@@ -1101,65 +1083,73 @@ G=\frac 2 3
 <h2>5.非线性调制系统系统的抗噪声能力</h2>
 <ul>
 <li><p>解调前 <span class="math display">\[
-u(t)=A_c\cos[2\pi f_c t+\phi(t)]\\
-\phi(t)=\tp k_f\int_{-\infty}^t m(t)\d t
-\]</span> ​</p></li>
+  u(t)=A_c\cos[2\pi f_c t+\phi(t)]\\
+  \phi(t)=\tp k_f\int_{-\infty}^t m(t)\d t
+  \]</span> ​</p></li>
 <li><p>加噪声 <span class="math display">\[
-r(t)=u(t)+n_c(t)\cos\tp f_c t-n_s(t)\sin \tp f_c t
-\]</span></p></li>
+  r(t)=u(t)+n_c(t)\cos\tp f_c t-n_s(t)\sin \tp f_c t
+  \]</span></p></li>
 <li><p>输入 <span class="math display">\[
-P_u=\frac 1 2 A_c^2\\
-P_{n_{in}}=N_0B\\
-(SNR)_{in}=\frac{A_c^2}{2N_0B}
-\]</span> B由卡尔森公式给出</p>
-<p>​</p></li>
+  P_u=\frac 1 2 A_c^2\\
+  P_{n_{in}}=N_0B\\
+  (SNR)_{in}=\frac{A_c^2}{2N_0B}
+  \]</span> B由卡尔森公式给出</p></li>
+</ul>
+<p>​</p>
+<ul>
 <li><p>幅角形式 <span class="math display">\[
-n_{in}(t)=V(t)\cos[\tp f_c t+\theta(t)]\\
-r(t)=u(t)+n_{in}(t)\\
-=V&#39;(t)\cos[\tp f_c t+\psi(t)]
-\]</span> <span class="math inline">\(A_c\gg V(t)\)</span> <span class="math display">\[
-\psi(t)=\phi(t)+\frac{V(t)}{A_c}\sin[\theta(t)-\phi(t)]
-\]</span></p></li>
-<li><p>解调</p>
+  n_{in}(t)=V(t)\cos[\tp f_c t+\theta(t)]\\
+  r(t)=u(t)+n_{in}(t)\\
+  =V&#39;(t)\cos[\tp f_c t+\psi(t)]
+  \]</span> <span class="math inline">\(A_c\gg V(t)\)</span> <span class="math display">\[
+  \psi(t)=\phi(t)+\frac{V(t)}{A_c}\sin[\theta(t)-\phi(t)]
+  \]</span></p></li>
+<li><p>解调</p></li>
+</ul>
 <p>由<span class="math inline">\(\phi(t)\)</span>和<span class="math inline">\(m(t)\)</span>的关系</p>
 <p>解调信号实际上是对幅角微分 <span class="math display">\[
-f_c+\frac 1 \tp \frac{\d \phi(t)}{\d t}+\frac 1{2\pi}\frac{\d}{\d t}\bra{\frac {V(t)}{A_c}\sin[\theta(t)-\phi(t)]}
-\]</span></p></li>
-<li><p>输出信号和噪声 <span class="math display">\[
-m_{out}(t)=k_fm(t)\\
-n_d(t)=\frac 1{\tp A_c}\frac{\d}{\d t}\bra{V(t)\sin[\theta(t)-\phi(t)]}
-\]</span></p>
+  f_c+\frac 1 \tp \frac{\d \phi(t)}{\d t}+\frac 1{2\pi}\frac{\d}{\d t}\bra{\frac {V(t)}{A_c}\sin[\theta(t)-\phi(t)]}
+  \]</span></p>
+<ul>
+<li>输出信号和噪声 <span class="math display">\[
+  m_{out}(t)=k_fm(t)\\
+  n_d(t)=\frac 1{\tp A_c}\frac{\d}{\d t}\bra{V(t)\sin[\theta(t)-\phi(t)]}
+  \]</span></li>
+</ul>
 <blockquote>
 <p><span class="math inline">\(V(t)\)</span> Rayleigh 分布</p>
 <p><span class="math inline">\(\theta(t)\)</span> 均匀分布</p>
 <p>认为<span class="math inline">\(\theta(t)\)</span> 与<span class="math inline">\(\theta(t)-\phi(t)\)</span>一样: 均匀分布</p>
 </blockquote>
 <p><span class="math display">\[
-n_d(t)=\frac1{\tp A_c}\frac \d{\d t}n_s(t)
-\]</span></p>
-<p><span class="math inline">\(n_s\)</span>是一个带宽为B/2,功率谱密度为<span class="math inline">\(2N_0\)</span>的低频噪声</p></li>
-<li><p>输出信号和噪声的功率谱 <span class="math display">\[
-P_{m_{out}}=k_f^2E[m^2(t)]
-\]</span> <span class="math inline">\(n_s(t)\)</span> 的微分在频谱上相当于乘以<span class="math inline">\(j\tp f\)</span> <span class="math display">\[
-P_{n_d}=\equtwo{\frac 2 {A_c^2}N_0 f^2}{0\leq f\leq \dfrac B 2}{0}{\t{others}}
-\]</span> 通过带宽为<span class="math inline">\(f_m\)</span>的理想低通滤波器</p>
+  n_d(t)=\frac1{\tp A_c}\frac \d{\d t}n_s(t)
+  \]</span></p>
+<p><span class="math inline">\(n_s\)</span>是一个带宽为B/2,功率谱密度为<span class="math inline">\(2N_0\)</span>的低频噪声</p>
+<ul>
+<li>输出信号和噪声的功率谱 <span class="math display">\[
+  P_{m_{out}}=k_f^2E[m^2(t)]
+  \]</span> <span class="math inline">\(n_s(t)\)</span> 的微分在频谱上相当于乘以<span class="math inline">\(j\tp f\)</span> <span class="math display">\[
+  P_{n_d}=\equtwo{\frac 2 {A_c^2}N_0 f^2}{0\leq f\leq \dfrac B 2}{0}{\t{others}}
+  \]</span> 通过带宽为<span class="math inline">\(f_m\)</span>的理想低通滤波器</li>
+</ul>
 <blockquote>
 <p>why 低通滤波</p>
 </blockquote>
 <p><span class="math display">\[
-P_{n_d}=\frac 2 3\frac{N_0f_m^3}{A_c^2}
-\]</span></p>
+  P_{n_d}=\frac 2 3\frac{N_0f_m^3}{A_c^2}
+  \]</span></p>
 <p><span class="math display">\[
-(SNR)_{out}=\frac{3A_c^2k_f^2E[m^2(t)]}{2N_0f_m^2}
-\]</span></p></li>
+  (SNR)_{out}=\frac{3A_c^2k_f^2E[m^2(t)]}{2N_0f_m^2}
+  \]</span></p>
+<ul>
 <li><p>信噪比增益 <span class="math display">\[
-G=\frac{3Bk_f^2E[m^2(t)]}{f_m^3}
-\]</span> ​</p></li>
+  G=\frac{3Bk_f^2E[m^2(t)]}{f_m^3}
+  \]</span> ​</p></li>
 <li><p>正弦调频 <span class="math display">\[
-m(t)=\cos(\tp f_m t)\\
-???????????????\\
-G=3(\b_f+1)\b_f^2
-\]</span> ​</p></li>
+  m(t)=\cos(\tp f_m t)\\
+  ???????????????\\
+  G=3(\b_f+1)\b_f^2
+  \]</span> ​</p></li>
 </ul>
 </div>
 </div>
@@ -1169,12 +1159,12 @@ G=3(\b_f+1)\b_f^2
 
 <div id="rStudioFooter" class="band full">
 <div class="bandContent">
-  <div id="copyright">© Copyright 2016 RStudio Inc.</div>
+  <div id="copyright">© Copyright 2018 Lin Gui.</div>
   <div id="logos">
-    <a href="https://twitter.com/rstudio" class="footerLogo twitter"></a>
-    <a href="https://github.com/rstudio" class="footerLogo gitHub"></a>
-    <a href="https://www.linkedin.com/company/rstudio-inc" class="footerLogo linkedIn"></a>
-    <a href="https://www.facebook.com/pages/RStudio-Inc/267733656584415" Class="footerLogo facebook"></a>
+    <!-- <a href="https://twitter.com/rstudio" class="footerLogo twitter"></a> -->
+    <a href="https://github.com/LinGuiZJU" class="footerLogo gitHub"></a>
+    <!-- <a href="https://www.linkedin.com/company/rstudio-inc" class="footerLogo linkedIn"></a> -->
+    <!-- <a href="https://www.facebook.com/pages/RStudio-Inc/267733656584415" Class="footerLogo facebook"></a> -->
   </div>
 </div>
 </div>

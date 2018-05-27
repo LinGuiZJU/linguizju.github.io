@@ -9,9 +9,10 @@
 <meta name="generator" content="pandoc" />
 
 
+<meta name="author" content="Lin Gui" />
 
 
-<title>course_uw_520_lecture5.utf8</title>
+<title>UW 520</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -95,7 +96,7 @@
 
   });
 </script>
-<script type="text/javascript" src="./site_libs/mathjax-local/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" src="/Users/lin/Nustore Files/LinFile/lin_page//site_libs/mathjax-local/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -280,24 +281,6 @@ $(document).ready(function () {
     Courses
   </a>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fa fa-gear"></span>
-     
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li class="dropdown-header">Record</li>
-    <li class="divider"></li>
-    <li class="dropdown-header">Heading 2</li>
-    <li class="dropdown-header">Page C</li>
-    <li class="dropdown-header">Page D</li>
-  </ul>
-</li>
-<li>
-  <a></a>
-</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         
@@ -331,14 +314,29 @@ $(".main-container").removeClass("main-container").removeClass("container-fluid"
 
 
 
+<h1 class="title toc-ignore">UW 520</h1>
+<h3 class="subtitle"><em>Lecture 5 - Notes</em></h3>
+<h4 class="author"><em>Lin Gui</em></h4>
 
 </div>
 
-
-<div id="lecture-5" class="section level1">
-<h1>Lecture 5</h1>
+<div id="TOC">
 <ul>
-<li><p>LTI <span class="math display">\[
+<li><a href="#lti"><span class="toc-section-number">1</span> LTI</a></li>
+<li><a href="#lti-digital-filters"><span class="toc-section-number">2</span> LTI Digital Filters</a></li>
+<li><a href="#sdf-for-maq-process"><span class="toc-section-number">3</span> SDF for MA(q) Process</a></li>
+<li><a href="#sdf-for-arp-process"><span class="toc-section-number">4</span> SDF for AR(p) Process</a></li>
+<li><a href="#example-a-smoother"><span class="toc-section-number">5</span> Example: a smoother</a><ul>
+<li><a href="#condition"><span class="toc-section-number">5.1</span> condition</a></li>
+</ul></li>
+</ul>
+</div>
+
+<p><span id="jump"></span></p>
+<p><a href="course_uw_520.html">Back</a></p>
+<div id="lti" class="section level1">
+<h1><span class="header-section-number">1</span> LTI</h1>
+<p><span class="math display">\[
 \varepsilon_f(\cdot)=\etpi{ft}\rightarrow G(f)\varepsilon_f(\cdot):\t{eigenvalues and eigenfunctions}\\
 \]</span> for <span class="math inline">\(X(t)\)</span> <span class="math display">\[
 X(t)=\intinf \etpi{ft}\d Z_X(f)\\
@@ -348,33 +346,46 @@ Y(t)=\intinf \etpi{ft} G(f)\d Z_X(f)=\intinf\etpi{ft}\d Z_Y(f)\\
 \]</span> &gt; the meaning of <span class="math inline">\(\d Z_X(f)???\)</span></p>
 <p>if has SDF <span class="math display">\[
 S_Y(f)=\abs{G(f)}^2S_X(f)
-\]</span></p></li>
-<li><p>LTI Digital Filters</p>
+\]</span></p>
+<p><a href="#jump">up</a></p>
+</div>
+<div id="lti-digital-filters" class="section level1">
+<h1><span class="header-section-number">2</span> LTI Digital Filters</h1>
 <p><strong>all LTI digital filters are essentially convolutions</strong> <span class="math display">\[
 L\bra{X_t}=\suminf u g_u X_{t-u}\triangleq Y_t
 \]</span> determine <span class="math inline">\(G(\cdot)\)</span> <span class="math display">\[
 G(f)=\suminf u g_u\etpin{fu}
-\]</span> <strong>if <span class="math inline">\(g(u)\)</span> is real-valued, then <span class="math inline">\(G(-f)=G^*(f),\abs{G(-f)}=\abs{G(f)}\)</span></strong></p></li>
-<li><p>SDF for MA(q) Process <span class="math display">\[
+\]</span> <strong>if <span class="math inline">\(g(u)\)</span> is real-valued, then <span class="math inline">\(G(-f)=G^*(f),\abs{G(-f)}=\abs{G(f)}\)</span></strong></p>
+</div>
+<div id="sdf-for-maq-process" class="section level1">
+<h1><span class="header-section-number">3</span> SDF for MA(q) Process</h1>
+<p><span class="math display">\[
 X_t=\varepsilon_t-\sumsubtri j 1 q \theta_{q,j}\varepsilon_{t-j}\\
 S_X(f)=\abs{G(f)}^2S_\epsi(f)=\sigma_\epsi^2\abs{1-\sumsubtri j 1 q\theta_{q,j}\etpi{fj}}^2
-\]</span></p></li>
-<li><p>SDF for AR(p) Process <span class="math display">\[
+\]</span></p>
+<p><a href="#jump">up</a></p>
+</div>
+<div id="sdf-for-arp-process" class="section level1">
+<h1><span class="header-section-number">4</span> SDF for AR(p) Process</h1>
+<p><span class="math display">\[
 X_t=\sumsubtri j 1 p \phi_{p,j}X_{t-j}+\epsi_t\\
 S_\epsi(f)=\abs{G(f)}^2S_X(f)\\
 S_X(f)=\frac{\sigma^2}{\abs{1-\sumsubtri j 1 p \phi_{p,j}\etpi{fj}}^2}
-\]</span></p></li>
-<li><p>Example: a smoother</p>
-<ul>
-<li><p>condition</p>
+\]</span></p>
+<p><a href="#jump">up</a></p>
+</div>
+<div id="example-a-smoother" class="section level1">
+<h1><span class="header-section-number">5</span> Example: a smoother</h1>
+<div id="condition" class="section level2">
+<h2><span class="header-section-number">5.1</span> condition</h2>
 <ul>
 <li><p><span class="math inline">\(\bra{g(u)}\)</span> is of length <span class="math inline">\(2K+1\)</span> &amp; <span class="math inline">\(g_{-u}=g_u\)</span></p></li>
 <li><p>define “locally smooth”: “locally linear”, that is <span class="math display">\[
-\sumsym u {k} g_u[\a+\b(t-u)]=\a+\b t
-\]</span> if we require <span class="math inline">\(\sumsym u k g_u=1=G(0)\)</span></p></li>
-</ul></li>
-</ul></li>
+  \sumsym u {k} g_u[\a+\b(t-u)]=\a+\b t
+  \]</span> if we require <span class="math inline">\(\sumsym u k g_u=1=G(0)\)</span></p></li>
 </ul>
+<p><a href="#jump">up</a></p>
+</div>
 </div>
 
   </div> <!-- articleBandContent -->
@@ -382,12 +393,12 @@ S_X(f)=\frac{\sigma^2}{\abs{1-\sumsubtri j 1 p \phi_{p,j}\etpi{fj}}^2}
 
 <div id="rStudioFooter" class="band full">
 <div class="bandContent">
-  <div id="copyright">© Copyright 2016 RStudio Inc.</div>
+  <div id="copyright">© Copyright 2018 Lin Gui.</div>
   <div id="logos">
-    <a href="https://twitter.com/rstudio" class="footerLogo twitter"></a>
-    <a href="https://github.com/rstudio" class="footerLogo gitHub"></a>
-    <a href="https://www.linkedin.com/company/rstudio-inc" class="footerLogo linkedIn"></a>
-    <a href="https://www.facebook.com/pages/RStudio-Inc/267733656584415" Class="footerLogo facebook"></a>
+    <!-- <a href="https://twitter.com/rstudio" class="footerLogo twitter"></a> -->
+    <a href="https://github.com/LinGuiZJU" class="footerLogo gitHub"></a>
+    <!-- <a href="https://www.linkedin.com/company/rstudio-inc" class="footerLogo linkedIn"></a> -->
+    <!-- <a href="https://www.facebook.com/pages/RStudio-Inc/267733656584415" Class="footerLogo facebook"></a> -->
   </div>
 </div>
 </div>

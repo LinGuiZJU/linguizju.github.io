@@ -9,9 +9,10 @@
 <meta name="generator" content="pandoc" />
 
 
+<meta name="author" content="Lin Gui" />
 
 
-<title>course_uw_520_lecture6.utf8</title>
+<title>UW 520</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -95,7 +96,7 @@
 
   });
 </script>
-<script type="text/javascript" src="./site_libs/mathjax-local/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" src="/Users/lin/Nustore Files/LinFile/lin_page//site_libs/mathjax-local/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -280,24 +281,6 @@ $(document).ready(function () {
     Courses
   </a>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fa fa-gear"></span>
-     
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li class="dropdown-header">Record</li>
-    <li class="divider"></li>
-    <li class="dropdown-header">Heading 2</li>
-    <li class="dropdown-header">Page C</li>
-    <li class="dropdown-header">Page D</li>
-  </ul>
-</li>
-<li>
-  <a></a>
-</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         
@@ -331,24 +314,81 @@ $(".main-container").removeClass("main-container").removeClass("container-fluid"
 
 
 
+<h1 class="title toc-ignore">UW 520</h1>
+<h3 class="subtitle"><em>Lecture 6 - Notes</em></h3>
+<h4 class="author"><em>Lin Gui</em></h4>
 
 </div>
 
-
-<div id="lecture-6" class="section level1">
-<h1>Lecture 6</h1>
-<p><span class="math inline">\(\newcommand{st}{\h s_\tau}\)</span> <span class="math inline">\(\newcommand{kp}{^{(p)}}\)</span></p>
+<div id="TOC">
 <ul>
-<li><p>Nonparametric Spectral Estimation</p>
+<li><a href="#nonparametric-spectral-estimation"><span class="toc-section-number">1</span> Nonparametric Spectral Estimation</a></li>
+<li><a href="#the-sample-mean"><span class="toc-section-number">2</span> The Sample Mean</a><ul>
+<li><a href="#estimate-mu"><span class="toc-section-number">2.1</span> estimate <span class="math inline">\(\mu\)</span></a></li>
+<li><a href="#estimate-mu-another"><span class="toc-section-number">2.2</span> estimate <span class="math inline">\(\mu\)</span> , another</a></li>
+</ul></li>
+<li><a href="#estimation-of-acvs"><span class="toc-section-number">3</span> Estimation of ACVS</a><ul>
+<li><a href="#estimate-acvs-s_tau"><span class="toc-section-number">3.1</span> estimate ACVS <span class="math inline">\(s_\tau\)</span></a></li>
+<li><a href="#estimate-acvs-another"><span class="toc-section-number">3.2</span> estimate ACVS, another</a></li>
+</ul></li>
+<li><a href="#why-prefer-h-s_taup"><span class="toc-section-number">4</span> Why prefer <span class="math inline">\(\h s_\tau^{(p)}\)</span>?</a><ul>
+<li><a href="#mse"><span class="toc-section-number">4.1</span> MSE</a></li>
+</ul></li>
+<li><a href="#the-periodogram"><span class="toc-section-number">5</span> The Periodogram</a><ul>
+<li><a href="#sampling-properties-of-periodogram"><span class="toc-section-number">5.1</span> Sampling Properties of Periodogram</a></li>
+</ul></li>
+<li><a href="#tapering"><span class="toc-section-number">6</span> Tapering</a><ul>
+<li><a href="#preclude-to-tapering"><span class="toc-section-number">6.1</span> preclude to tapering</a></li>
+<li><a href="#bias-reduction"><span class="toc-section-number">6.2</span> Bias Reduction</a></li>
+<li><a href="#slepian-data-tapers"><span class="toc-section-number">6.3</span> Slepian data tapers</a></li>
+<li><a href="#tradeoffs"><span class="toc-section-number">6.4</span> tradeoffs</a></li>
+</ul></li>
+<li><a href="#acvs-and-normalization"><span class="toc-section-number">7</span> ACVS and Normalization</a><ul>
+<li><a href="#normalization-1"><span class="toc-section-number">7.1</span> Normalization 1</a></li>
+<li><a href="#normalization-2-restoration-of-powe"><span class="toc-section-number">7.2</span> Normalization 2: restoration of powe</a></li>
+</ul></li>
+<li><a href="#estimation-of-mu"><span class="toc-section-number">8</span> Estimation of <span class="math inline">\(\mu\)</span></a></li>
+<li><a href="#measuring-width-of-central-lobe-of-mathcal-hcdot"><span class="toc-section-number">9</span> Measuring Width of Central Lobe of <span class="math inline">\(\mathcal H(\cdot)\)</span></a><ul>
+<li><a href="#end-point-mathing"><span class="toc-section-number">9.1</span> End Point Mathing</a></li>
+<li><a href="#reflection-boundary-conditions"><span class="toc-section-number">9.2</span> Reflection Boundary Conditions</a></li>
+</ul></li>
+<li><a href="#prewhitening-general-of-ar-model"><span class="toc-section-number">10</span> Prewhitening: general of AR model</a></li>
+<li><a href="#rejection-filtration"><span class="toc-section-number">11</span> Rejection Filtration</a></li>
+<li><a href="#statistical-properties-of-h-sdcdot"><span class="toc-section-number">12</span> Statistical Properties of <span class="math inline">\(\h S^{(d)}(\cdot)\)</span></a><ul>
+<li><a href="#re-and-im"><span class="toc-section-number">12.1</span> Re and Im</a></li>
+<li><a href="#special-caseh_t1sqrtn"><span class="toc-section-number">12.2</span> Special case:<span class="math inline">\(h_t=1/\sqrt{N}\)</span></a></li>
+<li><a href="#general-case"><span class="toc-section-number">12.3</span> general case</a><ul>
+<li><a href="#as-nrightarrowinfty"><span class="toc-section-number">12.3.1</span> as <span class="math inline">\(N\rightarrow\infty\)</span></a></li>
+<li><a href="#oddeven"><span class="toc-section-number">12.3.2</span> odd/even</a></li>
+<li><a href="#percentage-point"><span class="toc-section-number">12.3.3</span> percentage point</a></li>
+<li><a href="#cov"><span class="toc-section-number">12.3.4</span> Cov</a></li>
+<li><a href="#probability-density-function-for-h-skd-f"><span class="toc-section-number">12.3.5</span> Probability Density Function for <span class="math inline">\(\h S\kd (f)\)</span></a></li>
+</ul></li>
+</ul></li>
+<li><a href="#a-test-for-white-noise"><span class="toc-section-number">13</span> A Test for White Noise</a></li>
+<li><a href="#reflection-boundary-conditions-and-dct-ii"><span class="toc-section-number">14</span> Reflection Boundary Conditions and DCT-II</a></li>
+<li><a href="#computational-details"><span class="toc-section-number">15</span> Computational Details</a></li>
+</ul>
+</div>
+
+<p><span id="jump"></span></p>
+<p><span class="math inline">\(\newcommand{st}{\h s_\tau}\)</span> <span class="math inline">\(\newcommand{kp}{^{(p)}}\)</span> <span class="math inline">\(\newcommand{kd}{^{(d)}}\)</span></p>
+<p><a href="course_uw_520.html">Back</a></p>
+<div id="nonparametric-spectral-estimation" class="section level1">
+<h1><span class="header-section-number">1</span> Nonparametric Spectral Estimation</h1>
 <p>Nyquist Frequency <span class="math inline">\(f_N=\frac 1 {2\Delta t}\)</span></p>
 <p>goal</p>
-<p> use realization of <span class="math inline">\(X_0,\cdots,X_{N-1}\)</span> observations to estimate <span class="math inline">\(S(\cdot)\)</span></p>
+<p>use realization of <span class="math inline">\(X_0,\cdots,X_{N-1}\)</span> observations to estimate <span class="math inline">\(S(\cdot)\)</span></p>
 <p>based on <span class="math display">\[
 S(f)=\Delta_t\suminf \tau s_\tau\etpin{f\tau\Delta_t}
-\]</span></p></li>
-<li><p>The Sample Mean</p>
-<ul>
-<li><p>estimate <span class="math inline">\(\mu\)</span> <span class="math display">\[
+\]</span></p>
+<p><a href="#jump">up</a></p>
+</div>
+<div id="the-sample-mean" class="section level1">
+<h1><span class="header-section-number">2</span> The Sample Mean</h1>
+<div id="estimate-mu" class="section level2">
+<h2><span class="header-section-number">2.1</span> estimate <span class="math inline">\(\mu\)</span></h2>
+<p><span class="math display">\[
 \overline X=\frac 1 N\sumsubtri t 0 {N-1}X_t\\
 \]</span> unbiased <span class="math display">\[
 E\bra{\overline X}=\mu
@@ -360,8 +400,11 @@ E\bra{\overline X}=\mu
 \liminf N N\var\bra{\overline X}=\frac{S(0)}{\Delta _t}
 \]</span> if <span class="math inline">\(S(0)\neq 0\)</span>, <span class="math display">\[
 \var\bra{\overline X}\approx\frac{S(0)}{N\Delta_t}
-\]</span></p></li>
-<li><p>estimate <span class="math inline">\(\mu\)</span> , another <span class="math display">\[
+\]</span></p>
+</div>
+<div id="estimate-mu-another" class="section level2">
+<h2><span class="header-section-number">2.2</span> estimate <span class="math inline">\(\mu\)</span> , another</h2>
+<p><span class="math display">\[
 \h\mu\triangleq \frac{\t O_N^T\Sigma\expn 1 \t X}{\t O_N^T\Sigma\expn 1\t O_N}
 \]</span>  where <span class="math inline">\(\t O_N\)</span> is vector of <span class="math inline">\(N\)</span> ones, and <span class="math inline">\(\Sigma\)</span> is covariance matrix for <span class="math inline">\(X_0,\cdots,X_{N-1}\)</span></p>
 <p> called best linear unbiased estimator</p>
@@ -370,140 +413,180 @@ E\bra{\overline X}=\mu
 \]</span> <strong>if <span class="math inline">\(S(f)\rightarrow 0\)</span> rapidly as <span class="math inline">\(f\rightarrow 0\)</span>, then <span class="math inline">\(\overline X\)</span> can be quite inefficient.</strong></p>
 <blockquote>
 <p><span class="math inline">\(S(f)\rightarrow 0\)</span>, so <span class="math inline">\(s_\tau\)</span> is very wide</p>
-</blockquote></li>
-</ul></li>
-<li><p>Estimation of ACVS</p>
-<ul>
-<li><p>estimate ACVS <span class="math inline">\(s_\tau\)</span> <span class="math display">\[
+</blockquote>
+<p><a href="#jump">up</a></p>
+</div>
+</div>
+<div id="estimation-of-acvs" class="section level1">
+<h1><span class="header-section-number">3</span> Estimation of ACVS</h1>
+<div id="estimate-acvs-s_tau" class="section level2">
+<h2><span class="header-section-number">3.1</span> estimate ACVS <span class="math inline">\(s_\tau\)</span></h2>
+<p><span class="math display">\[
 \h s_\tau^{(u)}=\frac 1 {N-|\tau|}\sumsubtri t 0 {N-|\tau|-1}(X_{t+|\tau|}-\overline X)(X_t-\overline X)\\
 \]</span> replace <span class="math inline">\(\overline X\)</span> by <span class="math inline">\(\mu\)</span>, then <strong>unbiased</strong> <span class="math display">\[
 \frac 1 {N-\abs\tau}\sumsubtri t 0{N-\abs\tau-1}E\bra{(X_{t+\abs\tau}-\mu)(X_t-\mu)}=s_\tau
-\]</span></p></li>
-<li><p>estimate ACVS, another <span class="math display">\[
+\]</span></p>
+</div>
+<div id="estimate-acvs-another" class="section level2">
+<h2><span class="header-section-number">3.2</span> estimate ACVS, another</h2>
+<p><span class="math display">\[
 \h s_\tau^{(p)}=\frac 1 N \sumsubtri t 0 {N-\abs\tau-1}(X_{t+\abs\tau}-\overline X)(X_t-\overline X)=(1-\frac{\abs\tau}N)\h s_\tau^{(u)}
 \]</span> <strong>replace <span class="math inline">\(\overline X\)</span> by <span class="math inline">\(\mu\)</span>, then biased</strong> <span class="math display">\[
 \frac 1 N\sumsubtri t - {N-\abs\tau-1}E\bra{(X_{t+\abs\tau}-\mu)(X_t-\mu)}=\lrbra(){1-\frac{\abs\tau}N}s_\tau
 \]</span></p>
 <blockquote>
 <p>if <span class="math inline">\(\overline X\)</span> is used rather than <span class="math inline">\(\mu\)</span>, then <span class="math inline">\(\h s_\tau^{(p)}\)</span> can actually be less biased than <span class="math inline">\(\h s_\tau^{(u)}\)</span></p>
-</blockquote></li>
-<li><p>Why prefer <span class="math inline">\(\h s_\tau^{(p)}\)</span>?</p>
-<ul>
-<li><p>MSE <span class="math display">\[
+</blockquote>
+<p><a href="#jump">up</a></p>
+</div>
+</div>
+<div id="why-prefer-h-s_taup" class="section level1">
+<h1><span class="header-section-number">4</span> Why prefer <span class="math inline">\(\h s_\tau^{(p)}\)</span>?</h1>
+<div id="mse" class="section level2">
+<h2><span class="header-section-number">4.1</span> MSE</h2>
+<p><span class="math display">\[
 \t{MSE}\bra{\h s_\tau^{(p)}}=(1-\frac{\tau}N)^2\var\bra{\h s_\tau^{(u)}}+(E\bra{\h s_\tau^{(p)}}-s_\tau)^2\\
 \t{MSE}\bra{\h s_\tau ^{(u)}}=\var\bra{\h s_\tau^{(u)}}+(E\bra{\h s_\tau^{(u)}}-s_\tau)^2
-\]</span></p></li>
-<li><p>Riemann-Lebesgue lemma</p>
+\]</span></p>
+<ul>
+<li>Riemann-Lebesgue lemma</li>
+</ul>
 <p><span class="math inline">\(s_\tau\rightarrow 0\)</span> as <span class="math inline">\(\tau\rightarrow\infty\)</span>, and <span class="math inline">\(\h s_\tau^{(p)}\)</span> mimics this as <span class="math inline">\(\tau\rightarrow N\)</span>, because <span class="math display">\[
-\h s_\tau^{(p)}=\lrbra(){1-\frac{\abs\tau}N}\h s_\tau^{(u)}
-\]</span></p></li>
-<li><p><span class="math inline">\(\bra{\st^{p}}\)</span> is always positive semidefinite</p></li>
-</ul></li>
-</ul></li>
-<li><p>The Periodogram <span class="math display">\[
-  \h S^{(p)}(f)=\Delta_t \sumsym \tau{(N-1)} \st ^{(p)} \etpin{f\tau\Delta_t}\\
-  \h S^{(p)}(f)=\frac{\Delta_t}N\abs{\sumsubtri t 0 {N-1}X_t\etpin{ft\Delta_t}}^2\\
+  \h s_\tau^{(p)}=\lrbra(){1-\frac{\abs\tau}N}\h s_\tau^{(u)}
   \]</span></p>
+<ul>
+<li><span class="math inline">\(\bra{\st^{p}}\)</span> is always positive semidefinite</li>
+</ul>
+<p><a href="#jump">up</a></p>
+</div>
+</div>
+<div id="the-periodogram" class="section level1">
+<h1><span class="header-section-number">5</span> The Periodogram</h1>
+<p><span class="math display">\[
+\h S^{(p)}(f)=\Delta_t \sumsym \tau{(N-1)} \st ^{(p)} \etpin{f\tau\Delta_t}\\
+\h S^{(p)}(f)=\frac{\Delta_t}N\abs{\sumsubtri t 0 {N-1}X_t\etpin{ft\Delta_t}}^2\\
+\]</span></p>
 <blockquote>
 <p>Proof equivalent <span class="math inline">\(\t FT\bra{X*X_t}=\abs{\t{FT}\bra{X_t}}^2\)</span></p>
 </blockquote>
 <p>at Fourier frequencies <span class="math inline">\(f_k=\frac k N \Delta t\)</span> <span class="math display">\[
-  \h S^{(p)}(f_k)=\frac{\Delta_t}N\abs{\sumsubtri t 0 {N-1}X_t\etpin{kt/N}}^2
-  \]</span></p>
+\h S^{(p)}(f_k)=\frac{\Delta_t}N\abs{\sumsubtri t 0 {N-1}X_t\etpin{kt/N}}^2
+\]</span></p>
 <blockquote>
 <p>compute via DFT</p>
 </blockquote>
 <p><span class="math display">\[
-  \st ^{(p)}=\intsym{f_N} \h S^{(p)}(f)\etpi{f\tau\Delta_t}\d f\\
-  \st^{(p)}=\frac 1{2N\Delta_t}\sumsubtri k {-(N-1)} N\h S^{(p)}(\tilde f_k)\etpi{\tilde f_k\tau\Delta_t}
-  \]</span></p>
+\st ^{(p)}=\intsym{f_N} \h S^{(p)}(f)\etpi{f\tau\Delta_t}\d f\\
+\st^{(p)}=\frac 1{2N\Delta_t}\sumsubtri k {-(N-1)} N\h S^{(p)}(\tilde f_k)\etpi{\tilde f_k\tau\Delta_t}
+\]</span></p>
 <blockquote>
 <p>Why <span class="math inline">\(f_N\)</span>, not <span class="math inline">\(\infty\)</span>??????????</p>
 </blockquote>
 <p>relationship(DFT) <span class="math display">\[
-  S_k=\Delta_t\sumsubtri \tau 0{N-1}\h s_\tau^{(p)}\etpi{k\tau/N}\\
-  S_k+S^*_k-\h s_0^{(p)}=\h S^{(p)}(f_k)
-  \]</span></p>
+S_k=\Delta_t\sumsubtri \tau 0{N-1}\h s_\tau^{(p)}\etpi{k\tau/N}\\
+S_k+S^*_k-\h s_0^{(p)}=\h S^{(p)}(f_k)
+\]</span></p>
 <blockquote>
 <p>given just <span class="math inline">\(\h S^{(p)}(f_k)\)</span>’s, can’t recover <span class="math inline">\(S_k\)</span> and hence <span class="math inline">\(\h s_\tau^{(p)}\)</span>’s</p>
-</blockquote></li>
-<li><p>Sampling Properties of Periodogram</p>
+</blockquote>
+<div id="sampling-properties-of-periodogram" class="section level2">
+<h2><span class="header-section-number">5.1</span> Sampling Properties of Periodogram</h2>
 <ul>
-<li><p>Ideal</p>
-<ul>
+<li><p>Ideal</p></li>
 <li><span class="math inline">\(\bra{\h S^{(p)}(f)\approx S(f)}\)</span> for all <span class="math inline">\(f\)</span> (unbiasedness)</li>
 <li><span class="math inline">\(\var\bra{\h S^{(p)}}\rightarrow 0\)</span> as <span class="math inline">\(N\rightarrow \infty\)</span> (consistency)</li>
-<li><span class="math inline">\(\cov \bra{\h S^{(p)}(f&#39;),\h S^{(p)}(f)}\approx 0\)</span>(uncorrelatedness)</li>
-</ul></li>
+<li><p><span class="math inline">\(\cov \bra{\h S^{(p)}(f&#39;),\h S^{(p)}(f)}\approx 0\)</span>(uncorrelatedness)</p></li>
 <li><p>First Moment Properties <span class="math display">\[
-E\bra{\h S\kp(f)}=\Delta_t\sumsym\tau{(N-1)}\lrbra(){1-\frac {\abs\tau} N}s_\tau \etpin{f\tau \Delta_t}\\
-=N\Delta_t\intsym{f_N}D_N^2([f-f&#39;]\Delta_t)S(f&#39;)\d f&#39;\\
-\bra{r_t}\leftrightarrow D_N(\cdot)\\
-\bra{1-\frac{\abs\tau}N}\leftrightarrow D_N^2(\cdot)
-\]</span></p></li>
+  E\bra{\h S\kp(f)}=\Delta_t\sumsym\tau{(N-1)}\lrbra(){1-\frac {\abs\tau} N}s_\tau \etpin{f\tau \Delta_t}\\
+  =N\Delta_t\intsym{f_N}D_N^2([f-f&#39;]\Delta_t)S(f&#39;)\d f&#39;\\
+  \bra{r_t}\leftrightarrow D_N(\cdot)\\
+  \bra{1-\frac{\abs\tau}N}\leftrightarrow D_N^2(\cdot)
+  \]</span></p></li>
 <li><p>Fejer’s Kernel <span class="math display">\[
-E\bra{\h S\kp (f)}=\intsym {f_N}\mathcal F(f-f&#39;)S(f&#39;)\d f&#39;\\
-  \mathcal F(f)= N\Delta_tD_N^2(f\Delta_t)\\
-  =\frac{\Delta_t \sin^2(N\pi f\Delta_t)}{N\sin^2(\pi f\Delta_to)}\\
-  =\frac{\Delta_t}{N}\sumsubtri t 0 {N-1}\sumsubtri u 0 {N-1}\etpin{f(t-u)\Delta_t}
-\]</span></p>
-<ul>
+   E\bra{\h S\kp (f)}=\intsym {f_N}\mathcal F(f-f&#39;)S(f&#39;)\d f&#39;\\
+ \mathcal F(f)= N\Delta_tD_N^2(f\Delta_t)\\
+ =\frac{\Delta_t \sin^2(N\pi f\Delta_t)}{N\sin^2(\pi f\Delta_to)}\\
+ =\frac{\Delta_t}{N}\sumsubtri t 0 {N-1}\sumsubtri u 0 {N-1}\etpin{f(t-u)\Delta_t}
+   \]</span></p></li>
 <li>as <span class="math inline">\(N\rightarrow \infty\)</span>, <span class="math inline">\(\cal F\)</span> acts like <span class="math inline">\(\delta\)</span> function</li>
-<li>asymptotically unbiased</li>
-</ul></li>
+<li><p>asymptotically unbiased</p></li>
 </ul>
 <p><span class="math display">\[
-  \liminf N E\bra{\h S\kp (f)}=S(f)
-  \]</span>  <em>dynamic range</em> <span class="math display">\[
-  d\triangleq 10\log_{10}(\frac{\max_f S(f)}{\min _f S(f)})
-  \]</span></p></li>
-<li><p>Tapering</p>
-<ul>
-<li><p>preclude to tapering</p>
+\liminf N E\bra{\h S\kp (f)}=S(f)
+\]</span>  <em>dynamic range</em> <span class="math display">\[
+d\triangleq 10\log_{10}(\frac{\max_f S(f)}{\min _f S(f)})
+\]</span></p>
+<p><a href="#jump">up</a></p>
+</div>
+</div>
+<div id="tapering" class="section level1">
+<h1><span class="header-section-number">6</span> Tapering</h1>
+<p><a href="#jump">up</a></p>
+<div id="preclude-to-tapering" class="section level2">
+<h2><span class="header-section-number">6.1</span> preclude to tapering</h2>
 <p><span class="math inline">\(X_0,\cdots,X_{N-1}, \h X_N\)</span></p>
 <p>prediction error: <span class="math inline">\(X_0-\h X_N\)</span>, <strong>sharp discontinuty</strong></p>
 <p>tapered</p>
-<p><span class="math inline">\(h_0(X_0-\overline X)\cdots, h_{N-1}(X_{N-1}-\overline X)\)</span></p></li>
-<li><p>Bias Reduction <span class="math display">\[
+<p><span class="math inline">\(h_0(X_0-\overline X)\cdots, h_{N-1}(X_{N-1}-\overline X)\)</span></p>
+</div>
+<div id="bias-reduction" class="section level2">
+<h2><span class="header-section-number">6.2</span> Bias Reduction</h2>
+<p><span class="math display">\[
 \newcommand{kd}{^{(d)}}
 J(f)\triangleq \Delta_t^{1/2}\sumsubtri t 0 {N-1} h_t X_t\etpin{ft\Delta_t}\\
 \h S\kd(f)=\abs{J(f)}^2\\
 E\bra{\h S^{(d)}(f)}=\intsym{f_N}\mathcal H(f-f&#39;)S(f&#39;)\d f&#39;\\
 \bra{h_t}\leftrightarrow H(\cdot)\\
 \mathcal H(f)=\frac 1 {\Delta_t}\abs{H(f)}^2
-\]</span></p></li>
-<li><p>Slepian data tapers <span class="math display">\[
+\]</span></p>
+</div>
+<div id="slepian-data-tapers" class="section level2">
+<h2><span class="header-section-number">6.3</span> Slepian data tapers</h2>
+<p><span class="math display">\[
 \max\beta^2(W)=\frac{\intsym W \mathcal H(f)\d f}{\intsym{f_N} \mathcal H(f)\d f}\\
 h_t\approx CI_0(\pi W(N-1)(1-([2t+1-N]/N)^{1/2})
-\]</span></p></li>
-<li><p>tradeoffs</p>
+\]</span></p>
+</div>
+<div id="tradeoffs" class="section level2">
+<h2><span class="header-section-number">6.4</span> tradeoffs</h2>
 <ul>
 <li>reducing bias due to leakage</li>
 <li>introducing bias due th the width of central lobe(smearing or loss of resolution)</li>
-</ul></li>
-<li><p>not particularly useful for SDFs with samll dynamic range, potentially useful for SDFs with large dynamic range</p></li>
-<li><p>ACVS and Normalization <span class="math display">\[
+</ul>
+<p>not particularly useful for SDFs with samll dynamic range, potentially useful for SDFs with large dynamic range</p>
+</div>
+</div>
+<div id="acvs-and-normalization" class="section level1">
+<h1><span class="header-section-number">7</span> ACVS and Normalization</h1>
+<p><span class="math display">\[
 E\bra{\st^{(d)}}=s_\tau\sumsubtri t 0 {N-\abs \tau-1}h_{t+\abs\tau}h_t\\
 E\bra{\h S^{(d)}(f)}=\Delta_t\sumsym\tau{(N-1)} s_\tau(\sumsubtri t 0{N-\abs\tau - 1}h_{t+\abs\tau}h_t)\etpin {f\tau\Delta_t}
 \]</span></p>
-<ul>
-<li>Normalization 1</li>
-</ul>
+<div id="normalization-1" class="section level2">
+<h2><span class="header-section-number">7.1</span> Normalization 1</h2>
 <p>for <span class="math inline">\(\tau=0\)</span>, <span class="math display">\[
 E\bra{\h s_0^{(d)}}=s_0\sumsubtri t 0 {N-1} h_t^2
 \]</span> require <span class="math inline">\(\sum_t h_t^2=1\)</span></p>
-<ul>
-<li>Normalization 2: restoration of power <span class="math display">\[
+</div>
+<div id="normalization-2-restoration-of-powe" class="section level2">
+<h2><span class="header-section-number">7.2</span> Normalization 2: restoration of powe</h2>
+<p><span class="math display">\[
 \h s_0^{(d)}=\h s_0^{(p)}\\
 \sumsubtri t 0 {N-1} (h_tX_t)^2=\frac 1 N\sumsubtri t 0 {N-1}X_t^2
-\]</span></li>
-</ul></li>
-<li><p>Estimation of <span class="math inline">\(\mu\)</span> <span class="math display">\[
+\]</span></p>
+</div>
+</div>
+<div id="estimation-of-mu" class="section level1">
+<h1><span class="header-section-number">8</span> Estimation of <span class="math inline">\(\mu\)</span></h1>
+<p><span class="math display">\[
 \tilde \mu=\sumsubtri t 0 {N-1}h_tX_t/\sumsubtri t 0 {N-1}h_t
 \]</span> then <span class="math display">\[
 \h S^{(d)}(0)=\Delta_t\abs{\sumsubtri t 0 {N-1}h_t(X_t-\tilde \mu)}^2=0
-\]</span></p></li>
-<li><p>Measuring Width of Central Lobe of <span class="math inline">\(\mathcal H(\cdot)\)</span> <span class="math display">\[
+\]</span></p>
+</div>
+<div id="measuring-width-of-central-lobe-of-mathcal-hcdot" class="section level1">
+<h1><span class="header-section-number">9</span> Measuring Width of Central Lobe of <span class="math inline">\(\mathcal H(\cdot)\)</span></h1>
+<p><span class="math display">\[
 H(-f_0)=H(f_0)=\frac {H(0)}2\\
 \t{width}_{\t{hp}}\bra{\mathcal H(\cdot)}\triangleq 2f_0\\
 \t{width}_v\bra{\mathcal H(\cdot)}=12\lrbra () {\intsym{f_N}\phi^2\mathcal H(\phi)\d \phi}^{1/2}\\
@@ -518,26 +601,39 @@ b(f)=E\bra{\h S^{(d)}(f)}-S(f)\approx\frac{S&#39;&#39;(f)}{24}(\t{width}_v\bra{\
 <blockquote>
 <p>if <span class="math inline">\(\abs{f-f&#39;}\geq B_{\mathcal H}\)</span>, then <span class="math inline">\(\hat S^{(d)}(f), \h S^{(d)}(f&#39;)\)</span> are approximately uncorrelated</p>
 <p>Why????</p>
-</blockquote></li>
-</ul></li>
-<li><p>End Point Mathing <span class="math display">\[
-  \tilde X_t=X_t-X_0-\frac{X_{N-1}-X_0}{N-1}t, t=0,\cdots,N-1
-  \]</span></p></li>
-<li><p>Reflection Boundary Conditions</p>
+</blockquote>
+<p><a href="#up">Back</a></p>
+<div id="end-point-mathing" class="section level2">
+<h2><span class="header-section-number">9.1</span> End Point Mathing</h2>
+<p><span class="math display">\[
+\tilde X_t=X_t-X_0-\frac{X_{N-1}-X_0}{N-1}t, t=0,\cdots,N-1
+\]</span></p>
+</div>
+<div id="reflection-boundary-conditions" class="section level2">
+<h2><span class="header-section-number">9.2</span> Reflection Boundary Conditions</h2>
 <p><span class="math inline">\(X_0,\cdots,X_{N-1},X_{N-1},\cdots,X_0\)</span> or</p>
-<p><span class="math inline">\(X_0,\cdots,X_{N-2},X_{N-1},X{N-2},\cdots,0\)</span></p></li>
-<li><p>Prewhitening: general of AR model <span class="math display">\[
-  Y_t\triangleq\sumsubtri l 0{L-1}g_lX_{t+L-1-l},0\leq t\leq M-1, M=N-L+1\\
-  \h S_Y^{(d)}(f)=\Delta_t\abs{\sumsubtri t 0{M-1}h_tY_t\etpin{ft\Delta_t}}^2\\
-  \h S_X^{(pc)}(f)=\frac{\h S_Y^{(d)}(f)}{\abs{\sumsubtri l 0{L-1}g_l\etpin{fl\Delta_t}}^2}
-  \]</span></p></li>
-<li><p>Rejection Filtration</p>
+<p><span class="math inline">\(X_0,\cdots,X_{N-2},X_{N-1},X{N-2},\cdots,0\)</span></p>
+</div>
+</div>
+<div id="prewhitening-general-of-ar-model" class="section level1">
+<h1><span class="header-section-number">10</span> Prewhitening: general of AR model</h1>
+<p><span class="math display">\[
+Y_t\triangleq\sumsubtri l 0{L-1}g_lX_{t+L-1-l},0\leq t\leq M-1, M=N-L+1\\
+\h S_Y^{(d)}(f)=\Delta_t\abs{\sumsubtri t 0{M-1}h_tY_t\etpin{ft\Delta_t}}^2\\
+\h S_X^{(pc)}(f)=\frac{\h S_Y^{(d)}(f)}{\abs{\sumsubtri l 0{L-1}g_l\etpin{fl\Delta_t}}^2}
+\]</span></p>
+</div>
+<div id="rejection-filtration" class="section level1">
+<h1><span class="header-section-number">11</span> Rejection Filtration</h1>
 <p>suppose need <span class="math inline">\(S(\cdot)\)</span> only over <span class="math inline">\([f_{(L)},f_{(H)}]\)</span></p>
-<p>design band-pass filter to attenuate <span class="math inline">\(\abs f\notin[f_{(L)},f_{(H)}]\)</span></p></li>
-<li><p>Statistical Properties of <span class="math inline">\(\h S^{(d)}(\cdot)\)</span></p>
+<p>design band-pass filter to attenuate <span class="math inline">\(\abs f\notin[f_{(L)},f_{(H)}]\)</span></p>
+</div>
+<div id="statistical-properties-of-h-sdcdot" class="section level1">
+<h1><span class="header-section-number">12</span> Statistical Properties of <span class="math inline">\(\h S^{(d)}(\cdot)\)</span></h1>
 <p><span class="math inline">\(\newcommand{dt}{\Delta_t}\)</span></p>
-<ul>
-<li><p>Re and Im <span class="math display">\[
+<div id="re-and-im" class="section level2">
+<h2><span class="header-section-number">12.1</span> Re and Im</h2>
+<p><span class="math display">\[
 J(f)=\dt^{1/2}\sumsubtri t 0 {N-1}h_tX_t\etpin{ft\dt}=A(f)-iB(f)\\
 A(f)=\dt^{1/2}\sumsubtri t 0 {N-1}h_t X_t\cos(2\pi ft\dt)\\
 B(f)=\dt^{1/2}\sumsubtri t 0{N-1}h_tX_t\sin(2\pi ft\dt)\\
@@ -546,34 +642,42 @@ E\bra{J(f)}=E\bra{A(f)}=E\bra{B(f)}=0\\
 \var\bra{A(f)}=\sigma^2\dt\sumsubtri t 0{N-1}h_t^2\cos^2(2\pi ft\dt)\\
 \var\bra{B(f)}=\sigma^2\dt\sumsubtri t 0{N-1}h_t^2\sin^2(2\pi ft\dt)\\
 \cov\bra{A(f),A(f&#39;)},\cov\bra{B(f),B(f&#39;)},\cov\bra{A(f),B(f&#39;)}
-\]</span></p></li>
-<li><p>Special case:<span class="math inline">\(h_t=1/\sqrt{N}\)</span></p>
+\]</span></p>
+</div>
+<div id="special-caseh_t1sqrtn" class="section level2">
+<h2><span class="header-section-number">12.2</span> Special case:<span class="math inline">\(h_t=1/\sqrt{N}\)</span></h2>
 <ul>
 <li><p><span class="math inline">\(A(f_k),B(f_k)\)</span> are Gaussian and independent</p></li>
 <li><p><span class="math inline">\(\dfrac{A(f_k)}{\sigma^2\dt/2^{1/2}}=\dfrac{A(f_k)}{\sqrt{S(f_k)/2}}\)</span> and <span class="math inline">\(B(\cdot)\)</span> are IID <span class="math inline">\(N(0,1)\)</span></p></li>
 <li><p><span class="math inline">\(\h S\kp (f_k)\mathop=\limits^\d S(f_k)\chi_2^2/2\)</span> <span class="math display">\[
-E\bra{\h S\kp(f_k)}=S(f_k)\\
-\var\bra{\h S\kp(f_k)}=S^2(f_k)
-\]</span> if <span class="math inline">\(f_k=0\)</span> or <span class="math inline">\(f_N\)</span> <span class="math display">\[
-\h S\kp(f_k)\mathop =\limits^\d S(f_k)\chi_1^2
-\]</span></p></li>
+  E\bra{\h S\kp(f_k)}=S(f_k)\\
+  \var\bra{\h S\kp(f_k)}=S^2(f_k)
+  \]</span> if <span class="math inline">\(f_k=0\)</span> or <span class="math inline">\(f_N\)</span> <span class="math display">\[
+  \h S\kp(f_k)\mathop =\limits^\d S(f_k)\chi_1^2
+  \]</span></p></li>
 <li><p><span class="math inline">\(\cov\bra{\h S\kp(f_j),\h S\kp(f_k)}=0, f_j\neq f_k\)</span></p></li>
-</ul></li>
-<li><p>general case</p>
+</ul>
+</div>
+<div id="general-case" class="section level2">
+<h2><span class="header-section-number">12.3</span> general case</h2>
 <p><span class="math inline">\(\bra{X_t}\)</span> not necessarily Gaussian,</p>
 <p><span class="math inline">\(S(\cdot)\)</span> not necessarily white,</p>
 <p><span class="math inline">\(f\)</span> not necessarily a Fourier frequency</p>
-<ul>
-<li><p>as <span class="math inline">\(N\rightarrow\infty\)</span> <span class="math display">\[
+<div id="as-nrightarrowinfty" class="section level3">
+<h3><span class="header-section-number">12.3.1</span> as <span class="math inline">\(N\rightarrow\infty\)</span></h3>
+<p><span class="math display">\[
 \h S\kp(f)\mathop=^\d S(f)\chi_2^2/2,0&lt;f&lt;f_N\\
 \h S\kp(f)\mathop=^\d S(f)\chi_1^2,f=0,f_N\\
 \cov\bra{\h S\kp(f_j),\h S\kp(f_k)}=0,f_j\neq f_k
-\]</span> approximately uncorrelated over <span class="math inline">\(f_k\)</span>’s’</p></li>
-<li><p>There are</p>
+\]</span> approximately uncorrelated over <span class="math inline">\(f_k\)</span>’s’</p>
+</div>
+<div id="oddeven" class="section level3">
+<h3><span class="header-section-number">12.3.2</span> odd/even</h3>
 <p><span class="math inline">\(N/2+1\)</span> uncorrelated RVs when <span class="math inline">\(N\)</span> is even</p>
-<p><span class="math inline">\((N+1)/2\)</span> when <span class="math inline">\(N\)</span> is odd</p></li>
-</ul></li>
-<li><p>percentage point</p>
+<p><span class="math inline">\((N+1)/2\)</span> when <span class="math inline">\(N\)</span> is odd</p>
+</div>
+<div id="percentage-point" class="section level3">
+<h3><span class="header-section-number">12.3.3</span> percentage point</h3>
 <p><span class="math inline">\(\newcommand{kd}{^{(d)}}\)</span> <span class="math display">\[
 \t P\lrbra [] {Q_2(p)\leq\dfrac{2\h S\kd(f)}{S(f)}\leq Q_2(1-p)}=1-2p\\
 =\t P\lrbra[]{\frac{2\h S^{(d)}(f)}{Q_2(1-p)}\leq S(f)\leq \frac{2\h S^{(d)}(f)}{Q_2(p)}}
@@ -585,8 +689,11 @@ E\bra{\h S\kp(f_k)}=S(f_k)\\
 10\log_{10}\lrbra(){\frac{Q_2(1-p)}{Q_2(p)}}
 \]</span> p=0.025 to obtain a <span class="math inline">\(95%\)</span> CI <span class="math display">\[
 [10\log_{10}(\h S\kd (f))-5.67,10\log_{10}(\h S\kd(f))+15.97 ]
-\]</span> <strong>above results holds for all direct spectral estimators</strong></p></li>
-<li><p>Cov <span class="math display">\[
+\]</span> <strong>above results holds for all direct spectral estimators</strong></p>
+</div>
+<div id="cov" class="section level3">
+<h3><span class="header-section-number">12.3.4</span> Cov</h3>
+<p><span class="math display">\[
 \cov\bra{\h S\kd(f),\h S\kd (f&#39;)}\leq\abs{C\intsym{f_N}\abs{H(f-f&#39;+v)}\cdot\abs{H(v)}\d v}^2\\
 \t {where }C\triangleq S_{\max}/\dt,\bra{h_t}\leftrightarrow H(\cdot)
 \]</span> <strong>says</strong> <span class="math display">\[
@@ -597,51 +704,65 @@ E\bra{\h S\kp(f_k)}=S(f_k)\\
 <ul>
 <li>typically <span class="math inline">\(c=2,4\)</span></li>
 <li>yields <span class="math inline">\(K+1&lt;N/2+1\)</span> uncorrelated RVs</li>
-<li>using standard measure of effective bandwidth <span class="math inline">\(B_{\mathcal H}\)</span></li>
-</ul></li>
-<li><p>var</p>
-<p>holds for all <span class="math inline">\(N\)</span>: <span class="math inline">\(\h S\kd(f)\)</span> inconsistent unless <span class="math inline">\(S(f)=0\)</span></p></li>
-<li><p>Why does <span class="math inline">\(\h S\kd(\cdot)\)</span> look smoother than <span class="math inline">\(\h S\kp(\cdot)\)</span>?</p></li>
-</ul></li>
-<li><p>Probability Density Function for <span class="math inline">\(\h S\kd (f)\)</span> <span class="math display">\[
-  \h S\kd(f)\mathop=^\d S(f)\chi_2^2/2\\
-  10\log(S(f)\chi_2^2/2)=10\log(S(f)/2)+10\log(\chi_2^2)\\
-  \triangleq10\log(S(f)/2)+V\\
-  f_V(v)=\frac{\log (10)}{20}10^{v/10}e^{-(10^{v/10})/2}
-  \]</span> <strong><span class="math inline">\(10\log(\cdot)\)</span> acts as a variance stabilizing transformation</strong></p></li>
-<li><p>A Test for White Noise <span class="math display">\[
-  \mathcal P_k\triangleq \dfrac{\sumsubtri j 1 k\h S\kp(f_j)}{\sumsubtri j 1 M\h S\kp(f_j)},k=1,\cdots,M-1
-  \]</span> where <span class="math inline">\(M\triangleq \lfloor (N-1)/2\rfloor\)</span></p>
+<li><p>using standard measure of effective bandwidth <span class="math inline">\(B_{\mathcal H}\)</span></p></li>
+<li><p>var</p></li>
+</ul>
+<p>holds for all <span class="math inline">\(N\)</span>: <span class="math inline">\(\h S\kd(f)\)</span> inconsistent unless <span class="math inline">\(S(f)=0\)</span></p>
+<ul>
+<li>Why does <span class="math inline">\(\h S\kd(\cdot)\)</span> look smoother than <span class="math inline">\(\h S\kp(\cdot)\)</span>?</li>
+</ul>
+</div>
+<div id="probability-density-function-for-h-skd-f" class="section level3">
+<h3><span class="header-section-number">12.3.5</span> Probability Density Function for <span class="math inline">\(\h S\kd (f)\)</span></h3>
+<p><span class="math display">\[
+\h S\kd(f)\mathop=^\d S(f)\chi_2^2/2\\
+10\log(S(f)\chi_2^2/2)=10\log(S(f)/2)+10\log(\chi_2^2)\\
+\triangleq10\log(S(f)/2)+V\\
+f_V(v)=\frac{\log (10)}{20}10^{v/10}e^{-(10^{v/10})/2}
+\]</span> <strong><span class="math inline">\(10\log(\cdot)\)</span> acts as a variance stabilizing transformation</strong></p>
+</div>
+</div>
+</div>
+<div id="a-test-for-white-noise" class="section level1">
+<h1><span class="header-section-number">13</span> A Test for White Noise</h1>
+<p><span class="math display">\[
+\mathcal P_k\triangleq \dfrac{\sumsubtri j 1 k\h S\kp(f_j)}{\sumsubtri j 1 M\h S\kp(f_j)},k=1,\cdots,M-1
+\]</span> where <span class="math inline">\(M\triangleq \lfloor (N-1)/2\rfloor\)</span></p>
 <ul>
 <li><p>plot <span class="math inline">\(\mathcal P_k\)</span> versus <span class="math inline">\(f_k\)</span></p></li>
 <li><p>plot lines <span class="math display">\[
-L_u(f)\triangleq \frac{fN\dt -1}{M-1}+\tilde D(\a)\\
-L_l(f)\triangleq \frac{fN\dt}{M-1}-\tilde D(\a)\\
-\t{where }\tilde D(\a)\triangleq\frac{C(\a)}{(M-1)^{1/2}+0.12+0.11/(M-1)^{1/2}}
-\]</span></p></li>
-<li><p>reject null hypothesis if <span class="math inline">\(\mathcal P_k\)</span> versus <span class="math inline">\(f_k\)</span> falls outside of lines at any <span class="math inline">\(f_k\)</span></p></li>
-</ul></li>
-<li><p>Reflection Boundary Conditions and DCT-II <span class="math display">\[
-  X_0,\cdots,X_{N-1}X_{N-1},\cdots,X_0\\
-  \tilde S^{(dct)}=\frac 2 N\lrbra(){\sumsubtri t 0{N-1}X_t\cos  \lrbra(){\frac{\pi k[2t+1]}{2N}}}^2\\
-  \tilde f_k=k/2N
-  \]</span> Compare above with type-II discrete cosine tranform(DCT-II) <span class="math display">\[
-  C_k=\lrbra(){\frac{2-\delta_k}{N}}^{1/2}\sumsubtri t 0 {N-1}\cos\lrbra(){\frac{\pi k[2t+1]}{2N}},k=0,\cdots,N-1
-  \]</span> Compare <span class="math display">\[
-  \tilde S^{dct}(\tilde f_k)=\equtwo{C_k^2}{k=1,\cdots,N-1}{2C_0^2}{k=0}
-  \]</span> DCT-based Periodogram <span class="math display">\[
-  \h S^{(dct)}(\tilde f_k)\triangleq C_k^2,k=0,\cdots,N-1
-  \]</span> Compare <span class="math display">\[
-  E\bra{\h S^{(dct)}(f_k)}=E\bra{\h S^{(p)}(\tilde f_k)}-\frac{2}{N\sin(\pi k/N)}\sumsubtri \tau 1 {N-1}s_\tau\sin(\pi \tau k/N)\\
-  \liminf N E\bra{\h S^{(dct)}(f)}\rightarrow S(f)
-  \]</span> for large <span class="math inline">\(N\)</span> <span class="math display">\[
-  \h S^{(dct)}(\tilde f_k)\mathop =^\d S(\tilde f_k)\chi_1^2\\
-  \h S\kp(\tilde f_k)\mathop =^\d \frac{S(\tilde f_k)}2\chi_2^2\\
-  \var\bra{\h S^{(dct)}(\tilde f_k)}\approx2S^2(\tilde f_k)\approx S^2(\tilde f_k)
+  L_u(f)\triangleq \frac{fN\dt -1}{M-1}+\tilde D(\a)\\
+  L_l(f)\triangleq \frac{fN\dt}{M-1}-\tilde D(\a)\\
+  \t{where }\tilde D(\a)\triangleq\frac{C(\a)}{(M-1)^{1/2}+0.12+0.11/(M-1)^{1/2}}
   \]</span></p></li>
-<li><p>Computational Details</p>
-<p>Four ways</p></li>
+<li><p>reject null hypothesis if <span class="math inline">\(\mathcal P_k\)</span> versus <span class="math inline">\(f_k\)</span> falls outside of lines at any <span class="math inline">\(f_k\)</span></p></li>
 </ul>
+</div>
+<div id="reflection-boundary-conditions-and-dct-ii" class="section level1">
+<h1><span class="header-section-number">14</span> Reflection Boundary Conditions and DCT-II</h1>
+<p><span class="math display">\[
+X_0,\cdots,X_{N-1}X_{N-1},\cdots,X_0\\
+\tilde S^{(dct)}=\frac 2 N\lrbra(){\sumsubtri t 0{N-1}X_t\cos  \lrbra(){\frac{\pi k[2t+1]}{2N}}}^2\\
+\tilde f_k=k/2N
+\]</span> Compare above with type-II discrete cosine tranform(DCT-II) <span class="math display">\[
+C_k=\lrbra(){\frac{2-\delta_k}{N}}^{1/2}\sumsubtri t 0 {N-1}\cos\lrbra(){\frac{\pi k[2t+1]}{2N}},k=0,\cdots,N-1
+\]</span> Compare <span class="math display">\[
+\tilde S^{dct}(\tilde f_k)=\equtwo{C_k^2}{k=1,\cdots,N-1}{2C_0^2}{k=0}
+\]</span> DCT-based Periodogram <span class="math display">\[
+\h S^{(dct)}(\tilde f_k)\triangleq C_k^2,k=0,\cdots,N-1
+\]</span> Compare <span class="math display">\[
+E\bra{\h S^{(dct)}(f_k)}=E\bra{\h S^{(p)}(\tilde f_k)}-\frac{2}{N\sin(\pi k/N)}\sumsubtri \tau 1 {N-1}s_\tau\sin(\pi \tau k/N)\\
+\liminf N E\bra{\h S^{(dct)}(f)}\rightarrow S(f)
+\]</span> for large <span class="math inline">\(N\)</span> <span class="math display">\[
+\h S^{(dct)}(\tilde f_k)\mathop =^\d S(\tilde f_k)\chi_1^2\\
+\h S\kp(\tilde f_k)\mathop =^\d \frac{S(\tilde f_k)}2\chi_2^2\\
+\var\bra{\h S^{(dct)}(\tilde f_k)}\approx2S^2(\tilde f_k)\approx S^2(\tilde f_k)
+\]</span></p>
+<p><a href="#up">Back</a></p>
+</div>
+<div id="computational-details" class="section level1">
+<h1><span class="header-section-number">15</span> Computational Details</h1>
+<p>Four ways</p>
 </div>
 
   </div> <!-- articleBandContent -->
@@ -649,12 +770,12 @@ L_l(f)\triangleq \frac{fN\dt}{M-1}-\tilde D(\a)\\
 
 <div id="rStudioFooter" class="band full">
 <div class="bandContent">
-  <div id="copyright">© Copyright 2016 RStudio Inc.</div>
+  <div id="copyright">© Copyright 2018 Lin Gui.</div>
   <div id="logos">
-    <a href="https://twitter.com/rstudio" class="footerLogo twitter"></a>
-    <a href="https://github.com/rstudio" class="footerLogo gitHub"></a>
-    <a href="https://www.linkedin.com/company/rstudio-inc" class="footerLogo linkedIn"></a>
-    <a href="https://www.facebook.com/pages/RStudio-Inc/267733656584415" Class="footerLogo facebook"></a>
+    <!-- <a href="https://twitter.com/rstudio" class="footerLogo twitter"></a> -->
+    <a href="https://github.com/LinGuiZJU" class="footerLogo gitHub"></a>
+    <!-- <a href="https://www.linkedin.com/company/rstudio-inc" class="footerLogo linkedIn"></a> -->
+    <!-- <a href="https://www.facebook.com/pages/RStudio-Inc/267733656584415" Class="footerLogo facebook"></a> -->
   </div>
 </div>
 </div>

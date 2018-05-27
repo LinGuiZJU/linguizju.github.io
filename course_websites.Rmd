@@ -3,6 +3,9 @@ title: "Other Course Websites"
 output: html_document
 ---
 
-## Probability & Statistics
 
-[Duke Sta 663, Statistical Computing and Computation](https://people.duke.edu/~ccc14/sta-663-2017/)
+[Duke Sta 663, Statistical Computing and Computation, 2017](https://people.duke.edu/~ccc14/sta-663-2017/)
+
+[CMU CS 10715, Advanced Introduction to Machine Learning, 2017](https://sites.google.com/site/10715advancedmlintro2017f/)
+
+[CMU CS Machine Learning For Signal Processing, Spring 2015](http://www.cs.cmu.edu/~11755/index.html)

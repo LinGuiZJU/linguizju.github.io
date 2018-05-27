@@ -9,9 +9,10 @@
 <meta name="generator" content="pandoc" />
 
 
+<meta name="author" content="Lin Gui" />
 
 
-<title>course_mit_eecs_6_450_chap4.utf8</title>
+<title>Chapter 4</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -95,7 +96,7 @@
 
   });
 </script>
-<script type="text/javascript" src="./site_libs/mathjax-local/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" src="/Users/lin/Nustore Files/LinFile/lin_page//site_libs/mathjax-local/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -280,24 +281,6 @@ $(document).ready(function () {
     Courses
   </a>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fa fa-gear"></span>
-     
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li class="dropdown-header">Record</li>
-    <li class="divider"></li>
-    <li class="dropdown-header">Heading 2</li>
-    <li class="dropdown-header">Page C</li>
-    <li class="dropdown-header">Page D</li>
-  </ul>
-</li>
-<li>
-  <a></a>
-</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         
@@ -331,9 +314,24 @@ $(".main-container").removeClass("main-container").removeClass("container-fluid"
 
 
 
+<h1 class="title toc-ignore">Chapter 4</h1>
+<h4 class="author"><em>Lin Gui</em></h4>
 
 </div>
 
+<div id="TOC">
+<ul>
+<li><a href="#source-and-channel-waveforms">4. Source and channel waveforms</a><ul>
+<li><a href="#introduction">4.1 Introduction</a></li>
+<li><a href="#fourier-series">4.2 Fourier series</a></li>
+<li><a href="#l_2-functions-and-lebesgue-integration-over">4.3 <span class="math inline">\(L_2\)</span> functions and Lebesgue integration over</a></li>
+<li><a href="#fourier-series-for-waveforms">4.4 Fourier series for waveforms</a></li>
+<li><a href="#fourier-transforms-and-waveforms">4.5 Fourier transforms and waveforms</a></li>
+<li><a href="#the-dtft-and-the-sampling-theorem">4.6 The DTFT and the sampling theorem</a></li>
+<li><a href="#summary">4.8 Summary</a></li>
+</ul></li>
+</ul>
+</div>
 
 <div id="source-and-channel-waveforms" class="section level1">
 <h1>4. Source and channel waveforms</h1>
@@ -355,9 +353,9 @@ u(t)=\sumsub{k=-\infty}{\infty}\hat {u_k}e^{2\pi ikt/T}\rect (\frac t T)\\
 <ul>
 <li><p><em>orthogonal</em></p></li>
 <li><p>energy <span class="math display">\[
-      \intsym{T/2}\abs{u(t)}^2\d t=T\sumsub{k=-\infty}{\infty}\abs{\hat u_k}^2\\
-  \intsym{T/2}\abs{u(t)-v(t)}^2\d t=T\sumsub{k}{}|\hat u_k-\hat v_k|^2
-  \]</span> The energy in the waveform difference is a common and reasonable measure of distortion.</p>
+    \intsym{T/2}\abs{u(t)}^2\d t=T\sumsub{k=-\infty}{\infty}\abs{\hat u_k}^2\\
+\intsym{T/2}\abs{u(t)-v(t)}^2\d t=T\sumsub{k}{}|\hat u_k-\hat v_k|^2
+\]</span> The energy in the waveform difference is a common and reasonable measure of distortion.</p>
 <blockquote>
 <p>??? When a finite-energy baseband waveform is modulated by that sinusoid up to passband, the resulting passband waveform has finite energy.</p>
 </blockquote></li>
@@ -373,8 +371,8 @@ u(t)=\sumsub{k=-\infty}{\infty}\hat {u_k}e^{2\pi ikt/T}\rect (\frac t T)\\
 <ul>
 <li><p><em>measure</em></p>
 <p><em>outer measure</em> is essentially the measure of the smalles cover of A(countable union of intervals) <span class="math display">\[
-          \mu^o(A)=\inf_{B:B \text { covers }A}\mu(B)
-      \]</span> <em>measurable</em></p>
+        \mu^o(A)=\inf_{B:B \text { covers }A}\mu(B)
+    \]</span> <em>measurable</em></p>
 <blockquote>
 <p>measurable if <span class="math display">\[
 \mu^o(A)+\mu^o(\overline A)=T
@@ -393,13 +391,13 @@ u(t)=\sumsub{k=-\infty}{\infty}\hat {u_k}e^{2\pi ikt/T}\rect (\frac t T)\\
 \]</span></p>
 </blockquote>
 <p>sets of zero measure can be ignored in integration <span class="math display">\[
-  \int u(t)\d t=\int v(t) \d t, u(t) =v(t)\,a.s.
+\int u(t)\d t=\int v(t) \d t, u(t) =v(t)\,a.s.
 \]</span></p>
 <p> (Two functions that are the same except on a set of zero measure are said to be equal almost everywhere, a.e.)</p></li>
 <li><p>Measurability of functions defined by other functions</p>
 <p><span class="math display">\[
-      \lim_ku_k(t)
-  \]</span></p>
+    \lim_ku_k(t)
+\]</span></p>
 <ul>
 <li><span class="math inline">\(L_1\)</span> &amp; <span class="math inline">\(L_2\)</span></li>
 </ul>
@@ -565,12 +563,12 @@ u(t)=\text{l.i.m.}_{B\rightarrow \infty}\intsym B\hat u(f)\etpi {ft}\d f
 
 <div id="rStudioFooter" class="band full">
 <div class="bandContent">
-  <div id="copyright">© Copyright 2016 RStudio Inc.</div>
+  <div id="copyright">© Copyright 2018 Lin Gui.</div>
   <div id="logos">
-    <a href="https://twitter.com/rstudio" class="footerLogo twitter"></a>
-    <a href="https://github.com/rstudio" class="footerLogo gitHub"></a>
-    <a href="https://www.linkedin.com/company/rstudio-inc" class="footerLogo linkedIn"></a>
-    <a href="https://www.facebook.com/pages/RStudio-Inc/267733656584415" Class="footerLogo facebook"></a>
+    <!-- <a href="https://twitter.com/rstudio" class="footerLogo twitter"></a> -->
+    <a href="https://github.com/LinGuiZJU" class="footerLogo gitHub"></a>
+    <!-- <a href="https://www.linkedin.com/company/rstudio-inc" class="footerLogo linkedIn"></a> -->
+    <!-- <a href="https://www.facebook.com/pages/RStudio-Inc/267733656584415" Class="footerLogo facebook"></a> -->
   </div>
 </div>
 </div>

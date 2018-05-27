@@ -1,0 +1,55 @@
+---
+title: "Latex"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    mathjax: local
+    includes:
+      in_header: ./mathconfig.html
+
+---
+
+## Lin's Latex Commands and Mathjax Configuration
+
+\abs[1] $\abs 2$  
+\sinc $\sinc$  
+\rect $\rect$  
+\sgn $\sgn$  
+\d $\d$  
+\liminf[1] $\liminf t$  
+\intinf $\intinf $  
+\intf[2] $\intf 1 2$  
+\intsym[1] $\intsym 1$  
+\sumsub[2] $\sumsub a b$  
+\sumsubtri[3]  
+\prodsub[2] $\prodsub a b$  
+\prodsubtri[3] $\prodsubtri a 1 2$  
+\conv[4] $\conv f g t \tau$  
+\lrangle[1] $\lrangle a$  
+\lrbra[1] $\lrbra ( ) a$  
+\norm[1] $\norm a$  
+\rm[1] $\rm k$  
+\t[1] $\t {abc}$  
+\equtwo[4] $\equtwo 1 {x>0} 2{x\leq 0}$  
+\equtri[6] $\equtri 1 2 3 4 5 6$  
+\mattwo[4] $\mattwo 1 2 3 4$  
+\mattri[9] $\mattri 1 2 3 4 5 6 7 8 9$  
+---
+\bra[1] $\bra 1$  
+\sumsym[2] $\sumsym x 2$  
+\var $\var$  
+\cov $\cov$  
+\a $\a$  
+\b $\b$  
+\h[1] $\h a$  
+\etpi[1] $\etpi {t}$  
+\etpin[1] $\etpin t$  
+\tp $\tp$  
+
+
+
+
+
+
+

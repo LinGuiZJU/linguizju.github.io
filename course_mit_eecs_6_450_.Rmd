@@ -1,26 +1,20 @@
 ---
 title: "MIT 6.450, Principles of Communications I, Fall 2006"
-output:
-  html_document:
-    toc: true
-    toc_float: true
-    mathjax: local
-    df_print: paged
 ---
 
 [course website](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-450-principles-of-digital-communications-i-fall-2006/)
 
 # Lecture Notes - By Lin
 
-* [Chapter 1](course/course_mit_eecs_6_450_chap1.html)
+* [Chapter 1](course_mit_eecs_6_450_chap1.html)
 
-* [Chapter 2](course/course_mit_eecs_6_450_chap2.html)
+* [Chapter 2](course_mit_eecs_6_450_chap2.html)
 
-* [Chapter 4](course/course_mit_eecs_6_450_chap4.html)
+* [Chapter 4](course_mit_eecs_6_450_chap4.html)
 
-* [Chapter 5](course/course_mit_eecs_6_450_chap5.html)
+* [Chapter 5](course_mit_eecs_6_450_chap5.html)
 
-* [Chapter 7](course/course_mit_eecs_6_450_chap7.html)
+* [Chapter 7](course_mit_eecs_6_450_chap7.html)
 
 
   

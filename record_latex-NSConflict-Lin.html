@@ -11,7 +11,7 @@
 
 
 
-<title>Record</title>
+<title>Latex</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,6 +19,9 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -238,6 +241,101 @@ $(document).ready(function () {
 
 
 
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
 
 
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
@@ -288,60 +386,40 @@ $(document).ready(function () {
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-<div id="rStudioHeader" class="alwaysShrunk">
-  <div class="innards bandContent">
-
-  </div>
-</div>
-
-<style type="text/css">
-#TOC {
-  margin-left: 35px;
-  margin-top: 90px;
-}
-</style>
-
-<script type="text/javascript">
-$(".main-container").removeClass("main-container").removeClass("container-fluid").addClass("footerPushDown");
-</script>
-
-
-<div id="pageContent" class="standardPadding">
-  <div class="articleBandContent">
-
 <div class="fluid-row" id="header">
 
 
 
-<h1 class="title toc-ignore">Record</h1>
+<h1 class="title toc-ignore">Latex</h1>
 
 </div>
 
 
-<p><a href="record_git.html">Git</a></p>
-<p><a href="record_linux.html">Linux</a></p>
-<p><a href="record_vim.html">Vim</a></p>
-<p><a href="record_latex.html">Latex</a></p>
-<p><a href="record_code_style.html">Code Style</a></p>
-<p><a href="record_anaconda_ipython.html">Anaconda &amp; IPython</a></p>
-<p><a href="record_r.html">R</a></p>
-
-  </div> <!-- articleBandContent -->
-</div> <!-- pageContent -->
-
-<div id="rStudioFooter" class="band full">
-<div class="bandContent">
-  <div id="copyright">© Copyright 2018 Lin Gui.</div>
-  <div id="logos">
-    <!-- <a href="https://twitter.com/rstudio" class="footerLogo twitter"></a> -->
-    <a href="https://github.com/LinGuiZJU" class="footerLogo gitHub"></a>
-    <!-- <a href="https://www.linkedin.com/company/rstudio-inc" class="footerLogo linkedIn"></a> -->
-    <!-- <a href="https://www.facebook.com/pages/RStudio-Inc/267733656584415" Class="footerLogo facebook"></a> -->
-  </div>
-</div>
+<div id="lins-latex-commands-and-mathjax-configuration" class="section level2">
+<h2>Lin’s Latex Commands and Mathjax Configuration</h2>
+<p><span class="math inline">\(\abs 2\)</span><br />
+<span class="math inline">\(\sinc\)</span><br />
+<span class="math inline">\(\rect\)</span><br />
+<span class="math inline">\(\sgn\)</span><br />
+<span class="math inline">\(\d\)</span><br />
+<span class="math inline">\(\liminf t\)</span><br />
+$$<br />
+<span class="math inline">\(\intf 1 2\)</span><br />
+<span class="math inline">\(\intsym 1\)</span><br />
+<span class="math inline">\(\sumsub a b\)</span><br />
+ <span class="math inline">\(\prodsub a b\)</span><br />
+<span class="math inline">\(\prodsubtri a 1 2\)</span><br />
+<span class="math inline">\(\conv f g t \tau\)</span><br />
+<span class="math inline">\(\lrangle a\)</span><br />
+<span class="math inline">\(\lrbra ( ) a\)</span><br />
+<span class="math inline">\(\norm a\)</span><br />
+</p>
 </div>
 
 
+
+</div>
+</div>
 
 </div>
 
@@ -363,7 +441,7 @@ $(document).ready(function () {
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    script.src  = "site_libs/mathjax-local/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>

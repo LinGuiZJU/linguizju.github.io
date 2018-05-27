@@ -4,10 +4,6 @@ header-includes: \usepackage{linmacro}
 output:
   html_document:
     highlight: tango
-    mathjax: local
-    includes:
-      in_header: ./mathconfig.html
-
 ---
 
 &nbsp;

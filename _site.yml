@@ -15,15 +15,15 @@ navbar:
     - text: "Courses"
       icon: ion-document-text
       href: courses.html
-    - icon: fa-gear
-      menu:
-        - text: "Record"
-          icon: ion-document-text
-        - text: "---------"
-        - text: "Heading 2"
-        - text: "Page C"
-        - text: "Page D"
-    - test: "Courses"
+  #  - icon: fa-gear
+  #    menu:
+  #      - text: "Record"
+  #        icon: ion-document-text
+  #      - text: "---------"
+  #      - text: "Heading 2"
+  #      - text: "Page C"
+  #      - text: "Page D"
+
 output:
   html_document:
     
