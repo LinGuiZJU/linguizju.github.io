@@ -379,14 +379,16 @@ $W_m(\cdot)$ is a standardized version of $V_m(\cdot)$</code></pre>
 <p><span class="math display">\[
 \bra{\st^{(lw)}}\leftrightarrow \h S^{(lw)}(\cdot)\\
 \st^{(lw)}\triangleq\equtwo{w_{m,\tau}\st\kd}{\abs\tau\leq N-1}{0}{\abs\tau\geq N}
-\]</span> <strong>filtering <span class="math inline">\(\h S\kd\)</span> to extract a ‘signal’ buried in substantial noise</strong></p>
+\]</span></p>
+<p><strong>filtering <span class="math inline">\(\h S\kd\)</span> to extract a ‘signal’ buried in substantial noise</strong></p>
 </div>
 <div id="relationship-between-sds-and-h-slw" class="section level2">
 <h2><span class="header-section-number">1.4</span> relationship between $S^{(ds)} $and <span class="math inline">\(\h S^{(lw)}\)</span></h2>
 <p><span class="math display">\[
 \h S^{(ds)}(f_k&#39;)=\dt\sumsym\tau{(N-1)}v_{g,\tau}\st\kd\etpin{f_k&#39;\tau\dt}\\
 v_{g,\tau}\triangleq\sumsym j M g_j\etpi{j\tau/N}
-\]</span> all <span class="math inline">\(\h S^{(ds)}\)</span> can be expressed as <span class="math inline">\(\h S^{(ls)}\)</span> <span class="math display">\[
+\]</span></p>
+<p>all <span class="math inline">\(\h S^{(ds)}\)</span> can be expressed as <span class="math inline">\(\h S^{(ls)}\)</span> <span class="math display">\[
 \h S^{(lw)}(f&#39;_k)=\sumsym j {(N-1)}g_j\h S\kd(f&#39;_{k-j})\\
 g_j\triangleq \frac 1 {(2N-1)\dt}W_m(f_j&#39;)\\
 f&#39;_k=\frac k{(2N-1)\dt}
@@ -414,8 +416,7 @@ f&#39;_k=\frac k{(2N-1)\dt}
 <p>second bandwidth measure <span class="math display">\[
 B_W\triangleq \frac 1{\intsym{f_N}W_m^2(f)\d f}\\
 =\dfrac 1{\dt\sumsym\tau{(N-1)}w_{m,\tau}^2}
-\]</span></p>
-<p><a href="#jump">up</a></p>
+\]</span> <a href="#jump">up</a></p>
 </div>
 </div>
 <div id="first-moment-properties-of-h-slw" class="section level1">
@@ -425,7 +426,8 @@ B_W\triangleq \frac 1{\intsym{f_N}W_m^2(f)\d f}\\
 <p><span class="math display">\[
   E\bra{\h S^{(lw)}(f)}=\intsym f_N \mathcal U_m(f-\phi)S(\phi)\d \phi\\
   \mathcal U_m(f)=\intsym f_N W_m(f-f&#39;&#39;)\mathcal H(f&#39;&#39;)\d f&#39;&#39;
-\]</span> 2nd expression <span class="math display">\[
+\]</span></p>
+<p>2nd expression <span class="math display">\[
   E\bra{\h S^{(lw)}(f)}=\dt \sumsym \tau {(N-1)}\lrbra (){w_{m,\tau}\st\sumsubtri t 0 {N-\abs\tau-1}h_{t+\abs\tau}h_t}\etpin{f\tau\dt}\\
   \mathcal U_m(f)=\dt \sumsym \tau {N-1}w_{m,\tau}(\sumsubtri t 0{N-\abs\tau - 1}h_th_{t+\abs\tau})\etpin{f\tau\dt}
 \]</span> compare <span class="math display">\[
@@ -455,12 +457,10 @@ B_W\triangleq \frac 1{\intsym{f_N}W_m^2(f)\d f}\\
 <h2><span class="header-section-number">3.1</span> assumpations</h2>
 <ul>
 <li><p><span class="math inline">\(\h S\kd(f&#39;_j)\)</span>’s pairwise uncorrelated over <span class="math inline">\(f&#39;_j=\frac j{N&#39;\dt}\)</span></p></li>
-<li><p><span class="math inline">\(J\)</span> such that <span class="math inline">\(2f_J&#39;\approx \t{bandwidth of } W_m(\cdot)\)</span></p></li>
-</ul>
+<li><p><span class="math inline">\(J\)</span> such that <span class="math inline">\(2f_J&#39;\approx \t{bandwidth of } W_m(\cdot)\)</span></p>
 <blockquote>
 <p>bandwidth of <span class="math inline">\(W_m(\cdot)\)</span>?</p>
-</blockquote>
-<ul>
+</blockquote></li>
 <li><p>keeping away from 0 and Nyquist frequencies</p></li>
 <li><p><span class="math inline">\(S(\cdot)\)</span> slowly varying over <span class="math inline">\([f_k&#39;-f_J&#39;, f_k&#39;+f_J&#39;]\)</span></p></li>
 </ul>

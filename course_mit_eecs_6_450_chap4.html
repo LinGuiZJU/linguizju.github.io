@@ -346,9 +346,9 @@ $(".main-container").removeClass("main-container").removeClass("container-fluid"
 <p>Our interest here is almost exclusively in time-limited rather than periodic wave-forms.</p>
 <blockquote>
 <p><span class="math display">\[
-u(t)=\sumsub{k=-\infty}{\infty}\hat {u_k}e^{2\pi ikt/T}\rect (\frac t T)\\
-\hat u_k=\frac 1 T \intsym{T/2}u(t)\etpin {kt/T}\d t
-\]</span></p>
+  u(t)=\sumsub{k=-\infty}{\infty}\hat {u_k}e^{2\pi ikt/T}\rect (\frac t T)\\
+  \hat u_k=\frac 1 T \intsym{T/2}u(t)\etpin {kt/T}\d t
+  \]</span></p>
 </blockquote>
 <ul>
 <li><p><em>orthogonal</em></p></li>
@@ -372,12 +372,16 @@ u(t)=\sumsub{k=-\infty}{\infty}\hat {u_k}e^{2\pi ikt/T}\rect (\frac t T)\\
 <li><p><em>measure</em></p>
 <p><em>outer measure</em> is essentially the measure of the smalles cover of A(countable union of intervals) <span class="math display">\[
         \mu^o(A)=\inf_{B:B \text { covers }A}\mu(B)
-    \]</span> <em>measurable</em></p>
+      \]</span> <em>measurable</em></p>
 <blockquote>
-<p>measurable if <span class="math display">\[
-\mu^o(A)+\mu^o(\overline A)=T
-\]</span> then</p>
+<p>measurable if</p>
+<blockquote>
+<p><span class="math display">\[
+  \mu^o(A)+\mu^o(\overline A)=T
+  \]</span></p>
+<p>then</p>
 <p>if measurable, then its measure is the outer measure</p>
+</blockquote>
 </blockquote>
 <p>The collection of measurable sets is closed under countable unions, contable intersections, and complementation.</p></li>
 <li><p><em>Lebesgue measurable</em></p>
@@ -387,22 +391,26 @@ u(t)=\sumsub{k=-\infty}{\infty}\hat {u_k}e^{2\pi ikt/T}\rect (\frac t T)\\
 <p><em>Lebesgue integral</em></p>
 <blockquote>
 <p><span class="math display">\[
-\int u(t)\d t=\liminf n \sumsub{m=0}{\infty}m2^{-n}\mu_{m,n},\text{where  }\mu_{m,n}=\mu(t:m2^{-n}\leq u(t)&lt; (m+1)2^{-n})
-\]</span></p>
+  \int u(t)\d t=\liminf n \sumsub{m=0}{\infty}m2^{-n}\mu{m,n},\text{where  }\mu{m,n}=\mu(t:m2^{-n}\leq u(t)&lt; (m+1)2^{-n})
+  \]</span></p>
 </blockquote>
-<p>sets of zero measure can be ignored in integration <span class="math display">\[
-\int u(t)\d t=\int v(t) \d t, u(t) =v(t)\,a.s.
-\]</span></p>
-<p> (Two functions that are the same except on a set of zero measure are said to be equal almost everywhere, a.e.)</p></li>
-<li><p>Measurability of functions defined by other functions</p>
+<p>sets of zero measure can be ignored in integration</p></li>
+</ul>
 <p><span class="math display">\[
+    \int u(t)\d t=\int v(t) \d t, u(t) =v(t)\,a.s.
+\]</span></p>
+<p>​<br />
+​<br />
+​</p>
+<ul>
+<li><p>(Two functions that are the same except on a set of zero measure are said to be equal almost everywhere, a.e.)</p></li>
+<li><p>Measurability of functions defined by other functions <span class="math display">\[
     \lim_ku_k(t)
 \]</span></p>
 <ul>
 <li><span class="math inline">\(L_1\)</span> &amp; <span class="math inline">\(L_2\)</span></li>
 </ul>
-<p><span class="math inline">\([-T/2,T/2]\)</span>, if <span class="math inline">\(L_2\)</span>, then also <span class="math inline">\(L_1\)</span></p>
-<p></p></li>
+<p><span class="math inline">\([-T/2,T/2]\)</span>, if <span class="math inline">\(L_2\)</span>, then also <span class="math inline">\(L_1\)</span></p></li>
 </ul>
 </div>
 <div id="fourier-series-for-waveforms" class="section level2">
@@ -410,13 +418,18 @@ u(t)=\sumsub{k=-\infty}{\infty}\hat {u_k}e^{2\pi ikt/T}\rect (\frac t T)\\
 <ul>
 <li><blockquote>
 <p><span class="math inline">\([-T/2,T/2],L_2\)</span>function, then</p>
-<p><span class="math display">\[
- \hat u_k=\frac 1 T\intsym{T/2}u(t)\etpin {kt/T}\d t
- \]</span> exists and satisfies <span class="math inline">\(\abs{\hat u_k}\leq 1/T\int\abs{u(t)}\d t&lt;\infty\)</span>, and <span class="math display">\[
- \liminf l \intsym {T/2}\abs{u(t)-\sumsub{k=-l}l\hat u_k\etpi {kt/T}}^2\d t=0
- \]</span> Conversely, if <span class="math inline">\(\sumsub{k=-\infty}{\infty}\abs{\hat u(k)}^2&lt;\infty\)</span>, then <span class="math inline">\(L_2,u(t)\)</span> exists satisfied above two</p>
 </blockquote></li>
 </ul>
+<blockquote>
+<blockquote>
+<p><span class="math display">\[
+  \hat u_k=\frac 1 T\intsym{T/2}u(t)\etpin {kt/T}\d t
+  \]</span></p>
+<p>exists and satisfies <span class="math inline">\(\abs{\hat u_k}\leq 1/T\int\abs{u(t)}\d t&lt;\infty\)</span>, and <span class="math display">\[
+  \liminf l \intsym {T/2}\abs{u(t)-\sumsub{k=-l}l\hat u_k\etpi {kt/T}}^2\d t=0
+  \]</span> Conversely, if <span class="math inline">\(\sumsub{k=-\infty}{\infty}\abs{\hat u(k)}^2&lt;\infty\)</span>, then <span class="math inline">\(L_2,u(t)\)</span> exists satisfied above two</p>
+</blockquote>
+</blockquote>
 <p>Thus (4.19) asserts that <span class="math inline">\(u(t)\)</span> can be approximated arbitrarily closely (in terms of difference energy) by finitely many terms in its Fourier series.</p>
 <ul>
 <li>the sum doesn’t converge pointwise to <span class="math inline">\(u(t)\)</span> at each t</li>
@@ -430,14 +443,19 @@ u(t)=\sumsub{k=-\infty}{\infty}\hat {u_k}e^{2\pi ikt/T}\rect (\frac t T)\\
 <div id="fourier-transforms-and-waveforms" class="section level2">
 <h2>4.5 Fourier transforms and waveforms</h2>
 <ul>
-<li><p>Energy equation <span class="math display">\[
+<li>Energy equation</li>
+</ul>
+<p><span class="math display">\[
 \intinf \intfun u {v^*} t=\intinf\intfun {\hat u}{\hat v^*} f\\
 \intinf \abs {u(t)}^2\d t=\intinf \abs{\hat u(f)}^2\d f
-\]</span> <em>Spectral Density</em></p></li>
-<li><p><em>measurable</em> <span class="math display">\[
-\mu(A)=\liminf T \mu(A\cap[-T/2,T/2])
-\]</span> </p></li>
+\]</span></p>
+<p><em>Spectral Density</em></p>
+<ul>
+<li><em>measurable</em></li>
 </ul>
+<p><span class="math display">\[
+\mu(A)=\liminf T \mu(A\cap[-T/2,T/2])
+\]</span></p>
 <p>function measurable</p>
 <p>iff <span class="math inline">\(u(t)\rect (t/T)\)</span> is measurable for all T&gt;0</p>
 <p><strong>two approaches to its Lebesgue integral</strong></p>
@@ -451,20 +469,22 @@ u(t)=\sumsub{k=-\infty}{\infty}\hat {u_k}e^{2\pi ikt/T}\rect (\frac t T)\\
 <ul>
 <li><blockquote>
 <p><span class="math inline">\(L_1\)</span>, then</p>
+</blockquote></li>
+</ul>
+<blockquote>
 <ul>
 <li><span class="math inline">\(\hat u(f)=\intinf u(t)\etpin {ft}\d t\)</span> exists</li>
 <li>satisfies <span class="math inline">\(\abs{\hat u(f)}\leq \int\abs{u(t)}\d t\)</span></li>
 <li><span class="math inline">\(\hat u(f)\)</span> is a continuous function of <span class="math inline">\(f\)</span></li>
 <li>also applies to inverse transforms</li>
 </ul>
-</blockquote></li>
-</ul>
+</blockquote>
 <p></p>
 <p>For <span class="math inline">\(L_2\)</span>, The pointwise Fourier transform does not necessarily exist at each f, but that it does exist an limit. However, the inverse transform exists in exactly the same sense.</p>
 <blockquote>
 <p><span class="math display">\[
-\hat u_A(f)=\intsym Au(t)\etpin {ft}\d t
-\]</span></p>
+  \hat u_A(f)=\intsym Au(t)\etpin {ft}\d t
+  \]</span></p>
 <p><span class="math inline">\(L_2\)</span>, then <span class="math inline">\(\hat u(f)\)</span> exists satisfying</p>
 <ul>
 <li><span class="math inline">\(\liminf A\intinf\abs{\hat u(f)-\hat u_A(f)}^2\d f\)</span></li>
@@ -474,15 +494,14 @@ u(t)=\sumsub{k=-\infty}{\infty}\hat {u_k}e^{2\pi ikt/T}\rect (\frac t T)\\
 <p>This not only guarantees the existence of a Fourier transform (up to -equivalence), but also guarantees that it is arbitrarily closely approximated (in difference energy) by the continuous Fourier transforms of the truncated versions of .</p>
 <blockquote>
 <p><span class="math display">\[
-u_B(t)=\intsym B \hat u(f)\etpi {ft} \d f
-\]</span></p>
+  u_B(t)=\intsym B \hat u(f)\etpi {ft} \d f
+  \]</span></p>
 <p><span class="math inline">\(L_2\)</span>, <span class="math inline">\(\hat u(f)\)</span> is the Fourier transform above, then</p>
 <ul>
 <li><span class="math inline">\(\liminf B\intinf \abs{u(t)-u_B(t)}^2\d t=0\)</span></li>
 </ul>
 </blockquote>
-<p>Specifically the inverse transforms of finite frequency truncations of the transform are continuous and converge to an <span class="math inline">\(L_2\)</span> limit as <span class="math inline">\(B\rightarrow \infty\)</span></p>
-<p><span class="math display">\[
+<p>Specifically the inverse transforms of finite frequency truncations of the transform are continuous and converge to an <span class="math inline">\(L_2\)</span> limit as <span class="math inline">\(B\rightarrow \infty\)</span> <span class="math display">\[
 \hat u(f)=\text{l.i.m.}_{A\rightarrow \infty}\intsym A u(t)\etpin {ft}\d t\\
 u(t)=\text{l.i.m.}_{B\rightarrow \infty}\intsym B\hat u(f)\etpi {ft}\d f
 \]</span> The first integral above converges pointwise <span class="math inline">\(u(t)\)</span> if is also <span class="math inline">\(L_1\)</span>, and in this case converges pointwise to a <strong>continuous</strong> function <span class="math inline">\(\hat u(f)\)</span>.</p>
@@ -500,9 +519,9 @@ u(t)=\text{l.i.m.}_{B\rightarrow \infty}\intsym B\hat u(f)\etpi {ft}\d f
 <blockquote>
 <p>, then for each , the Lebesgue integral <strong>above </strong>exists and satisfies</p>
 <ul>
-<li><p></p></li>
-<li></li>
-<li><p></p></li>
+<li></li>
+<li></li>
+<li></li>
 </ul>
 <p>if satisfies , then an exists satisfying above two.</p>
 </blockquote>
@@ -526,8 +545,8 @@ u(t)=\text{l.i.m.}_{B\rightarrow \infty}\intsym B\hat u(f)\etpi {ft}\d f
 </ul>
 <p>is the point inverse Fourier tranform of that is 0 for , there is a unique and it is continuous.</p>
 <ul>
-<li><p>The sampling theorem hods with pointwise convergence, whereas the DTFT holds only in the sense.</p></li>
-<li><p>Both the DTFT and the sampling theorem expansion are orthogonal expansions.</p></li>
+<li>The sampling theorem hods with pointwise convergence, whereas the DTFT holds only in the sense.</li>
+<li>Both the DTFT and the sampling theorem expansion are orthogonal expansions.</li>
 </ul>
 <p></p>
 <ul>
@@ -543,14 +562,14 @@ u(t)=\text{l.i.m.}_{B\rightarrow \infty}\intsym B\hat u(f)\etpi {ft}\d f
 <div id="summary" class="section level2">
 <h2>4.8 Summary</h2>
 <ul>
-<li><p>encoding souce waveforms</p></li>
+<li>encoding souce waveforms</li>
 <li>expand the waveform into an orthogonal expansion</li>
 <li>quantize the coefficients in that expansion</li>
-<li><p>use discrete source coding on the quantizer output</p></li>
-<li><p>encodign waveforms to be transmitted over channels</p></li>
+<li>use discrete source coding on the quantizer output</li>
+<li>encodign waveforms to be transmitted over channels</li>
 <li>map the incoming sequence of binary digits into a sequence of real or complex symbols</li>
-<li><p>use the symbols as coefficients in an orthogonal expansion</p></li>
-<li><p>These powerful become important both when the waveforms are sample functions of random processes and when one wants to find limits on possible performance. In both of these situations, one is dealing with a large class of potential waveforms, rather than a single waveform, and these general results become important.</p></li>
+<li>use the symbols as coefficients in an orthogonal expansion</li>
+<li>These powerful become important both when the waveforms are sample functions of random processes and when one wants to find limits on possible performance. In both of these situations, one is dealing with a large class of potential waveforms, rather than a single waveform, and these general results become important.</li>
 </ul>
 <blockquote>
 <p>Why?</p>

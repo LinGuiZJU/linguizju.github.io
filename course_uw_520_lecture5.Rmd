@@ -7,8 +7,8 @@ output:
     toc: true
     number_sections: true
 ---
-<span id="jump"></span>
 
+<span id="jump"></span>
 
 [Back](course_uw_520.html)
 
@@ -17,6 +17,7 @@ output:
 $$
 \varepsilon_f(\cdot)=\etpi{ft}\rightarrow G(f)\varepsilon_f(\cdot):\t{eigenvalues and eigenfunctions}\\
 $$
+
 for $X(t)$
 $$
 X(t)=\intinf \etpi{ft}\d Z_X(f)\\
@@ -24,13 +25,13 @@ Y(t)=\intinf \etpi{ft} G(f)\d Z_X(f)=\intinf\etpi{ft}\d Z_Y(f)\\
 \d Z_Y=G(f)\d Z_X(f)\\
 \d \si_Y(f)=E\bra{\abs{\d Z_Y(f)}^2}=\abs{G(f)}^2\d \si_X(f)
 $$
-> the meaning of $\d Z_X(f)???$
+
+>   the meaning of $\d Z_X(f)???$
 
 if has SDF
 $$
 S_Y(f)=\abs{G(f)}^2S_X(f)
 $$
-
 [up](#jump)
 
 # LTI Digital Filters
@@ -68,12 +69,12 @@ $$
 
 ## condition
 
-* $\bra{g(u)}$ is of length $2K+1$ & $g_{-u}=g_u$
+-   $\bra{g(u)}$ is of length $2K+1$ & $g_{-u}=g_u$
 
-* define "locally smooth": "locally linear", that is
-  $$
-  \sumsym u {k} g_u[\a+\b(t-u)]=\a+\b t
-  $$
-  if we require $\sumsym u k g_u=1=G(0)$
-  
+-   define "locally smooth": "locally linear", that is
+    $$
+    \sumsym u {k} g_u[\a+\b(t-u)]=\a+\b t
+    $$
+    if we require $\sumsym u k g_u=1=G(0)$
+
 [up](#jump)

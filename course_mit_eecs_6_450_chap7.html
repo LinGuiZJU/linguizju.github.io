@@ -325,8 +325,6 @@ $(".main-container").removeClass("main-container").removeClass("container-fluid"
 <li><a href="#introduction">7.1 Introduction</a></li>
 <li><a href="#random-processes">7.2 Random processes</a></li>
 <li><a href="#gaussian-rv">7.3 Gaussian rv</a></li>
-<li><a href="#linear-functionals-and-filters-for-random-processes">7.4 Linear functionals and filters for random processes</a></li>
-<li><a href="#stationarity-and-related-concepts">7.5 Stationarity and related concepts</a></li>
 <li><a href="#stationarity-in-the-frequency-domain">7.6 Stationarity in the frequency domain</a></li>
 <li><a href="#white-gaussian-noise">7.7 White Gaussian noise</a></li>
 </ul></li>
@@ -345,12 +343,10 @@ $(".main-container").removeClass("main-container").removeClass("container-fluid"
 <h2>7.2 Random processes</h2>
 <p><em>epoch</em>: there is one rv for each epoch</p>
 <ul>
-<li><p></p>
-<p><span class="math display">\[
-    Z(t), Z(t,\omega),z(t)
-\]</span></p></li>
-<li><p></p>
-<p><span class="math display">\[
+<li><p><span class="math display">\[
+Z(t), Z(t,\omega),z(t)
+   \]</span></p></li>
+<li><p><span class="math display">\[
 Z(t)=\sum_k Z_k\phi_k(t)\\
 U(t)=\sum U_ksinc(\frac {t-kT}{T})\\
 Z(t)=\sum_kZ_ksinc(\frac {t-kT}{T})\\
@@ -361,9 +357,9 @@ Z(t)=tZ
 <li><p> <span class="math display">\[
 K_z(t,\tau)=E[(Z(t)-\overline Z(t) )(Z(\tau)-\overline Z(\tau))]\\
 =E[\tilde Z(t)\tilde Z(\tau)]
-\]</span> usually have zero mean <span class="math display">\[
+  \]</span> usually have zero mean <span class="math display">\[
     K_Z(t,\tau)=\sigma^2 \sum_k \phi_k(t)\phi_k(\tau)
-\]</span></p></li>
+  \]</span></p></li>
 <li><p>Many rules of thumb in engineering and statistics about noise are stated without any mention of Gaussian processes, but often are valid only for Gaussian processes.</p></li>
 <li><p>assumption of zero-mean variables: only the fluctuations are analyzed, with the means added at the end.</p></li>
 </ul>
@@ -425,20 +421,24 @@ X = a^TZ\\
 \hat f_X(\omega)=E[\exp(-2\pi i\omega a^TZ)]=\exp(-\frac{(2\pi\omega)^2a^TK_Za}2)\\
 let\,\omega=1,then\\
 E[\exp(-2\pi i a^TZ)]=\hat f_Z(a)=\exp(-\frac{(2\pi)^2a^TK_za}{2})
-\]</span></p></li>
+\]</span></p>
+<p>​<br />
+​<br />
+​<br />
+## 7.4 Linear functionals and filters for random processes</p></li>
 </ul>
-</div>
-<div id="linear-functionals-and-filters-for-random-processes" class="section level2">
-<h2>7.4 Linear functionals and filters for random processes</h2>
 <p>Assume that the sample functions of <span class="math inline">\(Z(t)\)</span> are real <span class="math inline">\(L_2\)</span> waveforms.</p>
 <ul>
-<li><p>Inner product</p>
+<li>Inner product</li>
+</ul>
 <p><span class="math display">\[
     V = &lt;Z(t,\omega),g(t)&gt;=\int Z(t,\omega)g(t)dt
-\]</span></p>
-<p>filtered process <span class="math display">\[
+  \]</span></p>
+<pre><code>filtered process</code></pre>
+<p><span class="math display">\[
     V(\tau)=\int Z(t)h(\tau-t)dt
-\]</span></p></li>
+  \]</span></p>
+<ul>
 <li><p>over orthonormal expansions</p>
 <p>all zero-mean Gaussian processes of interest can be defined in the following way <span class="math display">\[
     Z(t)=\sum_kZ_k\phi_k(t)\\
@@ -449,9 +449,12 @@ V=\int Z(t)g(t)dt=\sum_{k=1}^nZ_k\int\phi_k(t)g(t)dt\\
 \sigma_V^2=E[V^2]=\sum_k\sigma_K^2|\langle\phi_k,g\rangle|^2
 \]</span></p></li>
 <li><p>Gaussian processes <span class="math display">\[
-    V(\tau)=\sum_kZ_k\int \phi_k(t)h(\tau-t)dt
-\]</span></p>
-<pre><code>&gt; $Z_k$ is a sequence of independent $N(0,\sigma_k^2)$, then</code></pre>
+  V(\tau)=\sum_kZ_k\int \phi_k(t)h(\tau-t)dt
+  \]</span></p></li>
+</ul>
+<blockquote>
+<p><span class="math inline">\(Z_k\)</span> is a sequence of independent <span class="math inline">\(N(0,\sigma_k^2)\)</span>, then</p>
+</blockquote>
 <blockquote>
 
 </blockquote>
@@ -460,16 +463,14 @@ V=\int Z(t)g(t)dt=\sum_{k=1}^nZ_k\int\phi_k(t)g(t)dt\\
 <ul>
 <li><span class="math inline">\(V(\tau)\)</span> is a zero-mean Gaussian process.</li>
 </ul>
-</blockquote></li>
-<li><p>Covariance for linear functionals and filters <span class="math display">\[
-    E[V_jV_m]=\int\int g_j(t)K_Z(t,\tau)g_m(\tau)dtd\tau\\
-K_V(r,s)=E[V(r)V(s)]\\
-=\int\int h(r-t)K_Z(t,\tau)h(s-\tau)dtd\tau
-\]</span> <span class="math inline">\(h\)</span> is a filter</p></li>
+</blockquote>
+<ul>
+<li>Covariance for linear functionals and filters <span class="math display">\[
+E[V_jV_m]=\int\int g_j(t)K_Z(t,\tau)g_m(\tau)dtd\tau\\
+  K_V(r,s)=E[V(r)V(s)]\\
+  =\int\int h(r-t)K_Z(t,\tau)h(s-\tau)dtd\tau
+  \]</span> <span class="math inline">\(h\)</span> is a filter ## 7.5 Stationarity and related concepts</li>
 </ul>
-</div>
-<div id="stationarity-and-related-concepts" class="section level2">
-<h2>7.5 Stationarity and related concepts</h2>
 <p><strong>keep an eye on the process from infinite to effectively nothions</strong></p>
 <ul>
 <li><p>Stationary</p>
@@ -535,14 +536,14 @@ E[V^2]=\int g(t)[\tilde K_Z*g](t)dt\\
     V_m=\int g_m(t)Z(t)dt\quad m=1,2\\
     E[V_1V_2]=\int g_1(t)[\tilde K * g_2](t)dt\\
     =\int\hat g_1(f)S_Z(f)\hat g_2^*(f)df
-\]</span> if <span class="math inline">\(\hat g_1(f)\)</span> and <span class="math inline">\(\hat g_2(f)\)</span> have no overlap in frequency , <span class="math inline">\(E[V_1V_2]=0\)</span>. Two linear functionals over different frequency ranges must be uncorrelated.</p>
+  \]</span> if <span class="math inline">\(\hat g_1(f)\)</span> and <span class="math inline">\(\hat g_2(f)\)</span> have no overlap in frequency , <span class="math inline">\(E[V_1V_2]=0\)</span>. Two linear functionals over different frequency ranges must be uncorrelated.</p>
 <p>If Gaussian, then the functionals are independent.</p>
-<p><strong>This means in essence that Gaussian noise in different frequency bands must be independent.</strong></p>
-<p><span class="math display">\[
-    V_m=\int Z(t)\phi_m(t)dt\\
-E[V_mV_j]=\frac {N_0} 2 \delta_{mj}
-\]</span></p></li>
+<p><strong>This means in essence that Gaussian noise in different frequency bands must be independent.</strong></p></li>
 </ul>
+<p><span class="math display">\[
+        V_m=\int Z(t)\phi_m(t)dt\\
+    E[V_mV_j]=\frac {N_0} 2 \delta_{mj}
+    \]</span></p>
 </div>
 <div id="white-gaussian-noise" class="section level2">
 <h2>7.7 White Gaussian noise</h2>

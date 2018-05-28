@@ -324,6 +324,11 @@ $(".main-container").removeClass("main-container").removeClass("container-fluid"
 <li><a href="#coding-for-discrete-sources">2.Coding for Discrete Sources</a><ul>
 <li><a href="#introduction">2.1 Introduction</a></li>
 <li><a href="#fixed-length-codes-for-discrete-sources">2.2 Fixed-length codes for discrete sources</a></li>
+<li><a href="#variable-length-codes-for-discrete-sources">2.3 Variable-length codes for discrete sources</a></li>
+<li><a href="#probability-models-for-discrete-sources">2.4 Probability models for discrete sources</a></li>
+<li><a href="#minumum-overline-l-for-prefix-free-codes">2.5 Minumum <span class="math inline">\(\overline L\ \)</span>for prefix-free codes</a></li>
+<li><a href="#entropy-and-fixed-to-variable-length-codes">2.6 Entropy and fixed-to-variable-length codes</a></li>
+<li><a href="#the-aep-and-the-source-coding-theorems">2.7 The AEP and the source coding theorems</a></li>
 </ul></li>
 </ul>
 </div>
@@ -339,76 +344,79 @@ $(".main-container").removeClass("main-container").removeClass("container-fluid"
 <ul>
 <li><p>the number of symbols in the source alphabet <span class="math inline">\(M\)</span></p>
 <p>and L bits per source symbol encoded</p></li>
-<li><p>encode <span class="math inline">\(M^n\)</span> (n-tuples, representing n successive symbols) rather than M to reduce L, which is encoded bits per original source symbol. <span class="math display">\[
-\overline L = log_2M + \frac 1 n
+<li><p>encode <span class="math inline">\(M^n\)</span> (n-tuples, representing n successive symbols) rather than M to reduce L, which is encoded bits per original source symbol.</p></li>
+</ul>
+<p><span class="math display">\[
+    \overline L = log_2M + \frac 1 n
 \]</span></p>
-<h2 id="variable-length-codes-for-discrete-sources">2.3 Variable-length codes for discrete sources</h2>
+</div>
+<div id="variable-length-codes-for-discrete-sources" class="section level2">
+<h2>2.3 Variable-length codes for discrete sources</h2>
 <p><em>parsing</em></p>
 <ul>
-<li><p>prefix-free code - Binary code tree</p></li>
-<li><p>uniquely decodability</p></li>
-<li><p>If a uniquely-decodable code exists with a certain set of codeword lengths, then a prefix-freecode can easily be constructed with the same set of lengths.</p></li>
+<li>prefix-free code - Binary code tree</li>
+<li>uniquely decodability</li>
+<li>If a uniquely-decodable code exists with a certain set of codeword lengths, then a prefix-freecode can easily be constructed with the same set of lengths.</li>
 </ul>
 <blockquote>
 <p>Why?</p>
 </blockquote>
-<pre><code>- The decoder can decode each codeword of a prefix-free code immediately on the arrival of the last bit in that codeword.</code></pre>
 <ul>
-<li><p>Given a probability distribution on the source symbols, it is easy to construct a prefix-freecode of minimum expected length.</p></li>
-<li><p>The Kraft inequality for prefix-free codes</p></li>
+<li>The decoder can decode each codeword of a prefix-free code immediately on the arrival of the last bit in that codeword.</li>
+<li>Given a probability distribution on the source symbols, it is easy to construct a prefix-freecode of minimum expected length.</li>
+<li>The Kraft inequality for prefix-free codes</li>
 </ul>
 <blockquote>
-<p>$$</p>
+<p><span class="math display">\[
+  \sum_{j=1}^M2^{-l(a_j)\leq 1}
+  \]</span></p>
+<p>Proof: to be done</p>
 </blockquote>
-<pre><code>&gt; \sum_{j=1}^M2^{-l(a_j)\leq 1}</code></pre>
-<blockquote>
-<p>$$</p>
-</blockquote>
-<pre><code>&gt;
-&gt; Proof: to be done</code></pre>
-<h2 id="probability-models-for-discrete-sources">2.4 Probability models for discrete sources</h2>
+</div>
+<div id="probability-models-for-discrete-sources" class="section level2">
+<h2>2.4 Probability models for discrete sources</h2>
 <p><em>discrete memoryless source(DMS)</em> a semi-infinite iid sequence of random symbols</p>
-<h2 id="minumum-overline-l-for-prefix-free-codes">2.5 Minumum <span class="math inline">\(\overline L\ \)</span>for prefix-free codes</h2>
+</div>
+<div id="minumum-overline-l-for-prefix-free-codes" class="section level2">
+<h2>2.5 Minumum <span class="math inline">\(\overline L\ \)</span>for prefix-free codes</h2>
 <ul>
 <li>Lagrange multiplier solution</li>
 </ul>
 <p>change tue constraint from <span class="math inline">\(\leq\)</span> to <span class="math inline">\(=\)</span></p>
-<pre><code>for every $\lambda$, there **might** exist one optimizing choice</code></pre>
+<p>for every <span class="math inline">\(\lambda\)</span>, there <strong>might</strong> exist one optimizing choice</p>
 <p>supposing that <strong>this <span class="math display">\[\lambda\]</span> </strong>function exists one optimizing choice, that is, this function exists minimal point</p>
 <blockquote>
-<p>$$</p>
+<p><span class="math display">\[
+  \overline L_{min} = -\sum_{j=1}^Mp_j\log p_j
+  \]</span></p>
+<p>The process need to be paid attention to</p>
 </blockquote>
-<pre><code>&gt; \overline L_{min} = -\sum_{j=1}^Mp_j\log p_j</code></pre>
-<blockquote>
-<p>$$</p>
-</blockquote>
-<pre><code>&gt;
-&gt; The process need to be paid attention to</code></pre>
 <p>a lower bound to L for prefix-free codes</p>
 <ul>
-<li></li>
+<li></li>
 </ul>
 <blockquote>
-<p>$$</p>
+<p><span class="math display">\[
+  H[X]\leq \overline L_{min} &lt; H[X]+1
+  \]</span></p>
+<p>Proof:to be done</p>
 </blockquote>
-<pre><code>&gt; H[X]\leq \overline L_{min} &lt; H[X]+1</code></pre>
-<blockquote>
-<p>$$</p>
-</blockquote>
-<pre><code>&gt;
-&gt; Proof:to be done </code></pre>
+<p>​</p>
 <ul>
 <li>Huffman’s algorithm</li>
 </ul>
 <blockquote>
 <p>Proof: to be done P30</p>
 </blockquote>
-<h2 id="entropy-and-fixed-to-variable-length-codes">2.6 Entropy and fixed-to-variable-length codes</h2>
+</div>
+<div id="entropy-and-fixed-to-variable-length-codes" class="section level2">
+<h2>2.6 Entropy and fixed-to-variable-length codes</h2>
 <ul>
-<li>the entropy of a random symbol <span class="math inline">\(X^N\)</span>, i.i.d, <span class="math display">\[
-H[X^n]=nH[X]
-\]</span></li>
+<li>the entropy of a random symbol <span class="math inline">\(X^N\)</span>, i.i.d,</li>
 </ul>
+<p><span class="math display">\[
+H[X^n]=nH[X]
+\]</span></p>
 <blockquote>
 <p>why?</p>
 </blockquote>
@@ -419,7 +427,9 @@ H[X^n]=nH[X]
 <p>Prefix-free source coding theorem <span class="math display">\[
 H[X]\leq \overline L_{min,n}\le H[X]+\frac 1 n
 \]</span></p>
-<h2 id="the-aep-and-the-source-coding-theorems">2.7 The AEP and the source coding theorems</h2>
+</div>
+<div id="the-aep-and-the-source-coding-theorems" class="section level2">
+<h2>2.7 The AEP and the source coding theorems</h2>
 <ul>
 <li>the weak law of large numbers</li>
 </ul>
@@ -428,13 +438,15 @@ H[X]\leq \overline L_{min,n}\le H[X]+\frac 1 n
 A_Y^n=\frac {Y_1+\cdots+Y_n}{n}
 \]</span></p>
 <ul>
-<li>asymptotic equipartition property (AEP) <span class="math display">\[
+<li>asymptotic equipartition property (AEP)</li>
+</ul>
+<p><span class="math display">\[
 Y = W(X) = -\log p(X)\\
 W(X^n)=W(X_1\cdots X_n)  \quad v.s. \quad  \\W(X_1)+\cdots+W(X_n)
-\]</span> identical distribution above <span class="math display">\[
+\]</span></p>
+<p>identical distribution above <span class="math display">\[
 \Pr(|\frac {-\log p_{X^n}(X^n)}{n}-H[X]|\geq \varepsilon)\leq \frac{\sigma_W^2}{n\varepsilon^2}\\
-\]</span> <span class="math inline">\(T_\varepsilon^n\)</span>: those events <span class="math inline">\(x^n\)</span> which satisfies the relation above</li>
-</ul>
+\]</span> <span class="math inline">\(T_\varepsilon^n\)</span>: those events <span class="math inline">\(x^n\)</span> which satisfies the relation above</p>
 <p>As <span class="math inline">\(n\)</span> increases, however, <span class="math inline">\(\varepsilon\)</span> canbe slowly dereased, thus bringing the probability of the typical set closer to 1 and simultaneously tightening the bounds on equiprobable strings.</p>
 <blockquote>
 <p><span class="math inline">\(T_\varepsilon^n\)</span> the number estimation AEP</p>
@@ -454,8 +466,7 @@ W(X^n)=W(X_1\cdots X_n)  \quad v.s. \quad  \\W(X_1)+\cdots+W(X_n)
 <p>Proof: <span class="math inline">\(2^m \quad m-string \rightarrow 2^m \quad n-string\)</span></p>
 <p>the number of variable-length codewords is much less than that of fixed-length codewords in a fixed received bits based on the fact of the constraints of decoding(by time, i.e.)</p>
 <p><strong>need further understanding </strong> P4142</p>
-</blockquote></li>
-</ul>
+</blockquote>
 </div>
 </div>
 

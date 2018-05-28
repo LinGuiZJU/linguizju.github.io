@@ -2,16 +2,15 @@
 title: "UW 520"
 subtitle: "Lecture 3 - Notes"
 author: "Lin Gui"
-date: "`r Sys.Date()`"
 output:
   html_document:
     toc: true
     number_sections: true
-    # toc_float: true
 ---
+
 <span id="jump"></span>
 
-* $\sumsub{f}{}$: sum or integral
+-   $\sumsub{f}{}$: sum or integral
 
 [Back](course_uw_520.html)
 
@@ -23,6 +22,7 @@ $$
 g_p(t)=\frac{1-\phi^2}{1+\phi^2-2\phi\cos(t)}\\
 g_{p,m}=\sumsubtri n {-m} m G_n\etpi{f_nt}=1+2\sumsubtri n 1 m \phi^n\cos(nt)
 $$
+
 $g_p$ and its Fourier approximation
 
 [up](#jump)
@@ -54,21 +54,22 @@ $$
 
 ## Convolution Theorem
 
-* example one
-  $$
-  h(t)=\sumsubtri l 1 LA_l\cos(2\pi f_l t+\phi_l)\\
-  g(t)=\frac 1 {\sqrt{2\pi\sigma^2}}e^{-t^2/2\sigma^2}\\
-  g*h(t)=\sumsubtri l 1 L e^{-(\sigma2\pi f_l)^2/2}A_lcos(2\pi f_l t+\phi_l)
-  $$
+-   example one
+    $$
+    h(t)=\sumsubtri l 1 LA_l\cos(2\pi f_l t+\phi_l)\\
+    g(t)=\frac 1 {\sqrt{2\pi\sigma^2}}e^{-t^2/2\sigma^2}\\
+    g*h(t)=\sumsubtri l 1 L e^{-(\sigma2\pi f_l)^2/2}A_lcos(2\pi f_l t+\phi_l)
+    $$
 
-  * freqencies $f_l$ and phases $\phi_l$ are unchanged
-  * to 1 as $f_l\rightarrow 0$, to 0 as $f_l\rightarrow\infty$
-  * reduce amplitudes of high frequency terms
+    -   freqencies $f_l$ and phases $\phi_l$ are unchanged
+    -   to 1 as $f_l\rightarrow 0$, to 0 as $f_l\rightarrow\infty$
+    -   reduce amplitudes of high frequency terms
 
-* example two
-  $$
-  r(t)=\equtwo {1/2\delta}{-\delta\leq t\leq \delta} 0 {\text{otherwise}}
-  $$
+-   example two
+    $$
+    r(t)=\equtwo {1/2\delta}{-\delta\leq t\leq \delta} 0 {\text{otherwise}}
+    $$
+
 
 
 ## Cross and Autocorrelations
@@ -77,11 +78,11 @@ $$
 g\star h^*(t)\triangleq\intinf g(u+t)h^*(u)du\leftrightarrow G(\cdot)H^*(\cdot)\\
 g\star g^*(t)\leftrightarrow\abs{G(\cdot)}^2
 $$
+
 **autocorrelation width**
 $$
 \text{width}_a\bra{g(\cdot)}=\text{width}_e\bra{g\star g^*(\cdot)}
 $$
-
 [up](#jump)
 
 # Discrete Time/Continuous Frequency: DTFT
@@ -95,9 +96,9 @@ $$
 
 ## $(2m+1)D_{2m+1}$: sinc
 
-* central lobe
-* sidelobes
-* cause: smear and leakage
+-   central lobe
+-   sidelobes
+-   cause: smear and leakage
 
 ## Cesara Sums
 
@@ -117,9 +118,9 @@ _Fejer's kernel_
 
 Advantage and disadvantage
 
-* $D^2_m$ smaller sidelobes
-* nonnegative sidelobes
-* wider central lobe
+-   $D^2_m$ smaller sidelobes
+-   nonnegative sidelobes
+-   wider central lobe
 
 ## Aliasing
 
@@ -133,7 +134,6 @@ highest $f$ that is not an alias one
 $$
 f_n=\frac 1 {2\Delta t}
 $$
-
 [up](#jump)
 
 # Discrete/Continuous Concentration Problem
@@ -160,7 +160,7 @@ Ag=\lambda g\\
 0<\lambda_{N-1}(N,W)<\cdots<\lambda_0(N,W)<1
 $$
 
-> Why $\lambda_0(N,W)<1$
+>   Why $\lambda_0(N,W)<1$
 
 **first $2NW$ eigenvalues close to 1, after which $\lambda_k(N,W)$'s fall rapidly to 0.**
 

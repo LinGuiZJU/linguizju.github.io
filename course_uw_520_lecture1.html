@@ -344,65 +344,66 @@ E[A_j]=E[B_j]=0\\
 \var{[A_j]}=\var[B_j]=\sigma^2\\
 \cov\{A_j,A_k\}=\cov\{B_j,B_k\}=0,j\neq k\\
 \cov\{A_j,B_k\}=0\\
-\]</span> Spectrum <span class="math display">\[
+\]</span></p>
+<p>Spectrum <span class="math display">\[
 \rho_k=\frac{\sumsub{j=1}{N/2}\sigma_j^2\cos(2\pi f_jk)}{\sumsub{j=1}{N/2}\sigma_j^2}\\
 S_j\triangleq \sigma_j^2\\
 \sumsub{j=1}{N/2}S_j=\sigma^2
-\]</span></p>
-<p><a href="#jump">up</a></p>
+\]</span> <a href="#jump">up</a></p>
 </div>
 <div id="nonparametric-estimation-of-s_j" class="section level1">
 <h1><span class="header-section-number">3</span> Nonparametric Estimation of <span class="math inline">\(S_j\)</span></h1>
 <p><span class="math inline">\(S_j=var\{A_j\}=var\{B_j\}\)</span>$</p>
 <ul>
 <li><p>yields <span class="math display">\[
-  A_j=\frac 2 N\sumsub{t=0}{N-1}X_t\cos(2\pi f_jt)\\
-  B_j=\frac 2 N\sumsub{t=0}{N-1}X_t\sin(2\pi f_j t)
-  \]</span></p></li>
+A_j=\frac 2 N\sumsub{t=0}{N-1}X_t\cos(2\pi f_jt)\\
+B_j=\frac 2 N\sumsub{t=0}{N-1}X_t\sin(2\pi f_j t)
+\]</span></p></li>
 <li><p><span class="math inline">\(\hat S_j\)</span> <span class="math display">\[
-  \hat S_j\triangleq\frac {A_j^2+B_j^2}{2}
-  \]</span></p></li>
+\hat S_j\triangleq\frac {A_j^2+B_j^2}{2}
+\]</span></p></li>
 <li><p>assumption of <span class="math inline">\(S_j\)</span> <span class="math display">\[
-  S_j(\alpha,\beta)=\frac \beta{1+\alpha^2-2\alpha\cos(2\pi f_j)}
-  \]</span></p></li>
-</ul>
+S_j(\alpha,\beta)=\frac \beta{1+\alpha^2-2\alpha\cos(2\pi f_j)}
+\]</span></p>
 <blockquote>
 <p>Why this assumption?</p>
 </blockquote>
 <p>estimate <span class="math display">\[
-  \hat S_j(\hat\alpha,\hat\beta)=\frac {\hat\beta}{1+\hat\alpha^2-2\hat\alpha\cos(2\pi f_j)}
-  \]</span></p>
-<ul>
-<li><span class="math inline">\(\hat\alpha,\hat\beta\)</span></li>
-</ul>
+\hat S_j(\hat\alpha,\hat\beta)=\frac {\hat\beta}{1+\hat\alpha^2-2\hat\alpha\cos(2\pi f_j)}
+\]</span></p></li>
+<li><p><span class="math inline">\(\hat\alpha,\hat\beta\)</span></p>
 <p><span class="math inline">\(\rho_1\approx\alpha\)</span>, so let <span class="math inline">\(\hat\alpha=\hat\rho_1\)</span></p>
 <p>From requirment: <span class="math display">\[
-  \sumsub{j=1}{N/2}\hat S_j(\hat\alpha,\hat\beta)=\frac 1 N\sumsub{t=1}{N}(X_t-\overline X)^2= \hat\sigma^2
-  \]</span> yileds estimation <span class="math display">\[
-  \hat\beta=\hat\sigma^2\left(\sumsub{j=1}{N/2}\frac 1{1+\hat\alpha^2-2\hat\alpha\cos(2\pi f_j)}\right)^{-1}
-  \]</span></p>
-<ul>
+\sumsub{j=1}{N/2}\hat S_j(\hat\alpha,\hat\beta)=\frac 1 N\sumsub{t=1}{N}(X_t-\overline X)^2= \hat\sigma^2
+\]</span> yileds estimation <span class="math display">\[
+\hat\beta=\hat\sigma^2\left(\sumsub{j=1}{N/2}\frac 1{1+\hat\alpha^2-2\hat\alpha\cos(2\pi f_j)}\right)^{-1}
+\]</span></p></li>
 <li><p>Stationary <span class="math display">\[
-  E\bra {X_t}=\mu\\
-  \var\bra{X_t}=\sigma^2\\
-  \cov\bra{X_{t+k},X_t} =\rho_k\sigma^2
-  \]</span></p></li>
+E\bra {X_t}=\mu\\
+\var\bra{X_t}=\sigma^2\\
+\cov\bra{X_{t+k},X_t} =\rho_k\sigma^2
+\]</span></p></li>
 <li><p>extension model under stationary <span class="math display">\[
-  X_t=\mu+\intsym {1/2} \etpi{ft}\d Z(f)
-  \]</span> define <span class="math inline">\(S(f)\)</span> <span class="math display">\[
-  \var\bra{\d Z(f)}=S(f)\d f
-  \]</span> fundamental relationship <span class="math display">\[
-  \intsym{1/2}S(f)\d f=\sigma^2\\
-  \rho_k\sigma^2=\intsym{1/2}S(f)\etpi{fk}\d f\\
-  S(f)=\sigma^2\suminf k \rho_k\etpin{fk}
-  \]</span> basic estimator - periodogram <span class="math display">\[
-  \hat S^{(p)}(f)\triangleq \frac 1 N\abs{\sumsub{t=0}{N-1}(X_t-\overline X)\etpin{ft}}^2
-  \]</span> &gt; Where to derive it?</p></li>
+X_t=\mu+\intsym {1/2} \etpi{ft}\d Z(f)
+\]</span> define <span class="math inline">\(S(f)\)</span> <span class="math display">\[
+\var\bra{\d Z(f)}=S(f)\d f
+\]</span> fundamental relationship <span class="math display">\[
+\intsym{1/2}S(f)\d f=\sigma^2\\
+\rho_k\sigma^2=\intsym{1/2}S(f)\etpi{fk}\d f\\
+S(f)=\sigma^2\suminf k \rho_k\etpin{fk}
+\]</span> basic estimator - periodogram <span class="math display">\[
+\hat S^{(p)}(f)\triangleq \frac 1 N\abs{\sumsub{t=0}{N-1}(X_t-\overline X)\etpin{ft}}^2
+\]</span></p>
+<blockquote>
+<p>Where to derive it?</p>
+</blockquote>
+<ul>
 <li>badly biased</li>
-<li><p><span class="math inline">\(\var\bra{\h S^{(p)}(f)}=S^2(f)\)</span> as <span class="math inline">\(N\rightarrow\infty\)</span> if $0&lt;f&lt;1 2 $</p></li>
-<li><p>− testing theories (e.g., wind data) − exploratory data analysis (e.g., rainfall data)</p></li>
+<li><span class="math inline">\(\var\bra{\h S^{(p)}(f)}=S^2(f)\)</span> as <span class="math inline">\(N\rightarrow\infty\)</span> if $0&lt;f&lt;1 2 $</li>
+</ul></li>
+<li><p>− testing theories (e.g., wind data) − exploratory data analysis (e.g., rainfall data)</p>
+<p>− discriminating data (e.g., neonates) − diagnostic tests (e.g., ARIMA modeling) − assessing predictability (e.g., atomic clocks)</p></li>
 </ul>
-<p>− discriminating data (e.g., neonates) − diagnostic tests (e.g., ARIMA modeling) − assessing predictability (e.g., atomic clocks)</p>
 <p><a href="#jump">up</a></p>
 </div>
 

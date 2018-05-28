@@ -338,14 +338,16 @@ $(".main-container").removeClass("main-container").removeClass("container-fluid"
 <ul>
 <li>Addition</li>
 <li>Scalar multiplication</li>
-<li>Distributive laws</li>
+<li>Distributive laws
+<ul>
 <li><span class="math inline">\(\alpha(v+u)=\alpha v+\alpha u\)</span></li>
 <li><span class="math inline">\((\alpha+\beta)v=\alpha v+\beta v\)</span></li>
+</ul></li>
 </ul>
 </blockquote>
 <ul>
-<li><p>denote waveform <span class="math inline">\(v(t)\)</span> by <span class="math inline">\(v\)</span></p></li>
-<li><p>finite-dimensional vector space</p></li>
+<li>denote waveform <span class="math inline">\(v(t)\)</span> by <span class="math inline">\(v\)</span></li>
+<li>finite-dimensional vector space</li>
 </ul>
 <p>Basis</p>
 </div>
@@ -380,8 +382,7 @@ $(".main-container").removeClass("main-container").removeClass("container-fluid"
 </blockquote></li>
 <li><p><span class="math inline">\(L_2\)</span> <span class="math display">\[
 \langle v,u\rangle=\int v(t)u^*(t)dt
-\]</span></p>
-<p><strong>a vector in an <span class="math inline">\(L_2\)</span> inner product space is an equivalence class of <span class="math inline">\(L_2\)</span> functions that are equal a.e.</strong></p></li>
+\]</span> <strong>a vector in an <span class="math inline">\(L_2\)</span> inner product space is an equivalence class of <span class="math inline">\(L_2\)</span> functions that are equal a.e.</strong></p></li>
 </ul>
 </div>
 <div id="orthonormal-bases-and-the-projection-theorem" class="section level2">
@@ -395,8 +396,8 @@ v-v_{|\phi} \perp \phi
 <li><p>Projection theorem</p>
 <blockquote>
 <p><span class="math inline">\(S\)</span> is an n-dimensional subspace of <span class="math inline">\(V\)</span>, then <span class="math display">\[
-v_{|S}=\sum_{j=1}^n\langle v,\phi_j\rangle\phi_j
-\]</span> Proof: <span class="math inline">\(\langle v-w,\phi_j\rangle=0\)</span></p>
+  v_{|S}=\sum_{j=1}^n\langle v,\phi_j\rangle\phi_j
+  \]</span> Proof: <span class="math inline">\(\langle v-w,\phi_j\rangle=0\)</span></p>
 </blockquote>
 <p>Corollary <span class="math display">\[
     \lVert v_{|S}\rVert^2=\sum_j|\langle v,\phi_j\rangle|^2\\
@@ -412,9 +413,9 @@ v_{|S}=\sum_{j=1}^n\langle v,\phi_j\rangle\phi_j
 \]</span> Infinite-dimensional projection</p>
 <blockquote>
 <p><span class="math display">\[
-\lim_{n\rightarrow \infty}\lVert u-\sum_{m=1}^n\alpha_m\phi_m\rVert=0,\alpha_m=\langle v,\phi_m\rangle\\
-\lVert u\rVert ^2=\sumsub{m}{}\abs{\alpha_m}^2
-\]</span></p>
+  \lim_{n\rightarrow \infty}\lVert u-\sum_{m=1}^n\alpha_m\phi_m\rVert=0,\alpha_m=\langle v,\phi_m\rangle\\
+  \lVert u\rVert ^2=\sumsub{m}{}\abs{\alpha_m}^2
+  \]</span></p>
 <p>Conversely, <span class="math inline">\(\sum_k|\alpha_k|^2\)</span>, then <span class="math inline">\(u\)</span> exists satisfying above two</p>
 </blockquote>
 <p><span class="math inline">\(u\)</span> is interpreted as the projection of <span class="math inline">\(v\)</span> onto the infinite-dimensional subspace <span class="math inline">\(S\)</span> spanned by <span class="math inline">\(\{\phi_m\}\)</span></p>

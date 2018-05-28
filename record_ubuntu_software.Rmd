@@ -1,0 +1,224 @@
+# 软件安装
+
+## SS
+
+```
+下载electrossr
+chmod a+x electron-ssr-0.2.3-x86_64.AppImage
+sudo apt install libsodium-dev
+```
+
+或者 
+
+```
+~ $ git clone https://github.com/showzeng/shadowsocksr
+修改config.json
+~/shadowsocksr [manyuser] $ chmod 755 runssr stopssr
+~/shadowsocksr [manyuser] $ sudo mv runssr stopssr /usr/local/bin
+
+~ $ sudo mv shadowsocksr/ /opt/
+~ $ source /etc/profile
+运行 runssr
+终止 stopssr
+```
+
+## Anaconda
+
+```
+sudo sh Anaconda.sh
+```
+
+进一步安装Python2
+
+```shell
+conda create -n py27 python=2.7 anaconda
+```
+
+激活新的环境
+
+`source activate py27`
+
+查看当前环境版本 `python —version`
+
+查看所有环境 ` conda info —envs`
+
+## Chrome
+
+```shell
+官网下载
+sudo dpkg -i name.deb
+```
+
+## SSR
+
+python /home/lingui/.config/electron-ssr/shadowsocksr/shadowsocks/local.py -s 184.170.217.32 -p 433 -m aes-256-cfb -O origin -o plain -b 127.0.0.1 -l 1080 -k MDk0MTBkY2
+
+## R & RStudio
+
+加入镜像源
+
+```
+deb http://<my.favorite.cran.mirror>/bin/linux/ubuntu lucid/ 
+```
+
+rstudio
+
+官网按操作得到密钥
+
+下载客户端点开
+
+或者
+
+```
+$ sudo apt install gdebi-core
+$ sudo gdebi rstudio-xenial-1.1.442-amd64.deb
+```
+
+### Rstudio中文
+
+问题 缺少包 qtbase-abi-5.5.1
+
+解决方案
+
+安装rstudio-server
+
+本机登录用 127.0.0.1:8787
+
+局域网用本机局域网ip登录
+
+### RStudio 中文beamer
+
+```
+install.packages("rmarkdown")
+install.packages("tinytex")
+install.packages("rticles")
+```
+
+如下设置
+
+```
+output: 
+  beamer_presentation:
+    theme: "Madrid"
+    fonttheme: "structuresmallcapsserif"
+    includes:
+      in_header: header.tex
+    latex_engine: xelatex
+```
+
+
+
+## git
+
+```
+ubuntu:~$ sudo apt -y install git
+```
+
+## 坚果云
+
+**手动安装所有依赖包**
+
+SSL链接失败
+
+oracle jdk 10
+
+备份并移除老的cacerts sudo mv /etc/ssl/certs/java/cacerts{,.backup}   生成新的cacerts sudo keytool -importkeystore -destkeystore /etc/ssl/certs/java/cacerts -deststoretype jks -deststorepass changeit -srckeystore /etc/ssl/certs/java/cacerts.backup -srcstoretype pkcs12 -srcstorepass changeit
+
+安装 topicon 插件,能够解决18.04没有坚果云图标的问题
+
+## Synergy
+
+安装，官网下载1.9.1版本 但是要求 libcurl3  ubuntu 18.04LTS 要求libcurl4(R language)
+
+作如下改动
+
+1.  Downloaded the appropriate Synergy package.
+
+2.  Unarchived the package, then unarchived the resulting control.tar.gz, all so I can edit the control file:`
+
+    ```
+    $ ar x synergy_1.9.1.stable_b327+2a0225c1_amd64.deb
+    
+    $ tar zxvf control.tar.gz
+    
+    $ vim control
+    
+    ```
+
+3.  Modify the control file, removing libcurl3 with libcurl4 (>= 7.58.0)
+
+    ```
+    Package: synergy
+    
+    Version: 1.9.1.stable~b327+2a0225c1
+    
+    Architecture: amd64
+    
+    Maintainer: Symless engineering@symless.com
+    
+    Installed-Size: 2591
+    
+    Depends: libavahi-compat-libdnssd1 (>= 0.6.16), libc6 (>= 2.14), libcurl4 (>= 7.58.0), libgcc1 (>= 1:3.0), libqt5core5a
+    
+    Section: utils
+    
+    Priority: optional
+    
+    Homepage: https://symless.com/synergy
+    
+    Description: Keyboard and mouse sharing solution
+    
+     Synergy allows you to share one mouse and keyboard between multiple computers.
+    
+     Work seamlessly across Windows, macOS and Linux.
+    ```
+
+4.  Rolled everything back up into a new package. Note, the order of contents are specified when archiving the new deb matters.
+
+    ```
+    $ tar c md5sums control | gzip -c > control.tar.gz
+    
+    $ ar rcs synergy_1.9.1.modified.deb debian-binary control.tar.gz data.tar.xz 
+    
+    $ sudo apt install ./synergy_1.9.1.modified.deb
+    ```
+
+## Latex
+
+```
+sudo apt-get install texlive-latex-base
+sudo apt-get install texlive-latex-extra
+sudo apt-get install latex-cjk-all
+sudo apt-get install texlive-xetex
+sudo apt-get install texlive-xetex
+sudo apt-get install texmaker
+```
+
+Texmaker
+
+SyncTax使得在source code & pdf 间来回jump
+
+## Typora
+
+ preference - indent size on save = 4 -- pretty size
+
+## WPS
+
+安装缺失包
+
+```
+$ wget http://mirrors.kernel.org/ubuntu/pool/main/libp/libpng/libpng12-0_1.2.54-1ubuntu1_amd64.deb
+$ sudo dpkg -i libpng12-0_1.2.54-1ubuntu1_amd64.deb
+```
+
+安装wps
+
+```shell
+$ wget http://kdl1.cache.wps.com/ksodl/download/linux/a21//wps-office_10.1.0.5707~a21_amd64.deb
+$ sudo dpkg -i wps-office_10.1.0.5707~a21_amd64.deb
+```
+
+```shell
+$ wget http://kdl1.cache.wps.com/ksodl/download/linux/a21//wps-office_10.1.0.5707~a21_amd64.deb
+$ sudo dpkg -i wps-office_10.1.0.5707~a21_amd64.deb
+```

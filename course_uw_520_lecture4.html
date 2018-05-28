@@ -337,7 +337,8 @@ $(".main-container").removeClass("main-container").removeClass("container-fluid"
 <h1><span class="header-section-number">1</span> Spectral Representation Theorem</h1>
 <p><span class="math display">\[
 X_t=\sumsubtri l 1 L D_l\cos(\tp f_l t+\phi_l),t\in\mathbb{Z}
-\]</span> only <span class="math inline">\(\phi_l\)</span> terms independent RVs, uniformly distributed over <span class="math inline">\([-\pi,\pi]\)</span></p>
+\]</span></p>
+<p>only <span class="math inline">\(\phi_l\)</span> terms independent RVs, uniformly distributed over <span class="math inline">\([-\pi,\pi]\)</span></p>
 <p><span class="math inline">\(f_l\)</span> ordered such that <span class="math inline">\(0&lt;f_l&lt;f_{l+1}&lt;1/2\)</span> <span class="math display">\[
 X_t=\sumsym l L C_l\etpi {f_lt},C_l=\equtri{D_le^{i\phi_l}/2}{l=1,\cdots,L}{D_0=0}{l=0}{C^*_{-l}}{l=-L,\cdots,-1}\\
 \var\bra{C_l}=D_l^2/4\\
@@ -353,8 +354,7 @@ E\bra{\d Z(f)}=0,\var\bra{\d Z(f)}=S^{(V)}(f)\\
 \]</span> spectral representation <span class="math display">\[
 X_t=\sumsubtri l {-L} L C_l\etpi{f_l t}=\intsym{1/2}\etpi{ft} \d Z(f)\\
 \t{letting }L\rightarrow \infty
-\]</span></p>
-<p><a href="#jump">up</a></p>
+\]</span> <a href="#jump">up</a></p>
 </div>
 <div id="basic-consequences-of-theorem" class="section level1">
 <h1><span class="header-section-number">2</span> Basic Consequences of Theorem</h1>
@@ -414,21 +414,22 @@ X_t=\mu+\sumsubtri l 1 L A_l\cos(\tp f_l t)+B_l\sin(\tp f_l t)\\
 s_\tau=\sumsym l L\frac{\sigma^2_l}2\etpi{f_l\tau},\sigma^2_0=f_0=0,\sigma_{-l}^2=\sigma_l^2,f_{-l}=-f_l
 \]</span> <span class="math inline">\(\si(\cdot)\)</span> is a step function with jumps at <span class="math inline">\(\pm f_l\)</span> of size <span class="math inline">\(\sigma_l^2/2\)</span> <span class="math display">\[
 S(f)=\sumsym l L\frac{\sigma_l^2}2\delta(f-f_l)
-\]</span></p>
-<p><a href="#jump">up</a></p>
+\]</span> <a href="#jump">up</a></p>
 </div>
 <div id="classification-of-spectra" class="section level1">
 <h1><span class="header-section-number">4</span> Classification of Spectra</h1>
 <p><span class="math inline">\(\si\)</span> : always as a sum of up to three canonical integrated spectra</p>
 <ul>
 <li><p><span class="math inline">\(\si_1\)</span> is absolutely continuous <span class="math display">\[
-  \dtwof{\si (f)}{f}=S(f)
-  \]</span></p></li>
+\dtwof{\si (f)}{f}=S(f)
+\]</span></p></li>
 <li><p><span class="math inline">\(\si_2\)</span> is a step function: <strong>ACVS</strong> doesn’t converge to zero as <span class="math inline">\(\abs\tau\rightarrow \infty\)</span></p></li>
-<li><p><span class="math inline">\(\si_3\)</span> is a continuous singular function</p></li>
+<li><p><span class="math inline">\(\si_3\)</span> is a continuous singular function</p>
+<ul>
 <li>derivative is zero almost everywhere</li>
 <li>continuous</li>
-<li><p>strictly increasing</p></li>
+<li>strictly increasing</li>
+</ul></li>
 <li><p>Sampling and Aliasing <span class="math display">\[
 X_t=X(t_0+t\Delta t)\\
 S_{X_T}(f)=\suminf k S_{X(t)}(f+k/\Delta t),\quad\abs f\leq \frac 1 {2\Delta t} 

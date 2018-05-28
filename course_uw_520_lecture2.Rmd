@@ -3,12 +3,12 @@ title: "UW 520"
 subtitle: "Lecture 2 - Notes"
 author: "Lin Gui"
 output:
-    html_document:
-        toc: true
-        number_sections: true
+  html_document:
+    toc: true
+    number_sections: true
 ---
-<span id="jump"></span>
 
+<span id="jump"></span>
 
 [Back](course_uw_520.html)
 
@@ -16,22 +16,23 @@ output:
 
 ## Stationary Processes
 
-* $\bra{s_\tau}$ is positive semidefinite, i.e.
+-   $\bra{s_\tau}$ is positive semidefinite, i.e.
 
 $$
 \sumsub{j=0}{n-1}\sumsubtri k 0 {n-1} s_{t_j-t_k}a_ja_k\geq 0
 $$
+
 	for any $a$ and $t$
 
-* var/cov matrix is Toeplitz
+-   var/cov matrix is Toeplitz
 
-  $a_{jj}=a_{kk}, a_{ij}=a_{ji}$
+    $a_{jj}=a_{kk}, a_{ij}=a_{ji}$
 
-* $s_{-\tau}=s^*_\tau$
+-   $s_{-\tau}=s^*_\tau$
 
 ## Moving Average Process
 
-> $s_\tau$
+>   $s_\tau$
 
 ## Autoregressive Process
 
@@ -42,6 +43,7 @@ X_t=\mu+\sumsubtri l 1 L A_l\cos(2\pi f_l t)+B_l\sin(2\pi f_l t)\\
 =\mu+\sumsubtri l 1 L D_l\cos(2\pi f_l t+\phi_l)\\
 D_l=A_l^2+B_l^2,\tan(\phi_l)=-B_l/A_l
 $$
+
 where $A,B$ are independent Gaussian RVs with **unit variance**
 
 **stationary**
@@ -49,7 +51,7 @@ $$
 s_\tau=\sumsubtri l 1 L \sigma^2_l\cos(2\pi f_l\tau)
 $$
 
-* $D_l^2/\sigma_l^2=(A_l^2+B_l^2)/\sigma_l^2$ has chi-square distribution with 2 degrees of freedom
+-   $D_l^2/\sigma_l^2=(A_l^2+B_l^2)/\sigma_l^2$ has chi-square distribution with 2 degrees of freedom
 
 $$
 f_{D_l^2}(u)=\equtwo{e^{-u/(2\sigma_l^2)}/(2\sigma_l^2)}{u\geq 0}{0} {u<0}	
@@ -57,13 +59,13 @@ $$
 
 	thus obey a Rayleigh distribution
 
-* $\phi_l$ is uniformily distributed over $(-\pi,\pi]$ and independent of $D_l$
+-   $\phi_l$ is uniformily distributed over $(-\pi,\pi]$ and independent of $D_l$
 
-  > Why uniformily?
+    >   Why uniformily?
 
-  $(A_l,B_l)\leftrightarrow(D_l,\phi_l)$
+    $(A_l,B_l)\leftrightarrow(D_l,\phi_l)$
 
-* $S_\tau=D^2\cos(2\pi f\tau)/2$
+-   $S_\tau=D^2\cos(2\pi f\tau)/2$
 
 ## Stationary Processes as Models
 
@@ -76,6 +78,5 @@ $$
 $$
   X_t^{(1)}=X_t-X_{t-1}=\beta+Y_t^{(1)}
 $$
-
   ​
 [up](#jump)

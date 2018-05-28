@@ -7,6 +7,10 @@ output: html_document
 
 [Linux](record_linux.html)
 
+[Ubuntu System](record_ubuntu_system.html)
+
+[Ubuntu Software](record_ubuntu_software.html)
+
 [Vim](record_vim.html)
 
 [Latex](record_latex.html)
@@ -16,3 +20,5 @@ output: html_document
 [Anaconda & IPython](record_anaconda_ipython.html)
 
 [R](record_r.html)
+
+

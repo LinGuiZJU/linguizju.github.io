@@ -11,7 +11,7 @@
 
 
 
-<title>Record</title>
+<title></title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -313,20 +313,155 @@ $(".main-container").removeClass("main-container").removeClass("container-fluid"
 
 
 
-<h1 class="title toc-ignore">Record</h1>
 
 </div>
 
+<div id="TOC">
+<ul>
+<li><a>系统安装及设置</a></li>
+<li><a>系统故障及解决方案</a></li>
+</ul>
+</div>
 
-<p><a href="record_git.html">Git</a></p>
-<p><a href="record_linux.html">Linux</a></p>
-<p><a href="record_ubuntu_system.html">Ubuntu System</a></p>
-<p><a href="record_ubuntu_software.html">Ubuntu Software</a></p>
-<p><a href="record_vim.html">Vim</a></p>
-<p><a href="record_latex.html">Latex</a></p>
-<p><a href="record_code_style.html">Code Style</a></p>
-<p><a href="record_anaconda_ipython.html">Anaconda &amp; IPython</a></p>
-<p><a href="record_r.html">R</a></p>
+<div class="section level1">
+<h1>系统安装及设置</h1>
+<ul>
+<li><p>无法检测系统 选择其他选项</p></li>
+<li><p>分区</p>
+<ul>
+<li>/ 15G</li>
+<li>swap 8G 建议和内存大小相等</li>
+<li>/home 86 - 23 = 63G</li>
+</ul></li>
+<li><p>grub2 安装target failed</p>
+<p>分区时建立如下分区</p>
+<ul>
+<li>Mount point: /boot/efi (remark: no need to set this mount point when using the manual partitioning, the Ubuntu installer will detect it automatically)</li>
+<li>Size: minimum 100Mib. 200MiB recommended.</li>
+<li>Type: FAT32</li>
+<li>Other: needs a “boot” flag.</li>
+</ul></li>
+<li><p>grub</p>
+<p>boot-repair</p>
+<pre><code>sudo add-apt-repository ppa:yannubuntu/boot-repair &amp;&amp; sudo apt-get update  
+sudo apt-get install -y boot-repair &amp;&amp; boot-repair  </code></pre></li>
+<li><p>更新 grub 显示 windows</p>
+<pre><code>sudo update-grub</code></pre></li>
+<li><p>中文语言与输入法</p>
+<pre><code>sudo apt-get update
+sudo apt-get install language-pack-zh-hans  
+sudo apt-get install fcitx-googlepinyin  </code></pre>
+<p>打开language support -&gt; fcitx</p></li>
+<li><p>jdk10</p>
+<pre><code>sudo add-apt-repository ppa:linuxuprising/java
+sudo apt-get update
+sudo apt-get install oracle-java10-installer</code></pre></li>
+<li><p>Gnome Extension</p>
+<pre class="shell"><code>sudo apt install gnome-shell-extensions
+sudo apt install chrome-gnome-shell</code></pre></li>
+<li><p>键位映射</p>
+<p>sudo vim /usr/share/X11/xkb/symbols/us 中的</p>
+<pre><code>    key &lt;LCTL&gt; { 
+    symbols[Group1] = [ISO_Level3_Shift]
+    };
+    key &lt;CAPS&gt; { [ Control_L ] };
+    modifier_map Mod5{ISO_Level3_Shift};
+    key &lt;AD07&gt; {
+    type=&quot;MOD5_NAV&quot;,
+    [u,U,Prior,Prior],
+    actions[Group1]=[NoAction(),NoAction(),RedirectKey(key=&lt;PGUP&gt;,clearmods=ISO_Level3_Shift)]  
+    };
+    key &lt;AD08&gt; {
+    type=&quot;MOD5_NAV&quot;,
+    [i,I,Home,Home],
+    actions[Group1]=[NoAction(),NoAction(),RedirectKey(key=&lt;HOME&gt;,clearmods=ISO_Level3_Shift)]  
+    };
+    key &lt;AD09&gt; {
+    type=&quot;MOD5_NAV&quot;,
+    [o,O,End,End],
+    actions[Group1]=[NoAction(),NoAction(),RedirectKey(key=&lt;END&gt;,clearmods=ISO_Level3_Shift)]   
+    };
+    key &lt;AD10&gt; {
+    type=&quot;MOD5_NAV&quot;,
+    [p,p,Next,Next],
+    actions[Group1]=[NoAction(),NoAction(),RedirectKey(key=&lt;PGDN&gt;,clearmods=ISO_Level3_Shift)]  
+    };
+        key &lt;AC06&gt; {
+    type=&quot;MOD5_NAV&quot;,
+    [h,H,Left,Left],
+    actions[Group1]=[NoAction(),NoAction(),RedirectKey(key=&lt;LEFT&gt;,clearmods=ISO_Level3_Shift)]  
+    };
+    key &lt;AC07&gt; {
+    type=&quot;MOD5_NAV&quot;,
+    [j,J,Down,Down],
+    actions[Group1]=[NoAction(),NoAction(),RedirectKey(key=&lt;DOWN&gt;,clearmods=ISO_Level3_Shift)]  
+    };
+    key &lt;AC08&gt; {
+    type=&quot;MOD5_NAV&quot;,
+    [k,K,Up,Up],
+    actions[Group1]=[NoAction(),NoAction(),RedirectKey(key=&lt;UP&gt;,clearmods=ISO_Level3_Shift)]    
+    };
+    key &lt;AC09&gt; {
+    type=&quot;MOD5_NAV&quot;,
+    [l,L,Right,Right],
+    actions[Group1]=[NoAction(),NoAction(),RedirectKey(key=&lt;RGHT&gt;,clearmods=ISO_Level3_Shift)]  
+    };</code></pre>
+<p>/usr/share/X11/xkb/types/basic</p>
+<pre><code>    type &quot;MOD5_NAV&quot; {
+    modifiers = Shift+Mod5;
+    map[None] = level1;
+    map[Shift] = level2;
+    map[Mod5] = level3;
+    map[Mod5+Shift] = level3;
+    level_name[Level1] = &quot;Base&quot;;
+    level_name[Level2] = &quot;Caps&quot;;
+    level_name[Level3] = &quot;Arrows&quot;;
+    };</code></pre></li>
+<li><p>建立软链接和更新软链接</p>
+<pre class="shell"><code>sudo ln -s existsfilename newfilename
+
+sudo ln -sfn existsfilename filename</code></pre></li>
+<li><p>Apt-Get</p>
+<pre class="shell"><code>sudo apt-cache search ??
+sudo apt-cache show??</code></pre></li>
+<li><p>终端设置及快捷键</p>
+<p>在 /etc/inputrc</p>
+<p>set -o vi vi模式</p>
+<p>复制 Ctrl+k Ctrl+u 粘贴 Ctrl+Y</p>
+<p>删除 Alt+D</p></li>
+</ul>
+</div>
+<div class="section level1">
+<h1>系统故障及解决方案</h1>
+<ul>
+<li><p>今晚频繁死机</p>
+<p>然后显示</p>
+<pre><code>[ 0.000000] ACPI BIOS Error (bug): Failure looking up [/_SB.PCIO.XHC.RHUB.HS11], AE_NOT_FOUND (20180105/dswload-211)
+[ 0.000000] ACPI Error: AE_NOT_FOUND, During name lookup/catalog (20180105/psobject-252)
+[ 0.000000] ACPI ERROR: AE_NOT_FOUND, (SSDT:xh_rvp11) while loading table (20180105/tbxfload-228)
+[ 0.000000] ACPI Error: 1 table load failures, 12 successful (20180105/tbxfload-246)
+[ 1.536258] nouveau 0000:01:00.0: DRM: Pointer to THDS table invalid
+/dev/nvme0n1p5 clean, 412566/5767168 files, 21898623/23040283 blocks</code></pre>
+<p>解决办法</p>
+<pre class="shell"><code>查看日志 找到出问题的盘 nvme01p8
+fsck -f /dev/nvme01p8
+-f是强行检测的意思</code></pre>
+<p>然后出现了无法关机的情况</p>
+<p>原因是之前将</p>
+<p><code>/etc/default/grub</code></p>
+<pre><code>GRUB_CMDLINE_LINUX_DEFAULT=&quot;quiet splash&quot;
+改为
+GRUB_CMDLINE_LINUX_DEFAULT=&quot;quiet splash acpi=off&quot;
+现在改为
+GRUB_CMDLINE_LINUX_DEFAULT=&quot;quiet splash acpi=force&quot;
+就能解决问题</code></pre></li>
+<li><p>解决看视频全屏卡屏</p>
+<pre class="shell"><code>sudo mkdir /etc/adobe
+echo &quot;OverrideGPUValidation=true&quot; &gt;~/mms.cfg
+sudo mv ~/mms.cfg /etc/adobe/</code></pre></li>
+<li></li>
+</ul>
+</div>
 
   </div> <!-- articleBandContent -->
 </div> <!-- pageContent -->

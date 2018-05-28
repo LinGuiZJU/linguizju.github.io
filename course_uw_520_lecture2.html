@@ -343,13 +343,12 @@ $(".main-container").removeClass("main-container").removeClass("container-fluid"
 </ul>
 <p><span class="math display">\[
 \sumsub{j=0}{n-1}\sumsubtri k 0 {n-1} s_{t_j-t_k}a_ja_k\geq 0
-\]</span>  for any <span class="math inline">\(a\)</span> and <span class="math inline">\(t\)</span></p>
+\]</span></p>
+<p> for any <span class="math inline">\(a\)</span> and <span class="math inline">\(t\)</span></p>
 <ul>
-<li>var/cov matrix is Toeplitz</li>
-</ul>
-<p><span class="math inline">\(a_{jj}=a_{kk}, a_{ij}=a_{ji}\)</span></p>
-<ul>
-<li><span class="math inline">\(s_{-\tau}=s^*_\tau\)</span></li>
+<li><p>var/cov matrix is Toeplitz</p>
+<p><span class="math inline">\(a_{jj}=a_{kk}, a_{ij}=a_{ji}\)</span></p></li>
+<li><p><span class="math inline">\(s_{-\tau}=s^*_\tau\)</span></p></li>
 </ul>
 </div>
 <div id="moving-average-process" class="section level2">
@@ -367,7 +366,8 @@ $(".main-container").removeClass("main-container").removeClass("container-fluid"
 X_t=\mu+\sumsubtri l 1 L A_l\cos(2\pi f_l t)+B_l\sin(2\pi f_l t)\\
 =\mu+\sumsubtri l 1 L D_l\cos(2\pi f_l t+\phi_l)\\
 D_l=A_l^2+B_l^2,\tan(\phi_l)=-B_l/A_l
-\]</span> where <span class="math inline">\(A,B\)</span> are independent Gaussian RVs with <strong>unit variance</strong></p>
+\]</span></p>
+<p>where <span class="math inline">\(A,B\)</span> are independent Gaussian RVs with <strong>unit variance</strong></p>
 <p><strong>stationary</strong> <span class="math display">\[
 s_\tau=\sumsubtri l 1 L \sigma^2_l\cos(2\pi f_l\tau)
 \]</span></p>
@@ -379,14 +379,12 @@ f_{D_l^2}(u)=\equtwo{e^{-u/(2\sigma_l^2)}/(2\sigma_l^2)}{u\geq 0}{0} {u&lt;0}
 \]</span></p>
 <p> thus obey a Rayleigh distribution</p>
 <ul>
-<li><span class="math inline">\(\phi_l\)</span> is uniformily distributed over <span class="math inline">\((-\pi,\pi]\)</span> and independent of <span class="math inline">\(D_l\)</span></li>
-</ul>
+<li><p><span class="math inline">\(\phi_l\)</span> is uniformily distributed over <span class="math inline">\((-\pi,\pi]\)</span> and independent of <span class="math inline">\(D_l\)</span></p>
 <blockquote>
 <p>Why uniformily?</p>
 </blockquote>
-<p><span class="math inline">\((A_l,B_l)\leftrightarrow(D_l,\phi_l)\)</span></p>
-<ul>
-<li><span class="math inline">\(S_\tau=D^2\cos(2\pi f\tau)/2\)</span></li>
+<p><span class="math inline">\((A_l,B_l)\leftrightarrow(D_l,\phi_l)\)</span></p></li>
+<li><p><span class="math inline">\(S_\tau=D^2\cos(2\pi f\tau)/2\)</span></p></li>
 </ul>
 </div>
 <div id="stationary-processes-as-models" class="section level2">
@@ -397,8 +395,7 @@ X_t=\a+\b t+Y_t\\
 \]</span></p>
 <p>detrended series by first differencing(filtering) <span class="math display">\[
   X_t^{(1)}=X_t-X_{t-1}=\beta+Y_t^{(1)}
-\]</span></p>
-<p>​ <a href="#jump">up</a></p>
+\]</span> ​ <a href="#jump">up</a></p>
 </div>
 </div>
 

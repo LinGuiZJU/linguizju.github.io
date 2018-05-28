@@ -7,8 +7,8 @@ output:
     toc: true
     number_sections: true
 ---
-<span id="jump"></span>
 
+<span id="jump"></span>
 
 [Back](course_uw_520.htmls)
 
@@ -17,6 +17,7 @@ output:
 $$
 X_t=\sumsubtri l 1 L D_l\cos(\tp f_l t+\phi_l),t\in\mathbb{Z}
 $$
+
 only $\phi_l$ terms independent RVs, uniformly distributed over $[-\pi,\pi]$
 
 $f_l$ ordered such that $0<f_l<f_{l+1}<1/2$
@@ -40,16 +41,15 @@ $$
 X_t=\sumsubtri l {-L} L C_l\etpi{f_l t}=\intsym{1/2}\etpi{ft} \d Z(f)\\
 \t{letting }L\rightarrow \infty
 $$
-
 [up](#jump)
 
 # Basic Consequences of Theorem
 
 properties
 
-* $E\bra{\d Z(f)}=0$
-* $\var\bra{\d Z(f)}=E\bra{\abs{\d Z(f)}^2}=\d S^{(I)}(f)$
-* $\cov\bra{\d Z(f'),\d Z(f)}=0$
+-   $E\bra{\d Z(f)}=0$
+-   $\var\bra{\d Z(f)}=E\bra{\abs{\d Z(f)}^2}=\d S^{(I)}(f)$
+-   $\cov\bra{\d Z(f'),\d Z(f)}=0$
 
 $$
 s_\tau=\intsym{1/2}\etpi {f\tau}\d S^{(I)}(f)
@@ -67,7 +67,7 @@ $$
 
 ## Extension to Other Stationary Process
 
-> how to guarentee validity
+>   how to guarentee validity
 
 $$
 X(t)=\intinf \etpi{ft}\d Z(f)\\
@@ -79,23 +79,23 @@ $$
 
 # Basic Properties of $S^{(I)}(f)$
 
-* $S^{(I)}(-1/2)=0$
-* $S(f)\geq 0$
-* $S(f)=S(-f)$
-* nondecreasing
-* $s_0=S^{(I)}(1/2)=\var\bra{X_t}$
+-   $S^{(I)}(-1/2)=0$
+-   $S(f)\geq 0$
+-   $S(f)=S(-f)$
+-   nondecreasing
+-   $s_0=S^{(I)}(1/2)=\var\bra{X_t}$
 
 **Wold's theorem**
 
 $\newcommand{si}{S^{(I)}}$
 
->  $\bra{s_\tau}$ to be ACVS iff some stationary process $\bra{X_t}$ is existence of nondecreasing function $\si(\cdot)$ such that
+>   $\bra{s_\tau}$ to be ACVS iff some stationary process $\bra{X_t}$ is existence of nondecreasing function $\si(\cdot)$ such that
 >
->  * $\si(-1/2)=0$
->  * $\si(1/2)=\var\bra{X_t}$
->  * $s_\tau=\intsym{1/2}\etpi{f\tau}\d \si(f)$
+>   -   $\si(-1/2)=0$
+>   -   $\si(1/2)=\var\bra{X_t}$
+>   -   $s_\tau=\intsym{1/2}\etpi{f\tau}\d \si(f)$
 >
->  proof : to be done.
+>   proof : to be done.
 
 example: white noise
 $$
@@ -111,31 +111,30 @@ $\si(\cdot)$ is a step function with jumps at $\pm f_l$ of size $\sigma_l^2/2$
 $$
 S(f)=\sumsym l L\frac{\sigma_l^2}2\delta(f-f_l)
 $$
-
 [up](#jump)
 
 # Classification of Spectra
 
 $\si$ : always as a sum of up to three  canonical integrated spectra
 
-* $\si_1$ is absolutely continuous
-  $$
-  \dtwof{\si (f)}{f}=S(f)
-  $$
+-   $\si_1$ is absolutely continuous
+    $$
+    \dtwof{\si (f)}{f}=S(f)
+    $$
 
-* $\si_2$ is a step function: **ACVS** doesn't converge to zero as $\abs\tau\rightarrow \infty$
+-   $\si_2$ is a step function: **ACVS** doesn't converge to zero as $\abs\tau\rightarrow \infty$
 
-* $\si_3$ is a continuous singular function
+-   $\si_3$ is a continuous singular function
 
-  * derivative is zero almost everywhere
-  * continuous
-  * strictly increasing
+    -   derivative is zero almost everywhere
+    -   continuous
+    -   strictly increasing
 
-
- * Sampling and Aliasing
+-   Sampling and Aliasing
     $$
     X_t=X(t_0+t\Delta t)\\
     S_{X_T}(f)=\suminf k S_{X(t)}(f+k/\Delta t),\quad\abs f\leq \frac 1 {2\Delta t}	
     $$
+
 
 [up](#jump)

@@ -9,188 +9,187 @@ output:
 #      in_header:  mathconfig.html
 ---
 
-
-
 # 第二章 确定性信号、随机变量与随机过程
 
 
 
-* Fourier级数与Fourier变换
+-   Fourier级数与Fourier变换
 
-  * 表达式
+    -   表达式
 
-  * 实函数的Hermitian性质
+    -   实函数的Hermitian性质
 
-  * 泊松公式
+    -   泊松公式
 
-  * 周期信号的Fourier变换
+    -   周期信号的Fourier变换
 
-  * 能量谱密度
+    -   能量谱密度
+        $$
+        E=\intinf|x(t)|^2dt=\intinf|X(f)|^2df\\
+        G(f)=|X(f)|\\
+        R_x(\tau)=x(\tau)\otimes x^*(-\tau)\\
+        R_x(\tau)\leftrightarrow G(f)
+        $$
+        功率谱密度
+        $$
+        R_x(\tau)=\lim_{T\rightarrow \infty}\frac 1 T\intsym {-T/2}|x(t)|^2dt\\
+        P(f)=\lim_{T\rightarrow \infty}\frac 1 T|X_T(f)|^2\\
+        $$
+        通过滤波器
+        $$
+        R_y(\tau)=R_x(\tau)\otimes h(\tau)\otimes h^*(-\tau)\\
+        P_y(f)=P_x(f)|H(f)|^2
+        $$
+
+-   窄带信号
+
+    复包络
     $$
-    E=\intinf|x(t)|^2dt=\intinf|X(f)|^2df\\
-    G(f)=|X(f)|\\
-    R_x(\tau)=x(\tau)\otimes x^*(-\tau)\\
-    R_x(\tau)\leftrightarrow G(f)
+    x(t)=A(t)\cos(2\pi f_0t+\Phi(t))\\
+    =\Re\{A(t)e^{j(2\pi f_0t+\Phi(t))}\}=\Re\{z(t)\}
+    \\=\Re\{x_l(t)e^{j2\pi f_0 t}\}\\
+    =\Re\{x(t)+j\hat x(t)\}
     $$
-    功率谱密度
+    频域关系
     $$
-    R_x(\tau)=\lim_{T\rightarrow \infty}\frac 1 T\intsym {-T/2}|x(t)|^2dt\\
-    P(f)=\lim_{T\rightarrow \infty}\frac 1 T|X_T(f)|^2\\
+    Z(f)=2u_{-1}(f)X(f)\\
+    X_l(f)=Z(f+f_0)=2u_{-1}(f+f_0)X(f+f_0)\\
+    \begin{equation}
+    u_{-1}(f)=\left\{
+    \begin{aligned}
+    1 & &  f>0\\
+    1/2& & f=0 \\
+    0 & & f<0
+    \end{aligned}
+    \right.
+    \end{equation}
     $$
-    通过滤波器
+    Hilbert变换
     $$
-    R_y(\tau)=R_x(\tau)\otimes h(\tau)\otimes h^*(-\tau)\\
-    P_y(f)=P_x(f)|H(f)|^2
+    \hat x(t)=\frac 1 {\pi t}\otimes x(t)\\
+    \hat X(f)=-j\sgn(f)X(f)\\
+    \begin{equation}
+    -j\sgn(f)=\left\{
+    \begin{aligned}
+    e^{-j\frac \pi 2}, f>0\\
+    0,f=0\\
+    e^{j\frac \pi 2},f<0\\
+    \end{aligned}
+    \right.
+    \end{equation}
     $$
+    性质
 
-* 窄带信号
+    -   偶函数的Hilbert变换为奇函数，奇函数的Hilbert变换为偶函数
+    -   Hilbert两次变换是原函数的负数
+    -   $\int x^2(t)dt=\int |\hat x(t)|^2 dt$
+    -   $\int x(t)\hat x(t)dt=\int \hat X(f)X^*(f)df=0$
 
-  复包络
-  $$
-  x(t)=A(t)\cos(2\pi f_0t+\Phi(t))\\
-  =\Re\{A(t)e^{j(2\pi f_0t+\Phi(t))}\}=\Re\{z(t)\}
-  \\=\Re\{x_l(t)e^{j2\pi f_0 t}\}\\
-  =\Re\{x(t)+j\hat x(t)\}
-  $$
-  频域关系
-  $$
-  Z(f)=2u_{-1}(f)X(f)\\
-  X_l(f)=Z(f+f_0)=2u_{-1}(f+f_0)X(f+f_0)\\
-  \begin{equation}
-  u_{-1}(f)=\left\{
-  \begin{aligned}
-  1 & &  f>0\\
-  1/2& & f=0 \\
-  0 & & f<0
-  \end{aligned}
-  \right.
-  \end{equation}
-  $$
-  Hilbert变换
-  $$
-  \hat x(t)=\frac 1 {\pi t}\otimes x(t)\\
-  \hat X(f)=-j\sgn(f)X(f)\\
-  \begin{equation}
-  -j\sgn(f)=\left\{
-  \begin{aligned}
-  e^{-j\frac \pi 2}, f>0\\
-  0,f=0\\
-  e^{j\frac \pi 2},f<0\\
-  \end{aligned}
-  \right.
-  \end{equation}
-  $$
-  性质
-
-  * 偶函数的Hilbert变换为奇函数，奇函数的Hilbert变换为偶函数
-  * Hilbert两次变换是原函数的负数
-  * $\int x^2(t)dt=\int |\hat x(t)|^2 dt$
-  * $\int x(t)\hat x(t)dt=\int \hat X(f)X^*(f)df=0$
-
-  同向低通成分与正交低通成分
-  $$
-  z(t)=x(t)+j\hat x(t)\\
-  x_l(t)=x_c(t)+jx_s(t)\\
-  \begin{equation}
-  \left[
-   \begin{aligned}
-   x(t)\\
-   \hat x(t)
-   \end{aligned}
-  \right]=
-  \left[
-    \begin{array}{cc}
-    \cos(2\pi f_0t) &  -sin(2\pi f_0t)\\
-    sin(2\pi f_0t) & cos(2\pi f_0t)
-    \end{array}
-  \right]
-  \left[
-    \begin{array}{c}
+    同向低通成分与正交低通成分
+    $$
+    z(t)=x(t)+j\hat x(t)\\
+    x_l(t)=x_c(t)+jx_s(t)\\
+    \begin{equation}
+    \left[
+     \begin{aligned}
+     x(t)\\
+     \hat x(t)
+     \end{aligned}
+    \right]=
+    \left[
+      \begin{array}{cc}
+      \cos(2\pi f_0t) &  -sin(2\pi f_0t)\\
+      sin(2\pi f_0t) & cos(2\pi f_0t)
+      \end{array}
+    \right]
+    \left[
+      \begin{array}{c}
+      x_c(t)\\
+      x_s(t)
+      \end{array}
+    \right]
+    \end{equation}\\
+    \left[
+     \begin{array}{}
     x_c(t)\\
     x_s(t)
-    \end{array}
-  \right]
-  \end{equation}\\
-  \left[
-   \begin{array}{}
-  x_c(t)\\
-  x_s(t)
-   \end{array}
-  \right]=
-  \left[
-   \begin{array}{cc}
-  \cos(2\pi f_0 t) & sin(2\pi f_0t)\\
-  -\sin(2\pi f_0 t) & cos(2\pi f_0 t)
-   \end{array}
-  \right]=
-  \left[
-   \begin{array}{}
-  x(t)\\
-  \hat x(t)
-   \end{array}
-  \right]
-  $$
-  通过窄带系统
-  $$
-  H_l(f)=2u_{-1}(f+f_0)H(f+f_0)\\
-  Y_l(f)=X_l(f)H_l(f)/2\\
-  y_l(t)=x_l(t)\otimes h_l(t)/2
-  $$
-
-* 随机变量
-
-  离散随机变量的pdf
-  $$
-  f(x)=\sum_{k=1}^K p_k\delta(x-x_k)\\
-  $$
-  $$Y=g(X)$$
-
-  > $f_Y(y)=\sum_{k=1}^n\dfrac{f_X(x_k)}{|g'(x_k)|}$，其中
-  >
-  > $y=g(x_1)=\cdots =g(x_n)$
-
-  $Z=g(X,Y),W=h(X,Y)$
-
-  > $f_{ZW}(z,w)=\sum_{k=1}^n \dfrac{f_{XY}(x_k,y_k)}{|J(x_k,y_k)|}$
-  >
-  > $J(x,y)$: jacobian Matrix
-  >
-  > $(x_k),(y_k)$为 $g(x,y)=z, h(x,y)=w$的解
-
-  矩 $m_X^n=E[X^n]$
-
-  特征函数 $E[e^{j\omega X}]=\int e^{j\omega x}p_X(x)dx$
-
-  Rayleigh 分布
-
-  非中心$\chi^2$分布
-
-  Chebyche inequality and Chernof
-  $$
-  \Pr(|X-E[X]|\geq\delta)\leq \frac {\sigma_x^2}{\delta^2}\\
-  \Pr (Y\geq\delta)\leq E[e^{\lambda (Y-\delta)}]\\
-  \Pr (Y\geq\delta)\leq e^{-\lambda^*\delta} E[e^{\lambda^*Y}]
-  $$
-
-* 随机过程
-  $$
-  Cov(t_1,t_2)=E[(X(t_1)-\mu_X(t_1)(X(t_2)-\mu_x(t_2))]\\
-  R(t_1,t_2)=E[X(t_1)X(t_2)]\\
-  R_{XY}(t_1,t_2)=E[X(t_1)Y(t_2)]
-  $$
-  Ergodic
-
-  * 时间平均
+     \end{array}
+    \right]=
+    \left[
+     \begin{array}{cc}
+    \cos(2\pi f_0 t) & sin(2\pi f_0t)\\
+    -\sin(2\pi f_0 t) & cos(2\pi f_0 t)
+     \end{array}
+    \right]=
+    \left[
+     \begin{array}{}
+    x(t)\\
+    \hat x(t)
+     \end{array}
+    \right]
     $$
-    \langle g(x)\rangle=\lim_{t\rightarrow\infty}\frac 1 T \int_{-T/2}^{T/2}g(x(t))dt
+    通过窄带系统
+    $$
+    H_l(f)=2u_{-1}(f+f_0)H(f+f_0)\\
+    Y_l(f)=X_l(f)H_l(f)/2\\
+    y_l(t)=x_l(t)\otimes h_l(t)/2
     $$
 
-  * Ergodic
+-   随机变量
+
+    离散随机变量的pdf
     $$
-    \forall g(x), E[g(x)]=\langle g(x)\rangle\\
-    E(X(t))=\langle x(t)\rangle\\
-    D[X(t)]=\lim_{T\rightarrow\infty}\frac 1 T\int_{-T/2}^{T/2}(x(t)-\mu_X)^2dt
+    f(x)=\sum_{k=1}^K p_k\delta(x-x_k)\\
     $$
+    $$Y=g(X)$$
+
+    >   $f_Y(y)=\sum_{k=1}^n\dfrac{f_X(x_k)}{|g'(x_k)|}$，其中
+    >
+    >   $y=g(x_1)=\cdots =g(x_n)$
+
+    $Z=g(X,Y),W=h(X,Y)$
+
+    >   $f_{ZW}(z,w)=\sum_{k=1}^n \dfrac{f_{XY}(x_k,y_k)}{|J(x_k,y_k)|}$
+    >
+    >   $J(x,y)$: jacobian Matrix
+    >
+    >   $(x_k),(y_k)$为 $g(x,y)=z, h(x,y)=w$的解
+
+    矩 $m_X^n=E[X^n]$
+
+    特征函数 $E[e^{j\omega X}]=\int e^{j\omega x}p_X(x)dx$
+
+    Rayleigh 分布
+
+    非中心$\chi^2$分布
+
+    Chebyche inequality and Chernof
+    $$
+    \Pr(|X-E[X]|\geq\delta)\leq \frac {\sigma_x^2}{\delta^2}\\
+    \Pr (Y\geq\delta)\leq E[e^{\lambda (Y-\delta)}]\\
+    \Pr (Y\geq\delta)\leq e^{-\lambda^*\delta} E[e^{\lambda^*Y}]
+    $$
+
+-   随机过程
+    $$
+    Cov(t_1,t_2)=E[(X(t_1)-\mu_X(t_1)(X(t_2)-\mu_x(t_2))]\\
+    R(t_1,t_2)=E[X(t_1)X(t_2)]\\
+    R_{XY}(t_1,t_2)=E[X(t_1)Y(t_2)]
+    $$
+    Ergodic
+
+    -   时间平均
+        $$
+        \langle g(x)\rangle=\lim_{t\rightarrow\infty}\frac 1 T \int_{-T/2}^{T/2}g(x(t))dt
+        $$
+
+    -   Ergodic
+        $$
+        \forall g(x), E[g(x)]=\langle g(x)\rangle\\
+        E(X(t))=\langle x(t)\rangle\\
+        D[X(t)]=\lim_{T\rightarrow\infty}\frac 1 T\int_{-T/2}^{T/2}(x(t)-\mu_X)^2dt
+        $$
+
 
 
 
@@ -202,9 +201,9 @@ output:
 
   相关函数性质
 
-  * 平均功率 $R(0)\geq \abs{R(\tau)}$
-  * 直流功率 $R(\infty)=E^2[X(t)]$
-  * 交流功率 $\sigma_X^2=R(0)-R(\infty)$
+-   平均功率 $R(0)\geq \abs{R(\tau)}$
+-   直流功率 $R(\infty)=E^2[X(t)]$
+-   交流功率 $\sigma_X^2=R(0)-R(\infty)$
 
   功率谱
 $$
@@ -212,7 +211,7 @@ $$
   R_X(\tau)\leftrightarrow P_X(f)
 $$
 
-  * 白噪声 $P_X(f)=A,R_X(\tau)=A\delta(\tau)$
+-   白噪声 $P_X(f)=A,R_X(\tau)=A\delta(\tau)$
 
   通过滤波器
 $$
@@ -225,269 +224,269 @@ $$
 
   ​	通过线性系统的输出仍然是高斯的
 
-* 平稳带限过程的Nyquist 采样
-  $$
-  X(t)=\sum_{k=-\infty}^\infty X(kT_s)sinc(2W(t-kT_s))\\
-  T_s=\frac 1 {2W},sinc(x)=\frac {\sin \pi x}{\pi x}
-  $$
-
-* 低通同相分量和低通正交分量
-
-  * 定义同确定性信号
-
-  * 相关函数
+-   平稳带限过程的Nyquist 采样
     $$
-    R_{X_c}(\tau)=R_{X_s}(\tau)=R_X(\tau)\cos(2\pi f_0\tau)+\hat R_X(\tau)\sin(2\pi f_0\pi)\\
-    R_{X_cX_s}(\tau)=R_X(\tau)\sin(2\pi f_0\tau)-\hat R_X(\tau)\cos(2\pi f_0\tau)
+    X(t)=\sum_{k=-\infty}^\infty X(kT_s)sinc(2W(t-kT_s))\\
+    T_s=\frac 1 {2W},sinc(x)=\frac {\sin \pi x}{\pi x}
     $$
 
-  * 低通过程 $X_c(t),X_s(t)=0, |f|>W$
+-   低通同相分量和低通正交分量
 
-  * 功率谱
-    $$
-    P_{X_c}(f)=P_{X_s}(f)=
-    \left\{
-    \begin{array}{cc}
-    P_X(f-f_0)+P_X(f+f_0)&|f|<f_0\\
-    0&others
-    \end{array}
-    \right.
-    $$
-    ​
+    -   定义同确定性信号
 
-  * 正交性
-    $$
-    R_{X_cX_s}(0)=E[X_c(t)X_s(t)]=0​
-    $$
+    -   相关函数
+        $$
+        R_{X_c}(\tau)=R_{X_s}(\tau)=R_X(\tau)\cos(2\pi f_0\tau)+\hat R_X(\tau)\sin(2\pi f_0\pi)\\
+        R_{X_cX_s}(\tau)=R_X(\tau)\sin(2\pi f_0\tau)-\hat R_X(\tau)\cos(2\pi f_0\tau)
+        $$
+
+    -   低通过程 $X_c(t),X_s(t)=0, |f|>W$
+
+    -   功率谱
+        $$
+        P_{X_c}(f)=P_{X_s}(f)=
+        \left\{
+        \begin{array}{cc}
+        P_X(f-f_0)+P_X(f+f_0)&|f|<f_0\\
+        0&others
+        \end{array}
+        \right.
+        $$
+        ​
+
+    -   正交性
+        $$
+        R_{X_cX_s}(0)=E[X_c(t)X_s(t)]=0​
+        $$
+
 
 
 
 # 第三章
 
-* 信道模型
+-   信道模型
 
-  单输入、单输出
-  $$
-  e_o(t)=f[e_i(t)]+n(t)
-  $$
-  多输入、多输出
-  $$
-  e_{ol}(t)=f_l[e_{i1}(t),\cdots,e_{iM}(t)]+n_l(t),l=1,\cdots,N
-  $$
-
-* 恒参信道:信道参数基本不随时间变化
-
-  * 幅度-频率畸变$h(f)$
-
-    通频带太窄或带内衰减不均匀
-
-    码间干扰
-
-  * 相位-频率畸变$\phi(f)$
-
-    群延时频率特性 $\tau(f)=\frac {\d \phi(f)}{\d f}$
-
-* 随参信道
-
-  * 短波电离层反射信道
-
-    * 长距离通信
-    * 短波存在盲区
-    * 对发射角有要求
-
-  * 散射信道
-
-    * 电流层散射信道
-
-  * 移动通信信道
+    单输入、单输出
     $$
-    P(d)\sim \abs d^{-n} m(d)r_0(d)
+    e_o(t)=f[e_i(t)]+n(t)
+    $$
+    多输入、多输出
+    $$
+    e_{ol}(t)=f_l[e_{i1}(t),\cdots,e_{iM}(t)]+n_l(t),l=1,\cdots,N
     $$
 
-    * 路径损失$\abs d^{-n}$
-    * 阴影衰落$m(d)$， 服从对数正态分布
-    * 多径衰落$r_0(d)$，服从Rayleigh分布
+-   恒参信道:信道参数基本不随时间变化
 
-  * 多径传输——以移动通信为例
+    -   幅度-频率畸变$h(f)$
 
-    * 静止情况
+        通频带太窄或带内衰减不均匀
 
-      发送$s_0(t)=a_0\exp\bra{j(2\pi f_0 t+\phi_0)}$
+        码间干扰
 
-      接收信号幅度$\sim\sqrt{P(d)}a_0$
+    -   相位-频率畸变$\phi(f)$
 
-      接受信号$s(t)=\sumsubtri i 1 N a_is_0(t-\tau_i)$ ($N$条散射体反射来的信号和)
+        群延时频率特性 $\tau(f)=\frac {\d \phi(f)}{\d f}$
 
-      表示
-      $$
-      s(t)=x(t-\overline \tau)\exp\bra{j2\pi f_0(t-\overline\tau)+j\phi_0}\\
-      \tau_i=\overline \tau+\Delta\tau_i,\overline\tau=\frac 1 N\sumsubtri i 1 N\tau_i\\
-      x(t)=a_0\lrbra []{\sumsubtri i 1 N a_i\exp\bra{-j2\pi f_0\Delta\tau_i}}
-      $$
+-   随参信道
 
-    * 运动情况
+    -   短波电离层反射信道
 
-      发送$s(t)=x(t)\exp\bra{j(2\pi f_0t+\phi_0)}$
+        -   长距离通信
+        -   短波存在盲区
+        -   对发射角有要求
 
-      $x(t)=\sumsubtri i 1 N a_0a_i(t)\exp\bra{-j2\pi f_0\tau_i(t)}$
+    -   散射信道
 
-      令
-      $$
-      R(t)=\sumsubtri i 1 N a_i(t)\cos(2\pi f_0\tau_i(t))\\
-      S(t)=\sumsubtri i 0 N a_i(t)\sin(2\pi f_0\tau_i(t))\\
-      x(t)=A(t)e^{j\Psi(t)}
-      $$
-      则
-      $$
-      x(t)=a_0(R(t)-jS(t))
-      $$
-      $R(t),S(t)$服从高斯分布(中心极限定理)
+        -   电流层散射信道
 
-      $A(t)=\a_0\sqrt{R^2(t)+S^2(t)}$服从Rayleigh 分布
+    -   移动通信信道
+        $$
+        P(d)\sim \abs d^{-n} m(d)r_0(d)
+        $$
 
-    * 多普勒频移
+        -   路径损失$\abs d^{-n}$
+        -   阴影衰落$m(d)$， 服从对数正态分布
+        -   多径衰落$r_0(d)$，服从Rayleigh分布
 
-      接受信号$s(t)=a_o\exp\bra{j(2\pi f_0 t+\phi_0-2\pi \frac V\lambda t\cos\theta)}$
+    -   多径传输——以移动通信为例
 
-      $f_d=\frac V\lambda \cos \theta$
-      $$
-      x(t)=A_T(t)\exp\bra{j\Psi_T(t)}\exp\bra{j(2\pi f_0t+\phi_0)}\\
-      A_T(t)=\bra{[a_0\sumsubtri i 1 N a_i(t)\cos\psi_i(t)]^2+[a_0\sumsubtri i 1 Na_i(t)\sin\psi_i(t)]^2}^{1/2}\\
-      \Psi_T(t)=\arctan\frac{\sumsubtri i 1 N a_i(t)\sin\psi_i(t)}{\sumsubtri i 1 N a_i(t)\cos \psi_i(t)}\\
-      \psi_i(t)=\phi_i(t)-2\pi\frac V\lambda t \cos\theta_i
-      $$
+        -   静止情况
 
-    * 时间展宽
+            发送$s_0(t)=a_0\exp\bra{j(2\pi f_0 t+\phi_0)}$
 
-      脉冲宽度明显展宽
+            接收信号幅度$\sim\sqrt{P(d)}a_0$
 
-      $T_m$:多径的延时时间差
+            接受信号$s(t)=\sumsubtri i 1 N a_is_0(t-\tau_i)$ ($N$条散射体反射来的信号和)
 
-      $R(\Delta f)$ 两个频差信号的相关性：信道的频率传递函数
+            表示
+            $$
+            s(t)=x(t-\overline \tau)\exp\bra{j2\pi f_0(t-\overline\tau)+j\phi_0}\\
+            \tau_i=\overline \tau+\Delta\tau_i,\overline\tau=\frac 1 N\sumsubtri i 1 N\tau_i\\
+            x(t)=a_0\lrbra []{\sumsubtri i 1 N a_i\exp\bra{-j2\pi f_0\Delta\tau_i}}
+            $$
 
-      $\Delta F=\frac 1 {T_m}$: 相干带宽
+        -   运动情况
 
-      $W<\Delta F$ 频率非选择性衰落； $W>\Delta F$ 频率选择性衰落
+            发送$s(t)=x(t)\exp\bra{j(2\pi f_0t+\phi_0)}$
 
-    * 频谱展宽
+            $x(t)=\sumsubtri i 1 N a_0a_i(t)\exp\bra{-j2\pi f_0\tau_i(t)}$
 
-      不同方向的反射体反射回来的信号具有不同的多普勒频移，导致频谱展宽
+            令
+            $$
+            R(t)=\sumsubtri i 1 N a_i(t)\cos(2\pi f_0\tau_i(t))\\
+            S(t)=\sumsubtri i 0 N a_i(t)\sin(2\pi f_0\tau_i(t))\\
+            x(t)=A(t)e^{j\Psi(t)}
+            $$
+            则
+            $$
+            x(t)=a_0(R(t)-jS(t))
+            $$
+            $R(t),S(t)$服从高斯分布(中心极限定理)
 
-      $S_0(f)\leftrightarrow R(\Delta t)$
+            $A(t)=\a_0\sqrt{R^2(t)+S^2(t)}$服从Rayleigh 分布
 
-      相关时宽$T_0$ :提供了信道衰落的快慢，通信信号的持续时间小于$T_0$，则可以认为在通信过程中信道参数是不变的。
+        -   多普勒频移
 
-      $T_0=\dfrac 1 {f_d}$
+            接受信号$s(t)=a_o\exp\bra{j(2\pi f_0 t+\phi_0-2\pi \frac V\lambda t\cos\theta)}$
 
-    * 多普勒功率谱密度
+            $f_d=\frac V\lambda \cos \theta$
+            $$
+            x(t)=A_T(t)\exp\bra{j\Psi_T(t)}\exp\bra{j(2\pi f_0t+\phi_0)}\\
+            A_T(t)=\bra{[a_0\sumsubtri i 1 N a_i(t)\cos\psi_i(t)]^2+[a_0\sumsubtri i 1 Na_i(t)\sin\psi_i(t)]^2}^{1/2}\\
+            \Psi_T(t)=\arctan\frac{\sumsubtri i 1 N a_i(t)\sin\psi_i(t)}{\sumsubtri i 1 N a_i(t)\cos \psi_i(t)}\\
+            \psi_i(t)=\phi_i(t)-2\pi\frac V\lambda t \cos\theta_i
+            $$
 
-      移动接收机的速度: V
+        -   时间展宽
 
-      基站发送的频率: $f_0$
+            脉冲宽度明显展宽
 
-      波长: $\lambda$
+            $T_m$:多径的延时时间差
 
-      散射信号入射角: $\theta$
+            $R(\Delta f)$ 两个频差信号的相关性：信道的频率传递函数
 
-      接受信号的多普勒频移:
-      $$
-      f_d=\frac{V\cos\theta}\lambda =f_m\cos\theta
-      $$
-      接受信号在入射角$(\theta,\theta+\d \theta)$中的信号分量的功率
-      $$
-      P_{av}\abs{\d \theta}/2\pi
-      $$
-      ​	$P_{av}$为平均接受到的总功率
+            $\Delta F=\frac 1 {T_m}$: 相干带宽
 
-      入射角从$\theta\rightarrow \theta+\d \theta$, 相应频率从$f\rightarrow f+\d f$
-      $$
-      S(f)=\frac{P_{av}}\pi\cdot\abs{\frac{\d \theta}{\d f}}\\
-      =\frac{P_{av}}{\pi}[f_m^2-(f-f_0)^2]\expn{1/2}\\
-      R(\Delta t)=\t{IFT(S(f))}=J_0(2\pi f_m\Delta t)
-      $$
-      ​	$J_0(\cdot)$为一阶贝塞尔函数
+            $W<\Delta F$ 频率非选择性衰落； $W>\Delta F$ 频率选择性衰落
+
+        -   频谱展宽
+
+            不同方向的反射体反射回来的信号具有不同的多普勒频移，导致频谱展宽
+
+            $S_0(f)\leftrightarrow R(\Delta t)$
+
+            相关时宽$T_0$ :提供了信道衰落的快慢，通信信号的持续时间小于$T_0$，则可以认为在通信过程中信道参数是不变的。
+
+            $T_0=\dfrac 1 {f_d}$
+
+        -   多普勒功率谱密度
+
+            移动接收机的速度: V
+
+            基站发送的频率: $f_0$
+
+            波长: $\lambda$
+
+            散射信号入射角: $\theta$
+
+            接受信号的多普勒频移:
+            $$
+            f_d=\frac{V\cos\theta}\lambda =f_m\cos\theta
+            $$
+            接受信号在入射角$(\theta,\theta+\d \theta)$中的信号分量的功率
+            $$
+            P_{av}\abs{\d \theta}/2\pi
+            $$
+            ​	$P_{av}$为平均接受到的总功率
+
+            入射角从$\theta\rightarrow \theta+\d \theta$, 相应频率从$f\rightarrow f+\d f$
+            $$
+            S(f)=\frac{P_{av}}\pi\cdot\abs{\frac{\d \theta}{\d f}}\\
+            =\frac{P_{av}}{\pi}[f_m^2-(f-f_0)^2]\expn{1/2}\\
+            R(\Delta t)=\t{IFT(S(f))}=J_0(2\pi f_m\Delta t)
+            $$
+            ​	$J_0(\cdot)$为一阶贝塞尔函数
 
 ​
 
-* 通信链路损耗和噪声
+-   通信链路损耗和噪声
 
-  * 传输链路损耗
+    -   传输链路损耗
 
-    $P_T$: 发射功率
+        $P_T$: 发射功率
 
-    $P_R$: 接收机收到功率
+        $P_R$: 接收机收到功率
 
-    传输损耗
-    $$
-    L=\frac{P_T}{P_R}\\
-    L_{dB}=10\log L=10\log P_T-10\log P_R
-    $$
-    自由空间传输:$L=\lrbra(){\frac{4\pi d}\lambda}^2$
+        传输损耗
+        $$
+        L=\frac{P_T}{P_R}\\
+        L_{dB}=10\log L=10\log P_T-10\log P_R
+        $$
+        自由空间传输:$L=\lrbra(){\frac{4\pi d}\lambda}^2$
 
-    一般移动通信:$L\varpropto\lrbra (){\frac d \lambda}^n, 2\leq n\leq4$
+        一般移动通信:$L\varpropto\lrbra (){\frac d \lambda}^n, 2\leq n\leq4$
 
-  * 加性噪声
+    -   加性噪声
 
-    电阻的噪声模型
-    $$
-    S_R(f)=2RkT
-    $$
-    $k$ 玻尔兹曼常量
-    $$
-    S_n(f)=\frac{N_0}2\\
-    N_0=kT
-    $$
+        电阻的噪声模型
+        $$
+        S_R(f)=2RkT
+        $$
+        $k$ 玻尔兹曼常量
+        $$
+        S_n(f)=\frac{N_0}2\\
+        N_0=kT
+        $$
 
-* 信道容量与信道编码定理
+-   信道容量与信道编码定理
 
-  * 信道容量
-    $$
-    I(X;Y)=H(X)-H(X|Y)\\
-    =\sumsub x{}\sumsub y{}P_X(x)P_{Y|X}(y|x)\log \frac{P_{Y|X}(y|x)}{P_Y(y)}\\
-    C=\max_{P_X(x)} I(X;Y)
-    $$
+    -   信道容量
+        $$
+        I(X;Y)=H(X)-H(X|Y)\\
+        =\sumsub x{}\sumsub y{}P_X(x)P_{Y|X}(y|x)\log \frac{P_{Y|X}(y|x)}{P_Y(y)}\\
+        C=\max_{P_X(x)} I(X;Y)
+        $$
 
-  * 信道编码定理
+    -   信道编码定理
 
-    * 消息个数$M$, 编码函数$X^n(\cdot)$, 信道$P_{Y|X}(y|x)$,信道译码$g(\cdot)$
-    * 码率$R=\dfrac{\log_2M}{n}$,误码率$\Pr\bra{\h W\neq W}$
+        -   消息个数$M$, 编码函数$X^n(\cdot)$, 信道$P_{Y|X}(y|x)$,信道译码$g(\cdot)$
+        -   码率$R=\dfrac{\log_2M}{n}$,误码率$\Pr\bra{\h W\neq W}$
 
-    > 当码率$R<C$时存在编码方式，使误码率趋近于0
-    >
-    > 当码率$R>C$时不可能存在编码方式，使误码率趋近于0
+        >   当码率$R<C$时存在编码方式，使误码率趋近于0
+        >
+        >   当码率$R>C$时不可能存在编码方式，使误码率趋近于0
 
-  * 高斯信道容量
+    -   高斯信道容量
 
-    高斯信道
-    $$
-    Y=X+Z\\
-    Z\sim N(0,N),E[X^2]\leq P
-    $$
-    当输入X的分布也是高斯分布时，达到最大容量
-    $$
-    C=\frac 1 2 \log_2(1+\frac P N)
-    $$
+        高斯信道
+        $$
+        Y=X+Z\\
+        Z\sim N(0,N),E[X^2]\leq P
+        $$
+        当输入X的分布也是高斯分布时，达到最大容量
+        $$
+        C=\frac 1 2 \log_2(1+\frac P N)
+        $$
 
-  * 带限信道的容量与通信的界限
+    -   带限信道的容量与通信的界限
 
-    带限信道的容量
-    $$
-    C=W\log_2\bra{1+\frac P{N_0W}}\\
-    \liminf W C=1.44 \frac{P}{N_0}
-    $$
-    由信道编码定理 $R<C$,
-    $$
-    \eta\leq \log_2\lrbra(){1+\eta\frac{E_b}{N_0}}\\
-    \frac{E_b(\eta)}{N_0}\geq \frac{2^\eta-1}\eta>0.693
-    $$
-    其中,$\eta=\frac R W$, 为频带效率, $E_b=\frac P R$， 每传1bit所需能量
+        带限信道的容量
+        $$
+        C=W\log_2\bra{1+\frac P{N_0W}}\\
+        \liminf W C=1.44 \frac{P}{N_0}
+        $$
+        由信道编码定理 $R<C$,
+        $$
+        \eta\leq \log_2\lrbra(){1+\eta\frac{E_b}{N_0}}\\
+        \frac{E_b(\eta)}{N_0}\geq \frac{2^\eta-1}\eta>0.693
+        $$
+        其中,$\eta=\frac R W$, 为频带效率, $E_b=\frac P R$， 每传1bit所需能量
 
-    **为了可靠传输1bit信息所需要的能量至少为$0.693N_0$**
+        **为了可靠传输1bit信息所需要的能量至少为$0.693N_0$**
 
-  > 对单位的理解？？？
+    >   对单位的理解？？？
 
-  ​
-
+    ​
 
 # 第四章 模拟调制系统
 
@@ -497,29 +496,29 @@ $$
 c(t)=A_c\cos(\tp f_c t+\phi_c)
 $$
 
-* 调幅、调频、调相
+-   调幅、调频、调相
 
-* 目的
+-   目的
 
-  * 把基带信号变成带通信号，使适应于带通信道的要求
-  * 通过展宽频带可以增加抗干扰能力
-  * 频分复用使信号同时传输
+    -   把基带信号变成带通信号，使适应于带通信道的要求
+    -   通过展宽频带可以增加抗干扰能力
+    -   频分复用使信号同时传输
 
-* 线性调制
+-   线性调制
 
-  已调信号和调制信号的**频谱结构相同**, 平移关系
+    已调信号和调制信号的**频谱结构相同**, 平移关系
 
-  * 普通调幅 AM
-  * 双边带抑制载波调幅 DSB-SC AM
-  * 单边带调制 SSB
-  * 残留边带调制 VSB
+    -   普通调幅 AM
+    -   双边带抑制载波调幅 DSB-SC AM
+    -   单边带调制 SSB
+    -   残留边带调制 VSB
 
-* 非线性调制(角调制)
+-   非线性调制(角调制)
 
-  增加新的频率成分，占用的频带远比调制信号频带宽
+    增加新的频率成分，占用的频带远比调制信号频带宽
 
-  * 调频 FM
-  * 调相 PM
+    -   调频 FM
+    -   调相 PM
 
 ## 2.线性调制系统
 
@@ -527,7 +526,7 @@ $$
 
 ### 2.1 双边带抑制载波调幅(DSB-SC AM)
 
-* 时域和频谱
+-   时域和频谱
 
 $$
 u(t)=A_cm(t)\cos(2\pi f_c t+\phi_c)\\
@@ -536,31 +535,29 @@ $$
 
 ​	平移两次，带宽增加一倍
 
-* 相关函数和功率谱
-
-  $$
-  R_u(\tau)=\frac {A_c^2}2R_m(\tau)\cos(2\pi f_c\tau)\\
-  P_u(f)=\frac{A_c^2}4[P_m(f-f_c)+P_m(f+f_c)]
-  $$
-  总功率$P_u=R_u(0)=\dfrac{A_c^2}2P_m$
-
-* 解调
-
-  * 乘
+-   相关函数和功率谱
     $$
-    u(t)\cdot\cos(2\pi f_ct+\phi)=\frac 1 2 A_c m(t)\cos(\phi_c-\phi)+\frac 1 2A_cm(t)\cos(4\pi f_c t+\phi_c+\phi)
+    R_u(\tau)=\frac {A_c^2}2R_m(\tau)\cos(2\pi f_c\tau)\\
+    P_u(f)=\frac{A_c^2}4[P_m(f-f_c)+P_m(f+f_c)]
     $$
+    总功率$P_u=R_u(0)=\dfrac{A_c^2}2P_m$
 
-  * 低通滤波
-    $$
-    \tilde m(t)=\frac 1 2A_cm(t)\cos(\phi_c-\phi)
-    $$
-    $\phi=\phi_c$
+-   解调
 
+    -   乘
+        $$
+        u(t)\cdot\cos(2\pi f_ct+\phi)=\frac 1 2 A_c m(t)\cos(\phi_c-\phi)+\frac 1 2A_cm(t)\cos(4\pi f_c t+\phi_c+\phi)
+        $$
+
+    -   低通滤波
+        $$
+        \tilde m(t)=\frac 1 2A_cm(t)\cos(\phi_c-\phi)
+        $$
+        $\phi=\phi_c$
 
 ### 2.2 普通调幅(AM)
 
-* 时域和频谱
+-   时域和频谱
 
 $$
 u(t)=A_c[1+am_n(t)]\cos(2\pi f_ct+\phi_c)\\
@@ -570,85 +567,86 @@ $$
 
 ​	多了两个载波分量,带宽仍然增加一倍
 
-* 功率谱
-  $$
-  P_u(f)=\frac{A_c^2}4[\delta(f-f_0)+a^2P_{m_n}(f-f_0)+\delta(f+f_0)+a^2P_{m_n}(f+f_0)]
-  $$
-  总功率$P_u=\dfrac{A_c^2}2+\dfrac{A_c^2}2 a^2P_{m_n}$
+-   功率谱
+    $$
+    P_u(f)=\frac{A_c^2}4[\delta(f-f_0)+a^2P_{m_n}(f-f_0)+\delta(f+f_0)+a^2P_{m_n}(f+f_0)]
+    $$
+    总功率$P_u=\dfrac{A_c^2}2+\dfrac{A_c^2}2 a^2P_{m_n}$
 
-* 解调
+-   解调
 
-  * 包络检波
+    -   包络检波
 
-    解调设备简单,但对输入信噪比有要求
+        解调设备简单,但对输入信噪比有要求
 
-  * 相干解调
+    -   相干解调
 
-    不存在门限效应,需要一个同频同相的本地载波
+        不存在门限效应,需要一个同频同相的本地载波
 
 ### 2.3 单边带调制(SSB)
 
-> 为什么要产生单边带信号?
+>   为什么要产生单边带信号?
 >
-> * 普通调幅和抑制载波双边带调幅所需的带宽都是2W,这是冗余的,而单边带调制带宽只要W就够了
+>   -   普通调幅和抑制载波双边带调幅所需的带宽都是2W,这是冗余的,而单边带调制带宽只要W就够了
 
-* 产生单边带信号
+-   产生单边带信号
 
-  * 滤波法
+    -   滤波法
 
-    对边带滤波器要求较高,不易实现
+        对边带滤波器要求较高,不易实现
 
-  * 正交法
+    -   正交法
 
-    * 时域和频谱
-      $$
-      u_\mp(t)=A_cm(t)\cos(\tp f_ct)\mp A_c\h m(t)\sin(\tp f_ct)\\
-      U_\mp(t)=\frac{A_c}2[M(f-f_c)+M(f+f_c)]\mp\frac{A_c}{2j}[\h M(f-f_c)-\h M(f+f_c)]\\
-      \h M(f-f_c)=\equtri{-jM(f-f_c)}{f>f_c}{jM(f-f_c)}{f<f_c}{0}{f=f_c}\\
-      \h M(f+f_c)=\equtri{-jM(f+f_c)}{f>-f_c}{jM(f+f_c)}{f<-f_c}{0}{f=-f_c}
-      $$
+        -   时域和频谱
+            $$
+            u_\mp(t)=A_cm(t)\cos(\tp f_ct)\mp A_c\h m(t)\sin(\tp f_ct)\\
+            U_\mp(t)=\frac{A_c}2[M(f-f_c)+M(f+f_c)]\mp\frac{A_c}{2j}[\h M(f-f_c)-\h M(f+f_c)]\\
+            \h M(f-f_c)=\equtri{-jM(f-f_c)}{f>f_c}{jM(f-f_c)}{f<f_c}{0}{f=f_c}\\
+            \h M(f+f_c)=\equtri{-jM(f+f_c)}{f>-f_c}{jM(f+f_c)}{f<-f_c}{0}{f=-f_c}
+            $$
 
-    * 解调
-      $$
-      u_\mp(t)\cos (2\pi f_c t+\phi)再经过低通滤波器\\
-      y_l(t)=A_cm(t)\cos\phi\pm A\h m(t)\sin\phi
-      $$
-      希望$\phi=0$
+        -   解调
+            $$
+            u_\mp(t)\cos (2\pi f_c t+\phi)再经过低通滤波器\\
+            y_l(t)=A_cm(t)\cos\phi\pm A\h m(t)\sin\phi
+            $$
+            希望$\phi=0$
 
-    * $U_-(f)$ 上边带滤波器 理想高通
+        -   $U_-(f)$ 上边带滤波器 理想高通
 
-      $U_+(f)$ 下边带滤波器 理想低通
+            $U_+(f)$ 下边带滤波器 理想低通
 
 ### 2.4 残留边带调幅VSB AM(Vestigial-Sideband AM)
 
-* 过程
+-   过程
 
-  * 乘 $m(t)A_c\cos(\tp f_c t)$
+    -   乘 $m(t)A_c\cos(\tp f_c t)$
 
-  * 经过VSB带通滤波器$H(f)$
+    -   经过VSB带通滤波器$H(f)$
 
-    放宽边带滤波器的要求,以信道带宽为代价
+        放宽边带滤波器的要求,以信道带宽为代价
 
-* 设VSB边带滤波的脉冲响应为$h(t)$
-  $$
-  U(f)=\frac{A_c}2[M(f-f_c)+M(f+f_c)]H(f)
-  $$
+-   设VSB边带滤波的脉冲响应为$h(t)$
+    $$
+    U(f)=\frac{A_c}2[M(f-f_c)+M(f+f_c)]H(f)
+    $$
 
-* 解调
+-   解调
 
-  $\newcommand{ac}[1]{\dfrac{A_c}{#1}}$
-  $$
-  v(t)=u(t)\cos(2\pi f_c t)\\
-  V(f)=\ac 4[M(f-2f_c)+M(f)]H(f-f_c)+\ac 4[M(f)+M(f+2f_c)]H(f+f_c)
-  $$
-  低通输出的频谱
-  $$
-  V_l(f)=\ac 4M(f)[H(f-f_c)+H(f+f_c)]
-  $$
-  **为保证输出不失真** 
-  $$
-  H(f-f_c)+H(f+f_c)=\t{constant}, \abs f<W
-  $$
+    $\newcommand{ac}[1]{\dfrac{A_c}{#1}}$
+    $$
+    v(t)=u(t)\cos(2\pi f_c t)\\
+    V(f)=\ac 4[M(f-2f_c)+M(f)]H(f-f_c)+\ac 4[M(f)+M(f+2f_c)]H(f+f_c)
+    $$
+    低通输出的频谱
+    $$
+    V_l(f)=\ac 4M(f)[H(f-f_c)+H(f+f_c)]
+    $$
+    **为保证输出不失真** 
+    $$
+    H(f-f_c)+H(f+f_c)=\t{constant}, \abs f<W
+    $$
+
 
 
 
@@ -668,34 +666,33 @@ $$
 
 瞬时频率 $f_i(t)=\dfrac 1 \tp \dfrac{\d}{\d t}[\tp f_c t+\phi(t)]=f_c+\dfrac 1 \tp \dfrac{\d}{\d t}\phi(t)$
 
-* 调相
-  $$
-  \phi(t)=k_p m(t)
-  $$
-  最大相偏: $\Delta\phi_{\max}=k_p\max[|m(t)|]$
+-   调相
+    $$
+    \phi(t)=k_p m(t)
+    $$
+    最大相偏: $\Delta\phi_{\max}=k_p\max[|m(t)|]$
 
-  调制指数: $\beta_p=\Delta\phi_\max$
+    调制指数: $\beta_p=\Delta\phi_\max$
 
-* 调频
-  $$
-  f_i(t)-f_c=k_fm(t)\\
-  \phi(t)=\tp k_f\int_{-\infty}^t m(\tau)\d \tau
-  $$
-  最大频偏: $\Delta f_\max=k_f\max[|m(t)|]$
+-   调频
+    $$
+    f_i(t)-f_c=k_fm(t)\\
+    \phi(t)=\tp k_f\int_{-\infty}^t m(\tau)\d \tau
+    $$
+    最大频偏: $\Delta f_\max=k_f\max[|m(t)|]$
 
-  调制指数:$\b_f=\dfrac{\Delta f_\max}W$
+    调制指数:$\b_f=\dfrac{\Delta f_\max}W$
 
-* 调频和调相的关系
+-   调频和调相的关系
 
-  互为微分和积分的关系
+    互为微分和积分的关系
 
-  ​
+    ​
 
-* 窄带角调制: $\phi(t)\ll 1$
-
-  $$
-  u(t)\approx A_c\cos(\tp f_c t)-A_c\phi(t)\sin(\tp f_c t)
-  $$
+-   窄带角调制: $\phi(t)\ll 1$
+    $$
+    u(t)\approx A_c\cos(\tp f_c t)-A_c\phi(t)\sin(\tp f_c t)
+    $$
 
 
 
@@ -710,45 +707,46 @@ u(t)=A_c\cos(\tp f_ct+\b\sin\tp f_m t)\\
 $$
 包含了无限多个频率分量
 
-* 正弦消息角调制信号带宽 **卡尔森公式**
-  $$
-  B=2(\beta+1)f_m
-  $$
-  $\beta$ 调制指数
+-   正弦消息角调制信号带宽 **卡尔森公式**
+    $$
+    B=2(\beta+1)f_m
+    $$
+    $\beta$ 调制指数
 
 ## 4.线性调制系统的抗噪声性能
 
-* 考虑指标
-  * 已调信号的带宽要求
-  * 解调系统的抗噪声能力
-  * 系统实现的复杂性
+-   考虑指标
+    -   已调信号的带宽要求
+    -   解调系统的抗噪声能力
+    -   系统实现的复杂性
 
 信噪比(解调前后)
 $$
 G=\frac{SNR_{out}}{SNR_{in}}
 $$
 
-* 加性噪声
+-   加性噪声
 
-  * 输入噪声
-    $$
-    n_{in}(t)=n_c(t)\cos\tp f_c t-n_s(t)\sin \tp f_c t\\
-    $$
+    -   输入噪声
+        $$
+        n_{in}(t)=n_c(t)\cos\tp f_c t-n_s(t)\sin \tp f_c t\\
+        $$
 
-  * 输入噪声功率
-    $$
-    E[n_{in}^2(t)]=\sigma_{in}^2=\sigma_c^2=\sigma_s^2=N_0B
-    $$
+    -   输入噪声功率
+        $$
+        E[n_{in}^2(t)]=\sigma_{in}^2=\sigma_c^2=\sigma_s^2=N_0B
+        $$
 
-  * 输入信噪比
-    $$
-    (SNR)_{in}=\frac{E[u^2(t)]}{E[n_{in}^2(t)]}
-    $$
+    -   输入信噪比
+        $$
+        (SNR)_{in}=\frac{E[u^2(t)]}{E[n_{in}^2(t)]}
+        $$
 
-  * 输出信噪比
-    $$
-    (SNR)_{out}=\frac{E[m_{out}^2(t)]}{E[n_{out}^2(t)]}
-    $$
+    -   输出信噪比
+        $$
+        (SNR)_{out}=\frac{E[m_{out}^2(t)]}{E[n_{out}^2(t)]}
+        $$
+
 
 
 
@@ -756,33 +754,34 @@ $$
 
 ### 4.1 DSB-SC AM
 
-* 输入噪声
+-   输入噪声
 
 $$
 P_u=E[\frac 1 2 m^2(t)]\\
 P_{n_{in}}=B\cdot N_0
 $$
 
-* 相干解调
-  $$
-  r(t)=[m(t)+n_c(t)]\cos\tp f_c t-n_s(t)\sin \tp f_c t\\
-  r(t)\cos\tp f_c t=\frac 1 2[m(t)+n_c(t)]+高频
-  $$
+-   相干解调
+    $$
+    r(t)=[m(t)+n_c(t)]\cos\tp f_c t-n_s(t)\sin \tp f_c t\\
+    r(t)\cos\tp f_c t=\frac 1 2[m(t)+n_c(t)]+高频
+    $$
 
-  > how to derive?
+    >   how to derive?
 
-  经过低通滤波后
+    经过低通滤波后
 
-* 输出
-  $$
-  P_{m_{out}}=\frac 1 4 E[m^2(t)]\\
-  P_{n_{out}}=\frac 1 4E[n_c^2(t)]=\frac 1 4 N_0B
-  $$
+-   输出
+    $$
+    P_{m_{out}}=\frac 1 4 E[m^2(t)]\\
+    P_{n_{out}}=\frac 1 4E[n_c^2(t)]=\frac 1 4 N_0B
+    $$
 
-* 信噪比
-  $$
-  G=2
-  $$
+-   信噪比
+    $$
+    G=2
+    $$
+
 
 
 
@@ -790,7 +789,7 @@ $$
 
 ### 4.2 SSB AM
 
-* 输入
+-   输入
 
 $$
 P_u=\frac 1 2\bra{E[m^2(t)+\h m^2(t)]}\\
@@ -798,9 +797,9 @@ P_u=\frac 1 2\bra{E[m^2(t)+\h m^2(t)]}\\
 P_{n_{in}}=B\cdot N_0
 $$
 
->  B仅为双边带的一半
+>   B仅为双边带的一半
 >
-> * 相对于带宽相同的未调制信号来讲
+>   -   相对于带宽相同的未调制信号来讲
 
 $$
 (SNR)_{in}=\frac{E[m^2(t)]}{BN_0}
@@ -808,171 +807,171 @@ $$
 
 
 
-* 相干解调
-  $$
-  r(t)\cos\tp f_c t=\frac 1 2[m(t)+n_c(t)]+高频项
-  $$
+-   相干解调
+    $$
+    r(t)\cos\tp f_c t=\frac 1 2[m(t)+n_c(t)]+高频项
+    $$
 
-* 输出
-  $$
-  P_{m_{out}}=\frac 1 4E[m^2(t)]\\
-  P_{n_{out}}=\frac 14 E[n_c^2(t)]=\frac 1 4 BN_0\\
-  (SNR)_{in}=\frac{E[m^2(t)]}{BN_0}
-  $$
+-   输出
+    $$
+    P_{m_{out}}=\frac 1 4E[m^2(t)]\\
+    P_{n_{out}}=\frac 14 E[n_c^2(t)]=\frac 1 4 BN_0\\
+    (SNR)_{in}=\frac{E[m^2(t)]}{BN_0}
+    $$
 
-* 信噪比
-  $$
-  G=1
-  $$
-  单边带和抑制载波双边带的输出信噪比是一样的
+-   信噪比
+    $$
+    G=1
+    $$
+    单边带和抑制载波双边带的输出信噪比是一样的
 
-  > Why
+    >   Why
 
 ### 4.3 普通AM调制
 
-* 输入
-  $$
-  u(t)=[1+am_n(t)]\cos(\tp f_ct)\\
-  P_u=\frac 1 2 +\frac {a^2}2E\lrbra[]{m_n^2(t)}\\
-  P_{n_{in}}=N_0B\\
-  (SNR)_{in}=\frac{P_u}{N_0B}
-  $$
-  ​
+-   输入
+    $$
+    u(t)=[1+am_n(t)]\cos(\tp f_ct)\\
+    P_u=\frac 1 2 +\frac {a^2}2E\lrbra[]{m_n^2(t)}\\
+    P_{n_{in}}=N_0B\\
+    (SNR)_{in}=\frac{P_u}{N_0B}
+    $$
+    ​
 
+-   相干解调
+    $$
+    r(t)\cos\tp f_c t=\frac 1 2[1+am_n(t)+n_c(t)]+高频项\\
+    m_{out}=\frac a 2m_n(t)\\
+    n_{out}=\frac 1 2 n_c(t)\\
+    (SNR)_{out}=\frac{a^2E\lrbra[]{m_n^2(t)}}{N_0B}
+    $$
 
-* 相干解调
-  $$
-  r(t)\cos\tp f_c t=\frac 1 2[1+am_n(t)+n_c(t)]+高频项\\
-  m_{out}=\frac a 2m_n(t)\\
-  n_{out}=\frac 1 2 n_c(t)\\
-  (SNR)_{out}=\frac{a^2E\lrbra[]{m_n^2(t)}}{N_0B}
-  $$
-  > 输出不是$\frac 1 2+\frac a 2 m_n(t)$
+    >   输出不是$\frac 1 2+\frac a 2 m_n(t)$
 
 $$
 G=\frac{2a^2E[m_n^2(t)]}{1+a^2E[m_n^2(t)]}
 $$
 
-* 包络检波
+-   包络检波
 
-  输入(已调信号加噪声)
-  $$
-  r(t)=[1+am_n(t)+n_c(t)]\cos\tp f_c t-n_s(t)\sin \tp f_c t\\
-  =V(t)\cos[\tp f_c t+\phi(t)]\\
-  V(t)=\sqrt{[1+am_n(t)+n_c(t)]^2+n_s^2(t)}
-  $$
-  $1+a_m(t)\gg n_c(t),n_s(t)$
-  $$
-  V(t)\approx 1+am_n(t)+n_c(t)
-  $$
-  仅差一个因子0.5 不影响输出信噪比
-
-  > 因子0.5？？？
-  >
-  > * 相干解调输出 $\frac 1 2\lrbra []{1+am_n(t)}+n_c(t)$
-  > * 包络检波输出 $1+am_n(t)+n_c(t)$
-
-  * 正弦波调幅$m_n(t)=\sin(\tp f_c t), a=1$
+    输入(已调信号加噪声)
     $$
-    E[m_n^2(t)]=E[\sin^2\tp f_c t]=\frac 1 2\\
-    G=\frac 2 3
+    r(t)=[1+am_n(t)+n_c(t)]\cos\tp f_c t-n_s(t)\sin \tp f_c t\\
+    =V(t)\cos[\tp f_c t+\phi(t)]\\
+    V(t)=\sqrt{[1+am_n(t)+n_c(t)]^2+n_s^2(t)}
     $$
+    $1+a_m(t)\gg n_c(t),n_s(t)$
+    $$
+    V(t)\approx 1+am_n(t)+n_c(t)
+    $$
+    仅差一个因子0.5 不影响输出信噪比
+
+    >   因子0.5？？？
+    >
+    >   -   相干解调输出 $\frac 1 2\lrbra []{1+am_n(t)}+n_c(t)$
+    >   -   包络检波输出 $1+am_n(t)+n_c(t)$
+
+    -   正弦波调幅$m_n(t)=\sin(\tp f_c t), a=1$
+        $$
+        E[m_n^2(t)]=E[\sin^2\tp f_c t]=\frac 1 2\\
+        G=\frac 2 3
+        $$
 
 
 
 
 ## 5.非线性调制系统系统的抗噪声能力
 
-* 解调前
-  $$
-  u(t)=A_c\cos[2\pi f_c t+\phi(t)]\\
-  \phi(t)=\tp k_f\int_{-\infty}^t m(t)\d t
-  $$
-  ​
+-   解调前
+    $$
+    u(t)=A_c\cos[2\pi f_c t+\phi(t)]\\
+    \phi(t)=\tp k_f\int_{-\infty}^t m(t)\d t
+    $$
+    ​
 
-* 加噪声
-  $$
-  r(t)=u(t)+n_c(t)\cos\tp f_c t-n_s(t)\sin \tp f_c t
-  $$
+-   加噪声
+    $$
+    r(t)=u(t)+n_c(t)\cos\tp f_c t-n_s(t)\sin \tp f_c t
+    $$
 
-* 输入
-  $$
-  P_u=\frac 1 2 A_c^2\\
-  P_{n_{in}}=N_0B\\
-  (SNR)_{in}=\frac{A_c^2}{2N_0B}
-  $$
-  B由卡尔森公式给出
+-   输入
+    $$
+    P_u=\frac 1 2 A_c^2\\
+    P_{n_{in}}=N_0B\\
+    (SNR)_{in}=\frac{A_c^2}{2N_0B}
+    $$
+    B由卡尔森公式给出
 
-  ​
+    ​
 
-* 幅角形式
-  $$
-  n_{in}(t)=V(t)\cos[\tp f_c t+\theta(t)]\\
-  r(t)=u(t)+n_{in}(t)\\
-  =V'(t)\cos[\tp f_c t+\psi(t)]
-  $$
-  $A_c\gg V(t)$
-  $$
-  \psi(t)=\phi(t)+\frac{V(t)}{A_c}\sin[\theta(t)-\phi(t)]
-  $$
+-   幅角形式
+    $$
+    n_{in}(t)=V(t)\cos[\tp f_c t+\theta(t)]\\
+    r(t)=u(t)+n_{in}(t)\\
+    =V'(t)\cos[\tp f_c t+\psi(t)]
+    $$
+    $A_c\gg V(t)$
+    $$
+    \psi(t)=\phi(t)+\frac{V(t)}{A_c}\sin[\theta(t)-\phi(t)]
+    $$
 
-* 解调
+-   解调
 
-  由$\phi(t)$和$m(t)$的关系
+    由$\phi(t)$和$m(t)$的关系
 
-  解调信号实际上是对幅角微分
-  $$
-  f_c+\frac 1 \tp \frac{\d \phi(t)}{\d t}+\frac 1{2\pi}\frac{\d}{\d t}\bra{\frac {V(t)}{A_c}\sin[\theta(t)-\phi(t)]}
-  $$
+    解调信号实际上是对幅角微分
+    $$
+    f_c+\frac 1 \tp \frac{\d \phi(t)}{\d t}+\frac 1{2\pi}\frac{\d}{\d t}\bra{\frac {V(t)}{A_c}\sin[\theta(t)-\phi(t)]}
+    $$
 
-* 输出信号和噪声
-  $$
-  m_{out}(t)=k_fm(t)\\
-  n_d(t)=\frac 1{\tp A_c}\frac{\d}{\d t}\bra{V(t)\sin[\theta(t)-\phi(t)]}
-  $$
+-   输出信号和噪声
+    $$
+    m_{out}(t)=k_fm(t)\\
+    n_d(t)=\frac 1{\tp A_c}\frac{\d}{\d t}\bra{V(t)\sin[\theta(t)-\phi(t)]}
+    $$
 
-  > $V(t)$ Rayleigh 分布
-  >
-  > $\theta(t)$ 均匀分布
-  >
-  > 认为$\theta(t)$ 与$\theta(t)-\phi(t)$一样: 均匀分布
+    >   $V(t)$ Rayleigh 分布
+    >
+    >   $\theta(t)$ 均匀分布
+    >
+    >   认为$\theta(t)$ 与$\theta(t)-\phi(t)$一样: 均匀分布
 
-  $$
-  n_d(t)=\frac1{\tp A_c}\frac \d{\d t}n_s(t)
-  $$
+    $$
+    n_d(t)=\frac1{\tp A_c}\frac \d{\d t}n_s(t)
+    $$
 
-  $n_s$是一个带宽为B/2,功率谱密度为$2N_0$的低频噪声
+    $n_s$是一个带宽为B/2,功率谱密度为$2N_0$的低频噪声
 
-* 输出信号和噪声的功率谱
-  $$
-  P_{m_{out}}=k_f^2E[m^2(t)]
-  $$
-  $n_s(t)$ 的微分在频谱上相当于乘以$j\tp f$
-  $$
-  P_{n_d}=\equtwo{\frac 2 {A_c^2}N_0 f^2}{0\leq f\leq \dfrac B 2}{0}{\t{others}}
-  $$
-  通过带宽为$f_m$的理想低通滤波器
+-   输出信号和噪声的功率谱
+    $$
+    P_{m_{out}}=k_f^2E[m^2(t)]
+    $$
+    $n_s(t)$ 的微分在频谱上相当于乘以$j\tp f$
+    $$
+    P_{n_d}=\equtwo{\frac 2 {A_c^2}N_0 f^2}{0\leq f\leq \dfrac B 2}{0}{\t{others}}
+    $$
+    通过带宽为$f_m$的理想低通滤波器
 
-  > why 低通滤波
+    >   why 低通滤波
 
-  $$
-  P_{n_d}=\frac 2 3\frac{N_0f_m^3}{A_c^2}
-  $$
+    $$
+    P_{n_d}=\frac 2 3\frac{N_0f_m^3}{A_c^2}
+    $$
 
-  $$
-  (SNR)_{out}=\frac{3A_c^2k_f^2E[m^2(t)]}{2N_0f_m^2}
-  $$
+    $$
+    (SNR)_{out}=\frac{3A_c^2k_f^2E[m^2(t)]}{2N_0f_m^2}
+    $$
 
-* 信噪比增益
-  $$
-  G=\frac{3Bk_f^2E[m^2(t)]}{f_m^3}
-  $$
-  ​
+-   信噪比增益
+    $$
+    G=\frac{3Bk_f^2E[m^2(t)]}{f_m^3}
+    $$
+    ​
 
-* 正弦调频
-  $$
-  m(t)=\cos(\tp f_m t)\\
-  ???????????????\\
-  G=3(\b_f+1)\b_f^2
-  $$
-  ​
+-   正弦调频
+    $$
+    m(t)=\cos(\tp f_m t)\\
+    ???????????????\\
+    G=3(\b_f+1)\b_f^2
+    $$
+    ​

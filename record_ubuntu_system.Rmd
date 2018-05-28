@@ -1,0 +1,209 @@
+---
+output: 
+    html_document:
+        toc: true
+---
+# 系统安装及设置
+
+-   无法检测系统 选择其他选项
+
+-   分区
+
+    -   / 15G
+    -   swap 8G 建议和内存大小相等
+    -   /home 86 - 23 = 63G
+
+-   grub2 安装target failed
+
+    分区时建立如下分区
+
+    -   Mount point: /boot/efi (remark: no need to set this mount point when using the manual partitioning, the Ubuntu installer will detect it automatically)
+    -   Size: minimum 100Mib. 200MiB recommended.
+    -   Type: FAT32
+    -   Other: needs a "boot" flag.
+
+-   grub
+
+    boot-repair
+
+    ```
+    sudo add-apt-repository ppa:yannubuntu/boot-repair && sudo apt-get update  
+    sudo apt-get install -y boot-repair && boot-repair  
+    ```
+
+-   更新 grub 显示 windows
+
+    ```
+    sudo update-grub
+    ```
+
+-   中文语言与输入法
+
+    ```
+    sudo apt-get update
+    sudo apt-get install language-pack-zh-hans  
+    sudo apt-get install fcitx-googlepinyin  
+    ```
+
+    打开language support -> fcitx
+
+-   jdk10
+
+    ```
+    sudo add-apt-repository ppa:linuxuprising/java
+    sudo apt-get update
+    sudo apt-get install oracle-java10-installer
+    ```
+
+-   Gnome Extension
+
+    ```shell
+    sudo apt install gnome-shell-extensions
+    sudo apt install chrome-gnome-shell
+    ```
+
+-   键位映射
+
+    sudo vim /usr/share/X11/xkb/symbols/us
+    中的
+
+    ```
+        key <LCTL> { 
+    	symbols[Group1] = [ISO_Level3_Shift]
+        };
+        key <CAPS> { [ Control_L ] };
+        modifier_map Mod5{ISO_Level3_Shift};
+        key <AD07> {
+    	type="MOD5_NAV",
+    	[u,U,Prior,Prior],
+    	actions[Group1]=[NoAction(),NoAction(),RedirectKey(key=<PGUP>,clearmods=ISO_Level3_Shift)]	
+        };
+        key <AD08> {
+    	type="MOD5_NAV",
+    	[i,I,Home,Home],
+    	actions[Group1]=[NoAction(),NoAction(),RedirectKey(key=<HOME>,clearmods=ISO_Level3_Shift)]	
+        };
+        key <AD09> {
+    	type="MOD5_NAV",
+    	[o,O,End,End],
+    	actions[Group1]=[NoAction(),NoAction(),RedirectKey(key=<END>,clearmods=ISO_Level3_Shift)]	
+        };
+        key <AD10> {
+    	type="MOD5_NAV",
+    	[p,p,Next,Next],
+    	actions[Group1]=[NoAction(),NoAction(),RedirectKey(key=<PGDN>,clearmods=ISO_Level3_Shift)]	
+        };
+            key <AC06> {
+    	type="MOD5_NAV",
+    	[h,H,Left,Left],
+    	actions[Group1]=[NoAction(),NoAction(),RedirectKey(key=<LEFT>,clearmods=ISO_Level3_Shift)]	
+        };
+        key <AC07> {
+    	type="MOD5_NAV",
+    	[j,J,Down,Down],
+    	actions[Group1]=[NoAction(),NoAction(),RedirectKey(key=<DOWN>,clearmods=ISO_Level3_Shift)]	
+        };
+        key <AC08> {
+    	type="MOD5_NAV",
+    	[k,K,Up,Up],
+    	actions[Group1]=[NoAction(),NoAction(),RedirectKey(key=<UP>,clearmods=ISO_Level3_Shift)]	
+        };
+        key <AC09> {
+    	type="MOD5_NAV",
+    	[l,L,Right,Right],
+    	actions[Group1]=[NoAction(),NoAction(),RedirectKey(key=<RGHT>,clearmods=ISO_Level3_Shift)]	
+        };
+    ```
+
+    /usr/share/X11/xkb/types/basic
+
+    ```
+        type "MOD5_NAV" {
+    	modifiers = Shift+Mod5;
+    	map[None] = level1;
+    	map[Shift] = level2;
+    	map[Mod5] = level3;
+    	map[Mod5+Shift] = level3;
+    	level_name[Level1] = "Base";
+    	level_name[Level2] = "Caps";
+    	level_name[Level3] = "Arrows";
+        };
+    ```
+
+-   建立软链接和更新软链接
+
+    ```shell
+    sudo ln -s existsfilename newfilename
+    
+    sudo ln -sfn existsfilename filename
+    ```
+
+-   Apt-Get
+
+    ```shell
+    sudo apt-cache search ??
+    sudo apt-cache show??
+    ```
+
+-   终端设置及快捷键
+
+    在 /etc/inputrc
+
+    set -o vi vi模式
+
+    复制 Ctrl+k Ctrl+u 粘贴 Ctrl+Y
+
+    删除 Alt+D
+
+
+
+
+
+# 系统故障及解决方案
+
+-   今晚频繁死机
+
+    然后显示
+
+    ```
+    [ 0.000000] ACPI BIOS Error (bug): Failure looking up [/_SB.PCIO.XHC.RHUB.HS11], AE_NOT_FOUND (20180105/dswload-211)
+    [ 0.000000] ACPI Error: AE_NOT_FOUND, During name lookup/catalog (20180105/psobject-252)
+    [ 0.000000] ACPI ERROR: AE_NOT_FOUND, (SSDT:xh_rvp11) while loading table (20180105/tbxfload-228)
+    [ 0.000000] ACPI Error: 1 table load failures, 12 successful (20180105/tbxfload-246)
+    [ 1.536258] nouveau 0000:01:00.0: DRM: Pointer to THDS table invalid
+    /dev/nvme0n1p5 clean, 412566/5767168 files, 21898623/23040283 blocks
+    ```
+
+    解决办法
+
+    ```shell
+    查看日志 找到出问题的盘 nvme01p8
+    fsck -f /dev/nvme01p8
+    -f是强行检测的意思
+    ```
+
+    然后出现了无法关机的情况
+
+    原因是之前将
+
+    `/etc/default/grub`
+
+    ```
+    GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
+    改为
+    GRUB_CMDLINE_LINUX_DEFAULT="quiet splash acpi=off"
+    现在改为
+    GRUB_CMDLINE_LINUX_DEFAULT="quiet splash acpi=force"
+    就能解决问题
+    ```
+
+-   解决看视频全屏卡屏
+
+    ```shell
+    sudo mkdir /etc/adobe
+    echo "OverrideGPUValidation=true" >~/mms.cfg
+    sudo mv ~/mms.cfg /etc/adobe/
+    ```
+
+-   
+
